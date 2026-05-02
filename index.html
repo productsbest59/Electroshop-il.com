@@ -227,6 +227,38 @@
 /* Image preview should appear on screen near click / centered, never at document top */
 .modal{position:fixed!important;inset:0!important;z-index:999998!important;}
 .modal-content.preview-anchored{position:fixed!important;margin:0!important;}
+    /* DESKTOP ACCESSIBILITY FIX */
+.accessibility{
+  position:fixed !important;
+  left:18px !important;
+  bottom:22px !important;
+  top:auto !important;
+  right:auto !important;
+  z-index:999999 !important;
+  display:block !important;
+}
+
+.access-btn{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+
+@media (min-width:901px){
+  .accessibility{
+    left:18px !important;
+    bottom:22px !important;
+  }
+}
+
+@media (max-width:900px){
+  .accessibility{
+    left:12px !important;
+    bottom:12px !important;
+  }
+}
 </style>
 </head>
 <body>
