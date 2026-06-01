@@ -2454,31 +2454,35 @@ body.customer-lock{
 
   <div class="customer-body">
 <form class="customer-form" action="https://formsubmit.co/ajax/electroshopisraelo@gmail.com" method="POST">      <input type="text"
-             name="name"
-             data-placeholder-he="שם מלא"
-             data-placeholder-en="Full name"
-             placeholder="שם מלא">
+             <input type="text"
+       name="name"
+       required
+       data-placeholder-he="שם מלא"
+       data-placeholder-en="Full name"
+       placeholder="שם מלא">
 
-      <input type="tel"
-             name="phone"
-             required
-             inputmode="tel"
-             autocomplete="tel"
-             data-placeholder-he="מספר טלפון *"
-             data-placeholder-en="Phone number *"
-             placeholder="מספר טלפון *">
+<input type="tel"
+       name="phone"
+       required
+       inputmode="tel"
+       autocomplete="tel"
+       data-placeholder-he="מספר טלפון *"
+       data-placeholder-en="Phone number *"
+       placeholder="מספר טלפון *">
 
-      <input type="email"
-             name="email"
-             autocomplete="email"
-             data-placeholder-he="אימייל"
-             data-placeholder-en="Email"
-             placeholder="אימייל">
+<input type="email"
+       name="email"
+       required
+       autocomplete="email"
+       data-placeholder-he="אימייל"
+       data-placeholder-en="Email"
+       placeholder="אימייל">
 
-      <textarea name="message"
-                data-placeholder-he="איך אפשר לעזור?"
-                data-placeholder-en="How can we help?"
-                placeholder="איך אפשר לעזור?"></textarea>
+<textarea name="message"
+          required
+          data-placeholder-he="איך אפשר לעזור?"
+          data-placeholder-en="How can we help?"
+          placeholder="איך אפשר לעזור?"></textarea>
 
       <input type="hidden" name="_subject" value="פנייה חדשה מדף CarHold Pro">
       <input type="hidden" name="_captcha" value="false">
