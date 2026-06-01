@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://electroshop-il.com/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://electroshop-il.com/privacy.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://electroshop-il.com/terms.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://electroshop-il.com/carholderterms.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://electroshop-il.com/carholderprivacy.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://electroshop-il.com/carholderaccessibility.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>
