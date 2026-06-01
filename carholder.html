@@ -60,7 +60,7 @@ body
 {
   margin:0;
   font-family:Arial,Helvetica,sans-serif!important;
-  background:var(--bg);
+  background:#05080f;
   color:var(--text);
   line-height:1.6
 }
@@ -2127,6 +2127,84 @@ body.customer-lock{
 
 }
 
+
+
+/* ===== CARHOLDER FULL PAGE BACKGROUND - FINAL OVERRIDE ===== */
+html,
+body{
+  min-height:100% !important;
+  background:#05080f !important;
+}
+
+body{
+  background:
+    linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.72)),
+    url("carholderbg.png") center center / cover fixed no-repeat !important;
+}
+
+main,
+.hero,
+.shop-hero,
+.section{
+  background:transparent !important;
+}
+
+/* keep the main product box readable, but let the background show around it */
+.shop-hero-wrap{
+  background:rgba(255,255,255,.88) !important;
+  border:1px solid rgba(255,255,255,.55) !important;
+  backdrop-filter:blur(10px) !important;
+  -webkit-backdrop-filter:blur(10px) !important;
+}
+
+/* cards stay clean but softer, so the background is visible across the page */
+.feature,
+.specs,
+.faq,
+.video-box,
+.g-item,
+.hero-card,
+.shop-icon-card,
+.shop-mini-benefits,
+.shop-service-row,
+.footer{
+  background:rgba(255,255,255,.88) !important;
+  backdrop-filter:blur(8px) !important;
+  -webkit-backdrop-filter:blur(8px) !important;
+}
+
+.section h2,
+.section-lead{
+  color:#ffffff !important;
+  text-shadow:0 2px 12px rgba(0,0,0,.45) !important;
+}
+
+.footer{
+  border-top:1px solid rgba(255,255,255,.28) !important;
+}
+
+@media(max-width:900px){
+  body{
+    background:
+      linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.70)),
+      url("carholderbg.png") center center / cover scroll no-repeat !important;
+  }
+
+  .shop-hero-wrap,
+  .feature,
+  .specs,
+  .faq,
+  .video-box,
+  .g-item,
+  .hero-card,
+  .shop-icon-card,
+  .shop-mini-benefits,
+  .shop-service-row,
+  .footer{
+    background:rgba(255,255,255,.90) !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2144,14 +2222,12 @@ body.customer-lock{
 </div>
 </header>
 <main>
-<main>
 
 <img id="problemBanner"
      src="images/problemheb.jpg"
      alt="CarHold Pro"
      class="problem-banner">
 
-<section class="hero shop-hero">
 <section class="hero shop-hero">
 <div class="wrap shop-hero-wrap">
 <div class="shop-badge" data-en="⭐ Premium Magnetic Car Mount" data-he="⭐ מעמד מגנטי פרימיום לרכב">
@@ -2457,7 +2533,7 @@ body.customer-lock{
   </div>
 
   <div class="customer-body">
-<form class="customer-form" action="https://formsubmit.co/electroshopisraelo@gmail.com" method="POST">
+<form class="customer-form" action="https://formsubmit.co/electroshopisraelo@gmail.com" method="POST" target="customerSubmitFrame">
 
 <input type="text"
        name="name"
@@ -2496,6 +2572,7 @@ body.customer-lock{
 
       <button class="customer-submit" type="submit" data-he="שליחת פנייה" data-en="Send message">שליחת פנייה</button>
     </form>
+<iframe name="customerSubmitFrame" id="customerSubmitFrame" style="display:none;width:0;height:0;border:0;" title="טופס שירות לקוחות"></iframe>
 <div class="customer-success" id="customerSuccess" data-he="✓ ההודעה נשלחה בהצלחה. נחזור אליכם בהקדם." data-en="✓ Your message was sent successfully. We will get back to you soon.">
       ✓ ההודעה נשלחה בהצלחה. נחזור אליכם בהקדם.
     </div>
