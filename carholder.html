@@ -2804,31 +2804,53 @@ if(customerForm){
 
     if(submitBtn){
       submitBtn.disabled = true;
-      submitBtn.textContent = document.documentElement.lang === 'en' ? 'Sending...' : 'שולח...';
+      submitBtn.textContent =
+        document.documentElement.lang === 'en'
+          ? 'Sending...'
+          : 'שולח...';
     }
 
     try{
-      const res = await fetch(customerForm.action, {
+      const response = await fetch(customerForm.action, {
         method: 'POST',
         body: new FormData(customerForm),
-        headers: { 'Accept': 'application/json' }
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
-      if(!res.ok) throw new Error('Form submit failed');
+      if(response.ok){
+        customerForm.reset();
 
-      customerForm.reset();
-      if(customerSuccess) customerSuccess.style.display = 'block';
-    }catch(err){
-      if(customerError) customerError.style.display = 'block';
+        if(customerSuccess){
+          customerSuccess.style.display = 'block';
+        }
+      }else{
+        console.error('FormSubmit response error:', response.status);
+
+        if(customerError){
+          customerError.style.display = 'block';
+        }
+      }
+
+    }catch(error){
+
+      console.error('FormSubmit fetch error:', error);
+
+      if(customerError){
+        customerError.style.display = 'block';
+      }
+
     }finally{
+
       if(submitBtn){
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
       }
+
     }
   });
 }
-
 
 t();
 
