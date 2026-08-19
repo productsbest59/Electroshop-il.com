@@ -486,7 +486,7 @@ i.fa-brands, i[class*="fa-brands"] {
     <div class="promo">
       <div class="promo-copy">
         <h3 data-he="כל מה שצריך למסיבה מושלמת" data-en="Everything for the perfect setup">כל מה שצריך למסיבה מושלמת</h3>
-        <p data-he="מיקסרים • תאורה • אודיו • אביזרים — במקום אחד" data-en="Mixers • Lighting • Audio • Accessories — all in one place">מיקסרים • תאורה • אודיו • אביזרים — במקום אחד</p>
+        <p data-he="מיקסרים • תאורה • אודיו • אביזרים - במקום אחד" data-en="Mixers • Lighting • Audio • Accessories - all in one place">מיקסרים • תאורה • אודיו • אביזרים — במקום אחד</p>
       </div>
       <a class="hero-cta" style="font-family:Arial!important;;font:700 18px/1.2 Arial,sans-serif!important" href="#products" data-he="צפה בקטגוריות" data-en="Browse Categories">צפה בקטגוריות</a>
     </div>
@@ -566,21 +566,30 @@ const products = {
     paypal:{he:"https://www.paypal.com/ncp/payment/V76VXKYKU9HVU",en:"https://www.paypal.com/ncp/payment/9YXZ27TGWZ6XJ"},
     images:["images/proaudio/product01-main.jpg","images/proaudio/product01-01.jpg","images/proaudio/product01-02.jpg","images/proaudio/product01-03.jpg","images/proaudio/product01-04.jpg","images/proaudio/product01-05.jpg"],
     video:"images/proaudio/product01-video.mp4",
-    he:{title:"Audio Live Mixer S30",desc:"מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה.",sections:[
-      ["ללא סוללה מובנית","המכשיר תוכנן ללא סוללה פנימית ופועל באמצעות מקור מתח חיצוני, לשימוש רציף ללא תלות בטעינת סוללה."],
-      ["מתאם כלול באריזה","המוצר מגיע עם מתאם מתאים, כך שאין צורך לרכוש אותו בנפרד."],
-      ["איכות שמע גבוהה","כרטיס הקול של S30 מיועד להקלטת אודיו ומספק צליל ברור ומדויק."],
-      ["מתח AC יציב","הפעלה באמצעות מתח AC מאפשרת עבודה יציבה ומתאימה להקלטות באולפן וגם לשימוש בהופעות חיות."],
-      ["אפקטים ושינויי קול","כולל אפשרויות לשינוי הקול ואפקטים המאפשרים להתנסות בגוונים וסגנונות קול שונים."]
-    ]},
-    en:{title:"Audio Live Mixer S30",desc:"S30 audio mixer with DJ mixing effects, voice-changing features, music recording and built-in sound card.",sections:[
-      ["Battery-Free Operation","Designed without a built-in battery and powered by an external power source for continuous use without relying on battery charging."],
-      ["Adapter Included","The S30 comes with an adapter, eliminating the need to purchase one separately."],
-      ["High-Quality Sound","The S30 sound card is designed for audio recording and delivers clear and precise sound."],
-      ["Stable AC Power","AC-powered operation provides stable performance suitable for both studio recording and live applications."],
-      ["Voice-Changing Effects","Built-in voice-changing features allow users to experiment with different vocal tones, effects and styles."]
-    ]}
-  }
+    he:{
+  title:"Audio Live Mixer S30",
+  desc:"מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה.",
+  sections:[
+    ["ללא סוללה מובנית","המכשיר פועל באמצעות מקור מתח חיצוני ואינו כולל סוללה פנימית."],
+    ["מתאם כלול באריזה","המוצר מגיע עם מתאם מתאים, כך שאין צורך לרכוש אותו בנפרד."],
+    ["איכות שמע גבוהה","כרטיס הקול של S30 מיועד להקלטת אודיו ומספק צליל ברור ומדויק."],
+    ["מתח AC יציב","הפעלה באמצעות מתח AC מאפשרת עבודה יציבה ומתאימה להקלטות באולפן וגם לשימוש בהופעות חיות."],
+    ["אפקטים ושינויי קול","כולל אפשרויות לשינוי הקול ואפקטים המאפשרים להתנסות בגוונים וסגנונות קול שונים."]
+  ]
+},
+
+en:{
+  title:"Audio Live Mixer S30",
+  desc:"S30 audio mixer with DJ mixing effects, voice-changing features, music recording and built-in sound card.",
+  sections:[
+    ["No Built-in Battery","The device operates using an external power source and does not include a built-in battery."],
+    ["Adapter Included","The S30 comes with an adapter, eliminating the need to purchase one separately."],
+    ["High-Quality Sound","The S30 sound card is designed for audio recording and delivers clear and precise sound."],
+    ["Stable AC Power","AC-powered operation provides stable performance suitable for both studio recording and live applications."],
+    ["Voice-Changing Effects","Built-in voice-changing features allow users to experiment with different vocal tones, effects and styles."]
+  ]
+}
+}
 };
 
 let currentLang="he";
