@@ -454,6 +454,26 @@ i.fa-brands, i[class*="fa-brands"] {
 }
 </style>
 
+
+<style id="modal-purchase-under-gallery-css">
+.modal-purchase-block{
+  margin-top:16px;
+  padding:14px;
+  border:1px solid rgba(255,40,215,.38);
+  border-radius:12px;
+  background:rgba(7,10,15,.88);
+  box-shadow:0 0 16px rgba(255,40,215,.10);
+}
+.modal-purchase-block .modal-price{
+  margin:0 0 10px;
+  text-align:center;
+}
+.modal-purchase-block .paypal-btn{margin-top:0}
+@media(max-width:820px){
+  .modal-purchase-block{margin-bottom:8px}
+}
+</style>
+
 </head>
 <body>
 
@@ -603,15 +623,17 @@ i.fa-brands, i[class*="fa-brands"] {
     <div>
       <div class="modal-gallery-main" id="modalMediaMain"></div>
       <div class="modal-thumbs" id="modalThumbs"></div>
+      <div class="modal-purchase-block">
+        <div class="modal-price" id="modalPrice">₪299</div>
+        <a href="#" class="paypal-btn" id="modalPaypal" target="_blank" rel="noopener"><i class="fa-brands fa-paypal"></i><span data-he="רכישה מאובטחת באמצעות PayPal" data-en="Secure purchase with PayPal">רכישה מאובטחת באמצעות PayPal</span></a>
+      </div>
     </div>
     <div class="modal-copy">
       <h2 id="modalTitle">מיקסר DJ קומפקטי</h2>
       <div class="stock" id="modalStock" data-he="● זמין להזמנה" data-en="● Available to order">● זמין להזמנה</div>
       <div class="modal-desc" id="modalDesc"></div><div class="product-description-sections" id="modalLongDesc"></div>
-      <div class="modal-price" id="modalPrice">₪299</div>
-      <ul class="specs" id="modalSpecs"></ul>
-      <a href="#" class="paypal-btn" id="modalPaypal" target="_blank" rel="noopener"><i class="fa-brands fa-paypal"></i><span data-he="רכישה מאובטחת באמצעות PayPal" data-en="Secure purchase with PayPal">רכישה מאובטחת באמצעות PayPal</span></a>
-    </div>
+<ul class="specs" id="modalSpecs"></ul>
+</div>
   </div>
 </aside>
 
