@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electroshop DJ • Audio • Lighting</title>
+<meta name="description" content="ציוד DJ, אודיו, תאורה ואביזרים במחירים משתלמים. רכישה מאובטחת באמצעות PayPal.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --bg:#030406;
+  --panel:#080b10;
+  --panel2:#0c1017;
+  --text:#f7fbff;
+  --muted:#a9b4c2;
+  --cyan:#28e7ff;
+  --pink:#ff28d7;
+  --purple:#9d5cff;
+  --orange:#ff8a3d;
+  --green:#38ff99;
+  --line:rgba(40,231,255,.30);
+  --max:1440px;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif!important}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 20% 5%,rgba(0,190,255,.11),transparent 22%),
+    radial-gradient(circle at 80% 12%,rgba(255,0,210,.12),transparent 24%),
+    #020305;
+  color:var(--text);
+  overflow-x:hidden;
+  min-height:100vh;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  opacity:.22;
+  background-image:
+    radial-gradient(circle at 10% 18%,rgba(40,231,255,.85) 0 3px,transparent 4px),
+    radial-gradient(circle at 28% 20%,rgba(255,40,215,.75) 0 3px,transparent 4px),
+    radial-gradient(circle at 52% 18%,rgba(157,92,255,.85) 0 3px,transparent 4px),
+    radial-gradient(circle at 76% 22%,rgba(40,231,255,.8) 0 3px,transparent 4px),
+    linear-gradient(90deg,transparent 0 12%,rgba(255,255,255,.04) 12.2% 12.5%,transparent 12.7% 24%,rgba(255,255,255,.04) 24.2% 24.5%,transparent 24.7% 36%,rgba(255,255,255,.04) 36.2% 36.5%,transparent 36.7% 48%,rgba(255,255,255,.04) 48.2% 48.5%,transparent 48.7% 60%,rgba(255,255,255,.04) 60.2% 60.5%,transparent 60.7% 72%,rgba(255,255,255,.04) 72.2% 72.5%,transparent 72.7%);
+  background-size:480px 280px,560px 300px,620px 320px,700px 340px,760px 760px;
+}
+a{color:inherit}
+button,input,textarea{font-family:Arial,Helvetica,sans-serif!important}
+button{cursor:pointer}
+.container{width:min(var(--max),calc(100% - 32px));margin:auto}
+
+.topbar{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(1,2,4,.88);
+  border-bottom:1px solid rgba(40,231,255,.16);
+  backdrop-filter:blur(15px);
+}
+.topbar-inner{
+  min-height:82px;display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:18px;
+}
+.lang-btn,.mini-action{
+  border:0;background:transparent;color:#fff;padding:10px 12px;
+}
+.lang-btn{justify-self:start}
+.brand{text-align:center;text-decoration:none;line-height:1}
+.brand-main{
+  display:block;font-size:clamp(1.55rem,3vw,2.5rem);font-weight:900;letter-spacing:.08em;
+  text-shadow:0 0 5px #fff,0 0 12px var(--cyan),0 0 22px var(--pink);
+}
+.brand-sub{
+  display:block;margin-top:8px;font-size:.72rem;letter-spacing:.35em;color:#ff8ef0;
+  text-shadow:0 0 9px var(--pink);
+}
+.top-actions{display:flex;justify-content:flex-end;gap:10px}
+.mini-action{text-decoration:none;text-align:center;font-size:.8rem}
+.mini-action i{display:block;font-size:1.1rem;margin-bottom:4px;color:var(--cyan)}
+.cart-badge{
+  display:inline-grid;place-items:center;min-width:17px;height:17px;padding:0 4px;border-radius:20px;
+  background:var(--pink);font-size:.65rem;position:absolute;transform:translate(-6px,-8px)
+}
+
+.nav{
+  background:#020306;border-bottom:1px solid rgba(255,255,255,.06)
+}
+.nav-inner{
+  min-height:58px;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;padding:8px 0
+}
+.nav a{
+  text-decoration:none;padding:11px 18px;border-radius:10px;color:#eef8ff;font-weight:700;font-size:.93rem;
+  transition:.2s
+}
+.nav a:hover,.nav a.active{
+  border:1px solid var(--pink);
+  box-shadow:0 0 11px rgba(255,40,215,.55),inset 0 0 12px rgba(255,40,215,.08);
+}
+.mobile-menu-btn{display:none;background:transparent;border:1px solid rgba(40,231,255,.35);color:#fff;border-radius:10px;padding:10px 12px}
+
+.hero{
+  min-height:500px;position:relative;overflow:hidden;display:grid;place-items:center;border-bottom:1px solid rgba(40,231,255,.22)
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(rgba(0,0,0,.24),rgba(0,0,0,.68)),
+    radial-gradient(circle at 18% 78%,rgba(0,224,255,.28),transparent 18%),
+    radial-gradient(circle at 82% 40%,rgba(255,0,204,.27),transparent 18%),
+    linear-gradient(115deg,#061522 0%,#09040e 50%,#07101b 100%);
+}
+.mixer-bg{position:absolute;inset:0;z-index:-1;opacity:.72;pointer-events:none}
+.mixer-grid{
+  position:absolute;left:-5%;right:-5%;bottom:-70px;height:360px;transform:perspective(900px) rotateX(58deg);
+  background:
+    repeating-linear-gradient(90deg,transparent 0 70px,rgba(255,255,255,.04) 71px 72px),
+    repeating-linear-gradient(0deg,transparent 0 54px,rgba(255,255,255,.04) 55px 56px),
+    linear-gradient(180deg,rgba(10,20,34,.9),rgba(4,5,8,.95));
+  border-top:1px solid rgba(40,231,255,.4);
+  box-shadow:0 -10px 40px rgba(0,188,255,.15);
+}
+.knob{position:absolute;width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#4b5563 0 7%,#121820 10% 45%,#050608 48% 64%,#283142 68% 72%,#06080c 74%);box-shadow:0 0 16px rgba(40,231,255,.2)}
+.knob.k1{left:12%;bottom:145px}.knob.k2{left:25%;bottom:195px}.knob.k3{left:40%;bottom:135px}.knob.k4{left:56%;bottom:195px}.knob.k5{left:70%;bottom:135px}.knob.k6{left:84%;bottom:200px}
+.pad{position:absolute;width:80px;height:60px;border-radius:10px;background:linear-gradient(145deg,#10151c,#040608);border:1px solid rgba(255,255,255,.08);box-shadow:0 0 18px rgba(40,231,255,.28),inset 0 0 15px rgba(40,231,255,.08)}
+.pad::after{content:"";position:absolute;inset:15px;border-radius:6px;background:linear-gradient(135deg,var(--cyan),var(--purple));box-shadow:0 0 17px var(--cyan)}
+.pad.p1{left:9%;bottom:52px}.pad.p2{left:22%;bottom:70px}.pad.p3{right:23%;bottom:64px}.pad.p4{right:10%;bottom:86px}
+.hero-content{text-align:center;padding:70px 15px 85px}
+.hero-kicker{font-size:clamp(1.2rem,3vw,2rem);font-weight:800;text-shadow:0 0 12px var(--cyan)}
+.hero h1{
+  margin:12px 0 8px;font-size:clamp(3rem,8vw,6.2rem);line-height:.95;
+  color:#fff;text-shadow:0 0 4px #fff,0 0 14px var(--pink),0 0 28px var(--pink),0 0 52px rgba(255,40,215,.75)
+}
+.hero p{font-size:clamp(1rem,2vw,1.35rem);color:#e2e8f0}
+.hero-cta{
+  display:inline-block;margin-top:28px;padding:14px 28px;border-radius:10px;border:2px solid #fff;
+  text-decoration:none;font-weight:900;background:rgba(2,5,8,.55);
+  box-shadow:0 0 10px var(--cyan),0 0 20px var(--pink),inset 0 0 12px rgba(40,231,255,.18)
+}
+
+.trust{padding:18px 0 12px}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.trust-card{
+  background:linear-gradient(145deg,rgba(9,14,20,.95),rgba(3,6,9,.95));border:1px solid rgba(40,231,255,.42);
+  border-radius:13px;padding:18px 12px;display:flex;align-items:center;justify-content:center;gap:12px;min-height:82px;
+  box-shadow:0 0 18px rgba(40,231,255,.08)
+}
+.trust-card i{font-size:1.7rem;color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+.trust-card:nth-child(even){border-color:rgba(255,40,215,.42)}
+.trust-card:nth-child(even) i{color:var(--pink);text-shadow:0 0 10px var(--pink)}
+.trust-card strong{display:block;font-size:.98rem}
+.trust-card span{display:block;color:var(--muted);font-size:.78rem;margin-top:4px}
+
+.section{padding:28px 0}
+.section-title{text-align:center;font-size:clamp(1.8rem,4vw,3rem);margin-bottom:24px;text-shadow:0 0 12px var(--cyan)}
+.section-title::after{content:"";display:block;width:90px;height:3px;margin:10px auto;background:linear-gradient(90deg,var(--cyan),var(--pink));box-shadow:0 0 10px var(--pink)}
+
+.category-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.category-tab{
+  border:1px solid rgba(40,231,255,.35);background:#06090d;color:#fff;border-radius:999px;padding:9px 16px;
+}
+.category-tab.active,.category-tab:hover{border-color:var(--pink);box-shadow:0 0 12px rgba(255,40,215,.45)}
+
+.products{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.product-card{
+  background:linear-gradient(180deg,rgba(9,12,17,.98),rgba(4,5,8,.98));
+  border:1px solid rgba(40,231,255,.44);border-radius:12px;padding:12px;overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 18px rgba(40,231,255,.06);
+  display:flex;flex-direction:column;min-height:100%;
+}
+.product-card:nth-child(even){border-color:rgba(255,40,215,.42)}
+.product-art{
+  aspect-ratio:1/1;border-radius:8px;background:
+  radial-gradient(circle at 50% 42%,rgba(255,40,215,.15),transparent 32%),
+  radial-gradient(circle at 30% 60%,rgba(40,231,255,.16),transparent 28%),
+  #07090d;
+  display:grid;place-items:center;border:1px solid rgba(255,255,255,.06);overflow:hidden
+}
+.product-art i{font-size:clamp(4rem,7vw,7rem);color:#cbd5e1;filter:drop-shadow(0 0 15px rgba(40,231,255,.45))}
+.product-card h3{font-size:1rem;margin:13px 0 6px;line-height:1.35}
+.product-card p{font-size:.82rem;color:var(--muted);line-height:1.55;min-height:40px}
+.price{font-size:1.45rem;font-weight:900;color:#ff63df;margin:10px 0;text-shadow:0 0 8px rgba(255,40,215,.6)}
+.details-btn,.paypal-btn{
+  display:block;width:100%;border-radius:8px;text-decoration:none;text-align:center;font-weight:800;padding:10px 12px;
+}
+.details-btn{margin-top:auto;border:1px solid var(--cyan);background:transparent;color:#fff;box-shadow:0 0 10px rgba(40,231,255,.25)}
+.details-btn:hover{box-shadow:0 0 16px rgba(40,231,255,.6)}
+.paypal-btn{margin-top:9px;border:0;background:#ffc439;color:#15345a}
+.paypal-btn i{margin-left:6px;color:#0070ba}
+
+.promo{
+  margin-top:30px;border:2px solid var(--pink);border-radius:20px;padding:24px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  background:linear-gradient(90deg,rgba(1,7,12,.92),rgba(21,4,20,.85));
+  box-shadow:0 0 22px rgba(255,40,215,.15)
+}
+.promo-copy h3{font-size:clamp(1.4rem,3vw,2.3rem);text-shadow:0 0 10px var(--cyan)}
+.promo-copy p{color:#ff8eea;margin-top:7px}
+
+.contact-zone{
+  padding:38px 0 20px;border-top:1px solid rgba(40,231,255,.12);
+  background:linear-gradient(180deg,rgba(2,5,8,.25),rgba(2,3,5,.95))
+}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:22px}
+.contact-card{
+  border:1px solid rgba(40,231,255,.28);background:rgba(7,10,15,.72);border-radius:16px;padding:24px;text-align:right
+}
+.contact-card h3{color:var(--cyan);margin-bottom:18px;text-shadow:0 0 8px rgba(40,231,255,.4)}
+.contact-list{display:grid;gap:13px}
+.contact-list div{display:flex;gap:10px;align-items:center;color:#dce8f5}
+.contact-list i{width:24px;color:var(--cyan)}
+.contact-form{display:grid;gap:11px}
+.contact-form input,.contact-form textarea{
+  width:100%;border:1px solid rgba(255,255,255,.15);background:#090b0f;color:#fff;border-radius:8px;padding:12px 13px;outline:0
+}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--pink);box-shadow:0 0 0 2px rgba(255,40,215,.1)}
+.contact-form textarea{min-height:120px;resize:vertical}
+.submit-btn{border:1px solid var(--pink);background:#05070a;color:#fff;border-radius:8px;padding:12px;font-weight:900;box-shadow:0 0 12px rgba(255,40,215,.28)}
+.help-card{display:grid;place-items:center;text-align:center}
+.help-card i{font-size:4rem;color:var(--cyan);text-shadow:0 0 18px var(--pink);margin-bottom:12px}
+.help-card strong{font-size:1.5rem}
+.help-card p{color:var(--muted);margin:10px 0 18px}
+
+footer{padding:18px 0 28px;text-align:center;border-top:1px solid rgba(255,255,255,.08);background:#020305}
+.footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:15px}
+.footer-links a{color:#cbd5e1;text-decoration:none;font-size:.85rem}
+.credit{margin-top:13px;color:#aab4c0}
+.credit a{color:var(--cyan);font-weight:900;text-decoration:none;text-shadow:0 0 10px var(--cyan)}
+
+.float-access{
+  position:fixed;right:14px;bottom:92px;z-index:1500;width:54px;height:54px;border-radius:50%;
+  border:2px solid #fff;background:#0b5cff;color:#fff;font-size:25px;box-shadow:0 0 18px rgba(0,112,255,.7)
+}
+.access-panel{
+  position:fixed;right:78px;bottom:82px;z-index:1500;width:min(330px,calc(100vw - 100px));
+  border:1px solid rgba(40,231,255,.45);background:#080b10;border-radius:16px;padding:16px;display:none;
+  box-shadow:0 20px 50px rgba(0,0,0,.6)
+}
+.access-panel.open{display:block}
+.access-panel h3{margin-bottom:12px;color:var(--cyan)}
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.access-grid button{border:1px solid rgba(255,255,255,.12);background:#10141a;color:#fff;border-radius:9px;padding:10px}
+.float-whatsapp{
+  position:fixed;right:14px;bottom:22px;z-index:1500;width:54px;height:54px;border-radius:50%;
+  display:grid;place-items:center;background:#20c763;color:#fff;text-decoration:none;font-size:28px;box-shadow:0 0 18px rgba(32,199,99,.5)
+}
+
+/* modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(5px);z-index:1900;opacity:0;pointer-events:none;transition:.2s}
+.product-modal{
+  position:fixed;z-index:1901;left:50%;top:50%;transform:translate(-50%,-48%) scale(.97);
+  width:min(980px,94vw);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#0a0d12,#030507);
+  border:1px solid rgba(40,231,255,.52);border-radius:16px;padding:22px;opacity:0;pointer-events:none;transition:.2s;
+  box-shadow:0 0 32px rgba(40,231,255,.12),0 0 46px rgba(255,40,215,.08)
+}
+.modal-backdrop.open{opacity:1;pointer-events:auto}
+.product-modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.modal-close{position:absolute;left:12px;top:10px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:#0d1016;color:#fff;font-size:24px}
+.modal-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.modal-gallery-main{aspect-ratio:1/1;border-radius:12px;background:#080b10;display:grid;place-items:center;border:1px solid rgba(40,231,255,.25)}
+.modal-gallery-main i{font-size:10rem;color:#cbd5e1;filter:drop-shadow(0 0 20px rgba(40,231,255,.5))}
+.modal-thumbs{display:flex;gap:8px;margin-top:9px}
+.modal-thumb{width:62px;height:62px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:#090d12;display:grid;place-items:center;color:#aab4c0}
+.modal-copy{text-align:right;padding-top:32px}
+.stock{color:var(--green);font-weight:800;margin:8px 0}
+.modal-copy h2{font-size:clamp(1.4rem,3vw,2.1rem);margin-bottom:10px}
+.modal-price{font-size:2rem;color:#ff63df;font-weight:900;text-shadow:0 0 9px rgba(255,40,215,.5);margin:12px 0}
+.specs{margin:15px 0 20px;padding-right:18px;line-height:1.9;color:#d8e2ed}
+.modal-desc{color:#aeb8c5;line-height:1.7}
+
+body.large-text{font-size:118%}
+body.high-contrast{filter:contrast(145%)}
+body.highlight-links a{text-decoration:underline!important;text-decoration-thickness:3px!important}
+body.grayscale{filter:grayscale(100%)}
+body.no-animations *{animation:none!important;transition:none!important}
+body.bold-text *{font-weight:800!important}
+
+@media(max-width:1100px){
+  .products{grid-template-columns:repeat(3,1fr)}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:820px){
+  .topbar-inner{grid-template-columns:auto 1fr auto;min-height:70px}
+  .brand-sub{font-size:.55rem;letter-spacing:.2em}
+  .mini-action span,.lang-btn span{display:none}
+  .nav-inner{justify-content:space-between}
+  .mobile-menu-btn{display:block}
+  .nav-links{display:none;width:100%;flex-direction:column;gap:6px;padding:8px 0}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;text-align:center}
+  .products{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .modal-grid{grid-template-columns:1fr}
+  .modal-copy{padding-top:0}
+  .hero{min-height:430px}
+}
+@media(max-width:560px){
+  .container{width:min(100% - 20px,var(--max))}
+  .hero{min-height:390px}
+  .hero-content{padding:58px 10px 70px}
+  .hero h1{font-size:3.4rem}
+  .trust-grid{grid-template-columns:1fr 1fr;gap:9px}
+  .trust-card{display:block;text-align:center;padding:13px 7px;min-height:104px}
+  .trust-card i{margin-bottom:8px}
+  .products{gap:9px}
+  .product-card{padding:8px}
+  .product-card h3{font-size:.87rem}
+  .product-card p{font-size:.74rem}
+  .price{font-size:1.15rem}
+  .promo{display:block;text-align:center;padding:20px 15px}
+  .promo .hero-cta{margin-top:18px}
+  .product-modal{padding:14px}
+  .modal-gallery-main i{font-size:7rem}
+  .float-access,.float-whatsapp{right:8px}
+  .access-panel{right:68px}
+}
+
+/* FINAL FONT OVERRIDE */
+html,body,body *,button,a,input,textarea,select,option,
+.hero-cta,.details-btn,.paypal-btn,.submit-btn,.category-tab,
+.brand,.brand-main,.brand-sub,.nav a{
+  font-family:Arial,Helvetica,sans-serif!important;
+}
+</style>
+
+<style id="arial-final-override">
+/* FINAL: Arial everywhere for all visible text. Keep Font Awesome icon font intact. */
+html, body,
+div, section, main, header, footer, nav, aside, article,
+h1, h2, h3, h4, h5, h6,
+p, span, strong, em, small, label, li, ul, ol,
+a, button, input, textarea, select, option,
+.brand, .brand-main, .brand-sub,
+.lang-btn, .mini-action,
+.nav a, .mobile-menu-btn,
+.hero-kicker, .hero h1, .hero p, .hero-cta,
+.trust-card, .trust-card strong, .trust-card span,
+.section-title,
+.category-tab,
+.product-card, .product-card h3, .product-card p,
+.price, .details-btn, .paypal-btn,
+.promo, .promo-copy, .promo-copy h3, .promo-copy p,
+.contact-zone, .contact-card, .contact-card h3,
+.contact-form, .contact-form input, .contact-form textarea, .submit-btn,
+.footer-links, .footer-links a, .credit, .credit a,
+.access-panel, .access-panel h3, .access-grid button,
+.product-modal, .modal-copy, .modal-copy h2, .modal-desc, .modal-price, .specs,
+.stock, .modal-close {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-style: normal;
+}
+
+/* Preserve Font Awesome icon glyphs */
+.fa, .fas, .far, .fal, .fat, .fab,
+.fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-brands,
+i[class^="fa-"], i[class*=" fa-"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+.fa-brands, .fab,
+i.fa-brands, i[class*="fa-brands"] {
+  font-family: "Font Awesome 6 Brands" !important;
+}
+</style>
+
+
+<style id="button-font-hard-fix">
+/* Exact hard fix for all call-to-action text */
+.hero-cta,
+.details-btn,
+.submit-btn,
+.category-tab,
+.paypal-btn {
+  font-family: Arial, sans-serif !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-stretch: normal !important;
+  letter-spacing: normal !important;
+}
+
+/* Exact requested buttons */
+.hero-cta {
+  font: 700 18px/1.2 Arial, sans-serif !important;
+}
+.details-btn {
+  font: 700 14px/1.2 Arial, sans-serif !important;
+}
+.submit-btn {
+  font: 700 16px/1.2 Arial, sans-serif !important;
+}
+.category-tab {
+  font: 700 14px/1.2 Arial, sans-serif !important;
+}
+.paypal-btn {
+  font: 700 14px/1.2 Arial, sans-serif !important;
+}
+</style>
+
+<style id="product01-media-css">
+.product-art img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
+.modal-gallery-main{overflow:hidden}
+.modal-gallery-main img,.modal-gallery-main video{width:100%;height:100%;object-fit:contain;display:block;background:#fff;border-radius:12px}
+.modal-thumbs{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap}
+.modal-thumb{width:62px;height:62px;padding:0;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.18);border-radius:8px;background:#090d12}
+.modal-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.modal-thumb.active{border-color:var(--pink);box-shadow:0 0 10px rgba(255,40,215,.55)}
+.modal-thumb.video-thumb{display:grid;place-items:center;color:#fff;font-size:20px}
+.product-description-sections{display:grid;gap:12px;margin:14px 0;color:#cbd5e1;line-height:1.65}
+.product-description-sections strong{display:block;color:#fff;margin-bottom:2px}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <button class="lang-btn" id="langToggle" type="button"><i class="fa-solid fa-globe"></i> <span data-he="English" data-en="עברית">English</span></button>
+
+    <a href="#" class="brand" aria-label="Electroshop">
+      <span class="brand-main">ELECTROSHOP</span>
+      <span class="brand-sub">DJ • AUDIO • LIGHTING</span>
+    </a>
+
+<div aria-hidden="true"></div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button"><i class="fa-solid fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a class="active" href="#" data-he="דף הבית" data-en="Home">דף הבית</a>
+      <a href="#products" data-he="DJ ומיקסרים" data-en="DJ & Mixers">DJ ומיקסרים</a>
+      <a href="#products" data-he="אולפן והקלטה" data-en="Studio & Recording">אולפן והקלטה</a>
+      <a href="#products" data-he="תאורה ואפקטים" data-en="Lighting & Effects">תאורה ואפקטים</a>
+      <a href="#products" data-he="אביזרים" data-en="Accessories">אביזרים</a>
+      <a href="#contact" data-he="צור קשר" data-en="Contact">צור קשר</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="mixer-bg" aria-hidden="true">
+    <div class="mixer-grid"></div>
+    <div class="knob k1"></div><div class="knob k2"></div><div class="knob k3"></div>
+    <div class="knob k4"></div><div class="knob k5"></div><div class="knob k6"></div>
+    <div class="pad p1"></div><div class="pad p2"></div><div class="pad p3"></div><div class="pad p4"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-kicker" data-he="ציוד DJ • אודיו • תאורה" data-en="DJ • AUDIO • LIGHTING">ציוד DJ • אודיו • תאורה</div>
+    <h1 data-he="הסאונד שלך. הבמה שלך." data-en="YOUR SOUND. YOUR STAGE.">הסאונד שלך. הבמה שלך.</h1>
+    <p data-he="ציוד ואביזרים במחירים משתלמים" data-en="DJ, audio and lighting gear at great prices">ציוד ואביזרים במחירים משתלמים</p>
+    <a href="#products" class="hero-cta" style="font-family:Arial!important;;font:700 18px/1.2 Arial,sans-serif!important" data-he="לכל המוצרים" data-en="Shop All Products">לכל המוצרים</a>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="container trust-grid">
+    <div class="trust-card"><i class="fa-solid fa-truck-fast"></i><div><strong data-he="משלוח ישיר" data-en="Direct Shipping">משלוח ישיר</strong><span data-he="עד הבית" data-en="To your door">עד הבית</span></div></div>
+    <div class="trust-card"><i class="fa-solid fa-shield-halved"></i><div><strong data-he="תשלום מאובטח" data-en="Secure Payment">תשלום מאובטח</strong><span>PayPal</span></div></div>
+    <div class="trust-card"><i class="fa-solid fa-headset"></i><div><strong data-he="שירות לקוחות" data-en="Customer Service">שירות לקוחות</strong><span data-he="אנחנו כאן לעזור" data-en="We are here to help">אנחנו כאן לעזור</span></div></div>
+    <div class="trust-card"><i class="fa-solid fa-rotate-left"></i><div><strong data-he="קנייה פשוטה" data-en="Simple Shopping">קנייה פשוטה</strong><span data-he="מידע ברור לפני רכישה" data-en="Clear product information">מידע ברור לפני רכישה</span></div></div>
+  </div>
+</section>
+
+<main id="products" class="section">
+  <div class="container">
+    <h2 class="section-title" data-he="המוצרים המובילים" data-en="Featured Products">המוצרים המובילים</h2>
+
+    <div style="font-family:Arial!important;" class="category-tabs">
+      <button style="font-family:Arial!important;;font:700 14px/1.2 Arial,sans-serif!important" class="category-tab active" data-filter="all" data-he="הכל" data-en="All">הכל</button>
+      <button style="font-family:Arial!important;;font:700 14px/1.2 Arial,sans-serif!important" class="category-tab" data-filter="dj" data-he="DJ ומיקסרים" data-en="DJ & Mixers">DJ ומיקסרים</button>
+      <button style="font-family:Arial!important;;font:700 14px/1.2 Arial,sans-serif!important" class="category-tab" data-filter="studio" data-he="אולפן" data-en="Studio">אולפן</button>
+      <button style="font-family:Arial!important;;font:700 14px/1.2 Arial,sans-serif!important" class="category-tab" data-filter="lighting" data-he="תאורה" data-en="Lighting">תאורה</button>
+      <button style="font-family:Arial!important;;font:700 14px/1.2 Arial,sans-serif!important" class="category-tab" data-filter="accessories" data-he="אביזרים" data-en="Accessories">אביזרים</button>
+    </div>
+
+    <div class="products">
+      <article class="product-card" data-category="dj" data-product="s30">
+        <div class="product-art"><img src="images/proaudio/product01-main.jpg" alt="Audio Live Mixer S30"></div>
+        <h3>Audio Live Mixer S30</h3>
+        <p data-he="מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה." data-en="S30 audio mixer with DJ mixing effects, voice-changing features, music recording and built-in sound card.">מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה.</p>
+        <div class="price" id="s30CardPrice">379 ₪</div>
+        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="s30" data-he="לפרטים" data-en="Details">לפרטים</button>
+      </article>
+    </div>
+
+    <div class="promo">
+      <div class="promo-copy">
+        <h3 data-he="כל מה שצריך למסיבה מושלמת" data-en="Everything for the perfect setup">כל מה שצריך למסיבה מושלמת</h3>
+        <p data-he="מיקסרים • תאורה • אודיו • אביזרים — במקום אחד" data-en="Mixers • Lighting • Audio • Accessories — all in one place">מיקסרים • תאורה • אודיו • אביזרים — במקום אחד</p>
+      </div>
+      <a class="hero-cta" style="font-family:Arial!important;;font:700 18px/1.2 Arial,sans-serif!important" href="#products" data-he="צפה בקטגוריות" data-en="Browse Categories">צפה בקטגוריות</a>
+    </div>
+  </div>
+</main>
+
+<section id="contact" class="contact-zone">
+  <div class="container" style="max-width:760px;">
+    <div class="contact-card">
+      <h3 style="text-align:center;font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:22px;" data-he="צור קשר" data-en="Contact">צור קשר</h3>
+      <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/electroshopisraelo@gmail.com" method="POST">
+        <input type="text" name="name" required data-ph-he="שם מלא" data-ph-en="Full name" placeholder="שם מלא">
+        <input type="email" name="email" required data-ph-he="אימייל" data-ph-en="Email" placeholder="אימייל">
+        <input type="tel" name="phone" data-ph-he="טלפון" data-ph-en="Phone" placeholder="טלפון">
+        <textarea name="message" required data-ph-he="איך אפשר לעזור?" data-ph-en="How can we help?" placeholder="איך אפשר לעזור?"></textarea>
+        <input type="hidden" name="_subject" value="פנייה חדשה - Electroshop DJ">
+        <input type="hidden" name="_captcha" value="false">
+        <button class="submit-btn" type="submit" data-he="שלח הודעה" data-en="Send Message" style="font:700 16px/1.2 Arial,sans-serif!important">שלח הודעה</button>
+        <div id="formStatus" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="#" data-he="עמוד הבית" data-en="Home">עמוד הבית</a>
+      <a href="terms.html" data-he="תקנון" data-en="Terms">תקנון</a>
+      <a href="privacy.html" data-he="מדיניות פרטיות" data-en="Privacy Policy">מדיניות פרטיות</a>
+      <a href="accessibility.html" data-he="נגישות" data-en="Accessibility">נגישות</a>
+      <a href="#contact" data-he="צור קשר" data-en="Contact">צור קשר</a>
+    </div>
+    <div>© 2026 Electroshop DJ • Audio • Lighting</div>
+    <div class="credit"><span data-he="נבנה על ידי " data-en="Built by ">נבנה על ידי </span><a href="https://digital247now.com" target="_blank" rel="noopener">DIGITAL247NOW</a></div>
+  </div>
+</footer>
+
+<button class="float-access" id="accessBtn" aria-label="נגישות"><i class="fa-solid fa-universal-access"></i></button>
+<div class="access-panel" id="accessPanel">
+  <h3 data-he="כלי נגישות" data-en="Accessibility Tools">כלי נגישות</h3>
+  <div class="access-grid">
+    <button data-a11y="large-text" data-he="הגדלת טקסט" data-en="Larger Text">הגדלת טקסט</button>
+    <button data-a11y="high-contrast" data-he="ניגודיות" data-en="High Contrast">ניגודיות</button>
+    <button data-a11y="highlight-links" data-he="הדגשת קישורים" data-en="Highlight Links">הדגשת קישורים</button>
+    <button data-a11y="grayscale" data-he="גווני אפור" data-en="Grayscale">גווני אפור</button>
+    <button data-a11y="bold-text" data-he="טקסט מודגש" data-en="Bold Text">טקסט מודגש</button>
+    <button id="accessReset" data-he="איפוס" data-en="Reset">איפוס</button>
+  </div>
+</div>
+
+<a class="float-whatsapp" href="https://wa.me/" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<div class="modal-backdrop" id="modalBackdrop"></div>
+<aside class="product-modal" id="productModal" aria-hidden="true">
+  <button class="modal-close" id="modalClose" aria-label="סגור">×</button>
+  <div class="modal-grid">
+    <div>
+      <div class="modal-gallery-main" id="modalMediaMain"></div>
+      <div class="modal-thumbs" id="modalThumbs"></div>
+    </div>
+    <div class="modal-copy">
+      <h2 id="modalTitle">מיקסר DJ קומפקטי</h2>
+      <div class="stock" id="modalStock" data-he="● זמין להזמנה" data-en="● Available to order">● זמין להזמנה</div>
+      <div class="modal-desc" id="modalDesc"></div><div class="product-description-sections" id="modalLongDesc"></div>
+      <div class="modal-price" id="modalPrice">₪299</div>
+      <ul class="specs" id="modalSpecs"></ul>
+      <a href="#" class="paypal-btn" id="modalPaypal" target="_blank" rel="noopener"><i class="fa-brands fa-paypal"></i><span data-he="רכישה מאובטחת באמצעות PayPal" data-en="Secure purchase with PayPal">רכישה מאובטחת באמצעות PayPal</span></a>
+    </div>
+  </div>
+</aside>
+
+<script>
+const products = {
+  s30:{
+    price:{he:"379 ₪",en:"$129"},
+    paypal:{he:"https://www.paypal.com/ncp/payment/V76VXKYKU9HVU",en:"https://www.paypal.com/ncp/payment/9YXZ27TGWZ6XJ"},
+    images:["images/proaudio/product01-main.jpg","images/proaudio/product01-01.jpg","images/proaudio/product01-02.jpg","images/proaudio/product01-03.jpg","images/proaudio/product01-04.jpg","images/proaudio/product01-05.jpg"],
+    video:"images/proaudio/product01-video.mp4",
+    he:{title:"Audio Live Mixer S30",desc:"מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה.",sections:[
+      ["ללא סוללה מובנית","המכשיר תוכנן ללא סוללה פנימית ופועל באמצעות מקור מתח חיצוני, לשימוש רציף ללא תלות בטעינת סוללה."],
+      ["מתאם כלול באריזה","המוצר מגיע עם מתאם מתאים, כך שאין צורך לרכוש אותו בנפרד."],
+      ["איכות שמע גבוהה","כרטיס הקול של S30 מיועד להקלטת אודיו ומספק צליל ברור ומדויק."],
+      ["מתח AC יציב","הפעלה באמצעות מתח AC מאפשרת עבודה יציבה ומתאימה להקלטות באולפן וגם לשימוש בהופעות חיות."],
+      ["אפקטים ושינויי קול","כולל אפשרויות לשינוי הקול ואפקטים המאפשרים להתנסות בגוונים וסגנונות קול שונים."]
+    ]},
+    en:{title:"Audio Live Mixer S30",desc:"S30 audio mixer with DJ mixing effects, voice-changing features, music recording and built-in sound card.",sections:[
+      ["Battery-Free Operation","Designed without a built-in battery and powered by an external power source for continuous use without relying on battery charging."],
+      ["Adapter Included","The S30 comes with an adapter, eliminating the need to purchase one separately."],
+      ["High-Quality Sound","The S30 sound card is designed for audio recording and delivers clear and precise sound."],
+      ["Stable AC Power","AC-powered operation provides stable performance suitable for both studio recording and live applications."],
+      ["Voice-Changing Effects","Built-in voice-changing features allow users to experiment with different vocal tones, effects and styles."]
+    ]}
+  }
+};
+
+let currentLang="he";
+
+function applyLanguage(lang){
+  currentLang=lang;
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==="he"?"rtl":"ltr";
+  document.body.dir=lang==="he"?"rtl":"ltr";
+  document.querySelectorAll("[data-he][data-en]").forEach(el=>{
+    el.textContent=el.dataset[lang];
+  });
+  document.querySelectorAll("[data-ph-he][data-ph-en]").forEach(el=>{
+    el.placeholder=el.dataset[lang==="he"?"phHe":"phEn"];
+  });
+  document.querySelector("#langToggle span").textContent=lang==="he"?"English":"עברית";
+  const cp=document.getElementById("s30CardPrice"); if(cp) cp.textContent=products.s30.price[lang];
+}
+document.getElementById("langToggle").addEventListener("click",()=>applyLanguage(currentLang==="he"?"en":"he"));
+
+document.getElementById("mobileMenuBtn").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("open"));
+
+document.querySelectorAll(".category-tab").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".category-tab").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    const filter=btn.dataset.filter;
+    document.querySelectorAll(".product-card").forEach(card=>{
+      card.style.display=(filter==="all" || card.dataset.category===filter)?"flex":"none";
+    });
+  });
+});
+
+const modal=document.getElementById("productModal");
+const backdrop=document.getElementById("modalBackdrop");
+function renderProductMedia(p){
+  const main=document.getElementById("modalMediaMain"), thumbs=document.getElementById("modalThumbs");
+  main.innerHTML=""; thumbs.innerHTML="";
+  const media=p.images.map(src=>({type:"image",src}));
+  if(p.video) media.push({type:"video",src:p.video});
+  function show(item,btn){
+    document.querySelectorAll(".modal-thumb").forEach(x=>x.classList.remove("active"));
+    if(btn) btn.classList.add("active");
+    main.innerHTML=item.type==="video"?`<video src="${item.src}" controls playsinline></video>`:`<img src="${item.src}" alt="${p[currentLang].title}">`;
+  }
+  media.forEach((item,i)=>{
+    const btn=document.createElement("button"); btn.type="button"; btn.className="modal-thumb"+(item.type==="video"?" video-thumb":"");
+    if(item.type==="video"){btn.innerHTML='<i class="fa-solid fa-play"></i>'; const v=document.createElement("video");v.src=item.src;v.preload="metadata";v.onerror=()=>btn.remove();}
+    else{const img=document.createElement("img");img.src=item.src;img.alt="";img.onerror=()=>btn.remove();btn.appendChild(img);}
+    btn.onclick=()=>show(item,btn); thumbs.appendChild(btn); if(i===0) show(item,btn);
+  });
+}
+function openProduct(id){
+  const p=products[id],t=p[currentLang];
+  modalTitle.textContent=t.title; modalDesc.textContent=t.desc; modalPrice.textContent=p.price[currentLang];
+  modalPaypal.href=p.paypal[currentLang]; modalSpecs.innerHTML="";
+  modalLongDesc.innerHTML=t.sections.map(x=>`<div><strong>${x[0]}</strong><span>${x[1]}</span></div>`).join("");
+  renderProductMedia(p);
+  modal.classList.add("open");backdrop.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+}
+function closeProduct(){
+  modal.classList.remove("open");backdrop.classList.remove("open");modal.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+document.querySelectorAll("[data-open-product]").forEach(btn=>btn.addEventListener("click",()=>openProduct(btn.dataset.openProduct)));
+document.getElementById("modalClose").addEventListener("click",closeProduct);
+backdrop.addEventListener("click",closeProduct);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeProduct()});
+
+const accessBtn=document.getElementById("accessBtn");
+const accessPanel=document.getElementById("accessPanel");
+accessBtn.addEventListener("click",()=>accessPanel.classList.toggle("open"));
+document.querySelectorAll("[data-a11y]").forEach(btn=>btn.addEventListener("click",()=>document.body.classList.toggle(btn.dataset.a11y)));
+document.getElementById("accessReset").addEventListener("click",()=>{
+  ["large-text","high-contrast","highlight-links","grayscale","bold-text"].forEach(c=>document.body.classList.remove(c));
+});
+
+document.getElementById("contactForm").addEventListener("submit",async function(e){
+  e.preventDefault();
+  const status=document.getElementById("formStatus");
+  const button=this.querySelector("button[type=submit]");
+  status.textContent=currentLang==="he"?"שולח...":"Sending...";
+  button.disabled=true;
+  try{
+    const res=await fetch(this.action,{method:"POST",body:new FormData(this),headers:{"Accept":"application/json"}});
+    if(!res.ok) throw new Error();
+    status.textContent=currentLang==="he"?"ההודעה נשלחה בהצלחה.":"Message sent successfully.";
+    this.reset();
+  }catch(err){
+    status.textContent=currentLang==="he"?"לא ניתן היה לשלוח כרגע. נסו שוב בעוד רגע.":"Unable to send right now. Please try again.";
+  }finally{button.disabled=false}
+});
+applyLanguage("he");
+</script>
+
+</body>
+</html>
