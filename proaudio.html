@@ -447,6 +447,13 @@ i.fa-brands, i[class*="fa-brands"] {
 }
 </style>
 
+
+<style id="youtube-product-video-css">
+.modal-gallery-main iframe{
+  width:100%;height:100%;border:0;border-radius:12px;background:#000;display:block;
+}
+</style>
+
 </head>
 <body>
 
@@ -520,6 +527,15 @@ i.fa-brands, i[class*="fa-brands"] {
         <p data-he="מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה." data-en="S30 audio mixer with DJ mixing effects, voice-changing features, music recording and built-in sound card.">מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה.</p>
         <div class="price" id="s30CardPrice">379 ₪</div>
         <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="s30" data-he="לפרטים" data-en="Details">לפרטים</button>
+      </article>
+
+      <article class="product-card" data-category="studio" data-product="smk25">
+        <div class="product-art"><img src="images/proaudio/product02-main.jpg" alt="M-VAVE SMK-25 Mini MIDI Keyboard"></div>
+        <h3>M-VAVE SMK-25 Mini MIDI Keyboard</h3>
+        <p data-he="מקלדת MIDI קומפקטית עם 25 קלידים רגישים לעוצמת לחיצה, Bluetooth, סוללה נטענת וחיבור USB-C. מתאימה למחשב, Mac, iOS ו-Android."
+           data-en="Compact 25-key velocity-sensitive MIDI keyboard with Bluetooth, rechargeable battery and USB-C connectivity. Compatible with Windows, Mac, iOS and Android.">מקלדת MIDI קומפקטית עם 25 קלידים רגישים לעוצמת לחיצה, Bluetooth, סוללה נטענת וחיבור USB-C. מתאימה למחשב, Mac, iOS ו-Android.</p>
+        <div class="price" id="smk25CardPrice">399 ₪</div>
+        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="smk25" data-he="לפרטים" data-en="Details">לפרטים</button>
       </article>
     </div>
 
@@ -605,7 +621,7 @@ const products = {
     price:{he:"379 ₪",en:"$129"},
     paypal:{he:"https://www.paypal.com/ncp/payment/V76VXKYKU9HVU",en:"https://www.paypal.com/ncp/payment/9YXZ27TGWZ6XJ"},
     images:["images/proaudio/product01-main.jpg","images/proaudio/product01-01.jpg","images/proaudio/product01-02.jpg","images/proaudio/product01-03.jpg","images/proaudio/product01-04.jpg","images/proaudio/product01-05.jpg"],
-    video:"images/proaudio/product01-video.mp4",
+    video:null,
     he:{
   title:"Audio Live Mixer S30",
   desc:"מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה.",
@@ -629,7 +645,43 @@ en:{
     ["Voice-Changing Effects","Built-in voice-changing features allow users to experiment with different vocal tones, effects and styles."]
   ]
 }
-}
+  },
+  smk25:{
+    price:{he:"399 ₪",en:"$135"},
+    paypal:{he:"https://www.paypal.com/ncp/payment/R7XFGCSFY27RG",en:"https://www.paypal.com/ncp/payment/DD83R6VN8QYY4"},
+    images:["images/proaudio/product02-main.jpg","images/proaudio/product02-01.jpg","images/proaudio/product02-02.jpg","images/proaudio/product02-03.jpg","images/proaudio/product02-04.jpg","images/proaudio/product02-05.jpg"],
+    youtube:"EbbefL52JUs",
+    he:{
+      title:"M-VAVE SMK-25 Mini MIDI Keyboard",
+      desc:"מקלדת MIDI קומפקטית עם 25 קלידים רגישים לעוצמת לחיצה, Bluetooth, סוללה נטענת וחיבור USB-C. מתאימה למחשב, Mac, iOS ו-Android.",
+      sections:[
+        ["חיבור USB","חברו את הכבל דרך יציאת USB-C למחשב Windows או Mac. המקלדת מזוהה אוטומטית וגם נטענת בזמן החיבור. נורית אדומה מציינת טעינה ונורית ירוקה מציינת שהטעינה הושלמה."],
+        ["חיבור Bluetooth","לחיצה ממושכת על כפתור BT מפעילה את החיבור האלחוטי. נורית מהבהבת מציינת שה-Bluetooth פעיל, ונורית קבועה מציינת חיבור מוצלח."],
+        ["חיבור אלחוטי ישיר","ניתן להתחבר ל-Windows, Mac, iOS ו-Android באמצעות Bluetooth. ב-Windows נדרשים Bluetooth 5.0 ודרייבר BLE MIDI מתאים. ב-iOS וב-Android נדרשת תוכנה התומכת ב-BLE MIDI והחיבור מתבצע מתוך התוכנה."],
+        ["MIDI OUT","ניתן לשנות בתוכנה את מצב חיבור הפדל מ-Pedal ל-MIDI OUT, ולאחר מכן להשתמש בחיבור 3.5 מ״מ כיציאת MIDI לחיבור לסינתיסייזר או ציוד MIDI אחר. חיבור MIDI אלחוטי דורש מתאם MIDI אלחוטי נוסף הנמכר בנפרד."],
+        ["קלידים ובקרות","25 קלידים רגישים לעוצמת לחיצה ובקר סיבובי 360° הניתן להקצאה."],
+        ["חיבורים","יציאת 3.5 מ״מ לפדל Sustain, חיבור USB-C, חיבור אלחוטי ל-Windows/Mac/iOS/Android ותמיכה ב-MIDI OUT אלחוטי באמצעות התקן MIDI נוסף."],
+        ["סוללה","סוללה נטענת 780mAh. ניתן להפעיל את המקלדת גם באמצעות USB. באריזה כלול כבל USB בלבד."],
+        ["מידות ומשקל","מידות: 348 × 105 × 38 מ״מ. משקל: 460 גרם."],
+        ["מה כלול באריזה","מקלדת SMK-25 MINI MIDI, כבל USB ומדריך למשתמש."]
+      ]
+    },
+    en:{
+      title:"M-VAVE SMK-25 Mini MIDI Keyboard",
+      desc:"Compact 25-key velocity-sensitive MIDI keyboard with Bluetooth, rechargeable battery and USB-C connectivity. Compatible with Windows, Mac, iOS and Android.",
+      sections:[
+        ["USB Connection","Connect the keyboard to a Windows PC or Mac through the USB-C port. It is recognized automatically and charges at the same time. Red light indicates charging and green light indicates charging is complete."],
+        ["Bluetooth Connection","Press and hold the BT button to activate wireless mode. A flashing light indicates Bluetooth is active, while a steady light indicates a successful connection."],
+        ["Direct Wireless Connection","Connect directly to Windows, Mac, iOS or Android via Bluetooth. Windows requires Bluetooth 5.0 and a compatible BLE MIDI driver. iOS and Android require software that supports BLE MIDI, with the connection made inside the software."],
+        ["MIDI OUT","The pedal port can be changed from Pedal mode to MIDI OUT in the software, allowing the 3.5 mm port to connect to a hardware synthesizer or other MIDI equipment. Wireless MIDI OUT requires an additional wireless MIDI adapter sold separately."],
+        ["Keys & Controls","25 velocity-sensitive keys and one assignable endless 360-degree encoder."],
+        ["Connections","3.5 mm sustain pedal port, USB-C, wireless connectivity with Windows/Mac/iOS/Android, and wireless MIDI OUT support with an additional MIDI device."],
+        ["Power","Built-in 780mAh rechargeable battery or USB bus power. USB cable is included."],
+        ["Dimensions & Weight","Dimensions: 348 × 105 × 38 mm. Weight: 460 g."],
+        ["Package Includes","1 × SMK-25 MINI MIDI Keyboard, 1 × USB connection cable and 1 × user manual."]
+      ]
+    }
+  }
 };
 
 let currentLang="he";
@@ -647,6 +699,7 @@ function applyLanguage(lang){
   });
   document.querySelector("#langToggle span").textContent=lang==="he"?"English":"עברית";
   const cp=document.getElementById("s30CardPrice"); if(cp) cp.textContent=products.s30.price[lang];
+  const cp2=document.getElementById("smk25CardPrice"); if(cp2) cp2.textContent=products.smk25.price[lang];
 }
 document.getElementById("langToggle").addEventListener("click",()=>applyLanguage(currentLang==="he"?"en":"he"));
 
@@ -670,14 +723,23 @@ function renderProductMedia(p){
   main.innerHTML=""; thumbs.innerHTML="";
   const media=p.images.map(src=>({type:"image",src}));
   if(p.video) media.push({type:"video",src:p.video});
+  if(p.youtube) media.push({type:"youtube",id:p.youtube});
   function show(item,btn){
     document.querySelectorAll(".modal-thumb").forEach(x=>x.classList.remove("active"));
     if(btn) btn.classList.add("active");
-    main.innerHTML=item.type==="video"?`<video src="${item.src}" controls playsinline></video>`:`<img src="${item.src}" alt="${p[currentLang].title}">`;
+    if(item.type==="video"){
+      main.innerHTML=`<video src="${item.src}" controls playsinline></video>`;
+    }else if(item.type==="youtube"){
+      main.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${item.id}?rel=0" title="${p[currentLang].title} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    }else{
+      main.innerHTML=`<img src="${item.src}" alt="${p[currentLang].title}">`;
+    }
   }
   media.forEach((item,i)=>{
-    const btn=document.createElement("button"); btn.type="button"; btn.className="modal-thumb"+(item.type==="video"?" video-thumb":"");
+    const isVideo=item.type==="video" || item.type==="youtube";
+    const btn=document.createElement("button"); btn.type="button"; btn.className="modal-thumb"+(isVideo?" video-thumb":"");
     if(item.type==="video"){btn.innerHTML='<i class="fa-solid fa-play"></i>'; const v=document.createElement("video");v.src=item.src;v.preload="metadata";v.onerror=()=>btn.remove();}
+    else if(item.type==="youtube"){btn.innerHTML='<i class="fa-brands fa-youtube"></i>';}
     else{const img=document.createElement("img");img.src=item.src;img.alt="";img.onerror=()=>btn.remove();btn.appendChild(img);}
     btn.onclick=()=>show(item,btn); thumbs.appendChild(btn); if(i===0) show(item,btn);
   });
