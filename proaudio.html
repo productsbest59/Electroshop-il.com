@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Electroshop DJ • Audio • Lighting</title>
-<meta name="description" content="ציוד DJ, אודיו, תאורה ואביזרים במחירים משתלמים. רכישה מאובטחת באמצעות PayPal.">
+<meta name="description" content="ציוד DJ, אודיו, תאורה ואביזרים במחירים משתלמים. אפשרויות תשלום מאובטחות ונוחות.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 :root{
@@ -185,8 +185,8 @@ button{cursor:pointer}
 }
 .details-btn{margin-top:auto;border:1px solid var(--cyan);background:transparent;color:#fff;box-shadow:0 0 10px rgba(40,231,255,.25)}
 .details-btn:hover{box-shadow:0 0 16px rgba(40,231,255,.6)}
-.paypal-btn{margin-top:9px;border:0;background:#ffc439;color:#15345a}
-.paypal-btn i{margin-left:6px;color:#0070ba}
+.paypal-btn{margin-top:9px;border:1px solid var(--cyan);background:#05070a;color:#fff;box-shadow:0 0 12px rgba(40,231,255,.28)}
+.paypal-btn i{margin-left:6px;color:var(--cyan)}
 
 .promo{
   margin-top:30px;border:2px solid var(--pink);border-radius:20px;padding:24px 28px;
@@ -220,6 +220,12 @@ button{cursor:pointer}
 .help-card i{font-size:4rem;color:var(--cyan);text-shadow:0 0 18px var(--pink);margin-bottom:12px}
 .help-card strong{font-size:1.5rem}
 .help-card p{color:var(--muted);margin:10px 0 18px}
+
+
+.payment-methods{margin:0 auto 22px;text-align:center}
+.payment-methods-title{font-weight:800;margin-bottom:10px;color:#e7eef7}
+.payment-methods img{display:block;width:min(520px,92%);height:auto;margin:0 auto;object-fit:contain}
+@media(max-width:560px){.payment-methods img{width:min(420px,96%)}}
 
 footer{padding:18px 0 28px;text-align:center;border-top:1px solid rgba(255,255,255,.08);background:#020305}
 .footer-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:15px}
@@ -474,6 +480,53 @@ i.fa-brands, i[class*="fa-brands"] {
 }
 </style>
 
+
+<style id="payment-v2-fixes">
+.payment-methods h2,
+.payment-methods h3,
+.payment-methods-title{
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-style:normal !important;
+}
+
+/* Secure checkout: restore strong yellow PayPal-style visibility, without PayPal branding */
+.paypal-btn{
+  margin-top:9px !important;
+  border:0 !important;
+  background:#ffc439 !important;
+  color:#15345a !important;
+  font:700 16px/1.2 Arial,Helvetica,sans-serif !important;
+  padding:13px 16px !important;
+  box-shadow:0 0 14px rgba(255,196,57,.28) !important;
+}
+.paypal-btn:hover{
+  filter:brightness(1.06);
+  box-shadow:0 0 20px rgba(255,196,57,.48) !important;
+}
+.paypal-btn i{
+  color:#15345a !important;
+  margin-left:7px;
+}
+</style>
+
+
+
+<style id="payment-title-final-arial">
+.payment-methods-title{
+  font-family:Arial !important;
+  font-size:18px !important;
+  font-weight:700 !important;
+  font-style:normal !important;
+  font-variant:normal !important;
+  letter-spacing:0 !important;
+  line-height:1.2 !important;
+  text-transform:none !important;
+  text-shadow:none !important;
+  margin:0 0 10px !important;
+  color:#e7eef7 !important;
+}
+</style>
+
 </head>
 <body>
 
@@ -522,7 +575,7 @@ i.fa-brands, i[class*="fa-brands"] {
 <section class="trust">
   <div class="container trust-grid">
     <div class="trust-card"><i class="fa-solid fa-truck-fast"></i><div><strong data-he="משלוח ישיר" data-en="Direct Shipping">משלוח ישיר</strong><span data-he="עד הבית" data-en="To your door">עד הבית</span></div></div>
-    <div class="trust-card"><i class="fa-solid fa-shield-halved"></i><div><strong data-he="תשלום מאובטח" data-en="Secure Payment">תשלום מאובטח</strong><span>PayPal</span></div></div>
+    <div class="trust-card"><i class="fa-solid fa-shield-halved"></i><div><strong data-he="תשלום מאובטח" data-en="Secure Payment">תשלום מאובטח</strong><span data-he="אפשרויות תשלום מגוונות" data-en="Multiple payment options">אפשרויות תשלום מגוונות</span></div></div>
     <div class="trust-card"><i class="fa-solid fa-headset"></i><div><strong data-he="שירות לקוחות" data-en="Customer Service">שירות לקוחות</strong><span data-he="אנחנו כאן לעזור" data-en="We are here to help">אנחנו כאן לעזור</span></div></div>
     <div class="trust-card"><i class="fa-solid fa-rotate-left"></i><div><strong data-he="קנייה פשוטה" data-en="Simple Shopping">קנייה פשוטה</strong><span data-he="מידע ברור לפני רכישה" data-en="Clear product information">מידע ברור לפני רכישה</span></div></div>
   </div>
@@ -546,7 +599,7 @@ i.fa-brands, i[class*="fa-brands"] {
         <h3>Audio Live Mixer S30</h3>
         <p data-he="מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה." data-en="S30 audio mixer with DJ mixing effects, voice-changing features, music recording and built-in sound card.">מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה.</p>
         <div class="price" id="s30CardPrice">379 ₪</div>
-        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="s30" data-he="לפרטים" data-en="Details">לפרטים</button>
+        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="s30" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button>
       </article>
 
       <article class="product-card" data-category="studio" data-product="smk25">
@@ -555,7 +608,7 @@ i.fa-brands, i[class*="fa-brands"] {
         <p data-he="מקלדת MIDI קומפקטית עם 25 קלידים רגישים לעוצמת לחיצה, Bluetooth, סוללה נטענת וחיבור USB-C. מתאימה למחשב, Mac, iOS ו-Android."
            data-en="Compact 25-key velocity-sensitive MIDI keyboard with Bluetooth, rechargeable battery and USB-C connectivity. Compatible with Windows, Mac, iOS and Android.">מקלדת MIDI קומפקטית עם 25 קלידים רגישים לעוצמת לחיצה, Bluetooth, סוללה נטענת וחיבור USB-C. מתאימה למחשב, Mac, iOS ו-Android.</p>
         <div class="price" id="smk25CardPrice">399 ₪</div>
-        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="smk25" data-he="לפרטים" data-en="Details">לפרטים</button>
+        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="smk25" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button>
       </article>
     </div>
 
@@ -589,6 +642,10 @@ i.fa-brands, i[class*="fa-brands"] {
 
 <footer>
   <div class="container">
+    <div class="payment-methods" aria-label="Payment methods">
+      <h3 class="payment-methods-title" data-he="אמצעי תשלום" data-en="Payment Methods">אמצעי תשלום</h3>
+      <img src="images/proaudio/payments.png" alt="אמצעי תשלום / Payment Methods">
+    </div>
     <div class="footer-links">
       <a href="#" data-he="עמוד הבית" data-en="Home">עמוד הבית</a>
       <a href="proaudio-terms.html" data-he="תקנון" data-en="Terms">תקנון</a>
@@ -625,7 +682,7 @@ i.fa-brands, i[class*="fa-brands"] {
       <div class="modal-thumbs" id="modalThumbs"></div>
       <div class="modal-purchase-block">
         <div class="modal-price" id="modalPrice">₪299</div>
-        <a href="#" class="paypal-btn" id="modalPaypal" target="_blank" rel="noopener"><i class="fa-brands fa-paypal"></i><span data-he="רכישה מאובטחת באמצעות PayPal" data-en="Secure purchase with PayPal">רכישה מאובטחת באמצעות PayPal</span></a>
+        <a href="#" class="paypal-btn" id="modalPaypal" target="_blank" rel="noopener"><i class="fa-solid fa-lock"></i><span data-he="לרכישה מאובטחת" data-en="Secure Checkout">לרכישה מאובטחת</span></a>
       </div>
     </div>
     <div class="modal-copy">
