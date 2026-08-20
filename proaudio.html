@@ -610,6 +610,15 @@ i.fa-brands, i[class*="fa-brands"] {
         <div class="price" id="smk25CardPrice">399 ₪</div>
         <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="smk25" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button>
       </article>
+
+      <article class="product-card" data-category="studio" data-product="allinone">
+        <div class="product-art"><img src="images/proaudio/product03-main.jpg" alt="All-in-One High-Quality Audio Recording"></div>
+        <h3>All-in-One High-Quality Audio Recording</h3>
+        <p data-he="ערכת אולפן All-in-One הכוללת מיקסר אודיו RGB ומיקרופון דינמי, המתאימה להקלטות, גיימינג, פודקאסטים, סטרימינג ועוד."
+           data-en="All-in-One Kit with RGB Audio Mixer, Streaming Studio Set with Dynamic Mic for Recording, Gaming, Podcasting and more.">ערכת אולפן All-in-One הכוללת מיקסר אודיו RGB ומיקרופון דינמי, המתאימה להקלטות, גיימינג, פודקאסטים, סטרימינג ועוד.</p>
+        <div class="price" id="allinoneCardPrice">549 ₪</div>
+        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="allinone" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button>
+      </article>
     </div>
 
     <div class="promo">
@@ -760,6 +769,38 @@ en:{
         ["Package Includes","1 × SMK-25 MINI MIDI Keyboard, 1 × USB connection cable and 1 × user manual."]
       ]
     }
+  },
+  allinone:{
+    price:{he:"549 ₪",en:"$185"},
+    paypal:{he:"https://www.paypal.com/ncp/payment/FJ6FJ7LE4D2XU",en:"https://www.paypal.com/ncp/payment/DXRKQZVQK9KT8"},
+    images:["images/proaudio/product03-main.jpg","images/proaudio/product03-01.jpg","images/proaudio/product03-02.jpg","images/proaudio/product03-03.jpg","images/proaudio/product03-04.jpg"],
+    video:"images/proaudio/product03-video.mp4",
+    he:{
+      title:"All-in-One High-Quality Audio Recording",
+      desc:"ערכת אולפן All-in-One הכוללת מיקסר אודיו RGB ומיקרופון דינמי, המתאימה להקלטות, גיימינג, פודקאסטים, סטרימינג ועוד.",
+      sections:[
+        ["פתרון מלא לפודקאסטים והקלטות","ערכת FIFINE All-in-One כוללת את הציוד הדרוש להקלטת אודיו באיכות גבוהה, עם מיקרופון דינמי ומיקסר אודיו RGB לשימוש בסטרימינג, פודקאסטים ואולפן."],
+        ["דפוס קליטה Cardioid","המיקרופון קולט בעיקר את הצליל המגיע מלפנים ומסייע בהפחתת רעשי רקע, לקבלת הקלטת קול ברורה יותר בסביבה ביתית או באולפן."],
+        ["חיבור קווי יציב","החיבור הקווי מספק העברת אודיו יציבה ללא תלות באות אלחוטי, ומתאים לסטרימינג חי, הקלטות וגיימינג."],
+        ["מיקרופון דינמי","המיקרופון הדינמי מיועד להפקת קול ברור ומפורט עבור פודקאסטים, סטרימינג ויצירת תוכן."],
+        ["מיקסר אודיו RGB","המיקסר המצורף כולל תאורת RGB המוסיפה אפקטים צבעוניים לעמדת הסטרימינג או ההקלטה."],
+        ["מידות ומשקל האריזה","מידות האריזה: 31 × 28 × 10 ס״מ. משקל: 1.535 ק״ג."],
+        ["תקנים","לפי פרטי המוצר, הערכה מצוינת כבעלת תקני CE, FCC ו-KC."]
+      ]
+    },
+    en:{
+      title:"All-in-One High-Quality Audio Recording",
+      desc:"All-in-One Kit with RGB Audio Mixer, Streaming Studio Set with Dynamic Mic for Recording, Gaming, Podcasting and more.",
+      sections:[
+        ["Complete Podcasting Solution","Complete all-in-one kit for high-quality audio recording, including a dynamic microphone and RGB audio mixer for streaming, podcasting, gaming and studio use."],
+        ["Cardioid Pickup Pattern","Captures sound primarily from the front while helping reduce unwanted background noise for clearer voice recordings."],
+        ["Stable Wired Connectivity","Wired connection provides consistent audio transmission without relying on a wireless signal, suitable for live streaming, recording and gaming."],
+        ["Dynamic Microphone","Designed to deliver clear and detailed voice reproduction for podcasting, streaming and content creation."],
+        ["RGB Audio Mixer","The included mixer features RGB lighting effects that add a colorful visual element to your streaming or recording setup."],
+        ["Package Dimensions & Weight","Package dimensions: 31 × 28 × 10 cm. Weight: 1.535 kg."],
+        ["Certifications","According to the product information, the kit is listed with CE, FCC and KC certifications."]
+      ]
+    }
   }
 };
 
@@ -779,6 +820,7 @@ function applyLanguage(lang){
   document.querySelector("#langToggle span").textContent=lang==="he"?"English":"עברית";
   const cp=document.getElementById("s30CardPrice"); if(cp) cp.textContent=products.s30.price[lang];
   const cp2=document.getElementById("smk25CardPrice"); if(cp2) cp2.textContent=products.smk25.price[lang];
+  const cp3=document.getElementById("allinoneCardPrice"); if(cp3) cp3.textContent=products.allinone.price[lang];
 }
 document.getElementById("langToggle").addEventListener("click",()=>applyLanguage(currentLang==="he"?"en":"he"));
 
