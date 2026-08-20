@@ -597,6 +597,35 @@ i.fa-brands, i[class*="fa-brands"] {
   ]
 }
 </script>
+
+<style id="arial-visual-final">
+:where(
+  html,body,div,span,p,a,button,input,textarea,select,option,label,
+  h1,h2,h3,h4,h5,h6,strong,em,small,li,ul,ol,section,main,header,footer,nav,aside,article
+){
+  font-family:Arial,Helvetica,sans-serif !important;
+}
+
+/* The two elements that looked different in the screenshots */
+.hero-kicker{
+  font:700 clamp(1.2rem,3vw,2rem)/1.2 Arial,Helvetica,sans-serif !important;
+  letter-spacing:normal !important;
+}
+.stock{
+  font:700 16px/1.3 Arial,Helvetica,sans-serif !important;
+  letter-spacing:normal !important;
+}
+
+/* Icons must keep Font Awesome */
+.fa,.fas,.far,.fal,.fat,.fa-solid,.fa-regular,.fa-light,.fa-thin,
+i[class^="fa-"],i[class*=" fa-"]{
+  font-family:"Font Awesome 6 Free" !important;
+}
+.fab,.fa-brands,i.fa-brands{
+  font-family:"Font Awesome 6 Brands" !important;
+}
+</style>
+
 </head>
 <body>
 
@@ -635,7 +664,7 @@ i.fa-brands, i[class*="fa-brands"] {
     <div class="pad p1"></div><div class="pad p2"></div><div class="pad p3"></div><div class="pad p4"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-kicker" data-he="ציוד DJ • אודיו • תאורה" data-en="DJ • AUDIO • LIGHTING">ציוד DJ • אודיו • תאורה</div>
+    <div class="hero-kicker" style="font:700 clamp(1.2rem,3vw,2rem)/1.2 Arial,Helvetica,sans-serif!important;font-style:normal!important;letter-spacing:normal!important;" data-he="ציוד DJ • אודיו • תאורה" data-en="DJ • AUDIO • LIGHTING">ציוד DJ • אודיו • תאורה</div>
     <h1 data-he="הסאונד שלך. הבמה שלך." data-en="YOUR SOUND. YOUR STAGE.">הסאונד שלך. הבמה שלך.</h1>
     <p data-he="ציוד ואביזרים במחירים משתלמים" data-en="DJ, audio and lighting gear at great prices">ציוד ואביזרים במחירים משתלמים</p>
     <a href="#products" class="hero-cta" style="font-family:Arial!important;;font:700 18px/1.2 Arial,sans-serif!important" data-he="לכל המוצרים" data-en="Shop All Products">לכל המוצרים</a>
@@ -766,7 +795,7 @@ i.fa-brands, i[class*="fa-brands"] {
     </div>
     <div class="modal-copy">
       <h2 id="modalTitle">מיקסר DJ קומפקטי</h2>
-      <div class="stock" id="modalStock" data-he="● זמין להזמנה" data-en="● Available to order">● זמין להזמנה</div>
+      <div class="stock" id="modalStock" style="font:700 16px/1.3 Arial,Helvetica,sans-serif!important;font-style:normal!important;letter-spacing:normal!important;" data-he="● זמין להזמנה" data-en="● Available to order">● זמין להזמנה</div>
       <div class="modal-desc" id="modalDesc"></div><div class="product-description-sections" id="modalLongDesc"></div>
 <ul class="specs" id="modalSpecs"></ul>
 </div>
