@@ -45,27 +45,16 @@ html{scroll-behavior:smooth}
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:
-    radial-gradient(circle at 20% 5%,rgba(0,190,255,.11),transparent 22%),
-    radial-gradient(circle at 80% 12%,rgba(255,0,210,.12),transparent 24%),
-    #020305;
+    radial-gradient(circle at 10% 20%, rgba(0,180,255,.18), transparent 38%),
+    radial-gradient(circle at 90% 45%, rgba(255,0,210,.13), transparent 38%),
+    radial-gradient(circle at 50% 85%, rgba(80,60,255,.10), transparent 42%),
+    #02050a;
   color:var(--text);
   overflow-x:hidden;
   min-height:100vh;
 }
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  opacity:.22;
-  background-image:
-    radial-gradient(circle at 10% 18%,rgba(40,231,255,.85) 0 3px,transparent 4px),
-    radial-gradient(circle at 28% 20%,rgba(255,40,215,.75) 0 3px,transparent 4px),
-    radial-gradient(circle at 52% 18%,rgba(157,92,255,.85) 0 3px,transparent 4px),
-    radial-gradient(circle at 76% 22%,rgba(40,231,255,.8) 0 3px,transparent 4px),
-    linear-gradient(90deg,transparent 0 12%,rgba(255,255,255,.04) 12.2% 12.5%,transparent 12.7% 24%,rgba(255,255,255,.04) 24.2% 24.5%,transparent 24.7% 36%,rgba(255,255,255,.04) 36.2% 36.5%,transparent 36.7% 48%,rgba(255,255,255,.04) 48.2% 48.5%,transparent 48.7% 60%,rgba(255,255,255,.04) 60.2% 60.5%,transparent 60.7% 72%,rgba(255,255,255,.04) 72.2% 72.5%,transparent 72.7%);
-  background-size:480px 280px,560px 300px,620px 320px,700px 340px,760px 760px;
-}
+body::before{display:none;}
+
 a{color:inherit}
 button,input,textarea{font-family:Arial,Helvetica,sans-serif!important}
 button{cursor:pointer}
