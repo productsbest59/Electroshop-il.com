@@ -789,6 +789,53 @@ body.high-contrast{
 }
 </style>
 
+
+<style id="proaudio-home-promo">
+.proaudio-promo{padding:10px 0 34px}
+.proaudio-promo-card{
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:190px 1fr 190px;
+  gap:24px;align-items:center;
+  padding:26px 30px;border-radius:26px;
+  background:
+    radial-gradient(circle at 12% 50%,rgba(0,229,255,.18),transparent 30%),
+    radial-gradient(circle at 88% 50%,rgba(255,0,215,.18),transparent 30%),
+    linear-gradient(135deg,#05070b,#11131b 55%,#050507);
+  border:2px solid rgba(255,212,0,.72);
+  box-shadow:0 14px 34px rgba(0,0,0,.28),0 0 24px rgba(0,229,255,.10);
+  color:#fff;
+}
+.proaudio-promo-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.05) 48%,transparent 66%);
+}
+.proaudio-promo-logo-wrap{display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.proaudio-promo-logo{width:min(175px,100%);height:auto;display:block;
+  filter:drop-shadow(0 0 18px rgba(0,229,255,.32)) drop-shadow(0 0 16px rgba(255,0,215,.22))}
+.proaudio-promo-copy{position:relative;z-index:1;text-align:center}
+.proaudio-promo-copy h2{margin:0 0 8px;color:#ffd400;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.12}
+.proaudio-promo-he{margin:0 0 5px;font-size:1.08rem;font-weight:800}
+.proaudio-promo-en{margin:0 0 18px;direction:ltr;text-align:center;color:#dbe7f2;font-size:.98rem}
+.proaudio-promo-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:12px 20px;border-radius:999px;background:#ffd400;color:#000!important;
+  border:2px solid #fff;font-weight:900;
+  box-shadow:0 8px 20px rgba(0,0,0,.3),0 0 16px rgba(255,212,0,.22);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.proaudio-promo-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.35),0 0 22px rgba(0,229,255,.22)}
+.proaudio-promo-btn .en{direction:ltr;unicode-bidi:isolate;font-weight:800}
+@media(max-width:760px){
+  .proaudio-promo-card{grid-template-columns:1fr;gap:14px;padding:22px 18px;text-align:center}
+  .proaudio-promo-logo-wrap:first-child{display:none}
+  .proaudio-promo-logo-wrap:last-child{grid-row:1}
+  .proaudio-promo-copy{grid-row:2}
+  .proaudio-promo-logo{width:min(180px,58vw)}
+  .proaudio-promo-copy,.proaudio-promo-en{text-align:center}
+  .proaudio-promo-btn{width:100%}
+}
+</style>
+
 </head>
 <body>
 <header class="topbar">
@@ -840,6 +887,30 @@ body.high-contrast{
 <article class="service-card"><h3>לרכב ולאופנוע</h3><ul><li>תושבות לרכב</li><li>תושבות לאופנוע</li><li>פתרונות טעינה ונוחות לדרך</li><li>תיקון שלטים</li><li>פתרונות Apple CarPlay</li><li>פתרונות Android Auto</li></ul></article>
 </div>
 </section>
+
+<section class="proaudio-promo container" aria-label="Electroshop Pro Audio">
+  <a class="proaudio-promo-card" href="proaudio.html" aria-label="מעבר לחנות Electroshop Pro Audio">
+    <div class="proaudio-promo-logo-wrap">
+      <img class="proaudio-promo-logo" src="images/proaudio-logo.png" alt="Electroshop Pro Audio">
+    </div>
+    <div class="proaudio-promo-copy">
+      <h2>Electroshop Pro Audio</h2>
+      <p class="proaudio-promo-he">ציוד DJ • מיקסרים • ציוד אולפן • תאורה • אביזרים</p>
+      <p class="proaudio-promo-en">DJ Gear • Mixers • Studio Equipment • Lighting • Accessories</p>
+      <span class="proaudio-promo-btn">
+        <span>לחנות Pro Audio</span>
+        <span aria-hidden="true">•</span>
+        <span class="en">Visit Pro Audio</span>
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      </span>
+    </div>
+  
+    <div class="proaudio-promo-logo-wrap">
+      <img class="proaudio-promo-logo" src="images/proaudio-logo.png" alt="" aria-hidden="true">
+    </div>
+</a>
+</section>
+
 <section class="section container">
 <div class="split">
 <img alt="עמדת המעבדה של אלקטרושופ" src="images/gallery5.jpg"/>
