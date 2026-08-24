@@ -1048,6 +1048,40 @@ i[class^="fa-"],i[class*=" fa-"]{
 }
 </style>
 
+
+<style id="electroshop-main-promo-css">
+.electroshop-main-promo{padding:10px 0 34px}
+.electroshop-main-promo-card{
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:190px 1fr 190px;
+  gap:24px;align-items:center;
+  padding:26px 30px;border-radius:22px;
+  background:linear-gradient(135deg,#080808,#171717 55%,#070707);
+  border:2px solid #ffd400;
+  box-shadow:0 14px 34px rgba(0,0,0,.35),0 0 20px rgba(255,212,0,.13);
+  color:#fff;text-decoration:none;
+}
+.electroshop-main-promo-logo-wrap{display:flex;align-items:center;justify-content:center}
+.electroshop-main-promo-logo{width:min(170px,100%);height:auto;display:block}
+.electroshop-main-promo-copy{text-align:center}
+.electroshop-main-promo-copy h2{margin:0 0 8px;color:#ffd400;font-size:clamp(1.7rem,3.2vw,2.5rem)}
+.electroshop-main-promo-copy p{margin:0 0 6px;line-height:1.5}
+.electroshop-main-promo-en{direction:ltr;color:#d7dde5}
+.electroshop-main-promo-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:12px;padding:12px 20px;border-radius:999px;
+  background:#ffd400;color:#000;font-weight:900;border:2px solid #fff;
+}
+@media(max-width:760px){
+  .electroshop-main-promo-card{grid-template-columns:1fr;gap:14px;padding:22px 18px}
+  .electroshop-main-promo-logo-wrap:first-child{display:none}
+  .electroshop-main-promo-logo-wrap:last-child{grid-row:1}
+  .electroshop-main-promo-copy{grid-row:2}
+  .electroshop-main-promo-logo{width:min(170px,55vw)}
+  .electroshop-main-promo-btn{width:100%}
+}
+</style>
+
 </head>
 <body>
 
@@ -1178,6 +1212,29 @@ i[class^="fa-"],i[class*=" fa-"]{
         <div id="formStatus" aria-live="polite"></div>
       </form>
     </div>
+  </div>
+</section>
+
+
+<section class="electroshop-main-promo">
+  <div class="container">
+    <a class="electroshop-main-promo-card" href="https://electroshop-il.com/" aria-label="Electroshop Cellular and Repair Lab">
+      <div class="electroshop-main-promo-logo-wrap">
+        <img class="electroshop-main-promo-logo" src="images/logo.png" alt="" aria-hidden="true">
+      </div>
+      <div class="electroshop-main-promo-copy">
+        <h2>Electroshop</h2>
+        <p data-he="סלולר • אביזרים • מעבדת תיקונים מקצועית" data-en="Cellular • Accessories • Professional Repair Lab">סלולר • אביזרים • מעבדת תיקונים מקצועית</p>
+        <p class="electroshop-main-promo-en" data-he="מכירה, שירות ותיקונים במקום אחד" data-en="Sales, service and repairs in one place">מכירה, שירות ותיקונים במקום אחד</p>
+        <span class="electroshop-main-promo-btn">
+          <span data-he="לאתר Electroshop" data-en="Visit Electroshop">לאתר Electroshop</span>
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="electroshop-main-promo-logo-wrap">
+        <img class="electroshop-main-promo-logo" src="images/logo.png" alt="Electroshop">
+      </div>
+    </a>
   </div>
 </section>
 
