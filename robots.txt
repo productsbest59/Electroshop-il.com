@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Utility pages use HTML noindex; crawling remains allowed to read it.
 Sitemap: https://electroshop-il.com/sitemap.xml

@@ -1,46 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://electroshop-il.com/</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://electroshop-il.com/privacy.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://electroshop-il.com/terms.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://electroshop-il.com/carholderterms.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://electroshop-il.com/carholderprivacy.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://electroshop-il.com/carholderaccessibility.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://electroshop-il.com/proaudio.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <priority>0.9</priority>
-  </url>
-
+  <url><loc>https://electroshop-il.com/carholder.html</loc></url>
+  <url><loc>https://electroshop-il.com/carholderaccessibility.html</loc></url>
+  <url><loc>https://electroshop-il.com/carholderprivacy.html</loc></url>
+  <url><loc>https://electroshop-il.com/carholderterms.html</loc></url>
+  <url><loc>https://electroshop-il.com/</loc></url>
+  <url><loc>https://electroshop-il.com/privacy.html</loc></url>
+  <url><loc>https://electroshop-il.com/proaudio-accessibility.html</loc></url>
+  <url><loc>https://electroshop-il.com/proaudio-privacy.html</loc></url>
+  <url><loc>https://electroshop-il.com/proaudio-terms.html</loc></url>
+  <url><loc>https://electroshop-il.com/proaudio.html</loc></url>
+  <url><loc>https://electroshop-il.com/shop-car-mounts.html</loc></url>
+  <url><loc>https://electroshop-il.com/shop-chargers-cables.html</loc></url>
+  <url><loc>https://electroshop-il.com/shop-guitars.html</loc></url>
+  <url><loc>https://electroshop-il.com/shop-mobile.html</loc></url>
+  <url><loc>https://electroshop-il.com/shop-pro-audio.html</loc></url>
+  <url><loc>https://electroshop-il.com/shop.html</loc></url>
+  <url><loc>https://electroshop-il.com/terms.html</loc></url>
 </urlset>
