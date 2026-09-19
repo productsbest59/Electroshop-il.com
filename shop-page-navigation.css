@@ -1,0 +1,7 @@
+
+.electroshop-page-navigation{display:flex!important;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;width:100%;box-sizing:border-box;padding:20px 16px;margin:0 auto 20px;position:relative;clear:both;grid-column:1/-1;font:700 16px/1.4 Arial,sans-serif;direction:rtl}
+.electroshop-page-navigation a{display:inline-flex!important;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border:2px solid #ffd400;border-radius:12px;background:#111;color:#ffd400!important;text-decoration:none!important;cursor:pointer;box-sizing:border-box}
+.electroshop-page-navigation a:hover{background:#ffd400;color:#111!important}
+.electroshop-page-navigation a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.electroshop-page-navigation-standalone{padding-top:150px}
+@media(max-width:480px){.electroshop-page-navigation{gap:8px}.electroshop-page-navigation a{padding:10px 14px}}
