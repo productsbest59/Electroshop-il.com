@@ -4,3 +4,31 @@ footer.home-footer{padding:18px 16px 14px!important;margin-top:24px;font-size:13
 
 @media(max-width:650px){#contact.home-contact{scroll-margin-top:105px}}
 #contact.home-contact .contact-box{padding:28px!important}#contact .home-contact-body{display:grid!important;grid-template-columns:minmax(230px,.85fr) minmax(0,1.4fr)!important;align-items:start!important;text-align:start!important;width:100%!important}#contact .home-contact-body>div{width:100%!important;max-width:none!important}#contact .home-contact-heading{display:block!important} @media(max-width:650px){#contact.home-contact .contact-box{padding:20px 16px!important}#contact .home-contact-body{grid-template-columns:1fr!important}}
+
+/* Compact contact layout with social links and dealer logos together. */
+#contact.home-contact{margin:20px auto}
+#contact.home-contact .contact-box{padding:18px 22px!important}
+#contact .home-contact-heading{margin-bottom:12px!important;min-height:0!important}
+#contact .home-contact-heading h2{font-size:24px;margin:0 0 8px!important}
+#contact .home-contact-media{display:flex;direction:ltr;align-items:center;justify-content:flex-start;gap:24px}
+#contact .home-contact-media .socials{direction:rtl;gap:10px!important;flex-wrap:nowrap}
+#contact .home-contact-dealers{margin:0;flex:0 0 auto;text-align:center;line-height:1.3}
+#contact .home-contact-dealers img{display:block;width:170px;height:auto}
+#contact .home-contact-dealers figcaption{color:#ffe200;font-size:12px;margin-top:4px}
+#contact .home-contact-body{gap:20px;min-height:0!important}
+#contact .home-contact-details{font-size:15px;line-height:1.6}
+#contact .home-contact-details h3{font-size:17px;margin-bottom:5px}
+#contact .home-contact-details p{margin:0 0 10px}
+#contact .home-contact-hours{margin-top:10px}
+#contact .contact-form{gap:7px 12px}
+#contact .contact-form label{gap:3px;font-size:13px}
+#contact .contact-form input,#contact .contact-form textarea{padding:8px 10px}
+#contact .contact-form textarea{min-height:76px;height:76px}
+#contact #electroshopContactStatus:empty{display:none}
+#contact .submit-btn{padding:9px 18px}
+footer.home-footer{padding:12px 16px 10px!important;margin-top:16px}
+footer.home-footer .home-footer-links{margin-bottom:5px;gap:2px 16px}
+footer.home-footer .site-credit{margin-top:3px}
+@media(max-width:650px){#contact.home-contact .contact-box{padding:16px 14px!important}#contact .home-contact-media{gap:16px}#contact .home-contact-media .socials{gap:6px!important}#contact .socials .social{width:34px;height:34px;flex-basis:34px;font-size:19px}#contact .home-contact-dealers img{width:130px}#contact .home-contact-dealers figcaption{font-size:11px}#contact .home-contact-body{gap:14px}#contact .home-contact-details{padding-top:12px}#contact .home-contact-heading h2{font-size:22px}#contact .contact-form{grid-template-columns:1fr 1fr}#contact .contact-wide{grid-column:1/-1}}
+@media(max-width:360px){#contact .home-contact-media{gap:10px}#contact .home-contact-dealers img{width:110px}#contact .socials .social{width:32px;height:32px;flex-basis:32px}}
+footer.home-footer{background:transparent!important;color:#111!important;border:0!important;box-shadow:none!important}footer.home-footer a,footer.home-footer .site-credit{color:#111!important}footer.home-footer :focus-visible{outline-color:#111}
