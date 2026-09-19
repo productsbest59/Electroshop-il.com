@@ -1,0 +1,23 @@
+.main-menu-links{overflow-y:auto;min-height:0;overscroll-behavior:contain;padding-bottom:calc(20px + env(safe-area-inset-bottom))!important}
+.main-menu-header{flex-shrink:0}
+.unified-shop summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;list-style:none;padding:14px 16px;border-radius:18px;background:#ffffff0a;border:1px solid #ffffff12;color:#fff;font:700 1rem Arial,sans-serif}
+.unified-shop summary::-webkit-details-marker{display:none}
+.unified-arrow{transition:transform .2s;font-size:24px;line-height:1}
+.unified-shop[open] .unified-arrow{transform:rotate(180deg)}
+.unified-categories{display:flex;flex-direction:column;gap:6px;padding:8px 12px 0}
+.main-menu-links .unified-categories a{font-size:.93rem;padding:11px 12px;border-radius:10px}
+.unified-categories small{color:#ddd;line-height:1.5}
+.main-menu-links [aria-current=page]{border-color:#f2b21b;color:#f2b21b}
+.unified-shop summary:focus-visible,.main-menu-links a:focus-visible{outline:2px solid #f2b21b;outline-offset:2px}
+.unified-menu-toggle{position:fixed;top:12px;right:12px;z-index:999989;border:1px solid #f2b21b80;border-radius:50%;width:48px;height:48px;background:#17120deb;color:#fff;font-size:24px;cursor:pointer}
+.unified-menu-backdrop{position:fixed;inset:0;background:#0007;z-index:999990}
+.unified-menu-backdrop[hidden]{display:none}
+.unified-standalone{position:fixed;top:0;right:0;width:min(340px,86vw);height:100dvh;z-index:999991;background:#111;color:#fff;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .2s;box-shadow:-10px 0 30px #0008}
+.unified-standalone.open{transform:translateX(0);visibility:visible}
+.unified-standalone .main-menu-header{display:flex;justify-content:space-between;align-items:center;padding:18px;color:#f2b21b}
+.unified-standalone .main-menu-close{border:0;background:none;color:#fff;font-size:30px;cursor:pointer}
+.unified-standalone .main-menu-links,.unified-standalone .admin-menu-links{display:flex;flex-direction:column;gap:12px;padding:18px}
+.unified-standalone a{display:block;text-decoration:none;color:#fff;padding:14px 16px;border:1px solid #ffffff12;border-radius:18px;background:#ffffff0a;font:700 1rem Arial,sans-serif}
+.unified-standalone .admin-menu-links[hidden]{display:none!important}
+body.main-menu-is-open .unified-menu-toggle{visibility:hidden}
+body.main-menu-is-open :is(.customer-fab,.float-whatsapp,.float-access,.a11y-fab,.car-a11y-fab,.floating-contact,#a11yFab,#carA11yFab,#accessBtn){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
