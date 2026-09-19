@@ -1,0 +1,140 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>החנות שלנו | אלקטרושופ</title><link rel="icon" href="favicon.ico"><link rel="stylesheet" href="shop-naya-layout.css"><link rel="stylesheet" href="shop-base.css"><link rel="stylesheet" href="shop-theme.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></head><body class="electro-store"><div class="site-topbar">
+    <div class="topbar-left-controls">
+      <div class="language-picker">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="בחירת שפה" aria-expanded="false">🌐</button>
+        <div class="language-menu" id="languageMenu" hidden>
+          <button type="button" data-language="he">עברית</button>
+          <button type="button" data-language="en">English</button>
+        </div>
+      </div>
+      <button id="cartButton" class="store-cart-button" type="button" aria-label="פתיחת סל הקניות">🛒 <span id="cartCount">0</span></button>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mainMenu">☰</button>
+  </div>
+
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <aside class="main-menu" id="mainMenu" aria-hidden="true">
+    <div class="main-menu-header">
+      <div class="main-menu-title" data-he="תפריט" data-en="Menu">תפריט</div>
+      <button class="main-menu-close" id="menuClose" aria-label="סגור תפריט">×</button>
+    </div>
+    <nav class="main-menu-links">
+      
+      <a href="index.html#contact" data-he="צור קשר" data-en="Contact"><span>צור קשר</span></a>
+      <a href="shop.html" data-he="החנות שלנו" data-en="Our store"><span>החנות שלנו</span></a>
+      <a href="terms.html" data-he="תקנון" data-en="Terms"><span>תקנון</span></a>
+      <a href="privacy.html" data-he="פרטיות" data-en="Privacy"><span>פרטיות</span></a>
+      <a href="#" onclick="closeMenu(); document.getElementById('a11yFab').click(); return false;" data-he="נגישות" data-en="Accessibility"><span>נגישות</span></a>
+      <div class="admin-menu-links" id="adminMenuLinks" hidden>
+        <span class="admin-menu-label" data-he="ניהול החנות" data-en="Store management">ניהול החנות</span>
+        <a href="shop-admin.html" data-he="ניהול מוצרים" data-en="Manage products"><span>ניהול מוצרים</span></a>
+        <a href="shop-orders.html" data-he="מעקב הזמנות" data-en="Order tracking"><span>מעקב הזמנות</span></a>
+      </div>
+    </nav>
+  </aside><div class="shop-brand"><a href="index.html"><img src="images/logo.png" alt="אלקטרושופ" width="110" height="110"></a></div><main class="shop-shell"><div class="shop-intro"><span class="eyebrow">ELECTROSHOP / החנות שלנו</span><h1>כל מה שצריך.<br><em>במקום אחד.</em></h1><p>בחרו קטגוריה והיכנסו למוצרים שלה.</p></div><div class="category-grid"><a class="category-tile" href="shop-mobile.html"><span class="category-number">01</span><h2>אביזרי סלולר</h2><p>כיסויים, מגני מסך ואביזרים</p><strong>למוצרים ←</strong></a><a class="category-tile" href="shop-pro-audio.html"><span class="category-number">02</span><h2>פרו אודיו</h2><p>מיקסרים, מיקרופונים וציוד אולפן</p><strong>למוצרים ←</strong></a><a class="category-tile" href="shop-car-mounts.html"><span class="category-number">03</span><h2>תושבות לרכב</h2><p>אחיזה יציבה ונוחה לכל נסיעה</p><strong>למוצרים ←</strong></a><a class="category-tile" href="shop-guitars.html"><span class="category-number">04</span><h2>גיטרות</h2><p>כלי נגינה באיסוף עצמי מהחנות</p><strong>למוצרים ←</strong></a><a class="category-tile" href="shop-chargers-cables.html"><span class="category-number">05</span><h2>מטענים וכבלים</h2><p>טעינה וחיבורים לכל יום</p><strong>למוצרים ←</strong></a></div><section class="store-toolbar" hidden aria-label="חיפוש וסינון מוצרים"><input id="search" aria-label="חיפוש מוצר" type="search" placeholder="חיפוש מוצר"><select id="category"><option value="">כל הקטגוריות</option><option value="mobile">אביזרי סלולר</option><option value="pro-audio">פרו אודיו</option><option value="car-mounts">תושבות לרכב</option><option value="guitars">גיטרות</option><option value="chargers-cables">מטענים וכבלים</option></select></section><section id="products" class="products store-products" hidden></section></main><footer class="shop-footer"><strong>אלקטרושופ • המרכבה 31, חולון</strong><a href="tel:035560073">03-5560073</a><a href="index.html">ראשי</a><a href="terms.html">תקנון</a><a href="privacy.html">פרטיות</a></footer><aside id="cartDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head"><h2>סל הקניות</h2><button id="closeCart" type="button" aria-label="סגירה">×</button></div>
+    <div id="cartLines" class="cart-lines"></div>
+    <div id="cartTotal" class="total"><span>סה״כ לתשלום</span><span>0 ש״ח</span></div>
+    <div class="notice" hidden></div>
+    <div class="cart-actions"><button id="checkout" class="button" type="button">המשך לתשלום</button></div>
+  </aside><script src="shop-navigation.js"></script><script src="shop-catalog.js"></script><script src="shop-store.js"></script><script src="shop-price-safety.js"></script><script src="shop-cart-ui-fix.js"></script><script src="shop-hebrew-arial-enforcer.js"></script><div class="a11y-backdrop" id="a11yBackdrop"></div>
+
+
+<button class="a11y-fab" id="a11yFab" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
+  <i class="fas fa-universal-access"></i>
+</button>
+
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+  <div class="a11y-header">
+    <button class="a11y-close" id="a11yClose" aria-label="סגור">×</button>
+    <div class="a11y-title" id="a11yTitle" data-he="כלי נגישות" data-en="Accessibility Tools">כלי נגישות</div>
+  </div>
+
+  <div class="a11y-body">
+    <div class="a11y-grid">
+      <button class="a11y-card" data-mode="a11y-grayscale">
+        <div class="a11y-icon">◐</div>
+        <div class="a11y-label" data-he="גווני אפור" data-en="Grayscale">גווני אפור</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-dark-mode">
+        <div class="a11y-icon">☾</div>
+        <div class="a11y-label" data-he="ניגודיות הפוכה" data-en="Inverted Contrast">ניגודיות הפוכה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-high-contrast">
+        <div class="a11y-icon">☼</div>
+        <div class="a11y-label" data-he="ניגודיות גבוהה" data-en="High Contrast">ניגודיות גבוהה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-readable-text">
+        <div class="a11y-icon">〰</div>
+        <div class="a11y-label" data-he="טקסט קריא" data-en="Readable Text">טקסט קריא</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-highlight-links">
+        <div class="a11y-icon">🔗</div>
+        <div class="a11y-label" data-he="הדגשת קישורים" data-en="Highlight Links">הדגשת קישורים</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-stop-motion">
+        <div class="a11y-icon">⏸</div>
+        <div class="a11y-label" data-he="עצירת אנימציות" data-en="Stop Animations">עצירת אנימציות</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-large-cursor">
+        <div class="a11y-icon">🖱️</div>
+        <div class="a11y-label" data-he="סמן מוגדל" data-en="Large Cursor">סמן מוגדל</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-text-spacing">
+        <div class="a11y-icon">↔</div>
+        <div class="a11y-label" data-he="ריווח טקסט" data-en="Text Spacing">ריווח טקסט</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-focus-visible">
+        <div class="a11y-icon">▣</div>
+        <div class="a11y-label" data-he="מיקוד ברור" data-en="Visible Focus">מיקוד ברור</div>
+      </button>
+    </div>
+
+    <div class="a11y-section-title" data-he="התאמת גודל גופן" data-en="Adjust Font Size">
+      התאמת גודל גופן
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-slider-row">
+        <button class="a11y-circle-btn" id="fontMinus" aria-label="הקטנת טקסט">-</button>
+        <div class="a11y-bar-wrap">
+          <div class="a11y-value" id="fontValue">100%</div>
+          <div class="a11y-bar"></div>
+        </div>
+        <button class="a11y-circle-btn" id="fontPlus" aria-label="הגדלת טקסט">+</button>
+      </div>
+    </div>
+
+    <div class="a11y-section-title" data-he="איפוס" data-en="Reset">
+      איפוס
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-footer-note"
+           data-he="אפשר להחזיר את כל ההגדרות למצב רגיל"
+           data-en="Restore all settings to default">
+        אפשר להחזיר את כל ההגדרות למצב רגיל
+      </div>
+
+      <button class="a11y-reset"
+              id="a11yReset"
+              data-he="איפוס מלא"
+              data-en="Full Reset"
+              style="width:100%;border:none;border-radius:16px;background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;padding:14px 16px;font-size:1rem;font-weight:800;cursor:pointer;margin-top:14px;box-shadow:0 12px 24px rgba(65,87,230,0.20);">
+        איפוס מלא
+      </button>
+    </div>
+  </div>
+</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script><script type="module" src="shop-preview-notice.js"></script><a class="float-whatsapp" href="https://wa.me/972559299899" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a><script src="shop-image-fallback.js"></script></body></html>

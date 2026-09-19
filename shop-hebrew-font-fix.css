@@ -1,0 +1,15 @@
+/* One consistent Hebrew typeface across every store and management page. */
+html[lang="he"] body,
+html[lang="he"] body :where(h1,h2,h3,h4,h5,h6,p,div,span,a,button,label,input,select,textarea,option,table,thead,tbody,tfoot,tr,th,td,ul,ol,li,dl,dt,dd,details,summary,strong,b,em,small,blockquote,figcaption,legend) {
+  font-family: Tahoma, "Arial Hebrew", Arial, sans-serif !important;
+  font-style: normal !important;
+}
+
+/* Keep icon fonts intact. */
+html[lang="he"] body :where(i.fa,i.fas,i.far,i.fab,i[class^="fa-"],i[class*=" fa-"],.fa-solid,.fa-regular,.fa-brands) {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "Font Awesome 5 Free", "Font Awesome 5 Brands" !important;
+}
+
+#cartDrawer .notice[hidden] {
+  display: none !important;
+}

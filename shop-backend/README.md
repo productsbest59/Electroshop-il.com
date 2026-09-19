@@ -1,0 +1,13 @@
+# Electroshop in the existing Naya Supabase project
+
+Run electroshop-shared-setup.sql once in the Naya project's SQL Editor. This is a single transaction and may be rerun: existing Electroshop products are not overwritten. The old standalone project setup is superseded; numbered files have also been updated to use the new names.
+
+All new application tables are electroshop_admins, electroshop_products, electroshop_product_images, electroshop_product_options, electroshop_orders, electroshop_order_items and electroshop_settings. Trigger functions, indexes and constraints are prefixed. Storage policy names are prefixed and only grant access to the electroshop-product-images bucket. Restrictive write guards pass all other buckets unchanged. Existing Naya grants, policies, triggers, functions and data are not modified.
+
+PostgREST requests target only electroshop_ tables. Nested relation aliases preserve the tested Naya UI data shape. Sessions use a separate browser key, while Supabase Auth and resources are shared. Being a Naya administrator does not automatically grant Electroshop administrator rights, or vice versa.
+
+After installation, explicitly add the intended existing Auth user UUID to electroshop_admins. Do not copy all Naya administrators automatically. Once the migration and administrator have been verified, set databaseReady:true in shop-config.js. Until then the storefront remains a labeled preview and the API blocks database operations. paymentsEnabled remains false, and electroshop_settings.orders_enabled remains false. No checkout, charge or new payment terminal is active.
+
+Installed in Naya project on 2026-09-19. Five existing Electroshop products imported. Administrator electroshopisraelo@gmail.com assigned only to electroshop_admins; one-time password setup handed to the owner separately. databaseReady is true; payments and server order creation remain disabled. Naya table/function/policy fingerprints and product/order counts matched before and after installation. Live transactional product-write check rolled back successfully. Pending: administrator password setup and authenticated UI/media checks, the new terminal, order email endpoint, shipping settings and final payment validation. SQL files do not create or alter authentication users or any Naya payment secrets.
+
+UI source: shop-base.css is the original Naya stylesheet; shop-naya-layout.css and the component/navigation styles preserve source responsive rules. Storefront, checkout, navigation, accessibility and admin files are adapted copies, with branding and the category/featured-product changes. Pickup handling is deferred to the guitar page at the user's request.

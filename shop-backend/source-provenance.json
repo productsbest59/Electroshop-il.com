@@ -1,0 +1,24 @@
+{
+  "source": "naya-jewelry.com",
+  "copiedAt": "2026-09-19T08:37:13.849Z",
+  "files": {
+    "styles.css": "4a4cbe1b089c5efa24b9af54384a6d9cb413ead5b3f5124e2ffc8730db37b9d4",
+    "store.js": "5649b9d72288303d322cc22c9d703d008be1589cbd9efb8daaf9187feb465dc5",
+    "checkout.js": "6c727ccb4859209b1c42923f2534c0c3716c96765a07e945c3f350684277ac3f",
+    "checkout.html": "1ad1472e22415de7f0c8a334c761e446b8a8dab945bb6e666d4ad7b8de755053",
+    "admin.js": "3ca363cb09bc1cafbd7e022ebc9adcbc9beaae05e35e25816aec79fd672964bc",
+    "admin-orders.js": "416e3477e278980ca2ed1a64c59afaaa89ecf06d8a160c4fdc3a3f7ae740e317",
+    "accessibility-dialog-fix.js": "6d8a5f33065b7b3ed8de4ed17a14ce9914022b6e43ec637e35a48b35a8c98be1",
+    "cart-ui-fix.js": "241a70928e384ff88c9feba6b16b1331f0a1d0219658a9a9564868daa4ca9943",
+    "price-safety.js": "e621733cb7daebe93300f18f9c2ff73d177c74310b720ef16ffaea9ad3375156",
+    "hebrew-arial-enforcer.js": "124c66f6497001c104c843a7604b37990266d007649db2aff5ddbae2e3ea8486",
+    "image-fallback.js": "02f61c2d59fe0c0019bd6e375f6239c313b70c325c47fb5c20531babc708b954"
+  },
+  "changes": [
+    "Branding, local filenames and session keys",
+    "Five categories and featured-product filter",
+    "Isolated database configuration and disabled new terminal",
+    "Existing Electroshop products and assets",
+    "Pickup controls deferred at user request"
+  ]
+}

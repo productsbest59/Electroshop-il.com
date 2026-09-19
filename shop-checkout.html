@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <link rel="icon" href="favicon.ico?v=2" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>השלמת הזמנה | ELECTRO</title>
+  
+  <link rel="stylesheet" href="shop-base.css?v=66">
+  <link rel="stylesheet" href="shop-hebrew-font-fix.css?v=4">
+<link rel="stylesheet" href="shop-components.css"><link rel="stylesheet" href="shop-theme.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></head>
+<body class="checkout-page">
+  <header class="site-head"><img class="brand" src="images/logo.png" alt="אלקטרושופ"><a class="button secondary" href="shop.html">חזרה לחנות</a></header>
+  <main class="checkout-shell">
+    <section>
+      <h1>פרטי הרוכש והמשלוח</h1>
+      <div class="notice">התשלום מתבצע בצורה מאובטחת באמצעות Tranzila</div>
+      <form id="checkoutForm" class="checkout-form"><input type="hidden" name="fulfillmentMethod" value="shipping">
+        <label class="field"><span>שם מלא</span><input name="fullName" autocomplete="name" required></label>
+        <label class="field"><span>דואר אלקטרוני</span><input name="email" type="email" autocomplete="email" required></label>
+        <label class="field"><span>טלפון</span><input name="phone" type="tel" autocomplete="tel" required></label>
+        <label class="field"><span>מדינה</span><input name="country" autocomplete="country-name" value="ישראל" list="countryList" required><small>ניתן לבחור מהרשימה או להקליד כל מדינה אחרת</small></label>
+        <datalist id="countryList">
+          <option value="ישראל"><option value="United States"><option value="United Kingdom"><option value="Canada"><option value="Australia"><option value="New Zealand"><option value="Germany"><option value="France"><option value="Italy"><option value="Spain"><option value="Portugal"><option value="Netherlands"><option value="Belgium"><option value="Switzerland"><option value="Austria"><option value="Ireland"><option value="Greece"><option value="Cyprus"><option value="Poland"><option value="Czech Republic"><option value="Romania"><option value="Hungary"><option value="Sweden"><option value="Norway"><option value="Denmark"><option value="Finland"><option value="Thailand"><option value="Japan"><option value="Singapore"><option value="United Arab Emirates"><option value="South Africa"><option value="Brazil"><option value="Mexico"><option value="Argentina">
+        </datalist>
+        <label class="field"><span>עיר</span><input name="city" autocomplete="address-level2" required></label>
+        <label class="field"><span>רחוב ומספר</span><input name="address" autocomplete="street-address" required></label>
+        <label class="field"><span>מיקוד</span><input name="postalCode" autocomplete="postal-code"></label>
+        <label class="field"><span>הערות להזמנה</span><textarea name="notes" rows="4"></textarea></label>
+        <div class="checkout-payment-actions full-button">
+          <button class="button" type="submit" disabled name="paymentProvider" value="tranzila">תשלום מאובטח בכרטיס אשראי</button>
+          <button class="button paypal-button" type="submit" name="paymentProvider" value="paypal" hidden>תשלום עם PayPal בדולרים</button>
+          <div id="paypalButtons" class="paypal-integrated" hidden></div>
+        </div>
+      </form>
+      <div id="message" class="status"></div>
+    </section>
+    <aside class="order-summary"><h2>סיכום הזמנה</h2><div id="summaryLines"></div><div id="summaryTotal" class="total"></div></aside>
+  </main>
+  <script src="shop-catalog.js?v=4"></script>
+  
+  <script src="shop-checkout.js?v=23"></script>
+  <script src="shop-hebrew-arial-enforcer.js?v=3"></script>
+  
+<div class="a11y-backdrop" id="a11yBackdrop"></div>
+
+
+<button class="a11y-fab" id="a11yFab" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
+  <i class="fas fa-universal-access"></i>
+</button>
+
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+  <div class="a11y-header">
+    <button class="a11y-close" id="a11yClose" aria-label="סגור">×</button>
+    <div class="a11y-title" id="a11yTitle" data-he="כלי נגישות" data-en="Accessibility Tools">כלי נגישות</div>
+  </div>
+
+  <div class="a11y-body">
+    <div class="a11y-grid">
+      <button class="a11y-card" data-mode="a11y-grayscale">
+        <div class="a11y-icon">◐</div>
+        <div class="a11y-label" data-he="גווני אפור" data-en="Grayscale">גווני אפור</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-dark-mode">
+        <div class="a11y-icon">☾</div>
+        <div class="a11y-label" data-he="ניגודיות הפוכה" data-en="Inverted Contrast">ניגודיות הפוכה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-high-contrast">
+        <div class="a11y-icon">☼</div>
+        <div class="a11y-label" data-he="ניגודיות גבוהה" data-en="High Contrast">ניגודיות גבוהה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-readable-text">
+        <div class="a11y-icon">〰</div>
+        <div class="a11y-label" data-he="טקסט קריא" data-en="Readable Text">טקסט קריא</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-highlight-links">
+        <div class="a11y-icon">🔗</div>
+        <div class="a11y-label" data-he="הדגשת קישורים" data-en="Highlight Links">הדגשת קישורים</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-stop-motion">
+        <div class="a11y-icon">⏸</div>
+        <div class="a11y-label" data-he="עצירת אנימציות" data-en="Stop Animations">עצירת אנימציות</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-large-cursor">
+        <div class="a11y-icon">🖱️</div>
+        <div class="a11y-label" data-he="סמן מוגדל" data-en="Large Cursor">סמן מוגדל</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-text-spacing">
+        <div class="a11y-icon">↔</div>
+        <div class="a11y-label" data-he="ריווח טקסט" data-en="Text Spacing">ריווח טקסט</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-focus-visible">
+        <div class="a11y-icon">▣</div>
+        <div class="a11y-label" data-he="מיקוד ברור" data-en="Visible Focus">מיקוד ברור</div>
+      </button>
+    </div>
+
+    <div class="a11y-section-title" data-he="התאמת גודל גופן" data-en="Adjust Font Size">
+      התאמת גודל גופן
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-slider-row">
+        <button class="a11y-circle-btn" id="fontMinus" aria-label="הקטנת טקסט">-</button>
+        <div class="a11y-bar-wrap">
+          <div class="a11y-value" id="fontValue">100%</div>
+          <div class="a11y-bar"></div>
+        </div>
+        <button class="a11y-circle-btn" id="fontPlus" aria-label="הגדלת טקסט">+</button>
+      </div>
+    </div>
+
+    <div class="a11y-section-title" data-he="איפוס" data-en="Reset">
+      איפוס
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-footer-note"
+           data-he="אפשר להחזיר את כל ההגדרות למצב רגיל"
+           data-en="Restore all settings to default">
+        אפשר להחזיר את כל ההגדרות למצב רגיל
+      </div>
+
+      <button class="a11y-reset"
+              id="a11yReset"
+              data-he="איפוס מלא"
+              data-en="Full Reset"
+              style="width:100%;border:none;border-radius:16px;background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;padding:14px 16px;font-size:1rem;font-weight:800;cursor:pointer;margin-top:14px;box-shadow:0 12px 24px rgba(65,87,230,0.20);">
+        איפוס מלא
+      </button>
+    </div>
+  </div>
+</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script></body>
+</html>

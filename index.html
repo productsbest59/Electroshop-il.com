@@ -67,7 +67,7 @@
     .contact-line .contact-icon{width:24px;text-align:center;color:#fff;font-size:1.1em}
     .address-block{display:inline-flex;flex-direction:column;align-items:flex-start;text-align:right;line-height:1.55;vertical-align:middle}
     .address-block span{display:block;white-space:nowrap}
-  
+
 
     /* === TRUE FINAL OVERRIDES - Electroshop === */
     .logo{padding:0!important;object-fit:cover!important;object-position:center center!important;transform:scale(1.42)!important;clip-path:circle(50% at 50% 50%)!important;background:#000!important;}
@@ -87,7 +87,7 @@
     .footer-links button.contact-open-trigger{background:transparent!important;border:0!important;color:#fff!important;font-weight:800!important;cursor:pointer!important;padding:0!important;margin:0!important;font:inherit!important;}
     .footer-links button.contact-open-trigger:hover{text-decoration:underline!important;}
 
-  
+
 
     /* === CLEAN POLISHED FINAL PATCH === */
     .access-btn{background:#1877f2!important;color:#fff!important;border:0!important;box-shadow:0 8px 20px rgba(0,0,0,.25)!important;}
@@ -109,7 +109,7 @@
     .footer-links button.contact-open-trigger{font-size:1rem!important;line-height:1.65!important;display:block!important;width:100%!important;text-align:center!important;color:#fff!important;font-weight:800!important;}.footer-links button.contact-open-trigger:hover{text-decoration:underline!important;background:transparent!important;color:#fff!important;}
     .contact-panel{z-index:9999!important;}
 
-  
+
 
 /* ===== FINAL SAFE REPAIR - icons, provider logos, accessibility, contact popups ===== */
 
@@ -271,7 +271,7 @@
   bottom:22px!important;
   top:auto!important;
   right:auto!important;
-  z-index:2147483647!important;
+  z-index:999990!important;
   display:block!important;
   visibility:visible!important;
   opacity:1!important;
@@ -292,14 +292,14 @@
   bottom:64px!important;
   top:auto!important;
   right:auto!important;
-  z-index:2147483647!important;
+  z-index:999990!important;
 }
 #contactPanel{
-  z-index:2147483646!important;
+  z-index:999990!important;
 }
 @media (min-width:901px){
   .accessibility{left:18px!important;bottom:22px!important;}
-  .floating-contact{right:18px!important;bottom:22px!important;position:fixed!important;z-index:2147483645!important;}
+  .floating-contact{right:18px!important;bottom:22px!important;position:fixed!important;z-index:999990!important;}
 }
 @media (max-width:900px){
   .accessibility{left:10px!important;bottom:10px!important;}
@@ -323,7 +323,7 @@ body.high-contrast{
   bottom:18px!important;
   top:auto!important;
   right:auto!important;
-  z-index:2147483647!important;
+  z-index:999990!important;
   display:block!important;
   width:auto!important;
   height:auto!important;
@@ -347,7 +347,7 @@ body.high-contrast{
   bottom:82px!important;
   top:auto!important;
   right:auto!important;
-  z-index:2147483647!important;
+  z-index:999990!important;
 }
 
 .floating-contact{
@@ -356,14 +356,14 @@ body.high-contrast{
   bottom:18px!important;
   top:auto!important;
   left:auto!important;
-  z-index:2147483646!important;
+  z-index:999990!important;
   transform:none!important;
   filter:none!important;
   pointer-events:auto!important;
 }
 
 .contact-panel{
-  z-index:2147483646!important;
+  z-index:999990!important;
   pointer-events:auto!important;
 }
 
@@ -836,18 +836,18 @@ body.high-contrast{
 }
 </style>
 
-</head>
+<link rel="stylesheet" href="shop-components.css"><link rel="stylesheet" href="shop-navigation.css"><link rel="stylesheet" href="shop-theme.css"></head>
 <body>
-<header class="topbar">
+<header class="topbar" hidden aria-hidden="true">
 <nav class="nav">
 <a aria-label="אלקטרושופ דף הבית" class="brand" href="#home">
 <img alt="לוגו אלקטרושופ" class="logo" src="images/logo.png"/>
 <span class="brand-text"><strong>אלקטרושופ</strong><span>מעבדת סלולר ואביזרים</span></span>
 </a>
-<button aria-controls="mainMenu" aria-expanded="false" class="hamb" id="menuBtn">☰</button>
-<div class="menu" id="mainMenu"><button aria-label="סגירת תפריט" class="mobile-menu-close" id="mobileMenuClose" type="button">×</button>
+<button aria-controls="legacyMainMenu" aria-expanded="false" class="hamb" id="legacyMenuToggle">☰</button>
+<div class="menu" id="legacyMainMenu"><button aria-label="סגירת תפריט" class="mobile-menu-close" id="mobileMenuClose" type="button">×</button>
 <a class="active" href="#home">דף הבית</a>
-<a href="#services">שירותים</a>
+<a href="shop.html">החנות שלנו</a><button id="legacyCartButton" type="button">סל קניות <span id="legacyCartCount">0</span></button><a href="#services">שירותים</a>
 <a href="#gallery">תמונות</a>
 <button class="contact-open-trigger" data-contact-trigger="" type="button">צור קשר</button>
 <a href="privacy.html">פרטיות</a>
@@ -855,7 +855,41 @@ body.high-contrast{
 </div>
 </nav>
 </header>
-<main id="home">
+<div class="site-topbar">
+    <div class="topbar-left-controls">
+      <div class="language-picker">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="בחירת שפה" aria-expanded="false">🌐</button>
+        <div class="language-menu" id="languageMenu" hidden>
+          <button type="button" data-language="he">עברית</button>
+          <button type="button" data-language="en">English</button>
+        </div>
+      </div>
+      <button id="cartButton" class="store-cart-button" type="button" aria-label="פתיחת סל הקניות">🛒 <span id="cartCount">0</span></button>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mainMenu">☰</button>
+  </div>
+
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <aside class="main-menu" id="mainMenu" aria-hidden="true">
+    <div class="main-menu-header">
+      <div class="main-menu-title" data-he="תפריט" data-en="Menu">תפריט</div>
+      <button class="main-menu-close" id="menuClose" aria-label="סגור תפריט">×</button>
+    </div>
+    <nav class="main-menu-links">
+
+      <a href="index.html#contact" data-he="צור קשר" data-en="Contact"><span>צור קשר</span></a>
+      <a href="shop.html" data-he="החנות שלנו" data-en="Our store"><span>החנות שלנו</span></a>
+      <a href="terms.html" data-he="תקנון" data-en="Terms"><span>תקנון</span></a>
+      <a href="privacy.html" data-he="פרטיות" data-en="Privacy"><span>פרטיות</span></a>
+      <a href="#" onclick="closeMenu(); document.getElementById('a11yFab').click(); return false;" data-he="נגישות" data-en="Accessibility"><span>נגישות</span></a>
+      <div class="admin-menu-links" id="adminMenuLinks" hidden>
+        <span class="admin-menu-label" data-he="ניהול החנות" data-en="Store management">ניהול החנות</span>
+        <a href="shop-admin.html" data-he="ניהול מוצרים" data-en="Manage products"><span>ניהול מוצרים</span></a>
+        <a href="shop-orders.html" data-he="מעקב הזמנות" data-en="Order tracking"><span>מעקב הזמנות</span></a>
+      </div>
+    </nav>
+  </aside><main id="home">
 <section class="hero container">
 <img alt="אלקטרושופ מעבדת תיקונים סלולר ואביזרים" class="hero-banner" src="images/hero-banner.jpg"/>
 <div class="headline">
@@ -869,7 +903,7 @@ body.high-contrast{
 </div>
 </div>
 </section>
-<section class="section container">
+<section class="section container shop-deals"><h2 class="section-title">מבצעים חמים</h2><p id="catalogStatus" role="status"></p><section class="store-toolbar" hidden aria-label="חיפוש וסינון מוצרים"><input id="search" type="search" placeholder="חיפוש מוצר"><select id="category"><option value="">כל הקטגוריות</option><option value="mobile">אביזרי סלולר</option><option value="pro-audio">פרו אודיו</option><option value="car-mounts">תושבות לרכב</option><option value="guitars">גיטרות</option><option value="chargers-cables">מטענים וכבלים</option></select></section><div id="products" class="products store-products" data-featured="true"></div><p class="shop-all-link"><a class="btn yellow" href="shop.html">לחנות שלנו ←</a></p></section><section class="section container">
 <div class="quick">
 <div class="quick-card"><span class="icon">⚡</span><strong>תיקוני אקספרס</strong><span>תיקון במקום בזמן קצר</span></div>
 <div class="quick-card"><span class="icon">🛡️</span><strong>אחריות על תיקון</strong><span>שקט נפשי ושירות אמין</span></div>
@@ -904,7 +938,7 @@ body.high-contrast{
         <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
       </span>
     </div>
-  
+
     <div class="proaudio-promo-logo-wrap">
       <img class="proaudio-promo-logo" src="images/proaudio-logo.png" alt="" aria-hidden="true">
     </div>
@@ -992,20 +1026,7 @@ body.high-contrast{
 <a href="https://www.instagram.com/electroshop_israel/" rel="noopener" target="_blank"><i class="fa-brands fa-instagram"></i> אינסטגרם</a>
 </div>
 </div>
-<div class="accessibility">
-<button aria-label="פתיחת תפריט נגישות" class="access-btn" onclick="toggleAccess()">♿</button>
-<div class="access-panel" id="accessPanel">
-<h3>נגישות</h3>
-<button onclick="toggleClass('large-text')">הגדלת טקסט</button>
-<button onclick="toggleClass('high-contrast')">ניגודיות גבוהה</button>
-<button onclick="toggleClass('dark-mode')">מצב כהה</button>
-<button onclick="toggleClass('highlight-links')">הדגשת קישורים</button>
-<button onclick="toggleClass('readable-font')">פונט קריא</button>
-<button onclick="toggleClass('bold-text')">טקסט מודגש</button>
-<button onclick="toggleClass('no-motion')">הפחתת תנועה</button>
-<button onclick="resetAccess()">איפוס</button>
-</div>
-</div>
+
 <footer class="footer">
 <div class="footer-grid">
 <div class="footer-col authorized">
@@ -1041,9 +1062,9 @@ body.high-contrast{
 </footer>
 <div class="modal" id="modal"><div class="modal-content" id="modalContent"></div></div>
 <script>
-    const menuBtn=document.getElementById('menuBtn'),mainMenu=document.getElementById('mainMenu');
-    menuBtn.addEventListener('click',()=>{mainMenu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',mainMenu.classList.contains('open'))});
-    document.querySelectorAll('#mainMenu a').forEach(a=>a.addEventListener('click',()=>mainMenu.classList.remove('open')));
+    const legacyMenuToggle=document.getElementById('legacyMenuToggle'),legacyMainMenu=document.getElementById('legacyMainMenu');
+    legacyMenuToggle.addEventListener('click',()=>{legacyMainMenu.classList.toggle('open');legacyMenuToggle.setAttribute('aria-expanded',legacyMainMenu.classList.contains('open'))});
+    document.querySelectorAll('#legacyMainMenu a').forEach(a=>a.addEventListener('click',()=>legacyMainMenu.classList.remove('open')));
     function getContactPanel(){return document.getElementById('contactPanel');}
     function resetContactPanelPosition(){
       const panel=getContactPanel();
@@ -1096,11 +1117,6 @@ body.high-contrast{
       if(panel && panel.classList.contains('open') && !panel.contains(e.target) && !(wrap && wrap.contains(e.target)) && !trigger){panel.classList.remove('open');}
     });
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){const p=getContactPanel();if(p)p.classList.remove('open');}});
-    function toggleAccess(){document.getElementById('accessPanel').classList.toggle('open')}
-    function toggleClass(c){document.body.classList.toggle(c);saveAccess()}
-    function resetAccess(){['large-text','high-contrast','dark-mode','highlight-links','readable-font','bold-text','no-motion'].forEach(c=>document.body.classList.remove(c));localStorage.removeItem('electroAccess')}
-    function saveAccess(){const cls=['large-text','high-contrast','dark-mode','highlight-links','readable-font','bold-text','no-motion'].filter(c=>document.body.classList.contains(c));localStorage.setItem('electroAccess',JSON.stringify(cls))}
-    try{JSON.parse(localStorage.getItem('electroAccess')||'[]').forEach(c=>document.body.classList.add(c))}catch(e){}
     const legal={
       terms:`<button class="close" onclick="closeModal()">×</button><div class="legal"><h2>תקנון האתר</h2><p>ברוכים הבאים לאתר אלקטרושופ. השימוש באתר מהווה הסכמה לתנאי התקנון.</p><ol><li>האתר מיועד להצגת מידע כללי על העסק, השירותים ודרכי יצירת הקשר.</li><li>המידע באתר אינו מהווה התחייבות למחיר, זמינות מוצר או זמן תיקון מדויק. פרטים סופיים יימסרו מול החנות.</li><li>אחריות על תיקונים ניתנת בהתאם לסוג התיקון, החלקים ותנאי השירות שנמסרים ללקוח בעת ביצוע העבודה.</li><li>התמונות באתר להמחשה בלבד.</li><li>העסק רשאי לעדכן את תוכן האתר, השירותים והתקנון מעת לעת.</li></ol><p>לשאלות ניתן ליצור קשר בטלפון 03-5560073 או בוואטסאפ 055-9299899.</p></div>`,
       privacy:`<button class="close" onclick="closeModal()">×</button><div class="legal"><h2>מדיניות פרטיות</h2><p>אלקטרושופ מכבדת את פרטיות המשתמשים באתר.</p><ol><li>האתר עשוי לאפשר יצירת קשר באמצעות טלפון, וואטסאפ, פייסבוק, אינסטגרם, Waze או Google.</li><li>בעת לחיצה על קישורים חיצוניים, השימוש כפוף למדיניות הפרטיות של אותם שירותים.</li><li>איננו מבקשים באתר פרטים רגישים או פרטי תשלום.</li><li>אם תמסרו פרטים דרך ערוצי יצירת קשר, הם ישמשו למענה לפנייתכם בלבד.</li><li>ניתן לפנות אלינו בכל שאלה בנושא פרטיות בטלפון 03-5560073.</li></ol></div>`
@@ -1265,7 +1281,7 @@ body.high-contrast{
       acc.style.bottom = window.innerWidth > 900 ? '22px' : '10px';
       acc.style.top = 'auto';
       acc.style.right = 'auto';
-      acc.style.zIndex = '2147483647';
+      acc.style.zIndex = '999990';
       acc.style.display = 'block';
       acc.style.visibility = 'visible';
       acc.style.opacity = '1';
@@ -1279,7 +1295,7 @@ body.high-contrast{
       fc.style.bottom = window.innerWidth > 900 ? '22px' : '10px';
       fc.style.top = 'auto';
       fc.style.left = 'auto';
-      fc.style.zIndex = '2147483645';
+      fc.style.zIndex = '999990';
     }
   }
 
@@ -1324,7 +1340,7 @@ body.high-contrast{
     p.style.top = '0px';
     p.style.maxHeight = 'none';
     p.style.overflow = 'visible';
-    p.style.zIndex = '2147483646';
+    p.style.zIndex = '999990';
 
     var margin = 12;
     var r = trigger.getBoundingClientRect();
@@ -1391,7 +1407,7 @@ body.high-contrast{
       a.style.bottom = window.innerWidth <= 900 ? '12px' : '18px';
       a.style.top = 'auto';
       a.style.right = 'auto';
-      a.style.zIndex = '2147483647';
+      a.style.zIndex = '999990';
       a.style.display = 'block';
       a.style.transform = 'none';
       a.style.filter = 'none';
@@ -1404,7 +1420,7 @@ body.high-contrast{
       f.style.bottom = window.innerWidth <= 900 ? '12px' : '18px';
       f.style.top = 'auto';
       f.style.left = 'auto';
-      f.style.zIndex = '2147483646';
+      f.style.zIndex = '999990';
       f.style.transform = 'none';
       f.style.filter = 'none';
     }
@@ -1437,7 +1453,7 @@ body.high-contrast{
     p.style.top = 'auto';
     p.style.maxHeight = 'none';
     p.style.overflow = 'visible';
-    p.style.zIndex = '2147483646';
+    p.style.zIndex = '999990';
   }
 
   function openContactNear(trigger,e){
@@ -1455,7 +1471,7 @@ body.high-contrast{
     p.style.top = '0px';
     p.style.maxHeight = 'none';
     p.style.overflow = 'visible';
-    p.style.zIndex = '2147483646';
+    p.style.zIndex = '999990';
 
     var margin = 12;
     var r = trigger.getBoundingClientRect();
@@ -1532,7 +1548,7 @@ body.high-contrast{
     p.style.bottom = '64px';
     p.style.top = 'auto';
     p.style.display = 'block';
-    p.style.zIndex = '2147483646';
+    p.style.zIndex = '999990';
     p.style.maxHeight = 'none';
     p.style.overflow = 'visible';
   }
@@ -1571,15 +1587,15 @@ body.high-contrast{
 <script id="mobile-menu-close-fix-js">
 document.addEventListener('DOMContentLoaded', function(){
   var closeBtn = document.getElementById('mobileMenuClose');
-  var menu = document.getElementById('mainMenu');
-  var menuBtn = document.getElementById('menuBtn');
+  var menu = document.getElementById('legacyMainMenu');
+  var legacyMenuToggle = document.getElementById('legacyMenuToggle');
 
   if(closeBtn && menu){
     closeBtn.addEventListener('click', function(e){
       e.preventDefault();
       e.stopPropagation();
       menu.classList.remove('open');
-      if(menuBtn){ menuBtn.setAttribute('aria-expanded','false'); }
+      if(legacyMenuToggle){ legacyMenuToggle.setAttribute('aria-expanded','false'); }
     });
   }
 });
@@ -1588,8 +1604,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <script id="mobile-menu-clean-v6-js">
 document.addEventListener('DOMContentLoaded', function(){
-  var menu = document.getElementById('mainMenu');
-  var menuBtn = document.getElementById('menuBtn');
+  var menu = document.getElementById('legacyMainMenu');
+  var legacyMenuToggle = document.getElementById('legacyMenuToggle');
   var closeBtn = document.getElementById('mobileMenuClose');
   var nav = document.querySelector('.nav');
 
@@ -1597,15 +1613,15 @@ document.addEventListener('DOMContentLoaded', function(){
     if(!menu || !nav) return;
     if(menu.classList.contains('open')){
       nav.classList.add('menu-is-open');
-      if(menuBtn){ menuBtn.setAttribute('aria-expanded','true'); }
+      if(legacyMenuToggle){ legacyMenuToggle.setAttribute('aria-expanded','true'); }
     }else{
       nav.classList.remove('menu-is-open');
-      if(menuBtn){ menuBtn.setAttribute('aria-expanded','false'); }
+      if(legacyMenuToggle){ legacyMenuToggle.setAttribute('aria-expanded','false'); }
     }
   }
 
-  if(menuBtn){
-    menuBtn.addEventListener('click', function(){
+  if(legacyMenuToggle){
+    legacyMenuToggle.addEventListener('click', function(){
       setTimeout(syncMenuState, 0);
     }, true);
   }
@@ -1632,5 +1648,110 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
-</body>
+<aside id="cartDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head"><h2>סל הקניות</h2><button id="closeCart" type="button" aria-label="סגירה">×</button></div>
+    <div id="cartLines" class="cart-lines"></div>
+    <div id="cartTotal" class="total"><span>סה״כ לתשלום</span><span>0 ש״ח</span></div>
+    <div class="notice" hidden></div>
+    <div class="cart-actions"><button id="checkout" class="button" type="button">המשך לתשלום</button></div>
+  </aside><script src="shop-navigation.js"></script><script src="shop-catalog.js"></script><script src="shop-store.js"></script><script src="shop-price-safety.js"></script><script src="shop-cart-ui-fix.js"></script><script src="shop-hebrew-arial-enforcer.js"></script><div class="a11y-backdrop" id="a11yBackdrop"></div>
+
+
+<button class="a11y-fab" id="a11yFab" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
+  <i class="fas fa-universal-access"></i>
+</button>
+
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+  <div class="a11y-header">
+    <button class="a11y-close" id="a11yClose" aria-label="סגור">×</button>
+    <div class="a11y-title" id="a11yTitle" data-he="כלי נגישות" data-en="Accessibility Tools">כלי נגישות</div>
+  </div>
+
+  <div class="a11y-body">
+    <div class="a11y-grid">
+      <button class="a11y-card" data-mode="a11y-grayscale">
+        <div class="a11y-icon">◐</div>
+        <div class="a11y-label" data-he="גווני אפור" data-en="Grayscale">גווני אפור</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-dark-mode">
+        <div class="a11y-icon">☾</div>
+        <div class="a11y-label" data-he="ניגודיות הפוכה" data-en="Inverted Contrast">ניגודיות הפוכה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-high-contrast">
+        <div class="a11y-icon">☼</div>
+        <div class="a11y-label" data-he="ניגודיות גבוהה" data-en="High Contrast">ניגודיות גבוהה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-readable-text">
+        <div class="a11y-icon">〰</div>
+        <div class="a11y-label" data-he="טקסט קריא" data-en="Readable Text">טקסט קריא</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-highlight-links">
+        <div class="a11y-icon">🔗</div>
+        <div class="a11y-label" data-he="הדגשת קישורים" data-en="Highlight Links">הדגשת קישורים</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-stop-motion">
+        <div class="a11y-icon">⏸</div>
+        <div class="a11y-label" data-he="עצירת אנימציות" data-en="Stop Animations">עצירת אנימציות</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-large-cursor">
+        <div class="a11y-icon">🖱️</div>
+        <div class="a11y-label" data-he="סמן מוגדל" data-en="Large Cursor">סמן מוגדל</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-text-spacing">
+        <div class="a11y-icon">↔</div>
+        <div class="a11y-label" data-he="ריווח טקסט" data-en="Text Spacing">ריווח טקסט</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-focus-visible">
+        <div class="a11y-icon">▣</div>
+        <div class="a11y-label" data-he="מיקוד ברור" data-en="Visible Focus">מיקוד ברור</div>
+      </button>
+    </div>
+
+    <div class="a11y-section-title" data-he="התאמת גודל גופן" data-en="Adjust Font Size">
+      התאמת גודל גופן
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-slider-row">
+        <button class="a11y-circle-btn" id="fontMinus" aria-label="הקטנת טקסט">-</button>
+        <div class="a11y-bar-wrap">
+          <div class="a11y-value" id="fontValue">100%</div>
+          <div class="a11y-bar"></div>
+        </div>
+        <button class="a11y-circle-btn" id="fontPlus" aria-label="הגדלת טקסט">+</button>
+      </div>
+    </div>
+
+    <div class="a11y-section-title" data-he="איפוס" data-en="Reset">
+      איפוס
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-footer-note"
+           data-he="אפשר להחזיר את כל ההגדרות למצב רגיל"
+           data-en="Restore all settings to default">
+        אפשר להחזיר את כל ההגדרות למצב רגיל
+      </div>
+
+      <button class="a11y-reset"
+              id="a11yReset"
+              data-he="איפוס מלא"
+              data-en="Full Reset"
+              style="width:100%;border:none;border-radius:16px;background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;padding:14px 16px;font-size:1rem;font-weight:800;cursor:pointer;margin-top:14px;box-shadow:0 12px 24px rgba(65,87,230,0.20);">
+        איפוס מלא
+      </button>
+    </div>
+  </div>
+</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script><script type="module" src="shop-preview-notice.js"></script><a class="float-whatsapp" href="https://wa.me/972559299899" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a><script src="shop-image-fallback.js"></script></body>
 </html>

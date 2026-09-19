@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <link rel="icon" href="favicon.ico?v=2" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+  <title>Electroshop - ניהול מוצרים</title><link rel="stylesheet" href="shop-base.css?v=67">
+<link rel="stylesheet" href="shop-theme.css"><link rel="stylesheet" href="shop-components.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></head>
+<body>
+  <header class="site-head product-admin-header"><img class="brand" src="images/logo.png" alt="Electroshop"><div class="head-actions"><button id="add" class="button" type="button">+ מוצר חדש</button><a class="button secondary" href="shop.html">תצוגת החנות</a></div></header>
+  <main class="admin-shell"><div class="admin-top"><div><h1>ניהול מוצרים</h1><p>המוצרים נשמרים בחנות</p></div></div><div id="status" class="status"></div><div id="list" class="admin-table"></div></main>
+  <div id="modal" class="modal"><form id="form" class="modal-card">
+    <h2 id="modalTitle">מוצר</h2><input type="hidden" name="id">
+    <div class="form-grid">
+      <label class="field"><span>שם בעברית</span><input name="nameHe" required></label>
+      <label class="field"><span>שם באנגלית</span><input name="nameEn" required></label>
+      <div class="field full rich-field" data-rich-field="descriptionHe"><span>תיאור המוצר בעברית</span><div class="rich-toolbar" role="toolbar"><button type="button" data-command="bold"><b>B</b></button><button type="button" data-command="italic"><i>I</i></button><button type="button" data-command="underline"><u>U</u></button><button type="button" data-command="insertUnorderedList">• רשימה</button><button type="button" data-command="insertOrderedList">1. רשימה</button><button type="button" data-command="createLink">🔗</button><button type="button" data-command="removeFormat">ניקוי</button></div><div class="rich-editor" contenteditable="true" dir="rtl" data-placeholder="תיאור, חומר, מידות ופרטים נוספים"></div><textarea name="descriptionHe" hidden></textarea></div>
+      <div class="field full rich-field" data-rich-field="descriptionEn"><span>תיאור המוצר באנגלית</span><div class="rich-toolbar" role="toolbar"><button type="button" data-command="bold"><b>B</b></button><button type="button" data-command="italic"><i>I</i></button><button type="button" data-command="underline"><u>U</u></button><button type="button" data-command="insertUnorderedList">• List</button><button type="button" data-command="insertOrderedList">1. List</button><button type="button" data-command="createLink">🔗</button><button type="button" data-command="removeFormat">Clear</button></div><div class="rich-editor" contenteditable="true" dir="ltr" data-placeholder="Product description, materials and measurements"></div><textarea name="descriptionEn" hidden></textarea></div>
+      <label class="field"><span>מק״ט</span><input name="sku" required></label>
+      <label class="field"><span>קטגוריה</span><select name="category"><option value="mobile">אביזרי סלולר</option><option value="pro-audio">פרו אודיו</option><option value="car-mounts">תושבות לרכב</option><option value="guitars">גיטרות</option><option value="chargers-cables">מטענים וכבלים</option></select></label>
+      <label class="field"><span>מחיר</span><input name="regularPrice" type="number" min="0" step="0.01" required></label>
+      <label class="field"><span>מחיר מבצע - אופציונלי</span><input name="price" type="number" min="0" step="0.01" placeholder="להשאיר ריק כשאין מבצע"></label>
+      <label class="field"><span>צבעים</span><textarea name="colors" rows="3" placeholder="שחור&#10;לבן"></textarea><small>אפשרות אחת בכל שורה, או הפרדה בפסיק</small></label>
+      <label class="field"><span>מידות</span><textarea name="sizes" rows="3" placeholder="6&#10;7&#10;8"></textarea><small>מידה אחת בכל שורה, או הפרדה בפסיק</small></label>
+      <label class="field full"><span>אפשרויות נוספות - אורך או סגנון</span><textarea name="styles" rows="3" placeholder="USB-C&#10;Lightning"></textarea><small>אפשרות אחת בכל שורה, או הפרדה בפסיק</small></label>
+      <section class="field full variants-editor"><div class="variants-heading"><div><strong>מחירים לפי וריאציה</strong><small>כל שילוב של צבע × מידה × אפשרות יקבל שורה. מחיר ריק ישתמש במחיר הרגיל.</small></div><button id="generateVariants" class="button secondary" type="button">יצירת כל השילובים</button></div><div id="variantsList" class="variants-list"></div></section>
+      <label class="field full upload-field"><span>תמונה ראשית של המוצר</span><input id="primaryImageFile" type="file" accept="image/*"><small>תמונה זו תופיע בכרטיס המוצר ובעגלה</small></label><div id="primaryImagePreview" class="image-preview field full"></div>
+      <label class="field full upload-field"><span>תמונות נוספות</span><input id="additionalImageFiles" type="file" accept="image/*" multiple><small>לכל תמונה אפשר לשייך צבע; בחירת הצבע בחנות תחליף אליה.</small></label><div id="additionalImagesPreview" class="image-preview field full"></div>
+      <div class="field full checks"><label><input name="featured" type="checkbox"> מבצע חם בדף הבית</label><label><input name="active" type="checkbox"> מוצר מוצג בחנות</label></div>
+    </div>
+    <div class="modal-actions"><div id="formStatus" class="status form-status" role="status" aria-live="polite"></div><button type="button" id="cancel" class="button secondary">ביטול</button><button class="button">שמירה</button></div>
+  </form></div>
+  <script src="shop-admin.js?v=20"></script>
+<div class="a11y-backdrop" id="a11yBackdrop"></div>
+
+
+<button class="a11y-fab" id="a11yFab" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
+  <i class="fas fa-universal-access"></i>
+</button>
+
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+  <div class="a11y-header">
+    <button class="a11y-close" id="a11yClose" aria-label="סגור">×</button>
+    <div class="a11y-title" id="a11yTitle" data-he="כלי נגישות" data-en="Accessibility Tools">כלי נגישות</div>
+  </div>
+
+  <div class="a11y-body">
+    <div class="a11y-grid">
+      <button class="a11y-card" data-mode="a11y-grayscale">
+        <div class="a11y-icon">◐</div>
+        <div class="a11y-label" data-he="גווני אפור" data-en="Grayscale">גווני אפור</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-dark-mode">
+        <div class="a11y-icon">☾</div>
+        <div class="a11y-label" data-he="ניגודיות הפוכה" data-en="Inverted Contrast">ניגודיות הפוכה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-high-contrast">
+        <div class="a11y-icon">☼</div>
+        <div class="a11y-label" data-he="ניגודיות גבוהה" data-en="High Contrast">ניגודיות גבוהה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-readable-text">
+        <div class="a11y-icon">〰</div>
+        <div class="a11y-label" data-he="טקסט קריא" data-en="Readable Text">טקסט קריא</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-highlight-links">
+        <div class="a11y-icon">🔗</div>
+        <div class="a11y-label" data-he="הדגשת קישורים" data-en="Highlight Links">הדגשת קישורים</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-stop-motion">
+        <div class="a11y-icon">⏸</div>
+        <div class="a11y-label" data-he="עצירת אנימציות" data-en="Stop Animations">עצירת אנימציות</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-large-cursor">
+        <div class="a11y-icon">🖱️</div>
+        <div class="a11y-label" data-he="סמן מוגדל" data-en="Large Cursor">סמן מוגדל</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-text-spacing">
+        <div class="a11y-icon">↔</div>
+        <div class="a11y-label" data-he="ריווח טקסט" data-en="Text Spacing">ריווח טקסט</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-focus-visible">
+        <div class="a11y-icon">▣</div>
+        <div class="a11y-label" data-he="מיקוד ברור" data-en="Visible Focus">מיקוד ברור</div>
+      </button>
+    </div>
+
+    <div class="a11y-section-title" data-he="התאמת גודל גופן" data-en="Adjust Font Size">
+      התאמת גודל גופן
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-slider-row">
+        <button class="a11y-circle-btn" id="fontMinus" aria-label="הקטנת טקסט">-</button>
+        <div class="a11y-bar-wrap">
+          <div class="a11y-value" id="fontValue">100%</div>
+          <div class="a11y-bar"></div>
+        </div>
+        <button class="a11y-circle-btn" id="fontPlus" aria-label="הגדלת טקסט">+</button>
+      </div>
+    </div>
+
+    <div class="a11y-section-title" data-he="איפוס" data-en="Reset">
+      איפוס
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-footer-note"
+           data-he="אפשר להחזיר את כל ההגדרות למצב רגיל"
+           data-en="Restore all settings to default">
+        אפשר להחזיר את כל ההגדרות למצב רגיל
+      </div>
+
+      <button class="a11y-reset"
+              id="a11yReset"
+              data-he="איפוס מלא"
+              data-en="Full Reset"
+              style="width:100%;border:none;border-radius:16px;background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;padding:14px 16px;font-size:1rem;font-weight:800;cursor:pointer;margin-top:14px;box-shadow:0 12px 24px rgba(65,87,230,0.20);">
+        איפוס מלא
+      </button>
+    </div>
+  </div>
+</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script></body>
+</html>

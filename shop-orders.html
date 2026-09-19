@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <link rel="icon" href="favicon.ico?v=2" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Electroshop - ניהול הזמנות</title>
+  <link rel="stylesheet" href="shop-base.css?v=52">
+  
+<link rel="stylesheet" href="shop-theme.css"><link rel="stylesheet" href="shop-components.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></head>
+<body>
+  <header class="site-head">
+    <img class="brand" src="images/logo.png" alt="Electroshop">
+    <div class="head-actions">
+      <a class="button secondary" href="shop-admin.html">ניהול מוצרים</a>
+      <a class="button secondary" href="shop.html">החנות</a>
+    </div>
+  </header>
+  <main class="admin-shell">
+    <div class="admin-top">
+      <div><h1>ניהול הזמנות</h1><p>תשלום ומשלוח מנוהלים בנפרד כדי למנוע טעויות</p></div>
+    </div>
+    <div class="orders-toolbar">
+      <input id="orderSearch" type="search" placeholder="חיפוש לפי מספר הזמנה, שם, טלפון או אימייל">
+      <input id="orderDate" type="date" aria-label="סינון לפי תאריך">
+      <select id="paymentFilter"><option value="">כל מצבי התשלום</option><option value="paid">שולם</option><option value="pending">ממתין לתשלום</option><option value="failed">נכשל</option><option value="refunded">הוחזר</option></select>
+      <select id="fulfillmentFilter"><option value="">כל מצבי הטיפול</option><option value="new">הזמנה חדשה</option><option value="preparing">בהכנה</option><option value="awaiting_shipment">ממתין למשלוח</option><option value="ready_for_pickup">מוכן לאיסוף</option><option value="collected">נאסף</option><option value="shipped">נשלח</option><option value="delivered">נמסר</option><option value="returning">נשלח בחזרה</option><option value="returned">הוחזר</option><option value="cancelled">בוטל</option></select>
+    </div>
+    <div class="orders-table-head"><span></span><span>מספר הזמנה</span><span>לקוח</span><span>טלפון</span><span>סכום כולל</span><span>תאריך ושעה</span><span>מצב תשלום</span><span>טיפול ומשלוח</span></div>
+    <div id="orderList" class="orders-list"></div>
+  </main>
+  
+  <script src="shop-admin-orders.js?v=39"></script>
+<div class="a11y-backdrop" id="a11yBackdrop"></div>
+
+
+<button class="a11y-fab" id="a11yFab" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
+  <i class="fas fa-universal-access"></i>
+</button>
+
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+  <div class="a11y-header">
+    <button class="a11y-close" id="a11yClose" aria-label="סגור">×</button>
+    <div class="a11y-title" id="a11yTitle" data-he="כלי נגישות" data-en="Accessibility Tools">כלי נגישות</div>
+  </div>
+
+  <div class="a11y-body">
+    <div class="a11y-grid">
+      <button class="a11y-card" data-mode="a11y-grayscale">
+        <div class="a11y-icon">◐</div>
+        <div class="a11y-label" data-he="גווני אפור" data-en="Grayscale">גווני אפור</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-dark-mode">
+        <div class="a11y-icon">☾</div>
+        <div class="a11y-label" data-he="ניגודיות הפוכה" data-en="Inverted Contrast">ניגודיות הפוכה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-high-contrast">
+        <div class="a11y-icon">☼</div>
+        <div class="a11y-label" data-he="ניגודיות גבוהה" data-en="High Contrast">ניגודיות גבוהה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-readable-text">
+        <div class="a11y-icon">〰</div>
+        <div class="a11y-label" data-he="טקסט קריא" data-en="Readable Text">טקסט קריא</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-highlight-links">
+        <div class="a11y-icon">🔗</div>
+        <div class="a11y-label" data-he="הדגשת קישורים" data-en="Highlight Links">הדגשת קישורים</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-stop-motion">
+        <div class="a11y-icon">⏸</div>
+        <div class="a11y-label" data-he="עצירת אנימציות" data-en="Stop Animations">עצירת אנימציות</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-large-cursor">
+        <div class="a11y-icon">🖱️</div>
+        <div class="a11y-label" data-he="סמן מוגדל" data-en="Large Cursor">סמן מוגדל</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-text-spacing">
+        <div class="a11y-icon">↔</div>
+        <div class="a11y-label" data-he="ריווח טקסט" data-en="Text Spacing">ריווח טקסט</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-focus-visible">
+        <div class="a11y-icon">▣</div>
+        <div class="a11y-label" data-he="מיקוד ברור" data-en="Visible Focus">מיקוד ברור</div>
+      </button>
+    </div>
+
+    <div class="a11y-section-title" data-he="התאמת גודל גופן" data-en="Adjust Font Size">
+      התאמת גודל גופן
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-slider-row">
+        <button class="a11y-circle-btn" id="fontMinus" aria-label="הקטנת טקסט">-</button>
+        <div class="a11y-bar-wrap">
+          <div class="a11y-value" id="fontValue">100%</div>
+          <div class="a11y-bar"></div>
+        </div>
+        <button class="a11y-circle-btn" id="fontPlus" aria-label="הגדלת טקסט">+</button>
+      </div>
+    </div>
+
+    <div class="a11y-section-title" data-he="איפוס" data-en="Reset">
+      איפוס
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-footer-note"
+           data-he="אפשר להחזיר את כל ההגדרות למצב רגיל"
+           data-en="Restore all settings to default">
+        אפשר להחזיר את כל ההגדרות למצב רגיל
+      </div>
+
+      <button class="a11y-reset"
+              id="a11yReset"
+              data-he="איפוס מלא"
+              data-en="Full Reset"
+              style="width:100%;border:none;border-radius:16px;background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;padding:14px 16px;font-size:1rem;font-weight:800;cursor:pointer;margin-top:14px;box-shadow:0 12px 24px rgba(65,87,230,0.20);">
+        איפוס מלא
+      </button>
+    </div>
+  </div>
+</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script></body>
+</html>
