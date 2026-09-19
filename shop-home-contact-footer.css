@@ -1,34 +1,35 @@
-#contact.home-contact{margin:28px auto;padding:0;scroll-margin-top:140px}#contact.home-contact .contact-box{display:block;padding:28px;border-radius:22px;background:#101010;gap:0}#contact .home-contact-heading{text-align:center;margin-bottom:22px}#contact .home-contact-heading h2{font-size:26px;margin:0 0 14px}#contact .socials{display:flex;justify-content:center;align-items:center;gap:12px;margin:0}#contact .socials .social{width:44px;height:44px;font-size:22px;flex:0 0 44px}#contact .home-contact-body{display:grid;grid-template-columns:minmax(230px,.85fr) minmax(0,1.4fr);gap:30px;align-items:start}#contact .home-contact-details{font-size:16px;line-height:1.75;min-width:0}#contact .home-contact-details h3{color:#ffe200;font-size:18px;margin:0 0 8px}#contact .home-contact-details p{margin:0 0 16px}#contact .home-contact-details a{overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:4px}#contact .home-contact-whatsapp{display:inline-block;color:#ffd400}#contact .electroshop-contact-zone{background:none;color:#fff;padding:0;scroll-margin-top:150px}#contact .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin:0}#contact .contact-form label{display:grid;gap:5px;font-size:14px;font-weight:700}#contact .contact-form input,#contact .contact-form textarea{padding:10px 12px;font:16px Arial;min-width:0}#contact .contact-form textarea{min-height:100px}#contact .contact-wide,#contact #electroshopContactStatus{grid-column:1/-1}#contact .contact-privacy-note{font-size:12px;line-height:1.6;color:#ddd;margin:0}#contact .contact-privacy-note a{color:#ffdf00;text-decoration:underline}#contact .submit-btn{padding:10px 20px;width:auto;justify-self:start;min-width:140px}#contact .home-contact-hours{margin-top:18px}
-footer.home-footer{padding:18px 16px 14px!important;margin-top:24px;font-size:13px;line-height:1.5}footer.home-footer .home-footer-dealers{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 14px;font-size:12px;color:#ffdf00}footer.home-footer .home-footer-dealers img{display:block;width:150px;max-width:45vw;height:auto}footer.home-footer .home-footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 18px;margin-bottom:12px}footer.home-footer .home-footer-links a{margin:0;font-size:13px;min-height:30px;display:inline-flex;align-items:center}footer.home-footer .home-footer-copyright{margin:0;font-size:13px}footer.home-footer .site-credit{margin:5px 0 0;font-size:11px;color:#c2c2c2}footer.home-footer .site-credit a{margin:0;text-decoration:underline}footer.home-footer :focus-visible{outline:2px solid #ffd400;outline-offset:4px}
-@media(max-width:650px){#contact.home-contact .contact-box{padding:20px 16px}#contact .home-contact-body{grid-template-columns:1fr;gap:24px}#contact .electroshop-contact-zone{grid-row:1}#contact .home-contact-details{border-top:1px solid #ffffff26;padding-top:18px}#contact .home-contact-heading h2{font-size:24px}#contact .contact-form{grid-template-columns:1fr}#contact .contact-wide{grid-column:auto}#contact .home-contact-heading{margin-bottom:18px}footer.home-footer .home-footer-links{gap:2px 14px}#contact.home-contact{scroll-margin-top:20px}#contact .electroshop-contact-zone{scroll-margin-top:20px}}
-
-@media(max-width:650px){#contact.home-contact{scroll-margin-top:105px}}
-#contact.home-contact .contact-box{padding:28px!important}#contact .home-contact-body{display:grid!important;grid-template-columns:minmax(230px,.85fr) minmax(0,1.4fr)!important;align-items:start!important;text-align:start!important;width:100%!important}#contact .home-contact-body>div{width:100%!important;max-width:none!important}#contact .home-contact-heading{display:block!important} @media(max-width:650px){#contact.home-contact .contact-box{padding:20px 16px!important}#contact .home-contact-body{grid-template-columns:1fr!important}}
-
-/* Compact contact layout with social links and dealer logos together. */
-#contact.home-contact{margin:20px auto}
-#contact.home-contact .contact-box{padding:18px 22px!important}
-#contact .home-contact-heading{margin-bottom:12px!important;min-height:0!important}
-#contact .home-contact-heading h2{font-size:24px;margin:0 0 8px!important}
-#contact .home-contact-media{display:flex;direction:ltr;align-items:center;justify-content:flex-start;gap:24px}
-#contact .home-contact-media .socials{direction:rtl;gap:10px!important;flex-wrap:nowrap}
-#contact .home-contact-dealers{margin:0;flex:0 0 auto;text-align:center;line-height:1.3}
-#contact .home-contact-dealers img{display:block;width:170px;height:auto}
+#contact.home-contact{width:min(960px,94%);margin:20px auto;padding:0;scroll-margin-top:135px}
+#contact .home-contact-title{color:#111;text-align:center;font-size:26px;line-height:1.3;margin:0 0 12px}
+#contact.home-contact .contact-box{display:block;padding:18px!important;border-radius:20px;background:#101010;gap:0!important}
+#contact .home-contact-body{display:grid!important;grid-template-columns:minmax(290px,.9fr) minmax(0,1.3fr)!important;gap:22px;align-items:stretch!important;text-align:start;width:100%;min-height:0}
+#contact .home-contact-info{display:flex;flex-direction:column;min-width:0;gap:16px}
+#contact .home-contact-media{display:flex;flex-direction:column;align-items:center;gap:12px}
+#contact .socials{display:flex;justify-content:center;align-items:center;gap:10px;margin:0;flex-wrap:nowrap}
+#contact .socials .social{width:40px;height:40px;flex:0 0 40px;font-size:22px}
+#contact .home-contact-dealers{margin:0;text-align:center;line-height:1.3}
+#contact .home-contact-dealers img{display:block;width:175px;height:auto}
 #contact .home-contact-dealers figcaption{color:#ffe200;font-size:12px;margin-top:4px}
-#contact .home-contact-body{gap:20px;min-height:0!important}
-#contact .home-contact-details{font-size:15px;line-height:1.6}
-#contact .home-contact-details h3{font-size:17px;margin-bottom:5px}
-#contact .home-contact-details p{margin:0 0 10px}
-#contact .home-contact-hours{margin-top:10px}
-#contact .contact-form{gap:7px 12px}
-#contact .contact-form label{gap:3px;font-size:13px}
-#contact .contact-form input,#contact .contact-form textarea{padding:8px 10px}
+#contact .home-contact-details{display:grid;grid-template-columns:1.05fr 1fr;gap:12px;margin-top:auto;font-size:14px;line-height:1.65;min-width:0;text-align:right}
+#contact .home-contact-details h3{color:#ffe200;font-size:15px;line-height:1.4;margin:0 0 5px}
+#contact .home-contact-details p{margin:0 0 5px}
+#contact .home-contact-details a{text-decoration:underline;text-underline-offset:4px}
+#contact .home-contact-hours{margin:0}
+#contact .electroshop-contact-zone{background:none;color:#fff;padding:0;margin:0;min-width:0;scroll-margin-top:135px}
+#contact .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;margin:0}
+#contact .contact-form label{display:grid;gap:3px;font-size:13px;font-weight:700}
+#contact .contact-form input,#contact .contact-form textarea{padding:8px 10px;font:16px Arial;min-width:0}
 #contact .contact-form textarea{min-height:76px;height:76px}
+#contact .contact-wide,#contact #electroshopContactStatus{grid-column:1/-1}
 #contact #electroshopContactStatus:empty{display:none}
-#contact .submit-btn{padding:9px 18px}
-footer.home-footer{padding:12px 16px 10px!important;margin-top:16px}
-footer.home-footer .home-footer-links{margin-bottom:5px;gap:2px 16px}
-footer.home-footer .site-credit{margin-top:3px}
-@media(max-width:650px){#contact.home-contact .contact-box{padding:16px 14px!important}#contact .home-contact-media{gap:16px}#contact .home-contact-media .socials{gap:6px!important}#contact .socials .social{width:34px;height:34px;flex-basis:34px;font-size:19px}#contact .home-contact-dealers img{width:130px}#contact .home-contact-dealers figcaption{font-size:11px}#contact .home-contact-body{gap:14px}#contact .home-contact-details{padding-top:12px}#contact .home-contact-heading h2{font-size:22px}#contact .contact-form{grid-template-columns:1fr 1fr}#contact .contact-wide{grid-column:1/-1}}
-@media(max-width:360px){#contact .home-contact-media{gap:10px}#contact .home-contact-dealers img{width:110px}#contact .socials .social{width:32px;height:32px;flex-basis:32px}}
-footer.home-footer{background:transparent!important;color:#111!important;border:0!important;box-shadow:none!important}footer.home-footer a,footer.home-footer .site-credit{color:#111!important}footer.home-footer :focus-visible{outline-color:#111}
+#contact .contact-privacy-note{font-size:12px;line-height:1.5;color:#ddd;margin:0}
+#contact .contact-privacy-note a{color:#ffdf00;text-decoration:underline}
+#contact .submit-btn{padding:9px 18px;width:auto;justify-self:start;min-width:130px}
+footer.home-footer{background:transparent!important;color:#111!important;border:0!important;box-shadow:none!important;padding:12px 16px 10px!important;margin-top:16px;font-size:13px;line-height:1.5}
+footer.home-footer .home-footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:2px 16px;margin-bottom:5px}
+footer.home-footer .home-footer-links a{margin:0;font-size:13px;min-height:30px;display:inline-flex;align-items:center}
+footer.home-footer .home-footer-copyright{margin:0;font-size:13px}
+footer.home-footer .site-credit{margin:3px 0 0;font-size:11px}
+footer.home-footer a,footer.home-footer .site-credit{color:#111!important}
+footer.home-footer .site-credit a{margin:0;text-decoration:underline}
+footer.home-footer :focus-visible{outline:2px solid #111;outline-offset:4px}
+@media(max-width:700px){#contact.home-contact{width:min(520px,94%);scroll-margin-top:105px}#contact.home-contact .contact-box{padding:14px!important}#contact .home-contact-body{grid-template-columns:1fr!important;gap:18px}#contact .electroshop-contact-zone{grid-row:1}#contact .home-contact-info{gap:12px;border-top:1px solid #ffffff26;padding-top:14px}#contact .home-contact-title{font-size:24px;margin-bottom:10px}#contact .home-contact-details{font-size:13px;gap:10px}#contact .home-contact-details h3{font-size:14px}#contact .home-contact-dealers img{width:155px}}
