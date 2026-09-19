@@ -24,7 +24,7 @@ body.electro-store,body.checkout-page,body:has(.admin-shell),body:has(.login-she
 .store-products .product .button,.store-products .product .add,.product-detail-add{cursor:pointer!important}
 .store-products .product button:disabled,.product-detail-add:disabled{cursor:not-allowed!important}
 /* Keep the original Electroshop header clear of the shared store controls. */
-body:has(>header.topbar) >header.topbar{margin-top:82px}
+
 body:has(>header.topbar) #home{padding-top:0}
 .shop-return-links{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}.shop-return-links a{padding:10px 18px;border:1px solid #ffd400;border-radius:12px;color:#ffd400;text-decoration:none}
 /* Stack cart above language and reserve space above the original header. */
@@ -32,11 +32,17 @@ body:has(>header.topbar) #home{padding-top:0}
 .site-topbar .topbar-left-controls{display:flex!important;flex-direction:column!important;align-items:center!important;gap:8px!important}
 .site-topbar .topbar-left-controls .store-cart-button{order:0!important;margin:0!important}
 .site-topbar .topbar-left-controls .language-picker{order:1!important}
-body:has(>header.topbar) >header.topbar{margin-top:132px}
-body:has(>header.topbar) >header.topbar{margin-top:164px}
-body:has(>header.topbar) >header.topbar{margin-top:164px!important}
+
+
+
 /* Keep every management link reachable within short/mobile viewports. */
 .main-menu{display:flex!important;flex-direction:column!important;overflow:hidden!important;box-sizing:border-box}
 .main-menu-header{flex:0 0 auto}
 .main-menu-links{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-bottom:calc(100px + env(safe-area-inset-bottom))!important;-webkit-overflow-scrolling:touch}
 .main-menu-links>a,.main-menu-links .admin-menu-links{flex-shrink:0}
+
+/* Align the homepage header with the top of the page. */
+body:has(>header.topbar){padding-top:0!important}
+body:has(>header.topbar)>header.topbar{position:sticky!important;top:0!important;margin-top:0!important}
+body:has(>header.topbar)>header.topbar .nav{padding-inline:76px}
+@media(max-width:600px){body:has(>header.topbar)>header.topbar .nav{padding-inline:64px;min-height:126px}}

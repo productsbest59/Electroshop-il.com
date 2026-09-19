@@ -9,22 +9,22 @@
   
   <link rel="stylesheet" href="shop-base.css?v=66">
   <link rel="stylesheet" href="shop-hebrew-font-fix.css?v=4">
-<link rel="stylesheet" href="shop-components.css"><link rel="stylesheet" href="shop-theme.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="shop-components.css"><link rel="stylesheet" href="shop-theme.css?v=top-header-3"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <meta name="description" content="השלמת הזמנה | ELECTRO. מידע ללקוחות אלקטרושופ על תנאי השימוש והשירות באתר.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://electroshop-il.com/shop-checkout.html">
-<link rel="stylesheet" href="shop-contact.css"><link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-header.css"><link rel="stylesheet" href="shop-menu-visibility.css"></head>
+<link rel="stylesheet" href="shop-contact.css"><link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-header.css?v=home-brand-3"><link rel="stylesheet" href="shop-menu-visibility.css"></head>
 <body class="checkout-page">
   <header class="electroshop-header"><a class="electroshop-header-brand" href="index.html" aria-label="אלקטרושופ — דף הבית"><img src="images/logo.png" alt="לוגו אלקטרושופ" width="96" height="96"><span><strong data-he="אלקטרושופ" data-en="Electroshop">אלקטרושופ</strong><span data-he="מעבדת סלולר ואביזרים" data-en="Phone repairs and accessories">מעבדת סלולר ואביזרים</span></span></a><nav class="electroshop-header-links" aria-label="ניווט ראשי"><a href="index.html" data-he="דף הבית" data-en="Home">דף הבית</a><a href="shop.html" data-he="החנות שלנו" data-en="Our store">החנות שלנו</a><a href="index.html#contact" data-he="צור קשר" data-en="Contact">צור קשר</a></nav><div class="electroshop-header-actions"><a class="button secondary" href="shop.html">חזרה לחנות</a></div></header>
   <main class="checkout-shell"><nav class="electroshop-page-navigation" aria-label="ניווט באתר"><a href="index.html" data-he="דף הבית" data-en="Home">דף הבית</a><a href="shop.html" data-he="כל הקטגוריות" data-en="All categories">כל הקטגוריות</a></nav>
     <section>
       <h1>פרטי הרוכש והמשלוח</h1>
-      <div class="notice">התשלום מתבצע בצורה מאובטחת באמצעות Tranzila</div>
+      <div class="notice">תשלום בביט • משלוח חינם • אישור התשלום ידני</div>
       <form id="checkoutForm" class="checkout-form"><input type="hidden" name="fulfillmentMethod" value="shipping">
         <label class="field"><span>שם מלא</span><input name="fullName" autocomplete="name" required></label>
         <label class="field"><span>דואר אלקטרוני</span><input name="email" type="email" autocomplete="email" required></label>
         <label class="field"><span>טלפון</span><input name="phone" type="tel" autocomplete="tel" required></label>
-        <label class="field"><span>מדינה</span><input name="country" autocomplete="country-name" value="ישראל" list="countryList" required><small>ניתן לבחור מהרשימה או להקליד כל מדינה אחרת</small></label>
+        <label class="field"><span>מדינה</span><input name="country" autocomplete="country-name" value="ישראל" readonly required><small>משלוח חינם בישראל</small></label>
         <datalist id="countryList">
           <option value="ישראל"><option value="United States"><option value="United Kingdom"><option value="Canada"><option value="Australia"><option value="New Zealand"><option value="Germany"><option value="France"><option value="Italy"><option value="Spain"><option value="Portugal"><option value="Netherlands"><option value="Belgium"><option value="Switzerland"><option value="Austria"><option value="Ireland"><option value="Greece"><option value="Cyprus"><option value="Poland"><option value="Czech Republic"><option value="Romania"><option value="Hungary"><option value="Sweden"><option value="Norway"><option value="Denmark"><option value="Finland"><option value="Thailand"><option value="Japan"><option value="Singapore"><option value="United Arab Emirates"><option value="South Africa"><option value="Brazil"><option value="Mexico"><option value="Argentina">
         </datalist>
@@ -33,7 +33,7 @@
         <label class="field"><span>מיקוד</span><input name="postalCode" autocomplete="postal-code"></label>
         <label class="field"><span>הערות להזמנה</span><textarea name="notes" rows="4"></textarea></label>
         <div class="checkout-payment-actions full-button">
-          <button class="button" type="submit" disabled name="paymentProvider" value="tranzila">תשלום מאובטח בכרטיס אשראי</button>
+          <button class="button" type="submit" disabled name="paymentProvider" value="bit">שמירת הזמנה והמשך לביט</button>
           <button class="button paypal-button" type="submit" name="paymentProvider" value="paypal" hidden>תשלום עם PayPal בדולרים</button>
           <div id="paypalButtons" class="paypal-integrated" hidden></div>
         </div>
@@ -44,7 +44,7 @@
   </main>
   <script src="shop-catalog.js?v=4"></script>
   
-  <script src="shop-checkout.js?v=23"></script>
+  <script type="module" src="shop-bit-checkout.js"></script>
   <script src="shop-hebrew-arial-enforcer.js?v=3"></script>
   
 <div class="a11y-backdrop" id="a11yBackdrop"></div>

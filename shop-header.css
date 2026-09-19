@@ -20,3 +20,16 @@
 body:has(>.electroshop-header){padding-top:0!important}
 .electroshop-header{top:0!important;margin-top:0!important}
 body:has(>.electroshop-header) .site-topbar{top:12px!important}
+/* Shared Electroshop home background on all new store pages. */
+body:has(>.electroshop-header){background-color:#ff9b00!important;background-image:linear-gradient(180deg,rgba(255,142,0,.92),rgba(255,226,0,.96) 38%,rgba(255,180,0,.92)),url('images/background.png')!important;background-size:cover!important;background-attachment:fixed!important;background-position:center!important}
+body:has(>.electroshop-header)::before{content:none!important;display:none!important}
+body:has(>.electroshop-header) .shop-intro h1{color:#080808;text-shadow:none}
+body:has(>.electroshop-header) .shop-intro em{color:#080808}
+body:has(>.electroshop-header) .shop-intro p,body:has(>.electroshop-header) .eyebrow,body:has(>.electroshop-header) .breadcrumb{color:#222}
+/* Match the existing homepage brand exactly. */
+.electroshop-header-brand{flex-direction:row!important;text-align:right;gap:12px}
+.electroshop-header-brand img{width:86px!important;height:86px!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:0!important;object-fit:contain!important;transform:none!important;clip-path:none!important;flex:0 0 auto!important}
+@media(max-width:900px){.electroshop-header-brand img{width:72px!important;height:72px!important}}
+@media(max-width:560px){.electroshop-header-brand img{width:62px!important;height:62px!important}.electroshop-header-brand strong{font-size:1.05rem}.electroshop-header-brand span span{font-size:.75rem}}
+@media(max-width:600px){.electroshop-header-with-controls .electroshop-header-brand{margin-inline:64px}}
+.product-editor-page .electroshop-header{position:static!important}

@@ -4,7 +4,7 @@ const PUBLISHABLE_KEY=config.publishableKey;
 const SESSION_KEY='electroshop_admin_session_v1';
 
 async function request(path,{method='GET',body,token,headers={}}={}){
-  if(path.startsWith('/rest/v1/')&&!/^\/rest\/v1\/(electroshop_[a-z_]+|rpc\/(is_electroshop_admin|create_electroshop_order))(?:[?]|$)/.test(path))throw new Error('Electroshop database scope violation');
+  if(path.startsWith('/rest/v1/')&&!/^\/rest\/v1\/(electroshop_[a-z_]+|rpc\/(is_electroshop_admin|create_electroshop_order|create_electroshop_bit_order))(?:[?]|$)/.test(path))throw new Error('Electroshop database scope violation');
   if(!config.databaseReady)throw new Error('יש להשלים תחילה את הקמת טבלאות אלקטרושופ בפרויקט המשותף');
   if(!SUPABASE_URL||!PUBLISHABLE_KEY)throw new Error('מערכת החנות טרם חוברה למסד הנתונים של אלקטרושופ');
   const response=await fetch(`${SUPABASE_URL}${path}`,{method,headers:{apikey:PUBLISHABLE_KEY,Authorization:`Bearer ${token||PUBLISHABLE_KEY}`,'Content-Type':'application/json',...headers},body:body===undefined?undefined:JSON.stringify(body)});
@@ -39,3 +39,5 @@ export async function getPromotionSettings(){return {enabled:false}}
 export async function updateOrder(session,id,changes){return request(`/rest/v1/electroshop_orders?id=eq.${id}`,{method:'PATCH',body:changes,token:session.accessToken,headers:{Prefer:'return=representation'}})}
 export async function deleteOrder(session,id){return request(`/rest/v1/electroshop_orders?id=eq.${id}`,{method:'DELETE',token:session.accessToken})}
 export {SUPABASE_URL,PUBLISHABLE_KEY,request};
+
+export async function createBitOrder(customer,items,requestId){return request('/rest/v1/rpc/create_electroshop_bit_order',{method:'POST',body:{p_customer:customer,p_items:items,p_request_id:requestId}});}

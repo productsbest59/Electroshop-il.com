@@ -4,13 +4,13 @@
   <link rel="icon" href="favicon.ico?v=2" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Electroshop - ניהול מוצרים</title><link rel="stylesheet" href="shop-base.css?v=67">
-<link rel="stylesheet" href="shop-theme.css"><link rel="stylesheet" href="shop-components.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="shop-theme.css?v=top-header-3"><link rel="stylesheet" href="shop-components.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <meta name="description" content="Electroshop - ניהול מוצרים. מידע ללקוחות אלקטרושופ על תנאי השימוש והשירות באתר.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://electroshop-il.com/shop-admin.html">
-<link rel="stylesheet" href="shop-contact.css"><link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-header.css"><link rel="stylesheet" href="shop-menu-visibility.css"></head>
-<body>
-  <header class="electroshop-header product-admin-header"><a class="electroshop-header-brand" href="index.html" aria-label="אלקטרושופ — דף הבית"><img src="images/logo.png" alt="לוגו אלקטרושופ" width="96" height="96"><span><strong data-he="אלקטרושופ" data-en="Electroshop">אלקטרושופ</strong><span data-he="מעבדת סלולר ואביזרים" data-en="Phone repairs and accessories">מעבדת סלולר ואביזרים</span></span></a><nav class="electroshop-header-links" aria-label="ניווט ראשי"><a href="index.html" data-he="דף הבית" data-en="Home">דף הבית</a><a href="shop.html" data-he="החנות שלנו" data-en="Our store">החנות שלנו</a><a href="index.html#contact" data-he="צור קשר" data-en="Contact">צור קשר</a></nav><div class="electroshop-header-actions"><div class="head-actions"><button id="add" class="button" type="button">+ מוצר חדש</button><a class="button secondary" href="shop.html">תצוגת החנות</a></div></div></header>
+<link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-header.css?v=home-brand-3"><link rel="stylesheet" href="shop-menu-visibility.css"></head>
+<body><script>if(new URLSearchParams(location.search).has("new")||new URLSearchParams(location.search).has("edit"))document.body.classList.add("product-editor-page");</script>
+  <header class="electroshop-header product-admin-header"><a class="electroshop-header-brand" href="index.html" aria-label="אלקטרושופ — דף הבית"><img src="images/logo.png" alt="לוגו אלקטרושופ" width="96" height="96"><span><strong data-he="אלקטרושופ" data-en="Electroshop">אלקטרושופ</strong><span data-he="מעבדת סלולר ואביזרים" data-en="Phone repairs and accessories">מעבדת סלולר ואביזרים</span></span></a><nav class="electroshop-header-links" aria-label="ניווט ראשי"><a href="index.html" data-he="דף הבית" data-en="Home">דף הבית</a><a href="shop.html" data-he="החנות שלנו" data-en="Our store">החנות שלנו</a></nav><div class="electroshop-header-actions"><div class="head-actions"><a id="add" class="button" href="shop-admin.html?new=1" target="_blank" rel="opener">+ מוצר חדש</a><a class="button secondary" href="shop.html">תצוגת החנות</a></div></div></header>
   <main class="admin-shell"><nav class="electroshop-page-navigation" aria-label="ניווט באתר"><a href="index.html" data-he="דף הבית" data-en="Home">דף הבית</a><a href="shop.html" data-he="כל הקטגוריות" data-en="All categories">כל הקטגוריות</a></nav><div class="admin-top"><div><h1>ניהול מוצרים</h1><p>המוצרים נשמרים בחנות</p></div></div><div id="status" class="status"></div><div id="list" class="admin-table"></div></main>
   <div id="modal" class="modal"><form id="form" class="modal-card">
     <h2 id="modalTitle">מוצר</h2><input type="hidden" name="id">
@@ -33,7 +33,7 @@
     </div>
     <div class="modal-actions"><div id="formStatus" class="status form-status" role="status" aria-live="polite"></div><button type="button" id="cancel" class="button secondary">ביטול</button><button class="button">שמירה</button></div>
   </form></div>
-  <script src="shop-admin.js?v=editor-header-fix-1"></script>
+  <script src="shop-admin.js?v=native-tabs-2"></script>
 <div class="a11y-backdrop" id="a11yBackdrop"></div>
 
 
@@ -131,21 +131,5 @@
       </button>
     </div>
   </div>
-</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script><section id="electroshop-contact" class="electroshop-contact-zone">
-  <div class="container" style="max-width:760px;">
-    <div class="contact-card">
-      <h3 style="text-align:center;font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:22px;" data-he="צור קשר" data-en="Contact">צור קשר</h3>
-      <form class="contact-form" id="electroshopContactForm" action="https://formsubmit.co/ajax/electroshopisraelo@gmail.com" method="POST">
-        <input type="text" name="name" aria-label="שם מלא" required data-ph-he="שם מלא" data-ph-en="Full name" placeholder="שם מלא">
-        <input type="email" name="email" aria-label="אימייל" required data-ph-he="אימייל" data-ph-en="Email" placeholder="אימייל">
-        <input type="tel" name="phone" aria-label="טלפון" data-ph-he="טלפון" data-ph-en="Phone" placeholder="טלפון">
-        <textarea name="message" aria-label="איך אפשר לעזור?" required data-ph-he="איך אפשר לעזור?" data-ph-en="How can we help?" placeholder="איך אפשר לעזור?"></textarea>
-        <input type="hidden" name="_subject" value="פנייה חדשה - אלקטרושופ">
-        <input type="hidden" name="_captcha" value="false">
-        <button class="submit-btn" type="submit" data-he="שלח הודעה" data-en="Send Message" style="font:700 16px/1.2 Arial,sans-serif!important">שלח הודעה</button>
-        <div id="electroshopContactStatus" aria-live="polite"></div>
-      </form>
-    </div>
-  </div>
-</section><script src="shop-contact.js"></script><link rel="stylesheet" href="shop-categories.css"><script type="module" src="shop-categories.js"></script></body>
+</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script><link rel="stylesheet" href="shop-categories.css"><script type="module" src="shop-categories.js"></script></body>
 </html>
