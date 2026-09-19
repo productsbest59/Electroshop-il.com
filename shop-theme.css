@@ -27,3 +27,11 @@ body.electro-store,body.checkout-page,body:has(.admin-shell),body:has(.login-she
 body:has(>header.topbar) >header.topbar{margin-top:82px}
 body:has(>header.topbar) #home{padding-top:0}
 .shop-return-links{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}.shop-return-links a{padding:10px 18px;border:1px solid #ffd400;border-radius:12px;color:#ffd400;text-decoration:none}
+/* Stack cart above language and reserve space above the original header. */
+.site-topbar{align-items:flex-start!important}
+.site-topbar .topbar-left-controls{display:flex!important;flex-direction:column!important;align-items:center!important;gap:8px!important}
+.site-topbar .topbar-left-controls .store-cart-button{order:0!important;margin:0!important}
+.site-topbar .topbar-left-controls .language-picker{order:1!important}
+body:has(>header.topbar) >header.topbar{margin-top:132px}
+body:has(>header.topbar) >header.topbar{margin-top:164px}
+body:has(>header.topbar) >header.topbar{margin-top:164px!important}

@@ -98,5 +98,5 @@ document.addEventListener('DOMContentLoaded',()=>{
  const translate=()=>{const english=getLang()==='en';nodes.forEach(({n,he,en})=>n.textContent=english?en:he);};
  document.addEventListener('electroshop-language-change',translate);applyLang(getLang());translate();
  const admin=document.getElementById('adminMenuLinks');
- if(admin){import('./shop-api.js').then(async api=>{const session=await api.getSession();admin.hidden=!(session&&await api.isAdmin(session));}).catch(()=>{admin.hidden=true});const login=document.createElement('a');login.href='shop-login.html';login.dataset.he='כניסת מנהל';login.dataset.en='Admin sign in';nav.append(login);applyLang(getLang());}
+ if(admin){admin.hidden=false;const login=document.createElement('a');login.href='shop-login.html';login.dataset.he='כניסת מנהל';login.dataset.en='Admin sign in';nav.append(login);applyLang(getLang());}
 });
