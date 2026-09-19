@@ -13,7 +13,7 @@
 <meta name="twitter:title" content="פרו אודיו: מיקסרים וציוד אולפן | אלקטרושופ">
 <meta name="twitter:description" content="מוצרי פרו אודיו באלקטרושופ: מיקסרים, מקלדות MIDI וציוד אולפן. צפו בתמונות, בפרטי המוצרים ובמחירים והוסיפו מוצרים לעגלה.">
 <meta name="twitter:image" content="https://electroshop-il.com/images/hero-banner.jpg">
-</head><body class="electro-store"><div class="site-topbar">
+<link rel="stylesheet" href="shop-contact.css"></head><body class="electro-store"><div class="site-topbar">
     <div class="topbar-left-controls">
       <div class="language-picker">
         <button class="lang-toggle" id="langToggle" type="button" aria-label="בחירת שפה" aria-expanded="false">🌐</button>
@@ -152,4 +152,20 @@
   </div>
 </aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script><script type="module" src="shop-preview-notice.js"></script><a class="float-whatsapp" href="https://wa.me/972559299899" target="_blank" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
-  </a><script src="shop-image-fallback.js"></script></body></html>
+  </a><script src="shop-image-fallback.js"></script><section id="electroshop-contact" class="electroshop-contact-zone">
+  <div class="container" style="max-width:760px;">
+    <div class="contact-card">
+      <h3 style="text-align:center;font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:22px;" data-he="צור קשר" data-en="Contact">צור קשר</h3>
+      <form class="contact-form" id="electroshopContactForm" action="https://formsubmit.co/ajax/electroshopisraelo@gmail.com" method="POST">
+        <input type="text" name="name" aria-label="שם מלא" required data-ph-he="שם מלא" data-ph-en="Full name" placeholder="שם מלא">
+        <input type="email" name="email" aria-label="אימייל" required data-ph-he="אימייל" data-ph-en="Email" placeholder="אימייל">
+        <input type="tel" name="phone" aria-label="טלפון" data-ph-he="טלפון" data-ph-en="Phone" placeholder="טלפון">
+        <textarea name="message" aria-label="איך אפשר לעזור?" required data-ph-he="איך אפשר לעזור?" data-ph-en="How can we help?" placeholder="איך אפשר לעזור?"></textarea>
+        <input type="hidden" name="_subject" value="פנייה חדשה - אלקטרושופ">
+        <input type="hidden" name="_captcha" value="false">
+        <button class="submit-btn" type="submit" data-he="שלח הודעה" data-en="Send Message" style="font:700 16px/1.2 Arial,sans-serif!important">שלח הודעה</button>
+        <div id="electroshopContactStatus" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section><script src="shop-contact.js"></script></body></html>

@@ -2,7 +2,7 @@
 <meta name="description" content="Electroshop - כניסת מנהל. מידע ללקוחות אלקטרושופ על תנאי השימוש והשירות באתר.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://electroshop-il.com/shop-login.html">
-</head><body><header class="site-head"><img class="brand" src="images/logo.png" alt="Electroshop"><a class="button secondary" href="shop.html">חזרה לחנות</a></header><main class="login-shell"><form id="loginForm" class="login-card"><h1>כניסה לניהול החנות</h1><label class="field"><span>כתובת מייל</span><input name="email" type="email" autocomplete="username" required></label><label class="field"><span>סיסמה</span><input name="password" type="password" autocomplete="current-password" required></label><button class="button">כניסה</button><div id="loginMessage" class="status"></div></form></main><script type="module">import{signIn,isAdmin,signOut}from'./shop-api.js';const form=document.querySelector('#loginForm'),message=document.querySelector('#loginMessage');form.addEventListener('submit',async e=>{e.preventDefault();message.textContent='מתחבר...';message.className='status show';const d=new FormData(form);try{const session=await signIn(d.get('email'),d.get('password'));if(!await isAdmin(session)){signOut();throw new Error('החשבון אינו מוגדר כמנהל החנות')}location.href='shop-admin.html'}catch(error){message.textContent=error.message==='Invalid login credentials'?'כתובת המייל או הסיסמה אינם נכונים':error.message;message.className='status show error'}});</script><div class="a11y-backdrop" id="a11yBackdrop"></div>
+<link rel="stylesheet" href="shop-contact.css"></head><body><header class="site-head"><img class="brand" src="images/logo.png" alt="Electroshop"><a class="button secondary" href="shop.html">חזרה לחנות</a></header><main class="login-shell"><form id="loginForm" class="login-card"><h1>כניסה לניהול החנות</h1><label class="field"><span>כתובת מייל</span><input name="email" type="email" autocomplete="username" required></label><label class="field"><span>סיסמה</span><input name="password" type="password" autocomplete="current-password" required></label><button class="button">כניסה</button><div id="loginMessage" class="status"></div></form></main><script type="module">import{signIn,isAdmin,signOut}from'./shop-api.js';const form=document.querySelector('#loginForm'),message=document.querySelector('#loginMessage');form.addEventListener('submit',async e=>{e.preventDefault();message.textContent='מתחבר...';message.className='status show';const d=new FormData(form);try{const session=await signIn(d.get('email'),d.get('password'));if(!await isAdmin(session)){signOut();throw new Error('החשבון אינו מוגדר כמנהל החנות')}location.href='shop-admin.html'}catch(error){message.textContent=error.message==='Invalid login credentials'?'כתובת המייל או הסיסמה אינם נכונים':error.message;message.className='status show error'}});</script><div class="a11y-backdrop" id="a11yBackdrop"></div>
 
 
 <button class="a11y-fab" id="a11yFab" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
@@ -99,4 +99,20 @@
       </button>
     </div>
   </div>
-</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script></body></html>
+</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script><section id="electroshop-contact" class="electroshop-contact-zone">
+  <div class="container" style="max-width:760px;">
+    <div class="contact-card">
+      <h3 style="text-align:center;font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:22px;" data-he="צור קשר" data-en="Contact">צור קשר</h3>
+      <form class="contact-form" id="electroshopContactForm" action="https://formsubmit.co/ajax/electroshopisraelo@gmail.com" method="POST">
+        <input type="text" name="name" aria-label="שם מלא" required data-ph-he="שם מלא" data-ph-en="Full name" placeholder="שם מלא">
+        <input type="email" name="email" aria-label="אימייל" required data-ph-he="אימייל" data-ph-en="Email" placeholder="אימייל">
+        <input type="tel" name="phone" aria-label="טלפון" data-ph-he="טלפון" data-ph-en="Phone" placeholder="טלפון">
+        <textarea name="message" aria-label="איך אפשר לעזור?" required data-ph-he="איך אפשר לעזור?" data-ph-en="How can we help?" placeholder="איך אפשר לעזור?"></textarea>
+        <input type="hidden" name="_subject" value="פנייה חדשה - אלקטרושופ">
+        <input type="hidden" name="_captcha" value="false">
+        <button class="submit-btn" type="submit" data-he="שלח הודעה" data-en="Send Message" style="font:700 16px/1.2 Arial,sans-serif!important">שלח הודעה</button>
+        <div id="electroshopContactStatus" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section><script src="shop-contact.js"></script></body></html>
