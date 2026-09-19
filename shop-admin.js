@@ -52,5 +52,5 @@ import('./shop-api.js?v=8').then(async api=>{
   });
   window.addEventListener('message',async event=>{if(event.origin!==location.origin||event.data?.type!=='electroshop-product-saved')return;products=await api.getProducts(session);render();status('רשימת המוצרים עודכנה')});
 
-  render();if(editorMode){document.querySelector('.product-admin-header .head-actions').hidden=true;document.querySelector('.admin-shell').hidden=true;const product=editorId?products.find(item=>item.id===editorId):null;if(editorId&&!product){modal.classList.add('open');status('המוצר לא נמצא','error')}else openForm(product)}
+  render();if(editorMode){const adminActions=document.querySelector('#add')?.closest('.head-actions');if(adminActions)adminActions.hidden=true;document.querySelector('.admin-shell').hidden=true;const product=editorId?products.find(item=>item.id===editorId):null;if(editorId&&!product){modal.classList.add('open');status('המוצר לא נמצא','error')}else openForm(product)}
 }).catch(error=>{const message=document.querySelector('#status')||document.querySelector('#formStatus');if(message){message.textContent=error.message;message.className='status show error'}});
