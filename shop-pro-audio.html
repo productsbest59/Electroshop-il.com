@@ -1123,36 +1123,58 @@ i[class^="fa-"],i[class*=" fa-"]{
 <meta name="twitter:title" content="Electroshop Pro Audio | מיקסרים, MIDI וציוד אולפן">
 <meta name="twitter:description" content="ציוד אולפן ופרו אודיו מבית אלקטרושופ: מיקסרים, מקלדות MIDI וציוד להקלטה, פודקאסטים וסטרימינג. צפו במוצרים ובאפשרויות הרכישה.">
 <meta name="twitter:image" content="https://electroshop-il.com/images/proaudio-logo.png">
-<link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-menu-visibility.css"></head>
-<body>
+<link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-menu-visibility.css"><style id="proaudio-card-controls">#cartButton{width:48px!important;min-width:48px!important;max-width:48px!important;height:48px!important;min-height:48px!important;max-height:48px!important;flex:0 0 48px!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:3px!important;font-size:16px!important;border-radius:50%!important;align-self:center!important}#cartCount{font-size:12px!important;min-width:18px!important;width:auto!important;height:18px!important;line-height:18px!important;padding:0 3px!important}.product-card-actions{display:flex;flex-direction:column;gap:8px;width:100%;margin-top:10px}.product-card-actions .details-btn{margin:0!important;width:100%;cursor:pointer}.product-card h3{margin-top:12px}.product-card .price{margin-top:8px}</style><link rel="stylesheet" href="shop-navigation.css"><style>.site-topbar{top:12px!important;align-items:flex-start!important}.site-topbar .topbar-left-controls{flex-direction:column;align-items:center}.site-topbar #cartButton{order:-1}.topbar-inner{padding-inline:76px!important;min-height:128px}.main-menu{z-index:2200!important}.menu-backdrop{z-index:2199!important}</style></head>
+<body><div class="site-topbar">
+    <div class="topbar-left-controls">
+      <div class="language-picker">
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="בחירת שפה" aria-expanded="false">🌐</button>
+        <div class="language-menu" id="languageMenu" hidden>
+          <button type="button" data-language="he">עברית</button>
+          <button type="button" data-language="en">English</button>
+        </div>
+      </div>
+      <button id="cartButton" class="store-cart-button" type="button" aria-label="פתיחת סל הקניות">🛒 <span id="cartCount">0</span></button>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mainMenu">☰</button>
+  </div>
+
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <aside class="main-menu" id="mainMenu" aria-hidden="true">
+    <div class="main-menu-header">
+      <div class="main-menu-title" data-he="תפריט" data-en="Menu">תפריט</div>
+      <button class="main-menu-close" id="menuClose" aria-label="סגור תפריט">×</button>
+    </div>
+    <nav class="main-menu-links">
+      
+      <a href="index.html#contact" data-he="צור קשר" data-en="Contact"><span>צור קשר</span></a>
+      <a href="shop.html" data-he="החנות שלנו" data-en="Our store"><span>החנות שלנו</span></a>
+      <a href="terms.html" data-he="תקנון" data-en="Terms"><span>תקנון</span></a>
+      <a href="privacy.html" data-he="פרטיות" data-en="Privacy"><span>פרטיות</span></a>
+      <a href="#" onclick="closeMenu(); document.getElementById('a11yFab').click(); return false;" data-he="נגישות" data-en="Accessibility"><span>נגישות</span></a>
+      <div class="admin-menu-links" id="adminMenuLinks" hidden>
+        <span class="admin-menu-label" data-he="ניהול החנות" data-en="Store management">ניהול החנות</span>
+        <a href="shop-admin.html" target="_blank" rel="noopener" data-he="ניהול מוצרים" data-en="Manage products"><span>ניהול מוצרים</span></a>
+        <a href="shop-orders.html" data-he="מעקב הזמנות" data-en="Order tracking"><span>מעקב הזמנות</span></a>
+      </div>
+    </nav>
+  </aside>
 
 <header class="topbar">
   <div class="container topbar-inner">
-    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button"><i class="fa-solid fa-bars"></i></button>
-    <button class="lang-btn" id="langToggle" type="button"><i class="fa-solid fa-globe"></i> <span data-he="English" data-en="עברית">English</span></button>
+    
+    
 
     <a href="#" class="brand" aria-label="Electroshop">
       <span class="brand-main">ELECTROSHOP</span>
       <span class="brand-sub">DJ • AUDIO • LIGHTING</span>
     </a>
 
-<button id="cartButton" class="store-cart-button" type="button" aria-label="סל הקניות">🛒 <span id="cartCount">0</span></button>
+
   </div>
 </header>
 
-<nav class="nav">
-  <div class="container nav-inner">
-    
-    <div class="nav-links" id="navLinks"><span id="proAdminLinks" hidden><a href="shop-admin.html" target="_blank" rel="noopener">ניהול מוצרים</a><a href="shop-orders.html" target="_blank" rel="noopener">מעקב הזמנות</a></span>
-      <a class="active" href="#" data-he="דף הבית" data-en="Home">דף הבית</a>
-      <a href="#products" data-he="DJ ומיקסרים" data-en="DJ & Mixers">DJ ומיקסרים</a>
-      <a href="#products" data-he="אולפן והקלטה" data-en="Studio & Recording">אולפן והקלטה</a>
-      <a href="#products" data-he="תאורה ואפקטים" data-en="Lighting & Effects">תאורה ואפקטים</a>
-      <a href="#products" data-he="אביזרים" data-en="Accessories">אביזרים</a>
-      <a href="#contact" data-he="צור קשר" data-en="Contact">צור קשר</a>
-    </div>
-  </div>
-</nav>
+
 
 <section class="hero">
   <div class="mixer-bg" aria-hidden="true">
@@ -1192,38 +1214,35 @@ i[class^="fa-"],i[class*=" fa-"]{
 
     <div hidden><input id="search"><select id="category"><option value="">כל הקטגוריות</option></select></div><div id="storeProducts" class="store-products" data-exclude-skus="ELECTRO-001,ELECTRO-002,ELECTRO-003,ELECTRO-004"></div><div class="products">
       <article class="product-card" data-category="dj" data-product="s30">
-        <div class="product-art"><img src="images/proaudio/product01-main.jpg" alt="Audio Live Mixer S30"></div>
+        <div class="product-art"><img src="images/proaudio/product01-main.jpg" alt="Audio Live Mixer S30"></div><div class="product-card-actions"><button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="s30" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button><button type="button" class="details-btn" data-store-sku="ELECTRO-001" disabled data-he="הוספה לעגלה" data-en="Add to cart">הוספה לעגלה</button></div>
         <h3>Audio Live Mixer S30</h3>
-        <p data-he="מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה." data-en="S30 audio mixer with DJ mixing effects, voice-changing features, music recording and built-in sound card.">מיקסר אודיו S30 עם אפקטים ל-DJ, שינויי קול, הקלטת מוזיקה וכרטיס קול מובנה.</p>
+        
         <div class="price" id="s30CardPrice">379 ₪</div>
-        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="s30" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button><button type="button" class="details-btn" data-store-sku="ELECTRO-001" disabled data-he="הוספה לעגלה" data-en="Add to cart">הוספה לעגלה</button>
+        
       </article>
 
       <article class="product-card" data-category="studio" data-product="smk25">
-        <div class="product-art"><img src="images/proaudio/product02-main.jpg" alt="M-VAVE SMK-25 Mini MIDI Keyboard"></div>
+        <div class="product-art"><img src="images/proaudio/product02-main.jpg" alt="M-VAVE SMK-25 Mini MIDI Keyboard"></div><div class="product-card-actions"><button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="smk25" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button><button type="button" class="details-btn" data-store-sku="ELECTRO-002" disabled data-he="הוספה לעגלה" data-en="Add to cart">הוספה לעגלה</button></div>
         <h3>M-VAVE SMK-25 Mini MIDI Keyboard</h3>
-        <p data-he="מקלדת MIDI קומפקטית עם 25 קלידים רגישים לעוצמת לחיצה, Bluetooth, סוללה נטענת וחיבור USB-C. מתאימה למחשב, Mac, iOS ו-Android."
-           data-en="Compact 25-key velocity-sensitive MIDI keyboard with Bluetooth, rechargeable battery and USB-C connectivity. Compatible with Windows, Mac, iOS and Android.">מקלדת MIDI קומפקטית עם 25 קלידים רגישים לעוצמת לחיצה, Bluetooth, סוללה נטענת וחיבור USB-C. מתאימה למחשב, Mac, iOS ו-Android.</p>
+        
         <div class="price" id="smk25CardPrice">399 ₪</div>
-        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="smk25" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button><button type="button" class="details-btn" data-store-sku="ELECTRO-002" disabled data-he="הוספה לעגלה" data-en="Add to cart">הוספה לעגלה</button>
+        
       </article>
 
       <article class="product-card" data-category="studio" data-product="allinone">
-        <div class="product-art"><img src="images/proaudio/product03-main.jpg" alt="All-in-One High-Quality Audio Recording"></div>
+        <div class="product-art"><img src="images/proaudio/product03-main.jpg" alt="All-in-One High-Quality Audio Recording"></div><div class="product-card-actions"><button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="allinone" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button><button type="button" class="details-btn" data-store-sku="ELECTRO-003" disabled data-he="הוספה לעגלה" data-en="Add to cart">הוספה לעגלה</button></div>
         <h3>All-in-One High-Quality Audio Recording</h3>
-        <p data-he="ערכת אולפן All-in-One הכוללת מיקסר אודיו RGB ומיקרופון דינמי, המתאימה להקלטות, גיימינג, פודקאסטים, סטרימינג ועוד."
-           data-en="All-in-One Kit with RGB Audio Mixer, Streaming Studio Set with Dynamic Mic for Recording, Gaming, Podcasting and more.">ערכת אולפן All-in-One הכוללת מיקסר אודיו RGB ומיקרופון דינמי, המתאימה להקלטות, גיימינג, פודקאסטים, סטרימינג ועוד.</p>
+        
         <div class="price" id="allinoneCardPrice">549 ₪</div>
-        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="allinone" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button><button type="button" class="details-btn" data-store-sku="ELECTRO-003" disabled data-he="הוספה לעגלה" data-en="Add to cart">הוספה לעגלה</button>
+        
       </article>
 
       <article class="product-card" data-category="studio" data-product="oneodio">
-        <div class="product-art"><img src="images/proaudio/product04-main.jpg" alt="OneOdio Studio Pro DJ Headphone"></div>
+        <div class="product-art"><img src="images/proaudio/product04-main.jpg" alt="OneOdio Studio Pro DJ Headphone"></div><div class="product-card-actions"><button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="oneodio" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button><button type="button" class="details-btn" data-store-sku="ELECTRO-004" disabled data-he="הוספה לעגלה" data-en="Add to cart">הוספה לעגלה</button></div>
         <h3>OneOdio Studio Pro DJ Headphone</h3>
-        <p data-he="אוזניות DJ מקצועיות עם דרייברים 50 מ״מ, צליל Hi-Fi, חיבור חוטי ומיקרופון. מתאימות ל-DJ, אולפן, מיקסינג ומוניטורינג."
-           data-en="Professional wired DJ headphones with 50mm drivers, Hi-Fi sound and microphone. Ideal for DJing, studio monitoring and mixing.">אוזניות DJ מקצועיות עם דרייברים 50 מ״מ, צליל Hi-Fi, חיבור חוטי ומיקרופון. מתאימות ל-DJ, אולפן, מיקסינג ומוניטורינג.</p>
+        
         <div class="price" id="oneodioCardPrice">349 ₪</div>
-        <button class="details-btn" style="font:700 14px/1.2 Arial,sans-serif!important" data-open-product="oneodio" data-he="לפרטים ורכישה" data-en="Details & Purchase">לפרטים ורכישה</button><button type="button" class="details-btn" data-store-sku="ELECTRO-004" disabled data-he="הוספה לעגלה" data-en="Add to cart">הוספה לעגלה</button>
+        
       </article>
 
     </div>
@@ -1297,19 +1316,104 @@ i[class^="fa-"],i[class*=" fa-"]{
   </div>
 </footer>
 
-<button class="float-access" id="accessBtn" aria-label="נגישות"><i class="fa-solid fa-universal-access"></i></button>
-<div class="access-panel" id="accessPanel">
-  <h3 data-he="כלי נגישות" data-en="Accessibility Tools">כלי נגישות</h3>
-  <div class="access-grid">
-    <button data-a11y="large-text" data-he="הגדלת טקסט" data-en="Larger Text">הגדלת טקסט</button>
-    <button data-a11y="high-contrast" data-he="ניגודיות" data-en="High Contrast">ניגודיות</button>
-    <button data-a11y="highlight-links" data-he="הדגשת קישורים" data-en="Highlight Links">הדגשת קישורים</button>
-    <button data-a11y="grayscale" data-he="גווני אפור" data-en="Grayscale">גווני אפור</button>
-    <button data-a11y="bold-text" data-he="טקסט מודגש" data-en="Bold Text">טקסט מודגש</button>
-    <button id="accessReset" data-he="איפוס" data-en="Reset">איפוס</button>
-  </div>
-</div>
+<div class="a11y-backdrop" id="a11yBackdrop"></div>
 
+
+<button class="a11y-fab" id="a11yFab" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
+  <i class="fas fa-universal-access"></i>
+</button>
+
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle">
+  <div class="a11y-header">
+    <button class="a11y-close" id="a11yClose" aria-label="סגור">×</button>
+    <div class="a11y-title" id="a11yTitle" data-he="כלי נגישות" data-en="Accessibility Tools">כלי נגישות</div>
+  </div>
+
+  <div class="a11y-body">
+    <div class="a11y-grid">
+      <button class="a11y-card" data-mode="a11y-grayscale">
+        <div class="a11y-icon">◐</div>
+        <div class="a11y-label" data-he="גווני אפור" data-en="Grayscale">גווני אפור</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-dark-mode">
+        <div class="a11y-icon">☾</div>
+        <div class="a11y-label" data-he="ניגודיות הפוכה" data-en="Inverted Contrast">ניגודיות הפוכה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-high-contrast">
+        <div class="a11y-icon">☼</div>
+        <div class="a11y-label" data-he="ניגודיות גבוהה" data-en="High Contrast">ניגודיות גבוהה</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-readable-text">
+        <div class="a11y-icon">〰</div>
+        <div class="a11y-label" data-he="טקסט קריא" data-en="Readable Text">טקסט קריא</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-highlight-links">
+        <div class="a11y-icon">🔗</div>
+        <div class="a11y-label" data-he="הדגשת קישורים" data-en="Highlight Links">הדגשת קישורים</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-stop-motion">
+        <div class="a11y-icon">⏸</div>
+        <div class="a11y-label" data-he="עצירת אנימציות" data-en="Stop Animations">עצירת אנימציות</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-large-cursor">
+        <div class="a11y-icon">🖱️</div>
+        <div class="a11y-label" data-he="סמן מוגדל" data-en="Large Cursor">סמן מוגדל</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-text-spacing">
+        <div class="a11y-icon">↔</div>
+        <div class="a11y-label" data-he="ריווח טקסט" data-en="Text Spacing">ריווח טקסט</div>
+      </button>
+
+      <button class="a11y-card" data-mode="a11y-focus-visible">
+        <div class="a11y-icon">▣</div>
+        <div class="a11y-label" data-he="מיקוד ברור" data-en="Visible Focus">מיקוד ברור</div>
+      </button>
+    </div>
+
+    <div class="a11y-section-title" data-he="התאמת גודל גופן" data-en="Adjust Font Size">
+      התאמת גודל גופן
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-slider-row">
+        <button class="a11y-circle-btn" id="fontMinus" aria-label="הקטנת טקסט">-</button>
+        <div class="a11y-bar-wrap">
+          <div class="a11y-value" id="fontValue">100%</div>
+          <div class="a11y-bar"></div>
+        </div>
+        <button class="a11y-circle-btn" id="fontPlus" aria-label="הגדלת טקסט">+</button>
+      </div>
+    </div>
+
+    <div class="a11y-section-title" data-he="איפוס" data-en="Reset">
+      איפוס
+    </div>
+
+    <div class="a11y-slider-wrap">
+      <div class="a11y-footer-note"
+           data-he="אפשר להחזיר את כל ההגדרות למצב רגיל"
+           data-en="Restore all settings to default">
+        אפשר להחזיר את כל ההגדרות למצב רגיל
+      </div>
+
+      <button class="a11y-reset"
+              id="a11yReset"
+              data-he="איפוס מלא"
+              data-en="Full Reset"
+              style="width:100%;border:none;border-radius:16px;background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;padding:14px 16px;font-size:1rem;font-weight:800;cursor:pointer;margin-top:14px;box-shadow:0 12px 24px rgba(65,87,230,0.20);">
+        איפוס מלא
+      </button>
+    </div>
+  </div>
+</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script>
 <a class="float-whatsapp" href="https://wa.me/972559299899" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 
 <div class="modal-backdrop" id="modalBackdrop"></div>
@@ -1334,7 +1438,7 @@ i[class^="fa-"],i[class*=" fa-"]{
 </aside>
 
 <script>
-document.addEventListener('electroshop-catalog-ready',event=>{const map={s30:'ELECTRO-001',smk25:'ELECTRO-002',allinone:'ELECTRO-003',oneodio:'ELECTRO-004'};for(const [id,sku] of Object.entries(map)){const p=event.detail.find(p=>p.sku===sku);const card=document.querySelector('.product-card[data-product="'+id+'"]');if(!p||!p.active||p.category!=='pro-audio'){card.hidden=true;continue;}card.hidden=false;products[id].price={he:p.price+' ₪',en:'$'+p.priceUsd};products[id].he.title=p.nameHe;products[id].en.title=p.nameEn;products[id].images=p.images;for(const [lang,description] of [['he',p.descriptionHe],['en',p.descriptionEn]]){if(description){const text=document.createElement('div');text.innerHTML=description;products[id][lang].desc=text.textContent;products[id][lang].sections=[];}}card.querySelector('p').dataset.he=products[id].he.desc;card.querySelector('p').dataset.en=products[id].en.desc;card.querySelector('p').textContent=products[id][currentLang].desc;card.querySelector('h3').textContent=currentLang==='he'?p.nameHe:p.nameEn;card.querySelector('.price').textContent=products[id].price[currentLang];card.querySelector('img').src=p.images[0];card.querySelector('[data-store-sku]').disabled=false;}});
+document.addEventListener('electroshop-catalog-ready',event=>{const map={s30:'ELECTRO-001',smk25:'ELECTRO-002',allinone:'ELECTRO-003',oneodio:'ELECTRO-004'};for(const [id,sku] of Object.entries(map)){const p=event.detail.find(p=>p.sku===sku);const card=document.querySelector('.product-card[data-product="'+id+'"]');if(!p||!p.active||p.category!=='pro-audio'){card.hidden=true;continue;}card.hidden=false;products[id].price={he:p.price+' ₪',en:'$'+p.priceUsd};products[id].he.title=p.nameHe;products[id].en.title=p.nameEn;products[id].images=p.images;for(const [lang,description] of [['he',p.descriptionHe],['en',p.descriptionEn]]){if(description){const text=document.createElement('div');text.innerHTML=description;products[id][lang].desc=text.textContent;products[id][lang].sections=[];}}card.querySelector('h3').textContent=currentLang==='he'?p.nameHe:p.nameEn;card.querySelector('.price').textContent=products[id].price[currentLang];card.querySelector('img').src=p.images[0];card.querySelector('[data-store-sku]').disabled=false;}});
 const products = {
   s30:{
     price:{he:"379 ₪",en:"$129"},
@@ -1477,7 +1581,7 @@ en:{
 let currentLang="he";
 
 function applyLanguage(lang){
-  currentLang=lang;document.dispatchEvent(new CustomEvent('electroshop-language-change',{detail:lang}));
+  currentLang=lang;
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==="he"?"rtl":"ltr";
   document.body.dir=lang==="he"?"rtl":"ltr";
@@ -1487,15 +1591,15 @@ function applyLanguage(lang){
   document.querySelectorAll("[data-ph-he][data-ph-en]").forEach(el=>{
     el.placeholder=el.dataset[lang==="he"?"phHe":"phEn"];
   });
-  document.querySelector("#langToggle span").textContent=lang==="he"?"English":"עברית";
+  
   const cp=document.getElementById("s30CardPrice"); if(cp) cp.textContent=products.s30.price[lang];
   const cp2=document.getElementById("smk25CardPrice"); if(cp2) cp2.textContent=products.smk25.price[lang];
   const cp3=document.getElementById("allinoneCardPrice"); if(cp3) cp3.textContent=products.allinone.price[lang];
   const cp4=document.getElementById("oneodioCardPrice"); if(cp4) cp4.textContent=products.oneodio.price[lang];
 }
-document.getElementById("langToggle").addEventListener("click",()=>applyLanguage(currentLang==="he"?"en":"he"));
+document.addEventListener('electroshop-language-change',event=>applyLanguage(event.detail));
 
-document.getElementById("mobileMenuBtn").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("open"));
+
 
 document.querySelectorAll(".category-tab").forEach(btn=>{
   btn.addEventListener("click",()=>{
@@ -1509,7 +1613,7 @@ document.querySelectorAll(".category-tab").forEach(btn=>{
 });
 
 const modal=document.getElementById("productModal");
-const backdrop=document.getElementById("modalBackdrop");
+const productBackdrop=document.getElementById("modalBackdrop");
 function renderProductMedia(p){
   const main=document.getElementById("modalMediaMain"), thumbs=document.getElementById("modalThumbs");
   main.innerHTML=""; thumbs.innerHTML="";
@@ -1542,24 +1646,16 @@ function openProduct(id){document.getElementById('modalStoreAdd').dataset.storeS
   modalPaypal.href=p.paypal[currentLang]; modalSpecs.innerHTML="";
   modalLongDesc.innerHTML=t.sections.map(x=>`<div><strong>${x[0]}</strong><span>${x[1]}</span></div>`).join("");
   renderProductMedia(p);
-  modal.classList.add("open");backdrop.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+  modal.classList.add("open");productBackdrop.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
 }
 function closeProduct(){
-  modal.classList.remove("open");backdrop.classList.remove("open");modal.setAttribute("aria-hidden","true");
+  modal.classList.remove("open");productBackdrop.classList.remove("open");modal.setAttribute("aria-hidden","true");
   document.body.style.overflow="";
 }
 document.querySelectorAll("[data-open-product]").forEach(btn=>btn.addEventListener("click",()=>openProduct(btn.dataset.openProduct)));
 document.getElementById("modalClose").addEventListener("click",closeProduct);
-backdrop.addEventListener("click",closeProduct);
+productBackdrop.addEventListener("click",closeProduct);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeProduct()});
-
-const accessBtn=document.getElementById("accessBtn");
-const accessPanel=document.getElementById("accessPanel");
-accessBtn.addEventListener("click",()=>accessPanel.classList.toggle("open"));
-document.querySelectorAll("[data-a11y]").forEach(btn=>btn.addEventListener("click",()=>document.body.classList.toggle(btn.dataset.a11y)));
-document.getElementById("accessReset").addEventListener("click",()=>{
-  ["large-text","high-contrast","highlight-links","grayscale","bold-text"].forEach(c=>document.body.classList.remove(c));
-});
 
 document.getElementById("contactForm").addEventListener("submit",async function(e){
   e.preventDefault();
@@ -1585,5 +1681,5 @@ applyLanguage("he");
     <div id="cartTotal" class="total"><span>סה״כ לתשלום</span><span>0 ש״ח</span></div>
     <div class="notice" hidden></div>
     <div class="cart-actions"><button id="checkout" class="button" type="button">המשך לתשלום</button></div>
-  </aside><script src="shop-catalog.js"></script><script type="module" src="shop-proaudio-integration.js"></script><script type="module" src="shop-store.js?v=carholder-route-2"></script><script src="shop-cart-ui-fix.js"></script><style>#cartDrawer{z-index:2000}.product-detail-modal{z-index:2100}#proAdminLinks[hidden]{display:none!important}#proAdminLinks{display:contents}.product-card[hidden]{display:none!important}.product-card .details-btn{cursor:pointer;margin-top:8px}#storeProducts:empty{display:none}#storeProducts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}.product-detail-modal.open{display:flex}</style><style>#storeProducts:has(>.empty){display:none}#closeCart{position:static!important;display:grid!important;place-items:center!important;flex:0 0 38px;color:#fff!important;background:#161616!important;border:1px solid #ffd400!important;cursor:pointer}#cartDrawer .drawer-head{display:flex;justify-content:space-between;gap:12px}#cartDrawer .drawer-head h2{margin:0}#cartDrawer .cart-line img{display:block;width:64px;height:64px;object-fit:contain}#cartDrawer .cart-line{display:grid;grid-template-columns:64px 1fr auto;gap:10px}</style></body>
+  </aside><script src="shop-catalog.js"></script><script type="module" src="shop-proaudio-integration.js"></script><script type="module" src="shop-store.js?v=carholder-route-2"></script><script src="shop-cart-ui-fix.js"></script><style>#cartDrawer{z-index:2000}.product-detail-modal{z-index:2100}#proAdminLinks[hidden]{display:none!important}#proAdminLinks{display:contents}.product-card[hidden]{display:none!important}.product-card .details-btn{cursor:pointer;margin-top:8px}#storeProducts:empty{display:none}#storeProducts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}.product-detail-modal.open{display:flex}</style><style>#storeProducts:has(>.empty){display:none}#closeCart{position:static!important;display:grid!important;place-items:center!important;flex:0 0 38px;color:#fff!important;background:#161616!important;border:1px solid #ffd400!important;cursor:pointer}#cartDrawer .drawer-head{display:flex;justify-content:space-between;gap:12px}#cartDrawer .drawer-head h2{margin:0}#cartDrawer .cart-line img{display:block;width:64px;height:64px;object-fit:contain}#cartDrawer .cart-line{display:grid;grid-template-columns:64px 1fr auto;gap:10px}</style><script src="shop-navigation.js?v=admin-auth-2"></script></body>
 </html>
