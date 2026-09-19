@@ -28,7 +28,7 @@ try{
 }catch(error){message.textContent=error.message;message.className='status show error';}
 form.addEventListener('submit',async event=>{
  event.preventDefault();if(button.disabled||!lines.length)return;
- button.disabled=true;button.textContent='שומר הזמנה...';
+ button.disabled=true;button.querySelector('.bit-button-label').textContent='שומר הזמנה...';
  try{
    const customer=Object.fromEntries(new FormData(form));delete customer.paymentProvider;
    const items=lines.map(l=>({productId:l.product.id,quantity:l.quantity,...l.options}));
@@ -43,5 +43,5 @@ form.addEventListener('submit',async event=>{
    message.innerHTML=`<h2>הזמנה ${esc(order.order_number)}</h2><p>ההזמנה נשמרה וממתינה לתשלום בביט.</p><p>הסכום להעברה: <strong>${money(order.total_ils)}</strong> · משלוח חינם</p><p>העתיקו את הסכום, פתחו את ביט והזינו אותו שם. ציינו בהערת התשלום את מספר ההזמנה.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><button type="button" class="button" id="copyBitAmount">העתקת הסכום</button><a class="button" href="${BIT_URL}" target="_blank" rel="noopener">פתיחת ביט לתשלום</a></div><p id="bitCopyStatus" role="status"></p><p>ההזמנה תסומן כשולמה רק לאחר בדיקת קבלת הכסף בחנות. פתיחת ביט אינה אישור תשלום.</p>`;
    document.getElementById('copyBitAmount').onclick=async()=>{const status=document.getElementById('bitCopyStatus');try{await navigator.clipboard.writeText(Number(order.total_ils).toFixed(2));status.textContent='הסכום הועתק';}catch{status.textContent='לא ניתן להעתיק אוטומטית. הסכום להעברה: '+money(order.total_ils);}};
    // Keep the basket until payment is verified; never claim success or clear it on link opening.
- }catch(error){message.className='status show error';message.textContent=error.message||'לא ניתן לשמור את ההזמנה. נסו שוב.';button.disabled=false;button.textContent='שמירת הזמנה והמשך לביט';}
+ }catch(error){message.className='status show error';message.textContent=error.message||'לא ניתן לשמור את ההזמנה. נסו שוב.';button.disabled=false;button.querySelector('.bit-button-label').textContent='לתשלום בביט';}
 });

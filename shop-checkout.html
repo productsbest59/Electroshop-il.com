@@ -13,7 +13,7 @@
 <meta name="description" content="השלמת הזמנה | ELECTRO. מידע ללקוחות אלקטרושופ על תנאי השימוש והשירות באתר.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://electroshop-il.com/shop-checkout.html">
-<link rel="stylesheet" href="shop-contact.css"><link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-header.css?v=gap-background-5"><link rel="stylesheet" href="shop-menu-visibility.css"></head>
+<link rel="stylesheet" href="shop-contact.css"><link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-header.css?v=gap-background-5"><link rel="stylesheet" href="shop-menu-visibility.css"><style>button[value="bit"]{display:inline-flex;align-items:center;justify-content:center;gap:10px}</style></head>
 <body class="checkout-page">
   <header class="electroshop-header"><a class="electroshop-header-brand" href="index.html" aria-label="אלקטרושופ — דף הבית"><img src="images/logo.png" alt="לוגו אלקטרושופ" width="96" height="96"><span><strong data-he="אלקטרושופ" data-en="Electroshop">אלקטרושופ</strong><span data-he="מעבדת סלולר ואביזרים" data-en="Phone repairs and accessories">מעבדת סלולר ואביזרים</span></span></a><nav class="electroshop-header-links" aria-label="ניווט ראשי"><a href="index.html" data-he="דף הבית" data-en="Home">דף הבית</a><a href="shop.html" data-he="החנות שלנו" data-en="Our store">החנות שלנו</a><a href="index.html#contact" data-he="צור קשר" data-en="Contact">צור קשר</a></nav><div class="electroshop-header-actions"><a class="button secondary" href="shop.html">חזרה לחנות</a></div></header>
   <main class="checkout-shell"><nav class="electroshop-page-navigation" aria-label="ניווט באתר"><a href="index.html" data-he="דף הבית" data-en="Home">דף הבית</a><a href="shop.html" data-he="כל הקטגוריות" data-en="All categories">כל הקטגוריות</a><a href="shop.html" data-category-back data-he="חזרה" data-en="Back">חזרה</a></nav>
@@ -33,7 +33,7 @@
         <label class="field"><span>מיקוד</span><input name="postalCode" autocomplete="postal-code"></label>
         <label class="field"><span>הערות להזמנה</span><textarea name="notes" rows="4"></textarea></label>
         <div class="checkout-payment-actions full-button">
-          <button class="button" type="submit" disabled name="paymentProvider" value="bit">שמירת הזמנה והמשך לביט</button>
+          <button class="button" type="submit" disabled name="paymentProvider" value="bit"><span class="bit-button-label">לתשלום בביט</span><img src="images/bit-logo.jpg" alt="" aria-hidden="true" width="32" height="32" style="width:32px;height:32px;object-fit:contain;border-radius:7px"></button>
           <button class="button paypal-button" type="submit" name="paymentProvider" value="paypal" hidden>תשלום עם PayPal בדולרים</button>
           <div id="paypalButtons" class="paypal-integrated" hidden></div>
         </div>
@@ -44,7 +44,7 @@
   </main>
   <script src="shop-catalog.js?v=4"></script>
   
-  <script type="module" src="shop-bit-checkout.js"></script>
+  <script type="module" src="shop-bit-checkout.js?v=bit-label-2"></script>
   <script src="shop-hebrew-arial-enforcer.js?v=3"></script>
   
 <div class="a11y-backdrop" id="a11yBackdrop"></div>
