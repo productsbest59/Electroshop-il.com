@@ -1,0 +1,11 @@
+/* One shared menu on mobile; desktop branding stays intact. */
+@media(max-width:900px){
+ html body:has(.site-topbar){padding-top:112px!important}
+ body:has(.site-topbar)>header.topbar,body:has(.site-topbar)>header.electroshop-header{display:none!important}
+ #legacyMenuToggle,#legacyMainMenu{display:none!important}
+ .site-topbar{top:10px!important;align-items:flex-start!important}
+ .site-topbar .topbar-left-controls{display:flex!important;flex-direction:column!important;gap:8px!important;align-items:center!important}
+ .site-topbar .store-cart-button{order:-1!important}
+ .electroshop-page-navigation{padding-top:8px!important;margin-bottom:12px!important}
+}
+
