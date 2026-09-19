@@ -18,7 +18,7 @@
 .electroshop-header{position:sticky;top:30px;z-index:40}
 /* Remove inherited Naya top spacing from the Electroshop store header. */
 body:has(>.electroshop-header){padding-top:0!important}
-.electroshop-header{top:0!important;margin-top:0!important}
+.electroshop-header{top:10px!important;margin-top:10px!important}
 body:has(>.electroshop-header) .site-topbar{top:12px!important}
 /* Shared Electroshop home background on all new store pages. */
 body:has(>.electroshop-header){background-color:#ff9b00!important;background-image:linear-gradient(180deg,rgba(255,142,0,.92),rgba(255,226,0,.96) 38%,rgba(255,180,0,.92)),url('images/background.png')!important;background-size:cover!important;background-attachment:fixed!important;background-position:center!important}
