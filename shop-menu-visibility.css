@@ -1,0 +1,2 @@
+
+body:is(.main-menu-is-open,:has(#mainMenu.open),:has(#legacyMainMenu.open),:has(#navLinks.open)) :is(.float-whatsapp,.float-access,.a11y-fab,.car-a11y-fab,.floating-contact,#a11yFab,#carA11yFab,#accessBtn){visibility:hidden!important;opacity:0!important;pointer-events:none!important}

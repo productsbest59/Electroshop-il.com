@@ -1,1 +1,56 @@
-export const categories=[["mobile","אביזרי סלולר","כיסויים, מגני מסך ואביזרים"],["pro-audio","פרו אודיו","מיקסרים, מיקרופונים וציוד אולפן"],["car-mounts","תושבות לרכב","אחיזה יציבה ונוחה לכל נסיעה"],["guitars","גיטרות","כלי נגינה באיסוף עצמי מהחנות"],["chargers-cables","מטענים וכבלים","טעינה וחיבורים לכל יום"]];
+import {request,getSession,isAdmin,SUPABASE_URL,PUBLISHABLE_KEY} from './shop-api.js';
+const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables'];
+const href=slug=>fixed.includes(slug)?`shop-${slug}.html`:`shop-category.html?category=${encodeURIComponent(slug)}`;
+const english=()=>document.documentElement.lang==='en';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const imageUrl=p=>p?`${SUPABASE_URL}/storage/v1/object/public/electroshop-product-images/${p}`:'';
+let categories=[],adminSession=null;
+const grid=document.querySelector('.category-grid');
+const page=document.querySelector('main[data-category]');
+const status=document.createElement('p');status.setAttribute('role','status');
+const button=document.createElement('button');button.type='button';button.className='button';button.textContent='עריכת קטגוריות';button.hidden=true;
+if(grid){grid.before(button,status);}
+async function load(){categories=await request('/rest/v1/electroshop_categories?select=*&order=sort_order.asc,slug.asc',{token:adminSession?.accessToken});render();}
+function render(){
+ const language=english()?'en':'he';
+ if(grid)grid.innerHTML=categories.filter(c=>c.active).map((c,i)=>`<a class="category-tile" href="${href(c.slug)}">${c.image_path?`<img class="category-cover" src="${esc(imageUrl(c.image_path))}" alt="${esc(c['name_'+language])}" loading="lazy">`:''}<span class="category-number">${String(i+1).padStart(2,'0')}</span><h2>${esc(c['name_'+language])}</h2><p>${esc(c['description_'+language])}</p><strong>${english()?'View products →':'למוצרים ←'}</strong></a>`).join('');
+ for(const select of document.querySelectorAll('#category,select[name="category"]')){
+   const current=select.value,empty=select.id==='category';
+   select.innerHTML=(empty?`<option value="">${english()?'All categories':'כל הקטגוריות'}</option>`:'')+categories.filter(c=>c.active||adminSession||c.slug===current).map(c=>`<option value="${esc(c.slug)}">${esc(c['name_'+language])}${!c.active?' (מוסתרת)':''}</option>`).join('');
+   if([...select.options].some(o=>o.value===current))select.value=current;
+ }
+ if(page){const c=categories.find(c=>c.slug===page.dataset.category);if(c){page.querySelector('h1').textContent=c['name_'+language];page.querySelector('.shop-intro p').textContent=c['description_'+language];page.querySelector('.eyebrow').textContent='ELECTROSHOP / '+c['name_'+language];page.querySelector('.breadcrumb').textContent=(english()?'Our store / ':'החנות שלנו / ')+c['name_'+language];}}
+}
+document.querySelector('#category')?.addEventListener('change',e=>{if(page&&e.target.value){e.stopImmediatePropagation();location.href=href(e.target.value);}},true);
+document.addEventListener('electroshop-language-change',render);
+async function verifiedSession(){const session=await getSession();if(!session||await isAdmin(session)!==true)throw Error('יש להתחבר מחדש כמנהל');return session;}
+const dialog=document.createElement('dialog');dialog.className='category-editor';dialog.setAttribute('aria-label','עריכת קטגוריות');document.body.append(dialog);
+function openEditor(){
+ dialog.innerHTML='<button type="button" class="category-editor-close" aria-label="סגירה">×</button><h2>עריכת קטגוריות</h2><p>הסתרה מסירה קטגוריה מדף החנות, בלי למחוק את מוצריה.</p><div class="category-editor-list"></div><button type="button" class="button category-new">הוספת קטגוריה</button><p class="category-editor-status" role="status"></p>';
+ const list=dialog.querySelector('.category-editor-list');
+ categories.forEach(c=>addForm(list,c));
+ dialog.querySelector('.category-new').onclick=()=>addForm(list,{slug:'',name_he:'',name_en:'',description_he:'',description_en:'',image_path:'',sort_order:categories.length+1,active:true});
+ dialog.querySelector('.category-editor-close').onclick=()=>dialog.close();
+ if(!dialog.open)dialog.showModal();
+}
+function addForm(list,c){
+ const form=document.createElement('form');form.className='category-edit-form';
+ form.innerHTML=`<label>מזהה באנגלית (נשאר קבוע)<input name="slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" value="${esc(c.slug)}" ${c.slug?'readonly':''}></label><label>שם בעברית<input name="name_he" required maxlength="100" value="${esc(c.name_he)}"></label><label>שם באנגלית<input name="name_en" required maxlength="100" value="${esc(c.name_en)}"></label><label>תיאור בעברית<textarea name="description_he">${esc(c.description_he)}</textarea></label><label>תיאור באנגלית<textarea name="description_en">${esc(c.description_en)}</textarea></label><label>מיקום בסדר הקטגוריות<input name="sort_order" type="number" step="1" required value="${c.sort_order}"></label><label><input name="active" type="checkbox" ${c.active?'checked':''}> מוצגת בחנות</label>${c.image_path?`<img class="category-cover" src="${esc(imageUrl(c.image_path))}" alt="תמונת קטגוריה"><label><input name="remove_image" type="checkbox"> הסרת התמונה</label>`:''}<label>תמונה (JPG, PNG, WebP עד 5MB)<input name="image" type="file" accept="image/jpeg,image/png,image/webp"></label><button class="button" type="submit">שמירת קטגוריה</button><p role="status"></p>`;
+ list.append(form);
+ form.onsubmit=async e=>{
+   e.preventDefault();const submit=form.querySelector('[type="submit"]'),message=form.querySelector('[role="status"]');submit.disabled=true;message.textContent='שומר...';
+   try{
+     const session=await verifiedSession(),fields=new FormData(form),slug=String(fields.get('slug')).trim();
+     let image_path=fields.has('remove_image')?'':c.image_path;
+     const file=form.elements.image.files[0];
+     if(file){if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>5*1024*1024)throw Error('יש לבחור תמונת JPG, PNG או WebP עד 5MB');const bitmap=await createImageBitmap(file),canvas=document.createElement('canvas'),scale=Math.min(1,1000/Math.max(bitmap.width,bitmap.height));canvas.width=Math.round(bitmap.width*scale);canvas.height=Math.round(bitmap.height*scale);canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/webp',.82));if(!blob)throw Error('לא ניתן לעבד את התמונה');image_path=`categories/${slug}/${crypto.randomUUID()}.webp`;const result=await fetch(`${SUPABASE_URL}/storage/v1/object/electroshop-product-images/${image_path}`,{method:'POST',headers:{apikey:PUBLISHABLE_KEY,Authorization:`Bearer ${session.accessToken}`,'Content-Type':blob.type},body:blob});if(!result.ok)throw Error('העלאת התמונה נכשלה');}
+     const body={slug,name_he:String(fields.get('name_he')).trim(),name_en:String(fields.get('name_en')).trim(),description_he:String(fields.get('description_he')),description_en:String(fields.get('description_en')),sort_order:Number(fields.get('sort_order')),active:fields.has('active'),image_path};
+     await request('/rest/v1/electroshop_categories'+(c.slug?'?slug=eq.'+encodeURIComponent(c.slug):''),{method:c.slug?'PATCH':'POST',body,token:session.accessToken,headers:{Prefer:'return=representation'}});
+     Object.assign(c,body);form.elements.slug.readOnly=true;adminSession=session;await load();message.textContent='הקטגוריה נשמרה';
+   }catch(error){message.textContent=error.message||'השמירה נכשלה';}finally{submit.disabled=false;}
+ };
+}
+button.onclick=async()=>{try{adminSession=await verifiedSession();await load();openEditor();}catch(error){button.hidden=true;status.textContent=error.message;}};
+try{await load();}catch{if(grid)grid.replaceChildren();status.textContent='לא ניתן לטעון עדכוני קטגוריות כרגע. נסו לרענן.';}
+try{adminSession=await verifiedSession();await load();button.hidden=false;}catch{button.hidden=true;}
+window.addEventListener('storage',event=>{if(event.key==='electroshop_admin_session_v1'||event.key===null){button.hidden=true;dialog.close();location.reload();}});
