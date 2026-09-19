@@ -1,0 +1,8 @@
+footer.home-footer{background:transparent!important;color:#111!important;border:0!important;box-shadow:none!important;padding:12px 16px 10px!important;margin-top:16px;font-size:13px;line-height:1.5}
+footer.home-footer .home-footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:2px 16px;margin-bottom:5px}
+footer.home-footer .home-footer-links a{margin:0;font-size:13px;min-height:30px;display:inline-flex;align-items:center}
+footer.home-footer .home-footer-copyright{margin:0;font-size:13px}
+footer.home-footer .site-credit{margin:3px 0 0;font-size:11px}
+footer.home-footer a,footer.home-footer .site-credit{color:#111!important}
+footer.home-footer .site-credit a{margin:0;text-decoration:underline}
+footer.home-footer :focus-visible{outline:2px solid #111;outline-offset:4px}
