@@ -1,7 +1,12 @@
-html.devices-page body>header.electroshop-header,html.devices-page .mobile-brand{display:none!important}
+html.devices-page body>header.electroshop-header{display:none!important}
 html.devices-page body{padding-top:104px!important}
 html.devices-page .shop-shell{padding-top:0!important}
 html.devices-page .shop-intro{padding:8px 0 18px!important}
 html.devices-page .shop-intro h1,html.devices-page .shop-intro p{display:none!important}
 .devices-banner{display:block;width:100%;max-width:1100px;height:auto;margin:0 auto;border-radius:12px}
 @media(max-width:900px){html.devices-page body:has(.site-topbar){padding-top:104px!important}.devices-banner{border-radius:6px}html.devices-page .shop-intro{padding:4px 0 12px!important}}
+
+.devices-price-notice{margin:12px 0 20px;padding:12px 16px;color:#171717;background:rgba(255,255,255,.78);border-radius:10px;font-size:14px;line-height:1.7;text-align:start}
+
+html.devices-page .mobile-brand{display:block!important;position:absolute;top:8px;left:50%;transform:translateX(-50%);width:80px;height:80px;z-index:30}
+html.devices-page .mobile-brand img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}
