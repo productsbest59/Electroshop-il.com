@@ -20,7 +20,7 @@
       <div class="field full rich-field" data-rich-field="descriptionHe"><span>תיאור המוצר בעברית</span><div class="rich-toolbar" role="toolbar"><button type="button" data-command="bold"><b>B</b></button><button type="button" data-command="italic"><i>I</i></button><button type="button" data-command="underline"><u>U</u></button><button type="button" data-command="insertUnorderedList">• רשימה</button><button type="button" data-command="insertOrderedList">1. רשימה</button><button type="button" data-command="createLink">🔗</button><button type="button" data-command="removeFormat">ניקוי</button></div><div class="rich-editor" contenteditable="true" dir="rtl" data-placeholder="תיאור, חומר, מידות ופרטים נוספים"></div><textarea name="descriptionHe" hidden></textarea></div>
       <div class="field full rich-field" data-rich-field="descriptionEn"><span>תיאור המוצר באנגלית</span><div class="rich-toolbar" role="toolbar"><button type="button" data-command="bold"><b>B</b></button><button type="button" data-command="italic"><i>I</i></button><button type="button" data-command="underline"><u>U</u></button><button type="button" data-command="insertUnorderedList">• List</button><button type="button" data-command="insertOrderedList">1. List</button><button type="button" data-command="createLink">🔗</button><button type="button" data-command="removeFormat">Clear</button></div><div class="rich-editor" contenteditable="true" dir="ltr" data-placeholder="Product description, materials and measurements"></div><textarea name="descriptionEn" hidden></textarea></div>
       <label class="field"><span>מק״ט</span><input name="sku" required></label>
-      <label class="field"><span>קטגוריה</span><select name="category"><option value="mobile">אביזרי סלולר</option><option value="pro-audio">פרו אודיו</option><option value="car-mounts">תושבות לרכב</option><option value="guitars">גיטרות</option><option value="chargers-cables">מטענים וכבלים</option></select></label>
+      <label class="field"><span>קטגוריה</span><select name="category" required><option value="">בחר קטגוריה</option><option value="mobile">אביזרי סלולר</option><option value="pro-audio">פרו אודיו</option><option value="car-mounts">תושבות לרכב</option><option value="guitars">גיטרות</option><option value="chargers-cables">מטענים וכבלים</option></select></label>
       <label class="field"><span>מחיר</span><input name="regularPrice" type="number" min="0" step="0.01" required></label>
       <label class="field"><span>מחיר מבצע - אופציונלי</span><input name="price" type="number" min="0" step="0.01" placeholder="להשאיר ריק כשאין מבצע"></label>
       <label class="field"><span>צבעים</span><textarea name="colors" rows="3" placeholder="שחור&#10;לבן"></textarea><small>אפשרות אחת בכל שורה, או הפרדה בפסיק</small></label>
@@ -33,7 +33,7 @@
     </div>
     <div class="modal-actions"><div id="formStatus" class="status form-status" role="status" aria-live="polite"></div><button type="button" id="cancel" class="button secondary">ביטול</button><button class="button">שמירה</button></div>
   </form></div>
-  <script src="shop-admin.js?v=naya-opening-5"></script>
+  <script src="shop-admin.js?v=category-context-1"></script>
 <div class="a11y-backdrop" id="a11yBackdrop"></div>
 
 
@@ -131,5 +131,5 @@
       </button>
     </div>
   </div>
-</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script><link rel="stylesheet" href="shop-categories.css"><script type="module" src="shop-categories.js?v=legacy-pages-1"></script><script src="shop-category-back.js"></script></body>
+</aside><script src="shop-accessibility.js"></script><script src="shop-accessibility-dialog-fix.js"></script><link rel="stylesheet" href="shop-categories.css"><script type="module" src="shop-categories.js?v=category-context-1"></script><script src="shop-category-back.js"></script></body>
 </html>

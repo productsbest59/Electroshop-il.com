@@ -115,6 +115,15 @@ document.addEventListener('DOMContentLoaded',()=>{
  }
 });
 
+// Carry the current category through management into the new-product editor.
+function setManagementCategoryLinks(){
+ const file=location.pathname.split('/').pop();
+ const page=document.querySelector('main[data-category],main[data-store-category]');
+ const slug=file==='shop-category.html'?new URLSearchParams(location.search).get('category'):file==='shop-carholder.html'?'car-mounts':page?.dataset.storeCategory||page?.dataset.category;
+ if(!slug||slug==='unavailable'||!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug))return;
+ document.querySelectorAll('a[href]').forEach(link=>{const url=new URL(link.href,location.href);if(url.origin===location.origin&&url.pathname.endsWith('/shop-admin.html')){url.searchParams.set('category',slug);link.href=url.href;}});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setManagementCategoryLinks);else setManagementCategoryLinks();
 // Use the same direct user-click opening mechanism as the product editor.
 document.querySelectorAll('#adminMenuLinks a[href]').forEach(link=>{
  link.addEventListener('click',event=>{
