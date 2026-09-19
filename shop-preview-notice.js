@@ -1,1 +1,1 @@
-import {config} from './shop-config.js';const status=document.querySelector('#catalogStatus');if(status)status.textContent=config.databaseReady?'מוצרים נבחרים מהחנות • התשלום המקוון ייפתח בקרוב':'תצוגה מקדימה • מוצרים ומחירים מתוך האתר הקיים';
+const status=document.querySelector('#catalogStatus');if(status){status.textContent='';status.hidden=true;}
