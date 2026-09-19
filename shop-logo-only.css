@@ -1,0 +1,7 @@
+html body.logo-only-page,html body.logo-only-page:has(.site-topbar){padding-top:104px!important}
+.logo-only-page .mobile-brand{display:block!important;position:absolute;top:8px;left:50%;transform:translateX(-50%);width:80px;height:80px;z-index:30}
+.logo-only-page .mobile-brand img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}
+html body.logo-only-page .shop-shell{padding-top:0!important}
+html body.logo-only-page .shop-intro:empty{display:none!important}
+html body.logo-only-page{background-color:#ff9b00!important;background-image:linear-gradient(180deg,rgba(255,142,0,.92),rgba(255,226,0,.96) 38%,rgba(255,180,0,.92)),url('images/background.png')!important;background-size:cover!important;background-attachment:fixed!important;background-position:center!important}
+body.logo-only-page::before{content:none!important;display:none!important}
