@@ -42,7 +42,7 @@ body:has(>header.topbar) #home{padding-top:0}
 .main-menu-links>a,.main-menu-links .admin-menu-links{flex-shrink:0}
 
 /* Align the homepage header with the top of the page. */
-body:has(>header.topbar){padding-top:0!important}
-body:has(>header.topbar)>header.topbar{position:sticky!important;top:10px!important;margin-top:10px!important}
+body:has(>header.topbar){padding-top:10px!important}
+body:has(>header.topbar)>header.topbar{position:sticky!important;top:10px!important;margin-top:0!important}
 body:has(>header.topbar)>header.topbar .nav{padding-inline:76px}
 @media(max-width:600px){body:has(>header.topbar)>header.topbar .nav{padding-inline:64px;min-height:126px}}
