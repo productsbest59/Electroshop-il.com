@@ -35,3 +35,8 @@ body:has(>header.topbar) #home{padding-top:0}
 body:has(>header.topbar) >header.topbar{margin-top:132px}
 body:has(>header.topbar) >header.topbar{margin-top:164px}
 body:has(>header.topbar) >header.topbar{margin-top:164px!important}
+/* Keep every management link reachable within short/mobile viewports. */
+.main-menu{display:flex!important;flex-direction:column!important;overflow:hidden!important;box-sizing:border-box}
+.main-menu-header{flex:0 0 auto}
+.main-menu-links{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-bottom:calc(100px + env(safe-area-inset-bottom))!important;-webkit-overflow-scrolling:touch}
+.main-menu-links>a,.main-menu-links .admin-menu-links{flex-shrink:0}
