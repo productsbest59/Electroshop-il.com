@@ -1,6 +1,6 @@
 (() => {
  const key='electroshop_last_category_url';
- const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables'];
+ const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones'];
  const file=location.pathname.split('/').pop();
  const category=document.querySelector('main[data-category],main[data-store-category]');
  const slug=category?.dataset.storeCategory||category?.dataset.category;

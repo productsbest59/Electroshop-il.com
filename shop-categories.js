@@ -1,5 +1,5 @@
 import {request,getSession,isAdmin,SUPABASE_URL,PUBLISHABLE_KEY} from './shop-api.js';
-const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables'];
+const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones'];
 const href=slug=>fixed.includes(slug)?`shop-${slug}.html`:`shop-category.html?category=${encodeURIComponent(slug)}`;
 const english=()=>document.documentElement.lang==='en';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
