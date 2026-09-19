@@ -114,3 +114,13 @@ document.addEventListener('DOMContentLoaded',()=>{
    document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshAdminLinks();});
  }
 });
+
+// Use the same direct user-click opening mechanism as the product editor.
+document.querySelectorAll('#adminMenuLinks a[href]').forEach(link=>{
+ link.addEventListener('click',event=>{
+  if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+  event.preventDefault();
+  window.open(link.href,'_blank');
+  closeMenu();
+ });
+});
