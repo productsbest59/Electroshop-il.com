@@ -8,3 +8,10 @@
 .electroshop-header-links{display:flex;gap:8px;flex-wrap:wrap}.electroshop-header-links a{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border-radius:14px;color:white;text-decoration:none;font-weight:700}.electroshop-header-links a:hover,.electroshop-header-links a:focus-visible{background:#ffd400;color:#000}
 .electroshop-header-actions:empty{display:none}.electroshop-header-actions{display:flex;gap:10px;flex-wrap:wrap}
 @media(max-width:600px){.electroshop-header{justify-content:center;padding:16px 12px}.electroshop-header-brand img{width:76px;height:76px}.electroshop-header-links{justify-content:center;width:100%}.electroshop-header-actions{justify-content:center;width:100%}}
+/* Place the storefront header at the top, reserving side space for controls. */
+.electroshop-header-with-controls{margin-top:12px;padding-inline:100px;min-height:128px}
+@media(max-width:600px){
+ .electroshop-header-with-controls{padding:16px 12px;gap:16px}
+ .electroshop-header-with-controls .electroshop-header-brand{margin-inline:68px;flex-direction:column;text-align:center;gap:12px}
+ .electroshop-header-with-controls .electroshop-header-links{margin-top:4px}
+}
