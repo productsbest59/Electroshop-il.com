@@ -96,5 +96,21 @@ document.addEventListener('DOMContentLoaded',()=>{
  const translate=()=>{const english=getLang()==='en';nodes.forEach(({n,he,en})=>n.textContent=english?en:he);};
  document.addEventListener('electroshop-language-change',translate);applyLang(getLang());translate();
  const admin=document.getElementById('adminMenuLinks');
- if(admin){admin.hidden=false;const login=document.createElement('a');login.href='shop-login.html';login.dataset.he='כניסת מנהל';login.dataset.en='Admin sign in';nav.append(login);applyLang(getLang());}
+ if(admin){
+   let checkVersion=0;
+   async function refreshAdminLinks(){
+     const version=++checkVersion;
+     admin.hidden=true;
+     try{
+       const api=await import('./shop-api.js');
+       const session=await api.getSession();
+       const authorized=!!session && (await api.isAdmin(session))===true;
+       if(version===checkVersion)admin.hidden=!authorized;
+     }catch{if(version===checkVersion)admin.hidden=true;}
+   }
+   refreshAdminLinks();
+   window.addEventListener('pageshow',refreshAdminLinks);
+   window.addEventListener('storage',event=>{if(event.key==='electroshop_admin_session_v1'||event.key===null)refreshAdminLinks();});
+   document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshAdminLinks();});
+ }
 });
