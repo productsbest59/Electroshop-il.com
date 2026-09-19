@@ -6,8 +6,8 @@
       const invalid = !Number.isFinite(numericPrice) || numericPrice <= 0;
       const button = card.querySelector('.add');
       if (button) {
-        button.disabled = invalid;
-        button.setAttribute('aria-disabled', String(invalid));
+        button.disabled = invalid || button.dataset.variantInvalid === 'true';
+        button.setAttribute('aria-disabled', String(button.disabled));
       }
     });
   };

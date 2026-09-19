@@ -60,5 +60,6 @@ import('./shop-api.js?v=8').then(async api=>{
   window.addEventListener('message',async event=>{if(event.origin!==location.origin||event.data?.type!=='electroshop-product-saved')return;products=await api.getProducts(session);render();status('רשימת המוצרים עודכנה')});
 
   window.addEventListener('storage',async event=>{if(event.key==='electroshop_products_updated'&&!editorMode){try{products=await api.getProducts(session);render();status('רשימת המוצרים עודכנה')}catch(error){status(error.message,'error')}}});
+  document.addEventListener('electroshop-devices-updated',async()=>{products=await api.getProducts(session);if(!Array.from(categoryFilter.options).some(o=>o.value==='smartphones'))categoryFilter.add(new Option('מכשירים','smartphones'));render()});
   render();if(editorMode){const adminActions=document.querySelector('#add')?.closest('.head-actions');if(adminActions)adminActions.hidden=true;document.querySelector('.admin-shell').hidden=true;const product=editorId?products.find(item=>item.id===editorId):null;if(editorId&&!product){modal.classList.add('open');status('המוצר לא נמצא','error')}else openForm(product)}
 }).catch(error=>{const message=document.querySelector('#status')||document.querySelector('#formStatus');if(message){message.textContent=error.message;message.className='status show error'}});

@@ -19,7 +19,7 @@ function render(){
    select.innerHTML=(empty?`<option value="">${english()?'All categories':'כל הקטגוריות'}</option>`:`<option value="">${english()?'Choose a category':'בחר קטגוריה'}</option>`)+categories.filter(c=>c.active||adminSession||c.slug===current).map(c=>`<option value="${esc(c.slug)}">${esc(c['name_'+language])}${!c.active?' (מוסתרת)':''}</option>`).join('');
    if([...select.options].some(o=>o.value===current))select.value=current;
  }
- if(page){const c=categories.find(c=>c.slug===page.dataset.category);if(c){page.querySelector('h1').textContent=c['name_'+language];page.querySelector('.shop-intro p').textContent=c['description_'+language];if(page.querySelector('.eyebrow'))page.querySelector('.eyebrow').textContent='ELECTROSHOP / '+c['name_'+language];if(page.querySelector('.breadcrumb'))page.querySelector('.breadcrumb').textContent=(english()?'Our store / ':'החנות שלנו / ')+c['name_'+language];}}
+ if(page){const c=categories.find(c=>c.slug===page.dataset.category);if(c){page.querySelector('h1').textContent=c.slug==='smartphones'?(english()?'Devices':'מכשירים'):c['name_'+language];page.querySelector('.shop-intro p').textContent=c['description_'+language];if(page.querySelector('.eyebrow'))page.querySelector('.eyebrow').textContent='ELECTROSHOP / '+c['name_'+language];if(page.querySelector('.breadcrumb'))page.querySelector('.breadcrumb').textContent=(english()?'Our store / ':'החנות שלנו / ')+c['name_'+language];}}
 }
 document.querySelector('#category')?.addEventListener('change',e=>{if(page&&e.target.value){e.stopImmediatePropagation();location.href=href(e.target.value);}},true);
 document.addEventListener('electroshop-language-change',render);
