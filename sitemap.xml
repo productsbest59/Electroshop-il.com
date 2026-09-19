@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://electroshop-il.com/shop-carholder.html</loc></url>
-  <url><loc>https://electroshop-il.com/carholderaccessibility.html</loc></url>
-  <url><loc>https://electroshop-il.com/carholderprivacy.html</loc></url>
-  <url><loc>https://electroshop-il.com/carholderterms.html</loc></url>
-  <url><loc>https://electroshop-il.com/</loc></url>
-  <url><loc>https://electroshop-il.com/privacy.html</loc></url>
-  <url><loc>https://electroshop-il.com/proaudio-accessibility.html</loc></url>
-  <url><loc>https://electroshop-il.com/proaudio-privacy.html</loc></url>
-  <url><loc>https://electroshop-il.com/proaudio-terms.html</loc></url>
+  <url><loc>https://electroshop-il.com/</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://electroshop-il.com/privacy.html</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://electroshop-il.com/proaudio-accessibility.html</loc><lastmod>2026-09-19</lastmod></url>
   <url><loc>https://electroshop-il.com/shop-pro-audio.html</loc></url>
   <url><loc>https://electroshop-il.com/shop-car-mounts.html</loc></url>
   <url><loc>https://electroshop-il.com/shop-chargers-cables.html</loc></url>
@@ -16,7 +11,7 @@
   <url><loc>https://electroshop-il.com/shop-mobile.html</loc></url>
   
   <url><loc>https://electroshop-il.com/shop.html</loc></url>
-  <url><loc>https://electroshop-il.com/terms.html</loc></url>
+  <url><loc>https://electroshop-il.com/terms.html</loc><lastmod>2026-09-19</lastmod></url>
   <url><loc>https://electroshop-il.com/shop-earphones.html</loc></url>
   <url><loc>https://electroshop-il.com/shop-category.html?category=smartphones</loc><lastmod>2026-09-19</lastmod></url>
 </urlset>

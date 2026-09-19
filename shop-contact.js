@@ -20,7 +20,7 @@
     event.stopImmediatePropagation();
     if (typeof window.closeMenu === 'function') window.closeMenu();
     document.getElementById('legacyMainMenu')?.classList.remove('open');
-    section.scrollIntoView({behavior:'smooth',block:'start'});
+    (section.closest('.home-contact') || section).scrollIntoView({behavior:'smooth',block:'start'});
     form.elements.name.focus({preventScroll:true});
   },true);
   form.addEventListener('submit',async event => {
