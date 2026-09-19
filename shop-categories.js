@@ -34,9 +34,11 @@ function openEditor(){
  if(!dialog.open)dialog.showModal();
 }
 function addForm(list,c){
+ const item=document.createElement('details');item.className='category-edit-item';item.open=!c.slug;
+ const summary=document.createElement('summary');const refreshSummary=()=>{summary.textContent=(c.name_he||'קטגוריה חדשה')+' · '+(c.active?'מוצגת':'מוסתרת')+' · סדר '+c.sort_order+' — עריכה';};refreshSummary();item.append(summary);
  const form=document.createElement('form');form.className='category-edit-form';
  form.innerHTML=`<label>מזהה באנגלית (נשאר קבוע)<input name="slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" value="${esc(c.slug)}" ${c.slug?'readonly':''}></label><label>שם בעברית<input name="name_he" required maxlength="100" value="${esc(c.name_he)}"></label><label>שם באנגלית<input name="name_en" required maxlength="100" value="${esc(c.name_en)}"></label><label>תיאור בעברית<textarea name="description_he">${esc(c.description_he)}</textarea></label><label>תיאור באנגלית<textarea name="description_en">${esc(c.description_en)}</textarea></label><label>מיקום בסדר הקטגוריות<input name="sort_order" type="number" step="1" required value="${c.sort_order}"></label><label><input name="active" type="checkbox" ${c.active?'checked':''}> מוצגת בחנות</label>${c.image_path?`<img class="category-cover" src="${esc(imageUrl(c.image_path))}" alt="תמונת קטגוריה"><label><input name="remove_image" type="checkbox"> הסרת התמונה</label>`:''}<label>תמונה (JPG, PNG, WebP עד 5MB)<input name="image" type="file" accept="image/jpeg,image/png,image/webp"></label><button class="button" type="submit">שמירת קטגוריה</button><p role="status"></p>`;
- list.append(form);
+ item.append(form);list.append(item);
  form.onsubmit=async e=>{
    e.preventDefault();const submit=form.querySelector('[type="submit"]'),message=form.querySelector('[role="status"]');submit.disabled=true;message.textContent='שומר...';
    try{
@@ -46,7 +48,7 @@ function addForm(list,c){
      if(file){if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>5*1024*1024)throw Error('יש לבחור תמונת JPG, PNG או WebP עד 5MB');const bitmap=await createImageBitmap(file),canvas=document.createElement('canvas'),scale=Math.min(1,1000/Math.max(bitmap.width,bitmap.height));canvas.width=Math.round(bitmap.width*scale);canvas.height=Math.round(bitmap.height*scale);canvas.getContext('2d').drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/webp',.82));if(!blob)throw Error('לא ניתן לעבד את התמונה');image_path=`categories/${slug}/${crypto.randomUUID()}.webp`;const result=await fetch(`${SUPABASE_URL}/storage/v1/object/electroshop-product-images/${image_path}`,{method:'POST',headers:{apikey:PUBLISHABLE_KEY,Authorization:`Bearer ${session.accessToken}`,'Content-Type':blob.type},body:blob});if(!result.ok)throw Error('העלאת התמונה נכשלה');}
      const body={slug,name_he:String(fields.get('name_he')).trim(),name_en:String(fields.get('name_en')).trim(),description_he:String(fields.get('description_he')),description_en:String(fields.get('description_en')),sort_order:Number(fields.get('sort_order')),active:fields.has('active'),image_path};
      await request('/rest/v1/electroshop_categories'+(c.slug?'?slug=eq.'+encodeURIComponent(c.slug):''),{method:c.slug?'PATCH':'POST',body,token:session.accessToken,headers:{Prefer:'return=representation'}});
-     Object.assign(c,body);form.elements.slug.readOnly=true;adminSession=session;await load();message.textContent='הקטגוריה נשמרה';
+     Object.assign(c,body);refreshSummary();form.elements.slug.readOnly=true;adminSession=session;await load();message.textContent='הקטגוריה נשמרה';
    }catch(error){message.textContent=error.message||'השמירה נכשלה';}finally{submit.disabled=false;}
  };
 }
