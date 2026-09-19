@@ -13,7 +13,7 @@ if(grid){grid.before(button,status);}
 async function load(){categories=await request('/rest/v1/electroshop_categories?select=*&order=sort_order.asc,slug.asc',{token:adminSession?.accessToken});render();}
 function render(){
  const language=english()?'en':'he';
- if(grid)grid.innerHTML=categories.filter(c=>c.active).map((c,i)=>`<a class="category-tile" href="${href(c.slug)}">${c.image_path?`<img class="category-cover" src="${esc(imageUrl(c.image_path))}" alt="${esc(c['name_'+language])}" loading="lazy">`:''}<span class="category-number">${String(i+1).padStart(2,'0')}</span><h2>${esc(c['name_'+language])}</h2><p>${esc(c['description_'+language])}</p><strong>${english()?'View products →':'למוצרים ←'}</strong></a>`).join('');
+ if(grid)grid.innerHTML=categories.filter(c=>c.active).map((c,i)=>`<a class="category-tile" href="${href(c.slug)}">${c.image_path?`<img class="category-cover" src="${esc(imageUrl(c.image_path))}" alt="${esc(c['name_'+language])}" loading="lazy">`:''}<h2>${esc(c['name_'+language])}</h2><p>${esc(c['description_'+language])}</p><strong>${english()?'View products →':'למוצרים ←'}</strong></a>`).join('');
  for(const select of document.querySelectorAll('#category,select[name="category"]')){
    const current=select.value,empty=select.id==='category';
    select.innerHTML=(empty?`<option value="">${english()?'All categories':'כל הקטגוריות'}</option>`:`<option value="">${english()?'Choose a category':'בחר קטגוריה'}</option>`)+categories.filter(c=>c.active||adminSession||c.slug===current).map(c=>`<option value="${esc(c.slug)}">${esc(c['name_'+language])}${!c.active?' (מוסתרת)':''}</option>`).join('');
