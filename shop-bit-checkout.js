@@ -1,4 +1,4 @@
-import {getProducts,createBitOrder} from './shop-api.js?v=bit-manual-1';
+import {getProducts,createBitOrder} from './shop-api.js?v=multi-category-1';
 const BIT_URL='https://www.bitpay.co.il/app/me/54E3CA02-7B91-2A87-B0E5-9C89BB3228770630';
 const form=document.getElementById('checkoutForm'),message=document.getElementById('message'),button=form.querySelector('[value="bit"]');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -21,7 +21,7 @@ function optionsFor(product,item){
 try{
  const products=await getProducts(),cart=JSON.parse(localStorage.getItem('electroshop_new_store_cart_v2')||'{}');
  lines=Object.values(cart).map(item=>{const product=products.find(p=>p.id===item.productId&&p.active);if(!product)throw Error('מוצר בעגלה אינו זמין. חזרו לעגלה ועדכנו אותה.');const quantity=Number(item.qty);if(!Number.isInteger(quantity)||quantity<1||quantity>20)throw Error('כמות המוצר אינה תקינה');const options=optionsFor(product,item);const variant=(product.variants||[]).find(v=>(v.color||'')===options.color&&(v.size||'')===options.size&&(v.style||'')===options.style);if(product.sku?.startsWith('PELEPHONE-')&&variant?.available!==true)throw Error('שילוב הצבע והנפח אינו זמין כרגע. חזרו לעגלה ובחרו מחדש.');const price=variant?.price!==''&&variant?.price!=null?Number(variant.price):Number(product.price);return {product,quantity,options,price};});
- shipping=lines.some(l=>l.product.category==='smartphones'||l.product.sku?.startsWith('PELEPHONE-'))?50:0;
+ shipping=lines.some(l=>(l.product.categoryKeys||l.product.categories||[l.product.category]).includes('smartphones')||l.product.sku?.startsWith('PELEPHONE-'))?50:0;
  const total=lines.reduce((n,l)=>n+l.quantity*l.price,0)+shipping;
  document.getElementById('summaryLines').innerHTML=lines.map(l=>`<div class="summary-line"><img src="${esc(l.product.images?.[0]||'')}" alt=""><div><strong>${esc(l.product.nameHe)}</strong><small>${esc(Object.values(l.options).filter(Boolean).join(' | '))}</small><span>${l.quantity} × ${money(l.price)}</span></div></div>`).join('')||'<p>העגלה ריקה</p>';
  document.getElementById('summaryTotal').innerHTML=`<small>${shipping?`משלוח מכשירים: ${money(shipping)}`:'משלוח חינם'}</small><span>סה״כ לתשלום</span><strong>${money(total)}</strong>`;

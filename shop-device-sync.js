@@ -1,4 +1,4 @@
-import {getSession,isAdmin,SUPABASE_URL,PUBLISHABLE_KEY} from './shop-api.js';
+import {getSession,isAdmin,SUPABASE_URL,PUBLISHABLE_KEY} from './shop-api.js?v=multi-category-1';
 if(!location.pathname.endsWith('/shop-product-editor.html')&&!new URLSearchParams(location.search).has('edit')&&!new URLSearchParams(location.search).has('new')){
  const session=await getSession();
  if(session&&await isAdmin(session)){

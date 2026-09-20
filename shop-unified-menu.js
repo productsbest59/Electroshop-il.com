@@ -1,4 +1,4 @@
-import {request,getSession,isAdmin} from './shop-api.js';
+import {request,getSession,isAdmin} from './shop-api.js?v=multi-category-1';
 const en=()=>document.documentElement.lang==='en';
 const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones'];
 const categoryUrl=slug=>fixed.includes(slug)?`shop-${slug}.html`:`shop-category.html?category=${encodeURIComponent(slug)}`;
@@ -34,11 +34,13 @@ else{
 let rows=[];
 function render(){
  categories.replaceChildren(link('shop.html','כל הקטגוריות','All categories'));
- for(const c of rows){categories.append(link(categoryUrl(c.slug),c.name_he,c.name_en||c.name_he));}
+ for(const c of rows){categories.append(link(categoryUrl((c.aliases||[]).find(s=>fixed.includes(s)||s==='smartphones')||c.slug),c.name_he,c.name_en||c.name_he));}
  nav.querySelectorAll('[data-he]').forEach(el=>el.textContent=en()?el.dataset.en:el.dataset.he);
  nav.querySelectorAll('a').forEach(a=>{const u=new URL(a.href);if(u.pathname===location.pathname&&u.search===location.search&&!u.hash)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
 }
 render();
-try{rows=await request('/rest/v1/electroshop_categories?select=slug,name_he,name_en&active=eq.true&order=sort_order.asc,slug.asc');render();}catch{const p=document.createElement('small');p.textContent='לא ניתן לטעון קטגוריות כרגע. כל הקטגוריות זמינות בדף החנות.';categories.append(p);}
+try{rows=await request('/rest/v1/electroshop_categories?select=slug,name_he,name_en,aliases&active=eq.true&order=sort_order.asc,slug.asc');render();}catch{const p=document.createElement('small');p.textContent='לא ניתן לטעון קטגוריות כרגע. כל הקטגוריות זמינות בדף החנות.';categories.append(p);}
 document.addEventListener('electroshop-language-change',render);
 nav.addEventListener('click',e=>{if(e.target.closest('a')){menu.querySelector('.main-menu-close')?.click();}});
+
+document.addEventListener('electroshop-categories-updated',async()=>{rows=await request('/rest/v1/electroshop_categories?select=slug,name_he,name_en,aliases&active=eq.true&order=sort_order.asc,slug.asc');render();});

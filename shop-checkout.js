@@ -1,5 +1,5 @@
 import('./shop-config.js').then(({config})=>{
-import('./shop-api.js?v=7').then(async api => {
+import('./shop-api.js?v=multi-category-1').then(async api => {
   const language = localStorage.getItem('electroshop_store_language') === 'en' ? 'en' : 'he';
   const english = language === 'en';
   document.documentElement.lang = language;

@@ -1,4 +1,4 @@
-import('./shop-api.js?v=4').then(async api => {
+import('./shop-api.js?v=multi-category-1').then(async api => {
   const session = await api.getSession();
   if (!session || !await api.isAdmin(session)) { location.replace('shop-login.html'); return; }
   const paymentLabels = { pending:'ממתין לתשלום', paid:'שולם', failed:'נכשל', refunded:'הוחזר' };
