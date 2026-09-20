@@ -1,0 +1,18 @@
+/* Keep the original image fully visible inside a stable card frame. */
+html body .store-products .product-image-wrap{
+ position:relative!important;display:block!important;width:100%!important;
+ height:auto!important;aspect-ratio:1 / 1!important;min-height:0!important;flex:0 0 auto!important;
+ overflow:hidden;background:#171717;
+}
+html body .store-products .product-image-wrap>img{
+ position:absolute!important;inset:0!important;display:block!important;
+ width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;
+ max-width:100%!important;max-height:100%!important;aspect-ratio:auto!important;
+ object-fit:contain!important;object-position:center!important;
+ transform:none!important;margin:0!important;padding:6px!important;box-sizing:border-box!important;
+}
+html body .category-grid .category-tile img.category-cover{
+ width:100%!important;height:auto!important;aspect-ratio:4 / 3!important;max-height:none!important;
+ object-fit:contain!important;object-position:center!important;transform:none!important;
+ box-sizing:border-box!important;padding:6px!important;background:#171717;
+}
