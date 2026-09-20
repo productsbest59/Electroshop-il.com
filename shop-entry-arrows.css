@@ -7,4 +7,4 @@
 .shop-entry-arrow path{fill:#ffdf00;stroke:#181000;stroke-width:5;stroke-linejoin:round}
 @keyframes shopEntryNudge{0%,100%{transform:translate(0,-50%)}50%{transform:translate(var(--nudge),-50%)}}
 @media(max-width:600px){.shop-entry-arrow-left{right:calc(100% + 8px)}.shop-entry-arrow-right{left:calc(100% + 8px)}.shop-entry-arrow{--nudge:5px}.shop-entry-arrow-right{--nudge:-5px}}
-@media(prefers-reduced-motion:reduce){.shop-entry-arrow{animation:none;transform:translateY(-50%)}}
+/* Animation remains enabled on mobile, including devices with Reduce Motion enabled. */
