@@ -9,7 +9,7 @@ import('./shop-api.js?v=multi-category-1').then(async api => {
   const imageUrl = path => !path ? '' : path.startsWith('http') || path.startsWith('images/') ? path : path.startsWith('products-images/') ? `../${path}` : `${api.SUPABASE_URL}/storage/v1/object/public/electroshop-product-images/${path}`;
   let orders = await api.getOrders(session);
   const statusClass = order => order.payment_status === 'paid' ? 'paid' : order.payment_status === 'failed' || order.fulfillment_status === 'cancelled' ? 'failed' : order.payment_status === 'refunded' ? 'refunded' : 'pending';
-  const paymentMethod = order => order.payment_method_details || (order.payment_provider === 'bit_manual' ? 'ביט — אישור ידני' : order.payment_provider === 'paypal' ? 'PayPal' : order.payment_provider === 'tranzila' ? `Tranzila${order.payment_card_last4 ? ` •••• ${order.payment_card_last4}` : ''}` : 'לא ידוע');
+  const paymentMethod = order => order.payment_method_details || (order.payment_provider === 'bit_manual' ? 'ביט - אישור ידני' : order.payment_provider === 'paypal' ? 'PayPal' : order.payment_provider === 'tranzila' ? `Tranzila${order.payment_card_last4 ? ` •••• ${order.payment_card_last4}` : ''}` : 'לא ידוע');
 
   function card(order) {
     const date = new Date(order.created_at);
