@@ -81,3 +81,15 @@ document.addEventListener('electroshop-language-change',event=>{language=event.d
 const modelLightbox=document.createElement('div');modelLightbox.className='model-lightbox';modelLightbox.setAttribute('aria-hidden','true');modelLightbox.innerHTML='<button class="model-lightbox-close" type="button" aria-label="סגירת תמונה">×</button><img alt="">';document.body.append(modelLightbox);document.querySelector('#modelGallery')?.addEventListener('click',event=>{const image=event.target.closest('.model-gallery img');if(!image)return;modelLightbox.querySelector('img').src=image.src;modelLightbox.classList.add('open');modelLightbox.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'});modelLightbox.addEventListener('click',event=>{if(event.target===modelLightbox||event.target.closest('.model-lightbox-close')){modelLightbox.classList.remove('open');modelLightbox.setAttribute('aria-hidden','true');modelLightbox.querySelector('img').removeAttribute('src');document.body.style.overflow=''}});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&modelLightbox.classList.contains('open'))modelLightbox.querySelector('.model-lightbox-close').click()});
 
 document.addEventListener('electroshop-open-sku',event=>{const p=products.find(p=>p.sku===event.detail&&p.active);if(p)openProduct(p)});
+
+document.addEventListener('electroshop-add-sku',event=>{
+  const p=products.find(product=>product.sku===event.detail&&product.active);
+  if(!p)return;
+  // Only products requiring a selection need the options dialog.
+  if([p.colors,p.sizes,p.styles].some(options=>options?.length)){openProduct(p);return;}
+  const choice={},key=p.id;
+  if(!deviceChoiceValid(p,choice)){openProduct(p);return;}
+  cart[key]??={productId:p.id,qty:0,price:selectedPrice(p,choice),image:imageForColor(p,'')};
+  cart[key].price=selectedPrice(p,choice);cart[key].qty+=1;
+  saveCart();drawer.classList.add('open');
+});
