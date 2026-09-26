@@ -1425,7 +1425,7 @@ i[class^="fa-"],i[class*=" fa-"]{
       <div class="modal-thumbs" id="modalThumbs"></div>
       <div class="modal-purchase-block">
         <div class="modal-price" id="modalPrice">₪299</div>
-        <a href="#" class="paypal-btn" id="modalPaypal" target="_blank" rel="noopener"><i class="fa-solid fa-lock"></i><span data-he="לרכישה מאובטחת" data-en="Secure Checkout">לרכישה מאובטחת</span></a>
+        <a href="#" class="paypal-btn" id="modalPaypal"><i class="fa-solid fa-lock"></i><span data-he="לרכישה מאובטחת" data-en="Secure Checkout">לרכישה מאובטחת</span></a>
       </div>
     </div>
     <div class="modal-copy">
@@ -1438,11 +1438,11 @@ i[class^="fa-"],i[class*=" fa-"]{
 </aside>
 
 <script>
-document.addEventListener('electroshop-catalog-ready',event=>{const map={s30:'ELECTRO-001',smk25:'ELECTRO-002',allinone:'ELECTRO-003',oneodio:'ELECTRO-004'};for(const [id,sku] of Object.entries(map)){const p=event.detail.find(p=>p.sku===sku);const card=document.querySelector('.product-card[data-product="'+id+'"]');if(!p||!p.active||!(p.categoryKeys||p.categories||[p.category]).includes('pro-audio')){card.hidden=true;continue;}card.hidden=false;products[id].price={he:p.price+' ₪',en:'$'+p.priceUsd};products[id].he.title=p.nameHe;products[id].en.title=p.nameEn;products[id].images=p.images;for(const [lang,description] of [['he',p.descriptionHe],['en',p.descriptionEn]]){if(description){const text=document.createElement('div');text.innerHTML=description;products[id][lang].desc=text.textContent;products[id][lang].sections=[];}}card.querySelector('h3').textContent=currentLang==='he'?p.nameHe:p.nameEn;card.querySelector('.price').textContent=products[id].price[currentLang];card.querySelector('img').src=p.images[0];card.querySelector('[data-store-sku]').disabled=false;}});
+document.addEventListener('electroshop-catalog-ready',event=>{const map={s30:'ELECTRO-001',smk25:'ELECTRO-002',allinone:'ELECTRO-003',oneodio:'ELECTRO-004'};for(const [id,sku] of Object.entries(map)){const p=event.detail.find(p=>p.sku===sku);const card=document.querySelector('.product-card[data-product="'+id+'"]');if(!p||!p.active||!(p.categoryKeys||p.categories||[p.category]).includes('pro-audio')){card.hidden=true;continue;}card.hidden=false;products[id].price={he:p.price+' ₪',en:'ILS '+p.price};products[id].he.title=p.nameHe;products[id].en.title=p.nameEn;products[id].images=p.images;for(const [lang,description] of [['he',p.descriptionHe],['en',p.descriptionEn]]){if(description){const text=document.createElement('div');text.innerHTML=description;products[id][lang].desc=text.textContent;products[id][lang].sections=[];}}card.querySelector('h3').textContent=currentLang==='he'?p.nameHe:p.nameEn;card.querySelector('.price').textContent=products[id].price[currentLang];card.querySelector('img').src=p.images[0];card.querySelector('[data-store-sku]').disabled=false;}});
 const products = {
   s30:{
-    price:{he:"379 ₪",en:"$129"},
-    paypal:{he:"https://www.paypal.com/ncp/payment/V76VXKYKU9HVU",en:"https://www.paypal.com/ncp/payment/9YXZ27TGWZ6XJ"},
+    price:{he:"379 ₪",en:"ILS 379"},
+    sku:"ELECTRO-001",
     images:["images/proaudio/product01-main.jpg","images/proaudio/product01-01.jpg","images/proaudio/product01-02.jpg","images/proaudio/product01-03.jpg","images/proaudio/product01-04.jpg","images/proaudio/product01-05.jpg"],
     video:null,
     he:{
@@ -1470,8 +1470,8 @@ en:{
 }
   },
   smk25:{
-    price:{he:"399 ₪",en:"$135"},
-    paypal:{he:"https://www.paypal.com/ncp/payment/R7XFGCSFY27RG",en:"https://www.paypal.com/ncp/payment/DD83R6VN8QYY4"},
+    price:{he:"399 ₪",en:"ILS 399"},
+    sku:"ELECTRO-002",
     images:["images/proaudio/product02-main.jpg","images/proaudio/product02-01.jpg","images/proaudio/product02-02.jpg","images/proaudio/product02-03.jpg","images/proaudio/product02-04.jpg","images/proaudio/product02-05.jpg"],
     youtube:"EbbefL52JUs",
     he:{
@@ -1506,8 +1506,8 @@ en:{
     }
   },
   allinone:{
-    price:{he:"549 ₪",en:"$185"},
-    paypal:{he:"https://www.paypal.com/ncp/payment/FJ6FJ7LE4D2XU",en:"https://www.paypal.com/ncp/payment/DXRKQZVQK9KT8"},
+    price:{he:"549 ₪",en:"ILS 549"},
+    sku:"ELECTRO-003",
     images:["images/proaudio/product03-main.jpg","images/proaudio/product03-01.jpg","images/proaudio/product03-02.jpg","images/proaudio/product03-03.jpg","images/proaudio/product03-04.jpg"],
     video:"images/proaudio/product03-video.mp4",
     he:{
@@ -1538,8 +1538,8 @@ en:{
     }
   },
   oneodio:{
-    price:{he:"349 ₪",en:"$119"},
-    paypal:{he:"https://www.paypal.com/ncp/payment/2Z794CLRY3PWG",en:"https://www.paypal.com/ncp/payment/P9MQ8BA5TLUFG"},
+    price:{he:"349 ₪",en:"ILS 349"},
+    sku:"ELECTRO-004",
     images:[
       "images/proaudio/product04-main.jpg",
       "images/proaudio/product04-01.jpg",
@@ -1643,7 +1643,7 @@ function renderProductMedia(p){
 function openProduct(id){document.getElementById('modalStoreAdd').dataset.storeSku=({s30:'ELECTRO-001',smk25:'ELECTRO-002',allinone:'ELECTRO-003',oneodio:'ELECTRO-004'})[id];
   const p=products[id],t=p[currentLang];
   modalTitle.textContent=t.title; modalDesc.textContent=t.desc; modalPrice.textContent=p.price[currentLang];
-  modalPaypal.href=p.paypal[currentLang]; modalSpecs.innerHTML="";
+  modalPaypal.href="shop-checkout.html"; modalPaypal.dataset.buySku=p.sku; modalSpecs.innerHTML="";
   modalLongDesc.innerHTML=t.sections.map(x=>`<div><strong>${x[0]}</strong><span>${x[1]}</span></div>`).join("");
   renderProductMedia(p);
   modal.classList.add("open");productBackdrop.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
@@ -1681,5 +1681,5 @@ applyLanguage("he");
     <div id="cartTotal" class="total"><span>סה״כ לתשלום</span><span>0 ש״ח</span></div>
     <div class="notice" hidden></div>
     <div class="cart-actions"><button id="checkout" class="button" type="button">המשך לתשלום</button></div>
-  </aside><script src="shop-catalog.js"></script><script type="module" src="shop-proaudio-integration.js"></script><script type="module" src="shop-store.js?v=multi-category-1"></script><script src="shop-cart-ui-fix.js"></script><style>#cartDrawer{z-index:2000}.product-detail-modal{z-index:2100}#proAdminLinks[hidden]{display:none!important}#proAdminLinks{display:contents}.product-card[hidden]{display:none!important}.product-card .details-btn{cursor:pointer;margin-top:8px}#storeProducts:empty{display:none}#storeProducts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}.product-detail-modal.open{display:flex}</style><style>#storeProducts:has(>.empty){display:none}#closeCart{position:static!important;display:grid!important;place-items:center!important;flex:0 0 38px;color:#fff!important;background:#161616!important;border:1px solid #ffd400!important;cursor:pointer}#cartDrawer .drawer-head{display:flex;justify-content:space-between;gap:12px}#cartDrawer .drawer-head h2{margin:0}#cartDrawer .cart-line img{display:block;width:64px;height:64px;object-fit:contain}#cartDrawer .cart-line{display:grid;grid-template-columns:64px 1fr auto;gap:10px}</style><script src="shop-navigation.js?v=unified-menu-1"></script><script src="shop-category-back.js"></script><script type="module" src="shop-unified-menu.js?v=multi-category-1"></script><style id="proaudio-added-products">#storeProducts{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}#storeProducts .product{min-width:0;overflow:hidden;border:1px solid #28e7ff70;border-radius:12px;padding:12px;background:#090c11;display:flex;flex-direction:column}#storeProducts .product-image-wrap{aspect-ratio:1;height:auto;overflow:hidden}#storeProducts .product-image-wrap img{width:100%;height:100%;object-fit:contain}#storeProducts .product-body{height:auto;min-height:0;display:flex;flex-direction:column;gap:8px;padding-top:10px;flex:1}#storeProducts h2{font-size:1rem;line-height:1.4}#storeProducts .price-row{margin-top:auto}#storeProducts .button{cursor:pointer;min-height:44px}@media(max-width:700px){#storeProducts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#storeProducts .product{padding:8px}}@media(max-width:350px){#storeProducts{grid-template-columns:1fr}}</style><link rel="stylesheet" href="shop-categories.css?v=category-editor-4"><script type="module" src="shop-categories.js?v=banner-editor-1"></script></body>
+  </aside><script src="shop-catalog.js"></script><script type="module" src="shop-proaudio-integration.js"></script><script type="module" src="shop-store.js?v=multi-category-1"></script><script src="shop-cart-ui-fix.js"></script><style>#cartDrawer{z-index:2000}.product-detail-modal{z-index:2100}#proAdminLinks[hidden]{display:none!important}#proAdminLinks{display:contents}.product-card[hidden]{display:none!important}.product-card .details-btn{cursor:pointer;margin-top:8px}#storeProducts:empty{display:none}#storeProducts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}.product-detail-modal.open{display:flex}</style><style>#storeProducts:has(>.empty){display:none}#closeCart{position:static!important;display:grid!important;place-items:center!important;flex:0 0 38px;color:#fff!important;background:#161616!important;border:1px solid #ffd400!important;cursor:pointer}#cartDrawer .drawer-head{display:flex;justify-content:space-between;gap:12px}#cartDrawer .drawer-head h2{margin:0}#cartDrawer .cart-line img{display:block;width:64px;height:64px;object-fit:contain}#cartDrawer .cart-line{display:grid;grid-template-columns:64px 1fr auto;gap:10px}</style><script src="shop-navigation.js?v=unified-menu-1"></script><script src="shop-category-back.js"></script><script type="module" src="shop-unified-menu.js?v=multi-category-1"></script><style id="proaudio-added-products">#storeProducts{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}#storeProducts .product{min-width:0;overflow:hidden;border:1px solid #28e7ff70;border-radius:12px;padding:12px;background:#090c11;display:flex;flex-direction:column}#storeProducts .product-image-wrap{aspect-ratio:1;height:auto;overflow:hidden}#storeProducts .product-image-wrap img{width:100%;height:100%;object-fit:contain}#storeProducts .product-body{height:auto;min-height:0;display:flex;flex-direction:column;gap:8px;padding-top:10px;flex:1}#storeProducts h2{font-size:1rem;line-height:1.4}#storeProducts .price-row{margin-top:auto}#storeProducts .button{cursor:pointer;min-height:44px}@media(max-width:700px){#storeProducts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#storeProducts .product{padding:8px}}@media(max-width:350px){#storeProducts{grid-template-columns:1fr}}</style><link rel="stylesheet" href="shop-categories.css?v=category-editor-4"><script type="module" src="shop-categories.js?v=banner-editor-1"></script><script type="module" src="shop-unified-buy.js?v=1"></script></body>
 </html>

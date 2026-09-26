@@ -28,7 +28,7 @@ try{
  button.disabled=!lines.length;
 }catch(error){message.textContent=error.message;message.className='status show error';}
 form.addEventListener('submit',async event=>{
- event.preventDefault();if(button.disabled||!lines.length)return;
+ event.preventDefault();if(event.submitter?.value!=="bit")return;if(button.disabled||!lines.length)return;
  button.disabled=true;button.querySelector('.bit-button-label').textContent='שומר הזמנה...';
  try{
    const customer=Object.fromEntries(new FormData(form));delete customer.paymentProvider;
@@ -46,3 +46,6 @@ form.addEventListener('submit',async event=>{
    // Keep the basket until payment is verified; never claim success or clear it on link opening.
  }catch(error){message.className='status show error';message.textContent=error.message||'לא ניתן לשמור את ההזמנה. נסו שוב.';button.disabled=false;button.querySelector('.bit-button-label').textContent='לתשלום בביט';}
 });
+
+export function checkoutData(){if(button.disabled||!lines.length)throw Error('יש לבדוק את המוצרים בעגלה לפני התשלום');return {items:lines.map(l=>({productId:l.product.id,quantity:l.quantity,...l.options})),total:lines.reduce((sum,l)=>sum+l.price*l.quantity,0)+shipping};}
+
