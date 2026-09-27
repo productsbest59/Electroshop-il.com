@@ -789,6 +789,12 @@ body.high-contrast #services .service-card,body.dark-mode #services .service-car
  #services .service-card li{font-size:clamp(11px,2.9vw,13px);line-height:1.4;overflow-wrap:anywhere;margin:0 0 5px}
  #services .service-card li:last-child{margin-bottom:0}
 }
+</style><style id="mobile-lab-gallery">
+@media(max-width:600px){
+ #gallery .gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ #gallery .gallery button{min-width:0}
+ #gallery .gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-width:2px;border-radius:10px;box-shadow:0 3px 8px #0003}
+}
 </style></head>
 <body><a class="mobile-brand" href="index.html" aria-label="אלקטרושופ - דף הבית"><img src="images/logo.png" alt="אלקטרושופ" width="64" height="64"></a>
 <header class="topbar">
