@@ -1,6 +1,6 @@
 import {request,getSession,isAdmin} from './shop-api.js?v=multi-category-1';
 const en=()=>document.documentElement.lang==='en';
-const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones'];
+const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones','signs'];
 const categoryUrl=slug=>fixed.includes(slug)?`shop-${slug}.html`:`shop-category.html?category=${encodeURIComponent(slug)}`;
 const link=(url,he,english)=>{const a=document.createElement('a');a.href=url;a.dataset.he=he;a.dataset.en=english;a.textContent=en()?english:he;return a;};
 let menu=document.querySelector('#mainMenu'),standalone=!menu;
