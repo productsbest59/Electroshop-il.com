@@ -36,3 +36,12 @@ export function createOrderSaver(products,write,onState,delay=250) {
     pending:()=>!!running||changes().length>0
   };
 }
+
+export function placeVisibleProduct(products,visible,id,targetId,after=false){
+ const ordered=visible.slice(),from=ordered.findIndex(p=>p.id===id);
+ if(from<0||id===targetId||!ordered.some(p=>p.id===targetId))return false;
+ const [moved]=ordered.splice(from,1),target=ordered.findIndex(p=>p.id===targetId);
+ ordered.splice(target+(after?1:0),0,moved);
+ const ids=new Set(visible.map(p=>p.id));let next=0;
+ products.forEach((p,i)=>{if(ids.has(p.id))products[i]=ordered[next++]});return true;
+}
