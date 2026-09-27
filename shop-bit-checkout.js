@@ -4,6 +4,7 @@ const form=document.getElementById('checkoutForm'),message=document.getElementBy
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=n=>`${Number(n).toLocaleString('he-IL',{maximumFractionDigits:2})} ₪`;
 let lines=[],shipping=0;
+const deliveryLabel=()=>lines.length&&lines.every(l=>l.product.pickupOnly)?'איסוף עצמי מהחנות':lines.some(l=>l.product.pickupOnly)?'משלוח חינם לפריטים הזמינים למשלוח; הפריטים המסומנים באיסוף עצמי בלבד':'משלוח חינם';
 function optionsFor(product,item){
  const sizes=product.sizes||[],styles=product.styles||[];
  let choices;
@@ -23,8 +24,8 @@ try{
  lines=Object.values(cart).map(item=>{const product=products.find(p=>p.id===item.productId&&p.active);if(!product)throw Error('מוצר בעגלה אינו זמין. חזרו לעגלה ועדכנו אותה.');const quantity=Number(item.qty);if(!Number.isInteger(quantity)||quantity<1||quantity>20)throw Error('כמות המוצר אינה תקינה');const options=optionsFor(product,item);const variant=(product.variants||[]).find(v=>(v.color||'')===options.color&&(v.size||'')===options.size&&(v.style||'')===options.style);if(product.sku?.startsWith('PELEPHONE-')&&variant?.available!==true)throw Error('שילוב הצבע והנפח אינו זמין כרגע. חזרו לעגלה ובחרו מחדש.');const price=variant?.price!==''&&variant?.price!=null?Number(variant.price):Number(product.price);return {product,quantity,options,price};});
  shipping=lines.some(l=>(l.product.categoryKeys||l.product.categories||[l.product.category]).includes('smartphones')||l.product.sku?.startsWith('PELEPHONE-'))?50:0;
  const total=lines.reduce((n,l)=>n+l.quantity*l.price,0)+shipping;
- document.getElementById('summaryLines').innerHTML=lines.map(l=>`<div class="summary-line"><img src="${esc(l.product.images?.[0]||'')}" alt=""><div><strong>${esc(l.product.nameHe)}</strong><small>${esc(Object.values(l.options).filter(Boolean).join(' | '))}</small><span>${l.quantity} × ${money(l.price)}</span></div></div>`).join('')||'<p>העגלה ריקה</p>';
- document.getElementById('summaryTotal').innerHTML=`<small>${shipping?`משלוח מכשירים: ${money(shipping)}`:'משלוח חינם'}</small><span>סה״כ לתשלום</span><strong>${money(total)}</strong>`;
+ document.getElementById('summaryLines').innerHTML=lines.map(l=>`<div class="summary-line"><img src="${esc(l.product.images?.[0]||'')}" alt=""><div><strong>${esc(l.product.nameHe)}</strong>${l.product.pickupOnly?'<p class="pickup-notice">איסוף עצמי בלבד מהחנות - המרכבה 31, חולון, בתיאום מראש</p>':''}<small>${esc(Object.values(l.options).filter(Boolean).join(' | '))}</small><span>${l.quantity} × ${money(l.price)}</span></div></div>`).join('')||'<p>העגלה ריקה</p>';
+ document.getElementById('summaryTotal').innerHTML=`<small>${shipping?`משלוח מכשירים: ${money(shipping)}`:deliveryLabel()}</small><span>סה״כ לתשלום</span><strong>${money(total)}</strong>`;
  button.disabled=!lines.length;
 }catch(error){message.textContent=error.message;message.className='status show error';}
 form.addEventListener('submit',async event=>{
@@ -41,7 +42,7 @@ form.addEventListener('submit',async event=>{
    form.hidden=true;
    message.className='status show ok';
    if(order.payment_status==='paid'){message.textContent='הזמנה '+order.order_number+' כבר שולמה. אין צורך להעביר תשלום נוסף.';return;}
-   message.innerHTML=`<h2>הזמנה ${esc(order.order_number)}</h2><p>ההזמנה נשמרה וממתינה לתשלום בביט.</p><p>הסכום להעברה: <strong>${money(order.total_ils)}</strong> · ${Number(order.shipping_ils)>0?`כולל משלוח ${money(order.shipping_ils)}`:'משלוח חינם'}</p><p>העתיקו את הסכום, פתחו את ביט והזינו אותו שם. ציינו בהערת התשלום את מספר ההזמנה.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><button type="button" class="button" id="copyBitAmount">העתקת הסכום</button><a class="button" href="${BIT_URL}" target="_blank" rel="noopener">פתיחת ביט לתשלום</a></div><p id="bitCopyStatus" role="status"></p><p>ההזמנה תסומן כשולמה רק לאחר בדיקת קבלת הכסף בחנות. פתיחת ביט אינה אישור תשלום.</p>`;
+   message.innerHTML=`<h2>הזמנה ${esc(order.order_number)}</h2><p>ההזמנה נשמרה וממתינה לתשלום בביט.</p><p>הסכום להעברה: <strong>${money(order.total_ils)}</strong> · ${Number(order.shipping_ils)>0?`כולל משלוח ${money(order.shipping_ils)}`:deliveryLabel()}</p><p>העתיקו את הסכום, פתחו את ביט והזינו אותו שם. ציינו בהערת התשלום את מספר ההזמנה.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><button type="button" class="button" id="copyBitAmount">העתקת הסכום</button><a class="button" href="${BIT_URL}" target="_blank" rel="noopener">פתיחת ביט לתשלום</a></div><p id="bitCopyStatus" role="status"></p><p>ההזמנה תסומן כשולמה רק לאחר בדיקת קבלת הכסף בחנות. פתיחת ביט אינה אישור תשלום.</p>`;
    document.getElementById('copyBitAmount').onclick=async()=>{const status=document.getElementById('bitCopyStatus');try{await navigator.clipboard.writeText(Number(order.total_ils).toFixed(2));status.textContent='הסכום הועתק';}catch{status.textContent='לא ניתן להעתיק אוטומטית. הסכום להעברה: '+money(order.total_ils);}};
    // Keep the basket until payment is verified; never claim success or clear it on link opening.
  }catch(error){message.className='status show error';message.textContent=error.message||'לא ניתן לשמור את ההזמנה. נסו שוב.';button.disabled=false;button.querySelector('.bit-button-label').textContent='לתשלום בביט';}

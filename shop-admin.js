@@ -56,7 +56,7 @@ import('./shop-api.js?v=multi-category-1').then(async api=>{
     const product={
       id,sku:data.get('sku').trim(),nameHe:data.get('nameHe').trim(),nameEn:data.get('nameEn').trim(),
       descriptionHe:data.get('descriptionHe').trim(),descriptionEn:data.get('descriptionEn').trim(),
-      featured:data.get('featured')==='on',category:primaryCategory,categories:selectedCategories,regularPrice,price:salePrice??regularPrice,
+      featured:data.get('featured')==='on',pickupOnly:data.get('pickupOnly')==='on',category:primaryCategory,categories:selectedCategories,regularPrice,price:salePrice??regularPrice,
       priceUsd:data.get('priceUsd')?Number(data.get('priceUsd')):null,active:data.get('active')==='on',
       colors:values(data.get('colors')),sizes:values(data.get('sizes')),styles:values(data.get('styles')),
       variants:currentVariants.map(item=>({...item,price:item.price===''?null:Number(item.price)})),
