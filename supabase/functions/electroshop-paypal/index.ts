@@ -1,3 +1,4 @@
+import {sendPaidOrderEmail} from '../_shared/order-email.ts';
 const URL_BASE = Deno.env.get('SUPABASE_URL') || '';
 const CLIENT_ID = Deno.env.get('ELECTROSHOP_PAYPAL_CLIENT_ID') || '';
 const SECRET = Deno.env.get('ELECTROSHOP_PAYPAL_CLIENT_SECRET') || '';
@@ -57,7 +58,7 @@ async function capture(body:any) {
  const order=await orderById(String(body.order_id||''));
  const id=String(body.paypal_order_id||'');
  if(!id||id!==order.payment_request_id)throw Error('PayPal order mismatch');
- if(order.payment_status==='paid')return {ok:true,paid:true,order_number:order.order_number};
+ if(order.payment_status==='paid'){await sendPaidOrderEmail(order.id);return {ok:true,paid:true,order_number:order.order_number};}
  // A retry reads an existing capture instead of charging a second time.
  let result=await paypal('/v2/checkout/orders/'+encodeURIComponent(id));
  if(result.status==='APPROVED'){await paypal(`/v2/checkout/orders/${encodeURIComponent(id)}/capture`,'POST',{},'capture-'+order.id);result=await paypal('/v2/checkout/orders/'+encodeURIComponent(id));}
@@ -67,6 +68,7 @@ async function capture(body:any) {
  if(captures.length!==1||!payment.id||payment.amount?.currency_code!=='ILS'||cents(payment.amount.value)!==cents(order.total))throw Error('Payment amount mismatch');
  const now=new Date().toISOString();
  await db(`electroshop_orders?id=eq.${order.id}&payment_status=neq.paid`,'PATCH',{payment_status:'paid',payment_transaction_id:payment.id,payment_response_code:'COMPLETED',payment_method_details:result.payment_source?.card?'כרטיס אשראי דרך PayPal':'PayPal',payment_paid_at:now,paid_at:now,payment_callback_received_at:now});
+ await sendPaidOrderEmail(order.id);
  return {ok:true,paid:true,order_number:order.order_number};
 }
 Deno.serve(async(request:Request)=>{

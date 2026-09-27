@@ -1,3 +1,4 @@
+import {sendPaidOrderEmail} from '../_shared/order-email.ts';
 import {verifyReport} from './verification.ts';
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
 const TERMINAL = Deno.env.get('ELECTROSHOP_TRANZILA_TERMINAL') || '';
@@ -166,7 +167,7 @@ async function handleNotify(body: Record<string, unknown>, authenticated = false
   const rows = await db(`electroshop_orders?payment_provider=eq.tranzila&payment_request_id=eq.${encodeURIComponent(paymentRequestId)}&select=*&limit=1`);
   const order = rows?.[0];
   if (!order) throw new Error('Order for this payment request was not found');
-  if (order.payment_status === 'paid') return { ok: true, already_processed: true };
+  if (order.payment_status === 'paid') { await sendPaidOrderEmail(order.id); return { ok: true, already_processed: true }; }
 
   const transaction = await transactionReport(transactionIndex);
   const legacyBound=Array.isArray(transaction.items)&&transaction.items.some((item:any)=>String(item.item_name||'').startsWith('ES:'+order.id+' '));
@@ -190,6 +191,7 @@ async function handleNotify(body: Record<string, unknown>, authenticated = false
     return { ok: false, verified: false };
   }
 
+  await sendPaidOrderEmail(order.id);
   return { ok: true, verified: true };
 }
 
