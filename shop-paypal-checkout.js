@@ -1,3 +1,4 @@
+import {rememberPaymentCart,cartSnapshot,reconcilePaidCart} from './shop-paid-cart.js?v=1';
 import {checkoutData} from './shop-bit-checkout.js?v=qr-no-click-6';
 import {request} from './shop-api.js?v=option-images-2';
 const form=document.getElementById('checkoutForm'),status=document.getElementById('paypalStatus'),retry=document.getElementById('paypalRetry');
@@ -12,7 +13,7 @@ async function finish(order){
  const result=await call({action:'capture',order_id:order.order_id,paypal_order_id:order.paypal_order_id});
  if(!result.paid){status.textContent=(english?"PayPal is still checking the payment. Do not pay again. You can check the status again.":"PayPal עדיין בודק את התשלום. אין לשלם שוב. אפשר לבדוק את המצב מחדש.");retry.hidden=false;return;}
  sessionStorage.setItem('electroshop_paid_order',JSON.stringify({id:order.order_id,number:result.order_number}));
- localStorage.removeItem('electroshop_new_store_cart_v2');sessionStorage.removeItem('electroshop_paypal_pending');
+ await reconcilePaidCart();sessionStorage.removeItem('electroshop_paypal_pending');
  location.assign('shop-payment-success.html');
 }
 retry.addEventListener('click',async()=>{retry.disabled=true;try{const order=current||JSON.parse(sessionStorage.getItem('electroshop_paypal_pending')||'null');if(!order)throw Error('אין הזמנה לבדיקה');await finish(order);}catch{status.textContent=(english?"Payment status could not be checked. Do not pay again; retry the check or contact the store.":"לא הצלחנו לבדוק את התשלום. אין לשלם שוב; נסו בדיקה מחדש או פנו לחנות.");}finally{retry.disabled=false;}});
@@ -34,8 +35,8 @@ try{
    const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify({customer,items,total})));
    const key='electroshop_paypal_request_'+Array.from(new Uint8Array(bytes),b=>b.toString(16).padStart(2,'0')).join('');
    let requestId=sessionStorage.getItem(key);if(!requestId){requestId=crypto.randomUUID();sessionStorage.setItem(key,requestId);}
-   lock(true);status.textContent=(english?"Opening secure payment...":"פותחים תשלום מאובטח...");
-   try{current=await call({action:'start',customer,items,expected_total:total.toFixed(2),request_id:requestId});remember(current);return current.paypal_order_id;}
+   const purchasedCart=cartSnapshot();lock(true);status.textContent=(english?"Opening secure payment...":"פותחים תשלום מאובטח...");
+   try{current=await call({action:'start',customer,items,expected_total:total.toFixed(2),request_id:requestId});rememberPaymentCart(current.order_id,'paypal',purchasedCart);remember(current);return current.paypal_order_id;}
    catch(error){lock(false);status.textContent=error.message;throw error;}
   },
   async onApprove(data,actions){
@@ -61,10 +62,11 @@ tranzilaButton.addEventListener('click',async()=>{
   const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify({customer,items,total})));
   const key='electroshop_tranzila_'+Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
   let requestId=sessionStorage.getItem(key);if(!requestId){requestId=crypto.randomUUID();sessionStorage.setItem(key,requestId);}
-  lock(true);tranzilaStatus.textContent=english?'Opening secure payment...':'פותחים תשלום מאובטח...';
+  const purchasedCart=cartSnapshot();lock(true);tranzilaStatus.textContent=english?'Opening secure payment...':'פותחים תשלום מאובטח...';
   const result=await request('/functions/v1/electroshop-tranzila',{method:'POST',body:{action:'start',customer,items,expected_total:total.toFixed(2),request_id:requestId,language:english?'en':'he'}});
   const link=new URL(result.pr_link);if(link.origin!=='https://pay.tranzila.com')throw Error('Invalid payment link');
   sessionStorage.setItem('electroshop_paid_order',JSON.stringify({id:result.order_id,provider:'tranzila'}));
+  rememberPaymentCart(result.order_id,'tranzila',purchasedCart);
   location.assign(link.href);
  }catch(error){lock(false);tranzilaStatus.textContent=error.message;}
 });

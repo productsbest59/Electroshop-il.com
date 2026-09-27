@@ -5,7 +5,7 @@ function readSharedCart(){try{const value=JSON.parse(localStorage.getItem('elect
 import('./shop-api.js?v=option-images-2').then(api=>api.getProducts()).then(remote=>{
   products=remote.map(mergeProductSizes);catalogReady=true;document.dispatchEvent(new CustomEvent('electroshop-catalog-ready',{detail:remote}));
   // Preserve baskets created in the earlier preview when the real catalog starts.
-  const preview=ElectroshopCatalog.get(),migrated={};
+  cart=readSharedCart();const preview=ElectroshopCatalog.get(),migrated={};
   for(const [key,item] of Object.entries(cart)){
     const old=preview.find(p=>p.id===item.productId),current=old&&products.find(p=>p.sku===old.sku);
     const id=current?.id||item.productId,newKey=current?key.replace(item.productId,id):key;
