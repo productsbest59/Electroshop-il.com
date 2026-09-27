@@ -10,7 +10,7 @@ const page=document.querySelector('main[data-category],main[data-store-category]
 const status=document.createElement('p');status.setAttribute('role','status');
 const button=document.createElement('button');button.type='button';button.className='button';button.textContent='עריכת קטגוריות';button.hidden=true;
 if(grid){grid.before(button,status);}
-async function load(){categories=await request('/rest/v1/electroshop_categories?select=*&order=sort_order.asc,slug.asc',{token:adminSession?.accessToken});render();}
+async function load(){try{categories=await request('/rest/v1/electroshop_categories?select=*&order=sort_order.asc,slug.asc',{token:adminSession?.accessToken});render();}finally{page?.classList.add('category-intro-ready');document.documentElement.classList.remove('category-intro-loading');}}
 function render(){
  const language=english()?'en':'he';
  if(grid)grid.innerHTML=categories.filter(c=>c.active).map((c,i)=>`<a class="category-tile" href="${href(c.slug)}">${c.image_path?`<img class="category-cover" src="${esc(imageUrl(c.image_path))}" alt="${esc(c['name_'+language])}" loading="lazy">`:''}<h2>${esc(c['name_'+language])}</h2><p>${esc(c['description_'+language])}</p><strong>${english()?'View products →':'למוצרים ←'}</strong></a>`).join('');
