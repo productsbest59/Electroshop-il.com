@@ -102,6 +102,7 @@ async function createPayment(orderId: string,language='he') {
     request_language: language==='en'?'english':'hebrew', response_language: language==='en'?'english':'hebrew', request_currency: 'ILS',
     currency_code: 'ILS', request_vat: 18, payments_number: 1, payment_plans: [1],
     payment_methods: [1],
+    send_email: { sender_name: 'אלקטרושופ', sender_email: 'electroshopisraelo@gmail.com' },
     client: {
       external_id: order.id, name: order.customer_name, contact_person: order.customer_name,
       email: order.customer_email, address_line_1: order.address, city: order.city,
@@ -116,7 +117,13 @@ async function createPayment(orderId: string,language='he') {
   });
   const data = await response.json().catch(() => null);
   if (!response.ok || Number(data?.error_code) !== 0 || !data?.pr_link) {
-    throw new Error('Tranzila payment request failed');
+    const code=Number(data?.error_code);
+    // Only explicit provider rejections are safe to retry. Unknown outcomes stay locked.
+    if(response.ok && Number.isInteger(code) && code>0 && !data?.pr_id && !data?.pr_link){
+      await db('electroshop_orders?id=eq.'+order.id+'&payment_response_code=eq.creating&payment_status=eq.pending',{method:'PATCH',body:JSON.stringify({payment_response_code:null})});
+    }
+    console.error('Tranzila create rejected',{http_status:response.status,error_code:Number.isInteger(code)?code:null});
+    throw new Error('לא ניתן ליצור קישור תשלום באשראי (קוד '+(Number.isInteger(code)?code:response.status)+'). נסו שוב או פנו לחנות.');
   }
 
   if(new URL(data.pr_link).origin!=='https://pay.tranzila.com')throw Error('Invalid payment link');
