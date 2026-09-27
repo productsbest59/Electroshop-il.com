@@ -1,4 +1,4 @@
-import {getProducts} from './shop-api.js?v=multi-category-1';
+import {getProducts} from './shop-api.js?v=option-images-2';
 let busy=false;
 document.addEventListener('click',async event=>{
  const button=event.target.closest('[data-buy-sku]');if(!button)return;

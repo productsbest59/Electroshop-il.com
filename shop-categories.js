@@ -1,4 +1,4 @@
-import {request,getSession,isAdmin,SUPABASE_URL,PUBLISHABLE_KEY} from './shop-api.js?v=multi-category-1';
+import {request,getSession,isAdmin,SUPABASE_URL,PUBLISHABLE_KEY} from './shop-api.js?v=option-images-2';
 const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones','signs','batteries','speakers'];
 const href=slug=>{const c=categories.find(c=>c.slug===slug||(c.aliases||[]).includes(slug)),keys=c?[c.slug,...(c.aliases||[])]:[slug],fixedSlug=keys.find(s=>fixed.includes(s));return fixedSlug?`shop-${fixedSlug}.html`:`shop-category.html?category=${encodeURIComponent(keys.includes('smartphones')?'smartphones':c?.slug||slug)}`};
 const english=()=>document.documentElement.lang==='en';

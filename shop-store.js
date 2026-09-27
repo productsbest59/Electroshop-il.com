@@ -2,7 +2,7 @@ const inCategory=(p,slug)=>(p.categoryKeys||p.categories||[p.category]).includes
 const productsEl=document.querySelector('#storeProducts')||document.querySelector('#products'),searchEl=document.querySelector('#search'),categoryEl=document.querySelector('#category'),drawer=document.querySelector('#cartDrawer');
 const CART_KEY='electroshop_new_store_cart_v2',RATE_KEY='electroshop_usd_ils_rate';let catalogReady=false,catalogFailed=false,products=[],cart=readSharedCart(),language=localStorage.getItem('electroshop_store_language')||'he',usdRate=Number(localStorage.getItem(RATE_KEY))||null,promotionEnabled=false;
 function readSharedCart(){try{const value=JSON.parse(localStorage.getItem('electroshop_new_store_cart_v2')||'{}');return value&&typeof value==='object'&&!Array.isArray(value)?value:{}}catch{return {}}}
-import('./shop-api.js?v=multi-category-1').then(api=>api.getProducts()).then(remote=>{
+import('./shop-api.js?v=option-images-2').then(api=>api.getProducts()).then(remote=>{
   products=remote.map(mergeProductSizes);catalogReady=true;document.dispatchEvent(new CustomEvent('electroshop-catalog-ready',{detail:remote}));
   // Preserve baskets created in the earlier preview when the real catalog starts.
   const preview=ElectroshopCatalog.get(),migrated={};
@@ -15,7 +15,7 @@ import('./shop-api.js?v=multi-category-1').then(api=>api.getProducts()).then(rem
 }).catch(()=>{catalogReady=true;catalogFailed=true;renderProducts();renderCart()});
 window.addEventListener('storage',event=>{if(event.key===CART_KEY){cart=readSharedCart();renderCart()}});
 window.addEventListener('pageshow',()=>{cart=readSharedCart();renderCart()});
-import('./shop-api.js?v=multi-category-1').then(api=>api.getPromotionSettings()).then(settings=>{promotionEnabled=settings.enabled;renderCart()}).catch(()=>{promotionEnabled=false;renderCart()});
+import('./shop-api.js?v=option-images-2').then(api=>api.getPromotionSettings()).then(settings=>{promotionEnabled=settings.enabled;renderCart()}).catch(()=>{promotionEnabled=false;renderCart()});
 const languageButton=document.querySelector('#langToggle');
 document.querySelector('#checkout').addEventListener('click',e=>{e.stopImmediatePropagation();location.href='shop-checkout.html'},true);
 const text={he:{shop:'כל מה שצריך באלקטרושופ',sub:'החנות החדשה של Electroshop - סביבת בדיקה פרטית',search:'חיפוש מוצר',all:'כל הקטגוריות',necklaces:'שרשראות',rings:'טבעות',bracelets:'צמידים',color:'צבע',size:'מידה',style:'אפשרות',choose:'נא לבחור',add:'הוספה לעגלה',empty:'מוצרים יתווספו בקרוב',cart:'סל הקניות',remove:'הסרה',total:'סה״כ',emptyCart:'הסל עדיין ריק',checkout:"המשך לצ'ק אאוט",notice:'מצב בדיקה - לא מתבצע חיוב',continueShopping:'חזרה לחנות',lang:'English'},en:{shop:'Find your next upgrade',sub:'The new Electroshop store - private test environment',search:'Search products',all:'All categories',necklaces:'Necklaces',rings:'Rings',bracelets:'Bracelets',color:'Color',size:'Size',style:'Option',choose:'Please choose',add:'Add to cart',empty:'No products found',cart:'Shopping cart',remove:'Remove',total:'Estimated total',emptyCart:'Your cart is empty',checkout:'Continue to checkout',notice:'USD prices are for display. The final charge will be processed in ILS.',continueShopping:'Continue Shopping',lang:'עברית'}};

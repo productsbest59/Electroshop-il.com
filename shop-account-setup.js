@@ -1,4 +1,4 @@
-import {request,isAdmin} from './shop-api.js?v=multi-category-1';
+import {request,isAdmin} from './shop-api.js?v=option-images-2';
 const tokenHash=new URLSearchParams(location.hash.slice(1)).get('token_hash');
 history.replaceState(null,'',location.pathname);
 const form=document.querySelector('#setupForm'),message=document.querySelector('#setupMessage');

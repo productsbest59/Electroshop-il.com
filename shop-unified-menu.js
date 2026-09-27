@@ -1,4 +1,4 @@
-import {request,getSession,isAdmin} from './shop-api.js?v=multi-category-1';
+import {request,getSession,isAdmin} from './shop-api.js?v=option-images-2';
 const en=()=>document.documentElement.lang==='en';
 const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones','signs','batteries','speakers'];
 const categoryUrl=slug=>fixed.includes(slug)?`shop-${slug}.html`:`shop-category.html?category=${encodeURIComponent(slug)}`;
