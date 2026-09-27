@@ -33,9 +33,9 @@
         <label class="field"><span>מיקוד</span><input name="postalCode" autocomplete="postal-code"></label>
         <label class="field"><span>הערות להזמנה</span><textarea name="notes" rows="4"></textarea></label>
         <div class="checkout-payment-actions full-button">
-          <button class="button" type="submit" disabled name="paymentProvider" value="bit"><span class="bit-button-label">לתשלום בביט</span><img src="images/bit-logo.jpg" alt="" aria-hidden="true" width="32" height="32" style="width:32px;height:32px;object-fit:contain;border-radius:7px"></button>
-          <button type="button" class="button" id="tranzilaButton" hidden>לתשלום באשראי - טרנזילה</button><p id="tranzilaStatus" role="status"></p><p id="paypalStatus" role="status" aria-live="polite">טוען אפשרויות תשלום...</p><button type="button" class="button" id="paypalRetry" hidden>בדיקת התשלום מחדש</button>
+          <button type="button" class="button" id="tranzilaButton" hidden>לתשלום מאובטח באשראי</button><p id="tranzilaStatus" role="status"></p><p id="paypalStatus" role="status" aria-live="polite">טוען אפשרויות תשלום...</p><button type="button" class="button" id="paypalRetry" hidden>בדיקת התשלום מחדש</button>
           <div id="paypalButtons" class="paypal-integrated" hidden></div>
+          <button class="button" type="submit" disabled name="paymentProvider" value="bit"><span class="bit-button-label">לתשלום בביט</span><img src="images/bit-logo.jpg" alt="" aria-hidden="true" width="32" height="32" style="width:32px;height:32px;object-fit:contain;border-radius:7px"></button>
         </div>
       </form>
       <div id="message" class="status"></div>
@@ -44,7 +44,7 @@
   </main>
   <script src="shop-catalog.js?v=4"></script>
   
-  <script type="module" src="shop-paypal-checkout.js?v=bit-mobile-4"></script>
+  <script type="module" src="shop-paypal-checkout.js?v=payment-order-5"></script>
   <script src="shop-hebrew-arial-enforcer.js?v=3"></script>
   
 <div class="a11y-backdrop" id="a11yBackdrop"></div>

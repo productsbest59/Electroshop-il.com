@@ -53,7 +53,7 @@ try{
 
 
 const tranzilaButton=document.getElementById('tranzilaButton'),tranzilaStatus=document.getElementById('tranzilaStatus');
-try{const config=await request('/functions/v1/electroshop-tranzila?action=config');tranzilaButton.hidden=!config.enabled;tranzilaButton.textContent=english?'Pay by card - Tranzila':'לתשלום באשראי - טרנזילה';}catch{tranzilaButton.hidden=true;}
+try{const config=await request('/functions/v1/electroshop-tranzila?action=config');tranzilaButton.hidden=!config.enabled;tranzilaButton.textContent=english?'Secure card payment':'לתשלום מאובטח באשראי';}catch{tranzilaButton.hidden=true;}
 tranzilaButton.addEventListener('click',async()=>{
  if(inFlight||!form.reportValidity())return;
  try{
