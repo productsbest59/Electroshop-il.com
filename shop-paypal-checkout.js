@@ -1,4 +1,4 @@
-import {checkoutData} from './shop-bit-checkout.js?v=option-images-2';
+import {checkoutData} from './shop-bit-checkout.js?v=desktop-qr-1';
 import {request} from './shop-api.js?v=option-images-2';
 const form=document.getElementById('checkoutForm'),status=document.getElementById('paypalStatus'),retry=document.getElementById('paypalRetry');
 const english=localStorage.getItem('electroshop_store_language')==='en';
