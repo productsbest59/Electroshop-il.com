@@ -47,7 +47,7 @@ try{
   onError(){if(current?.approved){retry.hidden=false;status.textContent=(english?"Check payment status before trying again.":"יש לבדוק את מצב התשלום לפני ניסיון נוסף.");}else{lock(false);if(!status.textContent||status.textContent===(english?"Opening secure payment...":"פותחים תשלום מאובטח..."))status.textContent=(english?"Payment could not be opened. Please try again.":"לא ניתן לפתוח תשלום כרגע. אפשר לנסות שוב.");}}
  });
  if(!buttons.isEligible())throw Error('PayPal אינו זמין בדפדפן זה');
- status.textContent=(english?"Secure payment in ILS with PayPal. Card options appear when available.":"תשלום מאובטח בשקלים באמצעות PayPal. אפשרויות האשראי מוצגות בהתאם לזמינות.");buttons.render(container).catch(()=>{status.textContent=english?"PayPal could not load":"לא ניתן לטעון את PayPal";});
+ status.textContent='';buttons.render(container).catch(()=>{status.textContent=english?"PayPal could not load":"לא ניתן לטעון את PayPal";});
  }
 }catch(error){status.textContent=error.message||'לא ניתן לטעון את אפשרויות התשלום';}
 
