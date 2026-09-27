@@ -796,6 +796,13 @@ body.high-contrast #services .service-card,body.dark-mode #services .service-car
  #gallery .gallery button{min-width:0}
  #gallery .gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-width:2px;border-radius:10px;box-shadow:0 3px 8px #0003}
 }
+</style><style id="home-language-layout">
+.home-en-only{display:none}
+html[lang="en"] .home-en-only{display:block}
+html[lang="en"] .hot-deals-heading>img,html[lang="en"] .shop-entry-banner>img,html[lang="en"] .shop-entry-banner>.shop-entry-arrow{display:none}
+html[lang="en"] .home-store-link{padding:24px 18px;background:#111;color:#ffd400;border:2px solid #ff8a00;border-radius:16px;text-align:center;font-size:clamp(18px,4vw,28px);font-weight:800}
+html[lang="en"] .split .section-title{text-align:left!important}
+html[lang="en"] .proaudio-promo-he,html[lang="en"] .proaudio-promo-btn>span:first-child,html[lang="en"] .proaudio-promo-btn>span[aria-hidden]{display:none}
 </style></head>
 <body><a class="mobile-brand" href="index.html" aria-label="אלקטרושופ - דף הבית"><img src="images/logo.png" alt="אלקטרושופ" width="64" height="64"></a>
 <header class="topbar">
@@ -863,7 +870,7 @@ body.high-contrast #services .service-card,body.dark-mode #services .service-car
 </div>
 </div>
 </section>
-<section class="section container shop-deals"><h2 class="section-title hot-deals-heading"><img src="images/hot-deals-heading.png" alt="מבצעים חמים" loading="lazy"></h2><p id="catalogStatus" role="status"></p><section class="store-toolbar" hidden aria-label="חיפוש וסינון מוצרים"><input id="search" type="search" placeholder="חיפוש מוצר"><select id="category"><option value="">כל הקטגוריות</option><option value="mobile">אביזרי סלולר</option><option value="pro-audio">פרו אודיו</option><option value="car-mounts">תושבות לרכב</option><option value="guitars">גיטרות</option><option value="chargers-cables">מטענים וכבלים</option></select></section><div id="products" class="products store-products" data-featured="true"></div><a class="shop-entry-banner" href="shop.html" aria-label="כניסה לחנות אלקטרושופ"><span class="shop-entry-arrow shop-entry-arrow-left" aria-hidden="true"><svg viewBox="0 0 100 80" focusable="false"><path d="M5 25H53V7L95 40L53 73V55H5Z"/></svg></span><span class="shop-entry-arrow shop-entry-arrow-right" aria-hidden="true"><svg viewBox="0 0 100 80" focusable="false"><path d="M5 25H53V7L95 40L53 73V55H5Z"/></svg></span><img src="images/shop-entry-banner.png" alt="כניסה לחנות - אביזרים, גאדג׳טים וציוד לסלולר, משלוח חינם" loading="lazy"></a></section><section class="section container">
+<section class="section container shop-deals"><h2 class="section-title hot-deals-heading"><span class="home-en-only">Hot deals</span><img src="images/hot-deals-heading.png" alt="מבצעים חמים" loading="lazy"></h2><p id="catalogStatus" role="status"></p><section class="store-toolbar" hidden aria-label="חיפוש וסינון מוצרים"><input id="search" type="search" placeholder="חיפוש מוצר"><select id="category"><option value="">כל הקטגוריות</option><option value="mobile">אביזרי סלולר</option><option value="pro-audio">פרו אודיו</option><option value="car-mounts">תושבות לרכב</option><option value="guitars">גיטרות</option><option value="chargers-cables">מטענים וכבלים</option></select></section><div id="products" class="products store-products" data-featured="true"></div><a class="shop-entry-banner" href="shop.html" aria-label="כניסה לחנות אלקטרושופ"><span class="shop-entry-arrow shop-entry-arrow-left" aria-hidden="true"><svg viewBox="0 0 100 80" focusable="false"><path d="M5 25H53V7L95 40L53 73V55H5Z"/></svg></span><span class="shop-entry-arrow shop-entry-arrow-right" aria-hidden="true"><svg viewBox="0 0 100 80" focusable="false"><path d="M5 25H53V7L95 40L53 73V55H5Z"/></svg></span><span class="home-en-only home-store-link">Visit our store — accessories, gadgets and more</span><img src="images/shop-entry-banner.png" alt="כניסה לחנות - אביזרים, גאדג׳טים וציוד לסלולר, משלוח חינם" loading="lazy"></a></section><section class="section container">
 <div class="quick">
 <div class="quick-card"><span class="icon">⚡</span><strong>תיקוני אקספרס</strong><span>תיקון במקום בזמן קצר</span></div>
 <div class="quick-card"><span class="icon">🛡️</span><strong>אחריות על תיקון</strong><span>שקט נפשי ושירות אמין</span></div>
@@ -1560,7 +1567,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <div id="cartTotal" class="total"><span>סה״כ לתשלום</span><span>0 ש״ח</span></div>
     <div class="notice" hidden></div>
     <div class="cart-actions"><button id="checkout" class="button" type="button">המשך לתשלום</button></div>
-  </aside><script src="shop-navigation.js?v=unified-menu-1"></script><script src="shop-catalog.js"></script><script src="shop-store.js?v=description-4"></script><script src="shop-price-safety.js?v=devices-1"></script><script src="shop-cart-ui-fix.js"></script><script src="shop-hebrew-arial-enforcer.js"></script><div class="a11y-backdrop" id="a11yBackdrop"></div>
+  </aside><script src="shop-navigation.js?v=home-language-2"></script><script src="shop-catalog.js"></script><script src="shop-store.js?v=description-4"></script><script src="shop-price-safety.js?v=devices-1"></script><script src="shop-cart-ui-fix.js"></script><script src="shop-hebrew-arial-enforcer.js"></script><div class="a11y-backdrop" id="a11yBackdrop"></div>
 
 
 <button class="a11y-fab" id="a11yFab" aria-label="פתח תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
