@@ -2,7 +2,7 @@ import {request,getSession,isAdmin} from './shop-api.js?v=option-images-2';
 const en=()=>document.documentElement.lang==='en';
 const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones','signs','batteries','speakers'];
 const categoryUrl=slug=>fixed.includes(slug)?`shop-${slug}.html`:`shop-category.html?category=${encodeURIComponent(slug)}`;
-const link=(url,he,english)=>{const a=document.createElement('a');a.href=url;a.dataset.he=he;a.dataset.en=english;a.textContent=en()?english:he;return a;};
+const link=(url,he,english)=>{const a=document.createElement('a');a.href=url;a.dataset.he=he;a.dataset.en=english;a.textContent=en()?english:he;const accent={'index.html':'#ffe066','shop.html':'#79e6a2','index.html#services':'#76cfff','index.html#contact':'#ffad80'}[url];if(accent){a.classList.add('menu-accent');a.style.setProperty('--menu-accent',accent)}return a;};
 let menu=document.querySelector('#mainMenu'),standalone=!menu;
 if(standalone){
  menu=document.createElement('aside');menu.id='mainMenu';menu.className='main-menu unified-standalone';menu.setAttribute('aria-hidden','true');
@@ -34,7 +34,13 @@ else{
 let rows=[];
 function render(){
  categories.replaceChildren(link('shop.html','כל הקטגוריות','All categories'));
- for(const c of rows){categories.append(link(categoryUrl((c.aliases||[]).find(s=>fixed.includes(s)||s==='smartphones')||c.slug),c.name_he,c.name_en||c.name_he));}
+ const palette=['#80d8ff','#e4a1ff','#ffbb80','#ff94bc','#8fe3bf','#b7b0ff','#ffe088','#81e4e4','#e7b892','#b6e78a','#b2caff','#ffa69e'];
+ for(const [index,c] of rows.entries()){
+  const slug=(c.aliases||[]).find(s=>fixed.includes(s)||s==='smartphones')||c.slug;
+  const a=link(categoryUrl(slug),c.name_he,c.name_en||c.name_he);
+  const known=['smartphones',...fixed].indexOf(slug);
+  a.classList.add('menu-accent');a.style.setProperty('--menu-accent',palette[(known<0?index:known)%palette.length]);categories.append(a);
+ }
  nav.querySelectorAll('[data-he]').forEach(el=>el.textContent=en()?el.dataset.en:el.dataset.he);
  nav.querySelectorAll('a').forEach(a=>{const u=new URL(a.href);if(u.pathname===location.pathname&&u.search===location.search&&!u.hash)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
 }
