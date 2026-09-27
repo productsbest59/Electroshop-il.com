@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  'גם חנות, גם מעבדה, גם שירות אישי':'A shop, a repair lab and personal service',
  'מציעה שילוב של מעבדת תיקונים מקצועית, מבחר גדול של אביזרים וגאדג׳טים, שירות אישי ומחירים נוחים.':' combines a professional repair lab, a wide range of accessories and gadgets, personal service and affordable prices.',
  'אצלנו תוכלו לקבל תיקון מהיר, ייעוץ מקצועי, אביזרים למכשיר, פתרונות לרכב ולאופנוע, וקווים ומכשירים מחברות מובילות.':'Visit us for fast repairs, expert advice, device accessories, car and motorcycle solutions, and mobile plans and devices from leading providers.',
- 'פרטי הגעה ויצירת קשר':'Directions and contact details','המרכבה 31, חולון':'31 Hamerkava St, Holon','מתחם כלבו חצי חינם':'Kolbo Hatzi Hinam complex','א׳-ה׳:':'Sun–Thu: ','יום ו׳:':'Fri: ',
+ 'פרטי הגעה ויצירת קשר':'Directions and contact details','המרכבה 31, חולון':'31 Hamerkava St, Holon','מתחם כלבו חצי חינם':'Kolbo Hatzi Hinam complex','א׳-ה׳:':'Sun-Thu: ','יום ו׳:':'Fri: ',
  'הפרטים יועברו לחנות באמצעות FormSubmit לצורך מענה לפנייה.':'Your details will be sent to the store via FormSubmit so we can respond. ',
  'מדיניות פרטיות':'Privacy policy','וואטסאפ':'WhatsApp','טלפון':'Phone','אימייל':'Email','ניווט Waze':'Waze directions','גוגל':'Google','פייסבוק':'Facebook','אינסטגרם':'Instagram',
  'ציוד DJ • מיקסרים • ציוד אולפן • תאורה • אביזרים':'DJ Gear • Mixers • Studio Equipment • Lighting • Accessories','לחנות Pro Audio':'Visit Pro Audio'

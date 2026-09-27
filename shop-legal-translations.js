@@ -20,7 +20,7 @@ window.electroshopLegalTranslations={
   "הטקסט מותאם לקריאה במובייל ובמחשב וניתן להגדילו באמצעות הדפדפן.": "Text is adapted for mobile and desktop reading and can be enlarged using your browser.",
   "בחלק מדפי החנות קיים כלי נגישות המאפשר התאמות תצוגה כגון גודל טקסט, ניגודיות והדגשת קישורים.": "Some store pages include accessibility tools for adjustments such as text size, contrast and link highlighting.",
   "התאמות האתר נבחנות ביחס לדרישות הנגישות הרלוונטיות ולת״י 5568. אם רכיב מסוים מקשה על השימוש, נשמח לקבל את כתובת הדף ותיאור הקושי כדי לבדוק אותו.": "Website adjustments are reviewed against relevant accessibility requirements and Israeli Standard 5568. If a particular element is difficult to use, please send us the page address and a description so we can investigate.",
-  "המרכבה 31, חולון - מתחם כלבו חצי חינם": "31 Hamerkava St, Holon — Kolbo Hatzi Hinam complex",
+  "המרכבה 31, חולון - מתחם כלבו חצי חינם": "31 Hamerkava St, Holon - Kolbo Hatzi Hinam complex",
   "החנות נגישה.": "The store is accessible.",
   "במתחם קיימת חניה ייעודית לנכים.": "Designated accessible parking is available in the complex.",
   "במתחם קיימים שירותי נכים.": "Accessible toilets are available in the complex.",
@@ -37,7 +37,7 @@ window.electroshopLegalTranslations={
   "תקנון": "Terms",
   "נגישות": "Accessibility",
   "ביטול עסקה": "Cancel an order",
-  "© כל הזכויות שמורות לאלקטרושופ": "© All rights reserved — Electroshop",
+  "© כל הזכויות שמורות לאלקטרושופ": "© All rights reserved - Electroshop",
   "נבנה על ידי": "Built by",
   "מדיניות פרטיות | אלקטרושופ": "Privacy policy | Electroshop",
   "מי אחראי למידע?": "Who is responsible for your information?",
@@ -85,7 +85,7 @@ window.electroshopLegalTranslations={
   "מומלץ לברר זמינות לפני התשלום. אם מתגלה חוסר במלאי או טעות מהותית, ניצור קשר להסדרת ההזמנה בהתאם לדין; לא ייגבה הפרש ולא יוחלף מוצר ללא הסכמת הלקוח. במקרה של ביטול יטופל החזר כנדרש.": "We recommend checking availability before payment. If an item is unavailable or a material error is discovered, we will contact you to resolve the order in accordance with law. No additional amount will be charged and no product substituted without your consent. If cancelled, a refund will be handled as required.",
   "בדף המכשירים מוצגים מחירים ומאפיינים המבוססים על אתר פלאפון, ועשוי להיות פער בזמן בין עדכון המקור לעדכון באתר. יש לוודא את השילוב המדויק של הדגם, הצבע ונפח האחסון ואת זמינותו.": "The devices page displays prices and specifications based on the Pelephone website, and updates here may lag behind the source. Confirm the exact model, colour and storage combination and its availability.",
   "מחירון המקור עשוי להשתנות בהחלטת פלאפון. במקרה של אי-התאמה או חשש לטעות יש לפנות לאלקטרושופ לבירור לפני התשלום. הפניה למחירון חיצוני אינה גורעת מזכויות הלקוח כלפי העסק בעסקה שבוצעה עמו.": "Pelephone may change its source price list. If there is a discrepancy or suspected error, contact Electroshop before paying. Reference to an external price list does not limit the customer's rights against the business for a transaction made with it.",
-  "זמני אספקה: 7-21 ימי עסקים, בהתאם למוצר.": "Delivery times: 7–21 business days, depending on the product.",
+  "זמני אספקה: 7-21 ימי עסקים, בהתאם למוצר.": "Delivery times: 7-21 business days, depending on the product.",
   "המשלוח להזמנה הכוללת מכשיר סמארטפון הוא בתוספת 50 ₪ להזמנה. משלוח יתר המוצרים ללא תוספת, למעט מוצרים המיועדים לאיסוף עצמי.": "Delivery for an order including a smartphone costs an additional ILS 50 per order. Delivery of other products is free, except products designated for store pickup.",
   "יש לברר את מועד האספקה המתאים למוצר לפני השלמת הרכישה. עיכוב מהותי יטופל מול הלקוח בלי לגרוע מזכויותיו לפי דין.": "Check the applicable delivery time before completing your purchase. Material delays will be handled with the customer without limiting statutory rights.",
   "איסוף עצמי מהמרכבה 31, חולון, נעשה בתיאום מראש. גיטרות המסומנות לאיסוף עצמי מיועדות לאיסוף מהחנות. לבחירת איסוף יש לתאם עם החנות לפני תשלום; אין לשנות עצמאית את הסכום לתשלום בביט.": "Pickup from 31 Hamerkava St, Holon must be arranged in advance. Guitars marked for pickup are collected from the store. Arrange pickup with the store before paying; do not independently change the amount paid through bit.",
@@ -107,5 +107,5 @@ window.electroshopLegalTranslations={
   "התוכן המקורי באתר וסימני המסחר כפופים לזכויות בעליהם. אין לעשות שימוש פוגעני באתר או להפריע להפעלתו. השימוש במידע אישי מוסבר ב": "Original website content and trademarks are subject to their owners' rights. Do not misuse the website or interfere with its operation. Personal information use is explained in the",
   "מדיניות הפרטיות": "Privacy policy",
   "ייתכנו עדכונים לתקנון ולתוכן האתר. עדכון אינו משנה בדיעבד זכויות שנוצרו בעסקה קודמת. על היחסים יחולו דיני מדינת ישראל וסמכות השיפוט תיקבע לפי הדין.": "These terms and website content may be updated. Updates do not retroactively change rights arising from an earlier transaction. Israeli law applies and jurisdiction is determined by law.",
-  "המרכבה 31, חולון -מתחם כלבו חצי חינם": "31 Hamerkava St, Holon — Kolbo Hatzi Hinam complex"
+  "המרכבה 31, חולון -מתחם כלבו חצי חינם": "31 Hamerkava St, Holon - Kolbo Hatzi Hinam complex"
 };
