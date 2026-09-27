@@ -1,0 +1,23 @@
+/* Shared compact product actions across every storefront category. */
+html body :is(.store-products,#storeProducts,#proCatalogGrid) .product-body{display:flex!important;flex-direction:column!important;height:auto!important;min-height:0!important;padding:10px!important;gap:6px!important;flex:1!important}
+html body :is(.store-products,#storeProducts,#proCatalogGrid) .variant-fields{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:none!important;height:auto!important;min-height:0!important;max-height:none!important;gap:6px!important;overflow:visible!important}
+html body :is(.store-products,#storeProducts,#proCatalogGrid) .variant-fields:empty{display:none!important}
+html body :is(.store-products,#storeProducts,#proCatalogGrid) .variant-fields>:only-child{grid-column:1/-1}
+html body :is(.store-products,#storeProducts,#proCatalogGrid) .variant-fields label{min-width:0!important;padding:0!important;height:36px!important;min-height:36px!important}
+html body :is(.store-products,#storeProducts,#proCatalogGrid) .variant-fields select{width:100%!important;min-width:0!important;height:36px!important;min-height:36px!important;padding:5px!important;font-size:13px!important}
+html body :is(.store-products,#storeProducts,#proCatalogGrid) .price-row{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:6px!important;min-height:44px!important;height:auto!important;flex:0 0 auto!important;margin:auto 0 0!important;padding-top:0!important;order:4}
+html body .card-prices{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:3px 7px;min-width:0;flex:1;line-height:1.2}
+html body :is(#proCatalogGrid,.store-products,#storeProducts) :is(.card-prices,.compact-price-row) .price{font-size:1.12rem!important;line-height:1.2!important;margin:0!important;padding:0!important}
+html body .card-prices .old{font-size:.82rem!important}
+html body :is(#proCatalogGrid,.store-products,#storeProducts) button.product-cart-add{position:relative!important;display:grid!important;place-items:center!important;flex:0 0 44px!important;width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;margin:0!important;padding:9px!important;border:2px solid #f2cb7c!important;border-radius:50%!important;background:#17100d!important;color:#f5d995!important;cursor:pointer;overflow:visible!important;touch-action:manipulation;box-shadow:none!important}
+html body :is(#proCatalogGrid,.store-products,#storeProducts) button.product-cart-add svg{display:block;width:24px;height:24px;pointer-events:none}
+html body :is(#proCatalogGrid,.store-products,#storeProducts) button.product-cart-add:hover{background:#89621f!important;color:white!important}
+html body :is(#proCatalogGrid,.store-products,#storeProducts) button.product-cart-add:focus-visible{outline:3px solid white;outline-offset:3px}
+html body :is(#proCatalogGrid,.store-products,#storeProducts) button.product-cart-add:disabled{opacity:.45;cursor:not-allowed}
+html body .product-cart-count{position:absolute;top:-8px;right:-8px;display:grid;place-items:center;min-width:21px;height:21px;padding:0 4px;border:1px solid #17100d;border-radius:999px;background:#f2b21b;color:#241400;font:800 12px/1 Arial,sans-serif;pointer-events:none}
+html body .product-cart-count[hidden]{display:none!important}
+html body .variant-fields select[aria-invalid="true"]{border-color:#ff5757!important;outline:2px solid #ff5757!important;outline-offset:-2px!important;background-color:#351515!important;box-shadow:inset 0 0 0 1px #ff5757!important}
+.choice-error-pulse{animation:choice-error-pulse .3s ease-in-out 2}
+@keyframes choice-error-pulse{50%{opacity:.55}}
+@media(prefers-reduced-motion:reduce){.choice-error-pulse{animation:none}}
+@media(max-width:650px){html body .card-prices{flex-direction:column;gap:2px}html body :is(#proCatalogGrid,.store-products,#storeProducts) :is(.card-prices,.compact-price-row) .price{font-size:.95rem!important}html body .card-prices .old{font-size:.72rem!important}}
