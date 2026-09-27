@@ -6,7 +6,7 @@ if(english){document.documentElement.lang='en';document.documentElement.dir='ltr
 const endpoint='/functions/v1/electroshop-paypal';
 const call=body=>request(endpoint,{method:'POST',body});
 let current=null,inFlight=false;
-function lock(value){inFlight=value;form.querySelectorAll('input,textarea,button[value="bit"]').forEach(el=>el.disabled=value);}
+function lock(value){inFlight=value;form.querySelectorAll('input,textarea,button[value="bit"],#tranzilaButton').forEach(el=>el.disabled=value);}
 function remember(order){sessionStorage.setItem('electroshop_paypal_pending',JSON.stringify(order));}
 async function finish(order){
  const result=await call({action:'capture',order_id:order.order_id,paypal_order_id:order.paypal_order_id});
@@ -47,7 +47,24 @@ try{
   onError(){if(current?.approved){retry.hidden=false;status.textContent=(english?"Check payment status before trying again.":"יש לבדוק את מצב התשלום לפני ניסיון נוסף.");}else{lock(false);if(!status.textContent||status.textContent===(english?"Opening secure payment...":"פותחים תשלום מאובטח..."))status.textContent=(english?"Payment could not be opened. Please try again.":"לא ניתן לפתוח תשלום כרגע. אפשר לנסות שוב.");}}
  });
  if(!buttons.isEligible())throw Error('PayPal אינו זמין בדפדפן זה');
- status.textContent=(english?"Secure payment in ILS with PayPal. Card options appear when available.":"תשלום מאובטח בשקלים באמצעות PayPal. אפשרויות האשראי מוצגות בהתאם לזמינות.");await buttons.render(container);
+ status.textContent=(english?"Secure payment in ILS with PayPal. Card options appear when available.":"תשלום מאובטח בשקלים באמצעות PayPal. אפשרויות האשראי מוצגות בהתאם לזמינות.");buttons.render(container).catch(()=>{status.textContent=english?"PayPal could not load":"לא ניתן לטעון את PayPal";});
  }
 }catch(error){status.textContent=error.message||'לא ניתן לטעון את אפשרויות התשלום';}
 
+
+const tranzilaButton=document.getElementById('tranzilaButton'),tranzilaStatus=document.getElementById('tranzilaStatus');
+try{const config=await request('/functions/v1/electroshop-tranzila?action=config');tranzilaButton.hidden=!config.enabled;tranzilaButton.textContent=english?'Pay by card - Tranzila':'לתשלום באשראי - טרנזילה';}catch{tranzilaButton.hidden=true;}
+tranzilaButton.addEventListener('click',async()=>{
+ if(inFlight||!form.reportValidity())return;
+ try{
+  const {items,total}=checkoutData(),customer=Object.fromEntries(new FormData(form));
+  const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify({customer,items,total})));
+  const key='electroshop_tranzila_'+Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
+  let requestId=sessionStorage.getItem(key);if(!requestId){requestId=crypto.randomUUID();sessionStorage.setItem(key,requestId);}
+  lock(true);tranzilaStatus.textContent=english?'Opening secure payment...':'פותחים תשלום מאובטח...';
+  const result=await request('/functions/v1/electroshop-tranzila',{method:'POST',body:{action:'start',customer,items,expected_total:total.toFixed(2),request_id:requestId,language:english?'en':'he'}});
+  const link=new URL(result.pr_link);if(link.origin!=='https://pay.tranzila.com')throw Error('Invalid payment link');
+  sessionStorage.setItem('electroshop_paid_order',JSON.stringify({id:result.order_id,provider:'tranzila'}));
+  location.assign(link.href);
+ }catch(error){lock(false);tranzilaStatus.textContent=error.message;}
+});

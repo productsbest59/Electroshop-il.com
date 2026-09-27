@@ -6,7 +6,8 @@ try{
  const order=JSON.parse(sessionStorage.getItem('electroshop_paid_order')||'null');
  if(!order?.id){status.textContent=(english?'You can return to the store using the button below.':'אפשר לחזור לחנות באמצעות הכפתור למטה.');}
  else{
- const result=await request('/functions/v1/electroshop-paypal',{method:'POST',body:{action:'status',order_id:order.id}});
+ const result=await request('/functions/v1/'+(order.provider==='tranzila'?'electroshop-tranzila':'electroshop-paypal'),{method:'POST',body:{action:'status',order_id:order.id}});
+ if(result.payment_status==='paid')localStorage.removeItem('electroshop_new_store_cart_v2');
  status.textContent=result.payment_status==='paid'?(english?'Payment received. Thank you for your order!':'התשלום התקבל בהצלחה. תודה על הזמנתכם!'):(english?'Payment confirmation is pending. Do not pay again.':'אישור התשלום עדיין בבדיקה. אין לבצע תשלום נוסף.');
  document.getElementById('orderNumber').textContent=(english?'Order number: ':'מספר הזמנה: ')+result.order_number;
  }
