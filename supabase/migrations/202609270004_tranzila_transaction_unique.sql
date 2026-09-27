@@ -1,0 +1,1 @@
+create unique index if not exists electroshop_tranzila_transaction_unique on public.electroshop_orders(payment_transaction_id) where payment_provider='tranzila' and payment_transaction_id is not null;

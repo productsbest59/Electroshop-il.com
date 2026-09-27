@@ -3,6 +3,7 @@ const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || '';
 const TERMINAL = Deno.env.get('ELECTROSHOP_TRANZILA_TERMINAL') || '';
 const APP_KEY = Deno.env.get('ELECTROSHOP_TRANZILA_APP_KEY') || '';
 const APP_SECRET = Deno.env.get('ELECTROSHOP_TRANZILA_APP_SECRET') || '';
+const NOTIFY_SECRET = Deno.env.get('ELECTROSHOP_TRANZILA_NOTIFY_SECRET') || '';
 const ENABLED = Deno.env.get('ELECTROSHOP_TRANZILA_PAYMENTS_ENABLED') === 'true';
 const STORE_PUBLIC_URL = (Deno.env.get('ELECTROSHOP_STORE_PUBLIC_URL') || 'https://electroshop-il.com').replace(/\/$/, '');
 
@@ -87,7 +88,7 @@ async function createPayment(orderId: string,language='he') {
   const claim=await db('electroshop_orders?id=eq.'+order.id+'&payment_response_code=is.null',{method:'PATCH',headers:{Prefer:'return=representation'},body:JSON.stringify({payment_response_code:'creating'})});
   if(!claim?.length)throw Error('בקשת תשלום כבר בטיפול. יש לפנות לחנות אם הקישור לא התקבל.');
   const items = (order.order_items || []).map((item: any, index: number) => ({
-    id: index + 1, code: item.sku, name: index===0 ? `ES:${order.id} ${item.product_name_he}` : item.product_name_he, type: 'I',
+    id: index + 1, code: item.sku, name: item.product_name_he, type: 'I',
     unit_price: Number(item.unit_price), unit_type: 1, units_number: Number(item.quantity),
     price_type: 'G', currency_code: 'ILS', vat_percent: 18
   }));
@@ -155,7 +156,7 @@ async function transactionReport(transactionIndex: string) {
   return transaction;
 }
 
-async function handleNotify(body: Record<string, unknown>) {
+async function handleNotify(body: Record<string, unknown>, authenticated = false) {
   if (!TERMINAL || !APP_KEY || !APP_SECRET) throw new Error('Tranzila API credentials are missing');
   const paymentRequestId = firstValue(body, ['pr_id', 'payment_request_id']);
   const transactionIndex = firstValue(body, ['transaction_index', 'index', 'transaction_id']);
@@ -168,7 +169,8 @@ async function handleNotify(body: Record<string, unknown>) {
   if (order.payment_status === 'paid') return { ok: true, already_processed: true };
 
   const transaction = await transactionReport(transactionIndex);
-  if(!Array.isArray(transaction.items)||!transaction.items.some((item:any)=>String(item.item_name||'').startsWith('ES:'+order.id+' ')))throw Error('Transaction does not belong to this order');
+  const legacyBound=Array.isArray(transaction.items)&&transaction.items.some((item:any)=>String(item.item_name||'').startsWith('ES:'+order.id+' '));
+  if(!authenticated&&!legacyBound)throw Error('Authenticated Tranzila notification required for order matching');
   const verification=verifyReport(transaction,order.total,transactionIndex);
   const {approved,responseCode,reportedIndex}=verification;
   await db(`electroshop_orders?id=eq.${encodeURIComponent(order.id)}&payment_status=neq.paid`, {
@@ -215,7 +217,11 @@ Deno.serve(async request => {
       return json({...await createPayment(created.id,body.language),order_id:created.id,order_number:created.order_number});
     }
     if (action === 'status') return json(await paymentStatus(String(body.order_id || '')));
-    if (action === 'notify') { return json(await handleNotify(body)); }
+    if (action === 'notify') {
+      const token=new URL(request.url).searchParams.get('notify_key')||'';
+      const authenticated=NOTIFY_SECRET.length>=64&&token===NOTIFY_SECRET;
+      return json(await handleNotify(body,authenticated));
+    }
     if (action === 'success' || action === 'fail') return paymentRedirect(action);
     return json({ ok: false, error: 'Unknown payment action' }, 400);
   } catch (error) {
