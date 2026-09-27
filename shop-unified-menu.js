@@ -19,7 +19,7 @@ const admin=nav.querySelector('#adminMenuLinks');
 nav.replaceChildren();
 nav.append(link('index.html','דף הבית','Home'));
 const shop=document.createElement('details');shop.className='unified-shop';
-const summary=document.createElement('summary');summary.innerHTML='<span data-he="חנות" data-en="Store">חנות</span><span class="unified-arrow" aria-hidden="true">⌄</span>';
+const summary=document.createElement('summary');summary.innerHTML='<span data-he="חנות" data-en="Store">חנות</span><svg class="unified-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7"/></svg>';
 const categories=document.createElement('div');categories.className='unified-categories';shop.append(summary,categories);nav.append(shop);
 nav.append(link('index.html#services','שירותי המעבדה','Repair services'),link('index.html#contact','צור קשר','Contact'),link('terms.html','תקנון','Terms'),link('privacy.html','פרטיות','Privacy'));
 const accessibility=link('proaudio-accessibility.html','נגישות','Accessibility');nav.append(accessibility);

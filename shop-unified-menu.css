@@ -2,7 +2,7 @@
 .main-menu-header{flex-shrink:0}
 .unified-shop summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;list-style:none;padding:14px 16px;border-radius:18px;background:#ffffff0a;border:1px solid #ffffff12;color:#fff;font:700 1rem Arial,sans-serif}
 .unified-shop summary::-webkit-details-marker{display:none}
-.unified-arrow{transition:transform .2s;font-size:24px;line-height:1}
+.unified-arrow{display:block;width:22px;height:22px;flex:0 0 22px;color:#f2b21b;transition:transform .2s;pointer-events:none}
 .unified-shop[open] .unified-arrow{transform:rotate(180deg)}
 .unified-categories{display:flex;flex-direction:column;gap:6px;padding:8px 12px 0}
 .main-menu-links .unified-categories a{font-size:.93rem;padding:11px 12px;border-radius:10px}

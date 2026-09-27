@@ -21,3 +21,7 @@ html body .variant-fields select[aria-invalid="true"]{border-color:#ff5757!impor
 @keyframes choice-error-pulse{50%{opacity:.55}}
 @media(prefers-reduced-motion:reduce){.choice-error-pulse{animation:none}}
 @media(max-width:650px){html body .card-prices{flex-direction:column;gap:2px}html body :is(#proCatalogGrid,.store-products,#storeProducts) :is(.card-prices,.compact-price-row) .price{font-size:.95rem!important}html body .card-prices .old{font-size:.72rem!important}}
+.product-detail-copy .product-description{white-space:normal;line-height:1.65;color:#e0d2bf}
+.product-detail-copy .product-description :is(p,div){margin:0;padding:0;white-space:normal;line-height:inherit}
+.product-detail-copy .product-description :is(ul,ol){margin:.35em 0;padding-inline-start:1.4em}
+.product-detail-copy .product-description li{margin:0;padding:0;line-height:inherit;white-space:normal}
