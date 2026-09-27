@@ -2,3 +2,9 @@
 @media(max-width:600px){body.legal-page{font-size:16px}.legal-shell{width:calc(100% - 20px);border-radius:17px}.legal-heading,.legal-toc{padding:22px 20px}.legal-shell article{padding:0 20px 12px}.legal-shell h2{font-size:21px}.legal-contact-links{flex-direction:column;gap:5px}.legal-form{grid-template-columns:1fr;padding:14px}.legal-nav{margin-bottom:18px}.legal-brand img{width:80px;height:80px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{body.legal-page{background:#fff}.legal-shell{width:100%;border:0;box-shadow:none}.legal-nav,.legal-toc,.legal-form,.unified-menu-toggle,#mainMenu,.legal-footer,.skip-link{display:none}.legal-shell article section{break-inside:avoid}}
+
+.legal-language{display:flex;justify-content:center;gap:8px;margin:8px auto 18px}
+.legal-language button{min-height:44px;padding:8px 18px;border:1px solid #ffd400;border-radius:10px;background:#171717;color:#fff;font:700 16px Arial;cursor:pointer}
+.legal-language button[aria-pressed="true"]{background:#ffd400;color:#111}
+.legal-language button:focus-visible{outline:3px solid #ff8a00;outline-offset:3px}
+html[lang="en"] .legal-shell,html[lang="en"] .legal-heading,html[lang="en"] .legal-form{text-align:left;direction:ltr}

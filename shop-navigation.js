@@ -3,7 +3,7 @@
     const langStorageKey = 'electroshop_home_lang_v1';
 
     function getLang() {
-      const saved = localStorage.getItem(langStorageKey);
+      const saved = localStorage.getItem('electroshop_store_language') || localStorage.getItem(langStorageKey);
       return saved === 'en' ? 'en' : 'he';
     }
 
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const nav=document.querySelector('.main-menu-links');
  // Public navigation is built by shop-unified-menu.js.
  const translations={'אלקטרושופ':'Electroshop','מבצעים חמים':'Hot deals','לחנות שלנו ←':'Visit our store →','אביזרי סלולר':'Mobile accessories','פרו אודיו':'Pro audio','תושבות לרכב':'Car mounts','גיטרות':'Guitars','מטענים וכבלים':'Chargers & cables','בחרו קטגוריה והיכנסו למוצרים שלה.':'Choose a category to explore its products.','כיסויים, מגני מסך ואביזרים':'Cases, screen protectors and accessories','מיקסרים, מיקרופונים וציוד אולפן':'Mixers, microphones and studio equipment','אחיזה יציבה ונוחה לכל נסיעה':'A steady, convenient hold on every drive','כלי נגינה באיסוף עצמי מהחנות':'Musical instruments for collection at our store','טעינה וחיבורים לכל יום':'Everyday charging and connections','למוצרים ←':'View products →','כל מה שצריך.':'Everything you need.','במקום אחד.':'In one place.','ראשי':'Home','תקנון':'Terms','פרטיות':'Privacy','אלקטרושופ • המרכבה 31, חולון':'Electroshop • 31 Hamerkava St, Holon','מעבדת סלולר, אביזרים וגאדג׳טים בחולון':'Phone repairs, accessories and gadgets in Holon','השירותים שלנו':'Our services','יצירת קשר':'Contact us','שעות פעילות':'Opening hours','חפשו אותנו אונליין':'Find us online','קישורים מהירים':'Quick links','משווק מורשה':'Authorized dealer','תמונות מהחנות והמעבדה':'Our shop and repair lab','מעבדת סלולר ואביזרים':'Phone repairs and accessories'};
- Object.assign(translations,{
+ Object.assign(translations,{'דף הבית':'Home','החנות שלנו':'Our store','שירותים':'Services','תמונות':'Photos','צור קשר':'Contact us',
  'תיקוני אקספרס במקום על ידי טכנאי מוסמך לכל המכשירים המובילים - אייפון, סמסונג, שיאומי ועוד.':'Fast on-site repairs by a certified technician for iPhone, Samsung, Xiaomi and other leading brands.',
  'תיקוני אקספרס':'Express repairs','תיקון במקום בזמן קצר':'Fast on-site repairs','אחריות על תיקון':'Repair warranty','אחריות על תיקונים':'Repair warranty','שקט נפשי ושירות אמין':'Peace of mind and reliable service','טכנאי מוסמך':'Certified technician','מקצועיות וניסיון':'Expertise and experience','חניה חינם':'Free parking','נוח להגיע אלינו':'Easy to reach',
  'תיקוני סלולר':'Phone repairs','החלפת מסכים':'Screen replacement','החלפת סוללות':'Battery replacement','החלפת שקעי טעינה':'Charging port replacement','החלפת גבים':'Back cover replacement','תיקון בעיות קליטה ורשת':'Signal and network repairs','הלחמות ותיקוני לוחות':'Soldering and board repairs','תיקון בעיות שמע ואודיו':'Sound and audio repairs','תיקון עדשות מצלמה':'Camera lens repairs','תיקון בעיות חיישנים':'Sensor repairs','ניקוי קורוזיה':'Corrosion cleaning',
