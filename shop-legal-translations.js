@@ -1,4 +1,7 @@
 window.electroshopLegalTranslations={
+  "אשראי - טרנזילה:": "Credit card - Tranzila:",
+  "תשלום בכרטיס אשראי מתבצע באמצעות טרנזילה בעמוד התשלום המאובטח. יש לבדוק את הסכום ופרטי ההזמנה לפני אישור התשלום.": "Credit card payments are processed through Tranzila on the secure payment page. Check the amount and order details before confirming payment.",
+  "התשלום מתבצע באמצעות כפתורי PayPal בעמוד התשלום, עבור ההזמנה והסכום המוצגים בו.": "Payment is made using the PayPal buttons on the checkout page, for the order and amount shown there.",
   "הצהרת נגישות | אלקטרושופ": "Accessibility statement | Electroshop",
   "דילוג לתוכן": "Skip to content",
   "דף הבית": "Home",
