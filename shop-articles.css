@@ -1,3 +1,4 @@
+@import url('shop-naya-layout.css');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@300;400;600;700&family=Rubik:wght@300;400;600;700&display=swap');
 :root{--news-blue:#132f57;--news-yellow:#ffd318;--news-orange:#f28b20}
 body.news-page{background:linear-gradient(135deg,#ffd21c 0%,#ff9b20 48%,#ffd21c 100%) fixed;color:#172033}
