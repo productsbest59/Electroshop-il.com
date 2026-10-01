@@ -82,58 +82,53 @@ async function createPayment(orderId: string,language='he') {
   const order = rows?.[0];
   if (!order||order.payment_provider!=='tranzila') throw new Error('Order not found');
   if (order.payment_status === 'paid') throw new Error('Order is already paid');
-  if (order.payment_link && order.payment_request_id) {
-    return { ok: true, pr_id: order.payment_request_id, pr_link: order.payment_link, reused: true };
+  if (order.payment_link && order.payment_request_id && /directng\.tranzila\.com/.test(order.payment_link)) {
+    const callbackBase=`${SUPABASE_URL}/functions/v1/electroshop-tranzila`;
+    const notifyKey=NOTIFY_SECRET.length>=64?`&notify_key=${encodeURIComponent(NOTIFY_SECRET)}`:'';
+    const fields:Record<string,string>={sum:String(Number(Number(order.total).toFixed(2))),currency:'1',thtk:String(order.payment_request_id),new_process:'1',tranmode:'A',contact:order.customer_name||'',company:order.customer_name||'',email:order.customer_email||'',country:order.country||'ישראל',zip:order.postal_code||'',address:order.address||'',city:order.city||'',pdesc:`Electroshop order ${order.order_number||order.id}`,success_url_address:`${callbackBase}?action=success`,fail_url_address:`${callbackBase}?action=fail`,notify_url_address:`${callbackBase}?action=notify${notifyKey}`};
+    if(language!=='en')fields.lang='il';
+    return { ok: true, iframe_url: order.payment_link, fields, reused: true };
+  }
+  if(order.payment_link&&/pay\.tranzila\.com/.test(order.payment_link)&&order.payment_status==='pending'){
+    await db(`electroshop_orders?id=eq.${encodeURIComponent(order.id)}&payment_status=eq.pending`,{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({payment_request_id:null,payment_link:null,payment_response_code:null})});
   }
 
   const claim=await db('electroshop_orders?id=eq.'+order.id+'&payment_response_code=is.null',{method:'PATCH',headers:{Prefer:'return=representation'},body:JSON.stringify({payment_response_code:'creating'})});
   if(!claim?.length)throw Error('בקשת תשלום כבר בטיפול. יש לפנות לחנות אם הקישור לא התקבל.');
-  const items = (order.order_items || []).map((item: any, index: number) => ({
-    id: index + 1, code: item.sku, name: item.product_name_he, type: 'I',
-    unit_price: Number(item.unit_price), unit_type: 1, units_number: Number(item.quantity),
-    price_type: 'G', currency_code: 'ILS', vat_percent: 18
-  }));
-
-  if(Number(order.shipping_amount)>0)items.push({id:items.length+1,code:'SHIPPING',name:'משלוח',type:'I',unit_price:Number(order.shipping_amount),unit_type:1,units_number:1,price_type:'G',currency_code:'ILS',vat_percent:18});
-  const expected=items.reduce((sum,item)=>sum+Math.round(item.unit_price*100)*item.units_number,0);
-  if(expected!==Math.round(Number(order.total)*100)||expected<=0)throw Error('Invalid order total');
-  const clientCountryCode = countryCode(order.country);
-  const body = {
-    terminal_name: TERMINAL, created_by_user: 'electroshop-store', created_by_system: 'electroshop-supabase',
-    created_via: 'TRAPI', action_type: 1, request_date: new Date().toISOString().slice(0, 10),
-    request_language: language==='en'?'english':'hebrew', response_language: language==='en'?'english':'hebrew', request_currency: 'ILS',
-    currency_code: 'ILS', request_vat: 18, payments_number: 1, payment_plans: [1],
-    payment_methods: [1],
-    send_email: { sender_name: 'אלקטרושופ', sender_email: 'electroshopisraelo@gmail.com' },
-    client: {
-      external_id: order.id, name: order.customer_name, contact_person: order.customer_name,
-      email: order.customer_email, address_line_1: order.address, city: order.city,
-      ...(clientCountryCode ? { country_code: clientCountryCode } : {}),
-      zip: order.postal_code || '', ...phoneParts(order.customer_phone)
-    },
-    items
-  };
-
-  const response = await fetch('https://api.tranzila.com/v1/pr/create', {
-    method: 'POST', headers: { 'Content-Type': 'application/json', ...(await authHeaders()) }, body: JSON.stringify(body)
+  const expected=(order.order_items||[]).reduce((total:number,item:any)=>total+Math.round(Number(item.unit_price)*100)*Number(item.quantity),0)+Math.round(Number(order.shipping_amount||0)*100);
+  const sum=Number(Number(order.total).toFixed(2));
+  if(!(sum>0)||expected!==Math.round(sum*100))throw Error('Invalid order total');
+  const response = await fetch('https://api.tranzila.com/v2/handshake/create', {
+    method: 'POST', headers: { 'Content-Type': 'application/json', ...(await authHeaders()) },
+    body: JSON.stringify({terminal_name:TERMINAL,sum,request_params:{order_id:order.id,order_number:order.order_number}})
   });
   const data = await response.json().catch(() => null);
-  if (!response.ok || Number(data?.error_code) !== 0 || !data?.pr_link) {
+  if (!response.ok || Number(data?.error_code) !== 0 || !data?.thtk) {
     const code=Number(data?.error_code);
     // Only explicit provider rejections are safe to retry. Unknown outcomes stay locked.
-    if(response.ok && Number.isInteger(code) && code>0 && !data?.pr_id && !data?.pr_link){
+    if(response.ok && Number.isInteger(code) && code>0 && !data?.thtk){
       await db('electroshop_orders?id=eq.'+order.id+'&payment_response_code=eq.creating&payment_status=eq.pending',{method:'PATCH',body:JSON.stringify({payment_response_code:null})});
     }
     console.error('Tranzila create rejected',{http_status:response.status,error_code:Number.isInteger(code)?code:null});
-    throw new Error('לא ניתן ליצור קישור תשלום באשראי (קוד '+(Number.isInteger(code)?code:response.status)+'). נסו שוב או פנו לחנות.');
+    throw new Error('לא ניתן לפתוח תשלום באשראי (קוד '+(Number.isInteger(code)?code:response.status)+'). נסו שוב או פנו לחנות.');
   }
-
-  if(new URL(data.pr_link).origin!=='https://pay.tranzila.com')throw Error('Invalid payment link');
+  const callbackBase=`${SUPABASE_URL}/functions/v1/electroshop-tranzila`;
+  const notifyKey=NOTIFY_SECRET.length>=64?`&notify_key=${encodeURIComponent(NOTIFY_SECRET)}`:'';
+  const iframeUrl=`https://directng.tranzila.com/${encodeURIComponent(TERMINAL)}/iframenew.php`;
+  const fields:Record<string,string>={
+    sum:String(sum),currency:'1',thtk:String(data.thtk),new_process:'1',tranmode:'A',
+    contact:order.customer_name||'',company:order.customer_name||'',email:order.customer_email||'',
+    country:order.country||'ישראל',zip:order.postal_code||'',address:order.address||'',city:order.city||'',
+    pdesc:`Electroshop order ${order.order_number||order.id}`,
+    success_url_address:`${callbackBase}?action=success`,fail_url_address:`${callbackBase}?action=fail`,
+    notify_url_address:`${callbackBase}?action=notify${notifyKey}`
+  };
+  if(language!=='en')fields.lang='il';
   await db(`electroshop_orders?id=eq.${encodeURIComponent(order.id)}&payment_status=neq.paid`, {
     method: 'PATCH', headers: { Prefer: 'return=minimal' },
-    body: JSON.stringify({ payment_provider: 'tranzila', payment_request_id: String(data.pr_id), payment_link: data.pr_link, payment_response_code: 'pending' })
+    body: JSON.stringify({ payment_provider: 'tranzila', payment_request_id: String(data.thtk), payment_link: iframeUrl, payment_response_code: 'pending' })
   });
-  return { ok: true, pr_id: String(data.pr_id), pr_link: data.pr_link };
+  return { ok: true, iframe_url: iframeUrl, fields };
 }
 
 function firstValue(body: Record<string, unknown>, names: string[]) {
@@ -159,12 +154,17 @@ async function transactionReport(transactionIndex: string) {
 
 async function handleNotify(body: Record<string, unknown>, authenticated = false) {
   if (!TERMINAL || !APP_KEY || !APP_SECRET) throw new Error('Tranzila API credentials are missing');
-  const paymentRequestId = firstValue(body, ['pr_id', 'payment_request_id']);
+  let requestParams:Record<string,unknown>={};
+  if(body.request_params&&typeof body.request_params==='object')requestParams=body.request_params as Record<string,unknown>;
+  else if(typeof body.request_params==='string'){try{requestParams=JSON.parse(body.request_params);}catch{}}
+  const paymentRequestId = firstValue(body, ['pr_id', 'payment_request_id','thtk']);
+  const orderId=firstValue({...requestParams,...body},['order_id','orderId','OrderId']);
   const transactionIndex = firstValue(body, ['transaction_index', 'index', 'transaction_id']);
-  if (!paymentRequestId) throw new Error('Missing Tranzila payment request ID');
+  if (!paymentRequestId&&!/^[0-9a-f-]{36}$/i.test(orderId)) throw new Error('Missing Tranzila order reference');
   if (!/^\d+$/.test(transactionIndex)) throw new Error('Missing or invalid Tranzila transaction index');
 
-  const rows = await db(`electroshop_orders?payment_provider=eq.tranzila&payment_request_id=eq.${encodeURIComponent(paymentRequestId)}&select=*&limit=1`);
+  const lookup=/^[0-9a-f-]{36}$/i.test(orderId)?`electroshop_orders?id=eq.${encodeURIComponent(orderId)}&select=*&limit=1`:`electroshop_orders?payment_provider=eq.tranzila&payment_request_id=eq.${encodeURIComponent(paymentRequestId)}&select=*&limit=1`;
+  const rows = await db(lookup);
   const order = rows?.[0];
   if (!order) throw new Error('Order for this payment request was not found');
   if (order.payment_status === 'paid') { await sendPaidOrderEmail(order.id); return { ok: true, already_processed: true }; }

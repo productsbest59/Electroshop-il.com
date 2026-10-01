@@ -54,6 +54,24 @@ try{
 
 
 const tranzilaButton=document.getElementById('tranzilaButton'),tranzilaStatus=document.getElementById('tranzilaStatus');
+const tranzilaOverlay=document.getElementById('tranzilaOverlay'),tranzilaFrame=document.getElementById('tranzilaFrame'),tranzilaLoading=document.getElementById('tranzilaLoading'),tranzilaClose=document.getElementById('closeTranzila');
+let tranzilaTimer=0;
+function closeTranzila(){tranzilaOverlay.hidden=true;document.body.classList.remove('payment-open');clearTimeout(tranzilaTimer);tranzilaFrame.src='about:blank';lock(false);}
+tranzilaClose.addEventListener('click',closeTranzila);
+tranzilaOverlay.addEventListener('click',event=>{if(event.target===tranzilaOverlay)closeTranzila();});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!tranzilaOverlay.hidden)closeTranzila();});
+async function watchTranzila(orderId,attempts=0){
+ if(tranzilaOverlay.hidden)return;
+ try{const result=await request('/functions/v1/electroshop-tranzila?action=status&order_id='+encodeURIComponent(orderId));if(result.payment_status==='paid'){sessionStorage.setItem('electroshop_paid_order',JSON.stringify({id:orderId,number:result.order_number,provider:'tranzila'}));location.assign('shop-payment-success.html');return;}if(result.payment_status==='failed'){tranzilaStatus.textContent=english?'The payment was not approved.':'התשלום לא אושר.';closeTranzila();return;}}catch{}
+ if(attempts<300)tranzilaTimer=setTimeout(()=>watchTranzila(orderId,attempts+1),2000);
+}
+function openTranzila(payment,orderId){
+ tranzilaLoading.hidden=false;let loaded=false;const finish=()=>{if(!loaded){loaded=true;tranzilaLoading.hidden=true;}};
+ tranzilaFrame.onload=()=>setTimeout(finish,250);tranzilaFrame.src='about:blank';tranzilaOverlay.hidden=false;document.body.classList.add('payment-open');
+ const paymentForm=document.createElement('form');paymentForm.method='POST';paymentForm.action=payment.iframe_url;paymentForm.target=tranzilaFrame.name;
+ Object.entries(payment.fields||{}).forEach(([name,value])=>{const input=document.createElement('input');input.type='hidden';input.name=name;input.value=String(value??'');paymentForm.appendChild(input);});
+ paymentForm.hidden=true;document.body.appendChild(paymentForm);paymentForm.submit();paymentForm.remove();setTimeout(finish,1800);watchTranzila(orderId);
+}
 try{const config=await request('/functions/v1/electroshop-tranzila?action=config');tranzilaButton.hidden=!config.enabled;tranzilaButton.textContent=english?'Secure card payment':'לתשלום מאובטח באשראי';}catch{tranzilaButton.hidden=true;}
 tranzilaButton.addEventListener('click',async()=>{
  if(inFlight||!form.reportValidity())return;
@@ -64,9 +82,8 @@ tranzilaButton.addEventListener('click',async()=>{
   let requestId=sessionStorage.getItem(key);if(!requestId){requestId=crypto.randomUUID();sessionStorage.setItem(key,requestId);}
   const purchasedCart=cartSnapshot();lock(true);tranzilaStatus.textContent=english?'Opening secure payment...':'פותחים תשלום מאובטח...';
   const result=await request('/functions/v1/electroshop-tranzila',{method:'POST',body:{action:'start',customer,items,expected_total:total.toFixed(2),request_id:requestId,language:english?'en':'he'}});
-  const link=new URL(result.pr_link);if(link.origin!=='https://pay.tranzila.com')throw Error('Invalid payment link');
-  sessionStorage.setItem('electroshop_paid_order',JSON.stringify({id:result.order_id,provider:'tranzila'}));
+  const link=new URL(result.iframe_url);if(link.origin!=='https://directng.tranzila.com'||!result.fields?.thtk)throw Error('Invalid payment window');
   rememberPaymentCart(result.order_id,'tranzila',purchasedCart);
-  location.assign(link.href);
+  openTranzila({...result,iframe_url:link.href},result.order_id);
  }catch(error){lock(false);tranzilaStatus.textContent=error.message;}
 });
