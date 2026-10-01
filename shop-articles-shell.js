@@ -9,7 +9,6 @@ export function renderArticleShell(){
  const applyLanguage=lang=>{localStorage.setItem('electroshop_language',lang);document.documentElement.lang=lang;document.documentElement.dir=lang==='he'?'rtl':'ltr';document.querySelectorAll('[data-he]').forEach(el=>{const value=el.dataset[lang]||el.dataset.he;if(el.firstElementChild&&el.children.length===1)el.firstElementChild.textContent=value;else el.textContent=value})};applyLanguage(localStorage.getItem('electroshop_language')||'he');document.querySelector('#langToggle')?.addEventListener('click',()=>{const m=document.querySelector('#languageMenu');m.hidden=!m.hidden});document.querySelectorAll('[data-language]').forEach(b=>b.addEventListener('click',()=>{applyLanguage(b.dataset.language);location.reload()}));
  const accessibilityReady=loadFullAccessibility(bottom);
  hydrateSharedNavigation(accessibilityReady);
- enableArticleHeaderScroll();
 }
 
 async function hydrateSharedNavigation(accessibilityReady){
