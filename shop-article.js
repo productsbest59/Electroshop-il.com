@@ -25,7 +25,7 @@ try{
  document.querySelector('meta[name=description]').content=description;
  document.querySelector('link[rel=canonical]').href=url;
  document.querySelector('#crumbTitle').textContent=title;
- view.innerHTML=`<header class="article-head">${article.cover_path?`<img class="article-cover" src="${esc(articleImageUrl(article.cover_path))}" alt="${esc(article[`cover_alt_${lang}`]||title)}">`:''}<h1>${esc(title)}</h1>${article.published_at?`<p class="article-date">${new Intl.DateTimeFormat(lang==='he'?'he-IL':'en-US',{dateStyle:'long'}).format(new Date(article.published_at))}</p>`:''}</header><div class="article-content">${content}</div>${content.includes(copyrightNotice)?'':`<p class="article-copyright">${esc(copyrightNotice)}</p>`}`;
+ view.innerHTML=`<header class="article-head">${article.cover_path?`<img class="article-cover" src="${esc(articleImageUrl(article.cover_path))}" alt="${esc(article[`cover_alt_${lang}`]||title)}">`:''}<h1>${esc(title)}</h1>${article.published_at?`<p class="article-date">${new Intl.DateTimeFormat(lang==='he'?'he-IL':'en-US',{dateStyle:'long'}).format(new Date(article.published_at))}</p>`:''}</header><div class="article-content">${content}</div>${content.includes(copyrightNotice)?'':`<p class="article-copyright">${esc(copyrightNotice)}</p>`}<a class="article-back-link" href="shop-news.html">${lang==='en'?'← Back to News & Guides':'→ חזרה לחדשות ומדריכים'}</a>`;
 
  const schema=document.createElement('script');
  schema.type='application/ld+json';
