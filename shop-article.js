@@ -7,12 +7,13 @@ const slug=new URLSearchParams(location.search).get('article')||'';
 const view=document.querySelector('#articleView');
 const lang=localStorage.getItem('electroshop_language')==='en'?'en':'he';
 const esc=value=>String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const normalizeArticleHtml=value=>{const source=String(value||'').trim();if(!source)return'';const probe=document.createElement('div');probe.innerHTML=source;const visible=probe.textContent.trim();return /^<(?:p|h[1-6]|table|ul|ol|blockquote|div|figure|img)\b/i.test(visible)?visible:source};
 
 try{
  const article=await getArticleBySlug(slug);
  if(!article)throw new Error();
  const title=article[`title_${lang}`]||article.title_he;
- const content=article[`content_${lang}`]||article.content_he||'';
+ const content=normalizeArticleHtml(article[`content_${lang}`]||article.content_he||'');
  const description=article[`seo_description_${lang}`]||article[`excerpt_${lang}`]||article.excerpt_he;
  const seoTitle=article[`seo_title_${lang}`]||`${title} | אלקטרושופ`;
  const url=`https://electroshop-il.com/shop-article.html?article=${encodeURIComponent(article.slug)}`;
