@@ -7,7 +7,37 @@ export function renderArticleShell(){
  const close=()=>{menu?.classList.remove('open');backdrop?.classList.remove('open');menu?.setAttribute('aria-hidden','true');toggle?.setAttribute('aria-expanded','false');document.body.classList.remove('main-menu-is-open')};
  toggle?.addEventListener('click',()=>{menu?.classList.add('open');backdrop?.classList.add('open');menu?.setAttribute('aria-hidden','false');toggle.setAttribute('aria-expanded','true');document.body.classList.add('main-menu-is-open')});document.querySelector('#menuClose')?.addEventListener('click',close);backdrop?.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
  const applyLanguage=lang=>{localStorage.setItem('electroshop_language',lang);document.documentElement.lang=lang;document.documentElement.dir=lang==='he'?'rtl':'ltr';document.querySelectorAll('[data-he]').forEach(el=>{const value=el.dataset[lang]||el.dataset.he;if(el.firstElementChild&&el.children.length===1)el.firstElementChild.textContent=value;else el.textContent=value})};applyLanguage(localStorage.getItem('electroshop_language')||'he');document.querySelector('#langToggle')?.addEventListener('click',()=>{const m=document.querySelector('#languageMenu');m.hidden=!m.hidden});document.querySelectorAll('[data-language]').forEach(b=>b.addEventListener('click',()=>{applyLanguage(b.dataset.language);location.reload()}));
- loadFullAccessibility(bottom);
+ const accessibilityReady=loadFullAccessibility(bottom);
+ hydrateSharedNavigation(accessibilityReady);
+ enableArticleHeaderScroll();
+}
+
+async function hydrateSharedNavigation(accessibilityReady){
+ try{
+  await import('./shop-unified-menu.js?v=colors-4');
+  await accessibilityReady;
+  const accessibilityLink=[...document.querySelectorAll('#mainMenu a')].find(a=>a.getAttribute('href')==='proaudio-accessibility.html');
+  accessibilityLink?.addEventListener('click',event=>{event.preventDefault();document.querySelector('#a11yFab')?.click()});
+ }catch(error){console.error('Shared navigation could not be loaded',error)}
+}
+
+function enableArticleHeaderScroll(){
+ const header=document.querySelector('#articleSiteTop>.electroshop-header');
+ if(!header)return;
+ let previous=Math.max(0,window.scrollY),distance=0,direction=0,queued=false;
+ const update=()=>{
+  queued=false;
+  const y=Math.max(0,window.scrollY),delta=y-previous;
+  previous=y;
+  if(y<40||header.contains(document.activeElement)||document.querySelector('#mainMenu.open')){header.classList.remove('article-header-hidden');distance=0;return}
+  if(Math.abs(delta)<1)return;
+  const nextDirection=Math.sign(delta);
+  distance=nextDirection===direction?distance+Math.abs(delta):Math.abs(delta);
+  direction=nextDirection;
+  if(distance>=12){header.classList.toggle('article-header-hidden',direction>0&&y>header.offsetHeight+30);distance=0}
+ };
+ window.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});
+ header.addEventListener('focusin',()=>header.classList.remove('article-header-hidden'));
 }
 
 async function loadFullAccessibility(bottom){
