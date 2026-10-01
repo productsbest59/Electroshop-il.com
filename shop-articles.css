@@ -17,4 +17,5 @@ body.news-page{background:linear-gradient(135deg,#ffd21c 0%,#ff9b20 48%,#ffd21c 
 html body.news-page{background-color:#ffb000!important;background-image:linear-gradient(135deg,#ffd21c 0%,#ff9b20 48%,#ffd21c 100%)!important;background-attachment:fixed!important;color:#172033!important}
 body.news-page::before{display:none!important;content:none!important}
 .article-content{line-height:1.55}.article-content p,.article-content div{margin:.55em 0}.article-content u{text-decoration-thickness:1.5px;text-underline-offset:3px;text-decoration-skip-ink:none}.article-content a{color:#075dcc;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px;font-weight:600}
+.article-copyright{margin:34px 0 0;padding:18px 14px 0;border-top:2px solid rgba(19,47,87,.35);color:#39475b;text-align:center;font-size:.93rem;line-height:1.65;font-weight:600}
 .article-preview-badge{width:max-content;max-width:100%;margin:0 auto 18px;padding:7px 14px;border-radius:999px;background:#172033;color:#fff;font-weight:800}
