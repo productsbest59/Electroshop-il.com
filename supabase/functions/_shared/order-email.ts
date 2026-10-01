@@ -21,7 +21,8 @@ export async function sendPaidOrderEmail(orderId: string) {
     // Atomic claim prevents concurrent callbacks from sending the same confirmation twice.
     const claim = await db(path + '&payment_status=eq.paid&customer_email_sent_at=is.null&customer_email_claimed_at=is.null', 'PATCH', {customer_email_claimed_at:new Date().toISOString(),customer_email_error:null});
     if (!claim.length) return;
-    const r = await fetch('https://api.brevo.com/v3/smtp/email', {method:'POST',headers:{'api-key':mailKey,'Content-Type':'application/json'},body:JSON.stringify({sender:{name:'אלקטרושופ',email:'electroshopisraelo@gmail.com'},replyTo:{name:'אלקטרושופ',email:'electroshopisraelo@gmail.com'},to:[{email:order.customer_email}],subject:`אישור רכישה ${order.order_number} | אלקטרושופ`,htmlContent:html}),signal:AbortSignal.timeout(15000)});
+    const storeEmail = Deno.env.get('ELECTROSHOP_STORE_EMAIL') || 'electroshopisraelo@gmail.com';
+    const r = await fetch('https://api.brevo.com/v3/smtp/email', {method:'POST',headers:{'api-key':mailKey,'Content-Type':'application/json'},body:JSON.stringify({sender:{name:'אלקטרושופ',email:'electroshopisraelo@gmail.com'},replyTo:{name:'אלקטרושופ',email:'electroshopisraelo@gmail.com'},to:[{email:order.customer_email}],bcc:[{email:storeEmail,name:'אלקטרושופ'}],subject:`אישור רכישה ${order.order_number} | אלקטרושופ`,htmlContent:html}),signal:AbortSignal.timeout(15000)});
     // Unknown outcomes stay claimed: a timeout must never cause a duplicate message.
     if (!r.ok) {
       if (r.status >= 400 && r.status < 500) await db(path, 'PATCH', {customer_email_claimed_at:null});
