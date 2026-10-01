@@ -9,7 +9,7 @@ const fixedCategoryPages=new Map([
   ['chargers-cables','shop-chargers-cables.html'],['guitars','shop-guitars.html'],['earphones','shop-earphones.html'],
   ['speakers','shop-speakers.html'],['batteries','shop-batteries.html'],['signs','shop-signs.html']
 ]);
-const excluded=new Set(['shop-admin.html','shop-articles-admin.html','shop-product-editor.html','shop-orders.html','shop-login.html','shop-account-setup.html','shop-checkout.html','shop-payment-success.html','bit-payment.html','shop-category.html','shop-article.html']);
+const excluded=new Set(['shop-admin.html','shop-articles-admin.html','shop-product-editor.html','shop-orders.html','shop-login.html','shop-account-setup.html','shop-checkout.html','shop-payment-success.html','bit-payment.html','shop-category.html','shop-article.html','shop-article-preview.html']);
 const headers={apikey:apiKey,Authorization:`Bearer ${apiKey}`};
 const xml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const date=value=>value?new Date(value).toISOString().slice(0,10):'';
