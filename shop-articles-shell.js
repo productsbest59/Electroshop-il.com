@@ -23,21 +23,23 @@ async function hydrateSharedNavigation(accessibilityReady){
 
 function enableArticleHeaderScroll(){
  const header=document.querySelector('#articleSiteTop>.electroshop-header');
- if(!header)return;
+ const shell=document.querySelector('#articleSiteTop');
+ if(!header||!shell)return;
+ const setHidden=hidden=>{header.classList.toggle('article-header-hidden',hidden);shell.classList.toggle('article-mobile-header-hidden',hidden)};
  let previous=Math.max(0,window.scrollY),distance=0,direction=0,queued=false;
  const update=()=>{
   queued=false;
   const y=Math.max(0,window.scrollY),delta=y-previous;
   previous=y;
-  if(y<40||header.contains(document.activeElement)||document.querySelector('#mainMenu.open')){header.classList.remove('article-header-hidden');distance=0;return}
+  if(y<40||header.contains(document.activeElement)||document.querySelector('#mainMenu.open')){setHidden(false);distance=0;return}
   if(Math.abs(delta)<1)return;
   const nextDirection=Math.sign(delta);
   distance=nextDirection===direction?distance+Math.abs(delta):Math.abs(delta);
   direction=nextDirection;
-  if(distance>=12){header.classList.toggle('article-header-hidden',direction>0&&y>header.offsetHeight+30);distance=0}
+  if(distance>=12){setHidden(direction>0&&y>header.offsetHeight+30);distance=0}
  };
  window.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});
- header.addEventListener('focusin',()=>header.classList.remove('article-header-hidden'));
+ header.addEventListener('focusin',()=>setHidden(false));
 }
 
 async function loadFullAccessibility(bottom){

@@ -4,6 +4,8 @@
 body.news-page{background:linear-gradient(135deg,#ffd21c 0%,#ff9b20 48%,#ffd21c 100%) fixed;color:#172033}
 #articleSiteTop>.electroshop-header{transition:transform .24s ease,opacity .2s ease,visibility .2s ease}
 #articleSiteTop>.electroshop-header.article-header-hidden{transform:translateY(calc(-100% - 40px));opacity:0;visibility:hidden;pointer-events:none}
+#articleSiteTop>.mobile-brand,#articleSiteTop>.site-topbar{transition:transform .24s ease,opacity .2s ease,visibility .2s ease}
+@media(max-width:700px){#articleSiteTop.article-mobile-header-hidden>.mobile-brand,#articleSiteTop.article-mobile-header-hidden>.site-topbar{transform:translateY(-120px);opacity:0;visibility:hidden;pointer-events:none}}
 .news-shell{width:min(1180px,calc(100% - 28px));margin:18px auto 28px}
 .news-frame{background:#fffdf8;border:3px solid rgba(19,47,87,.9);border-radius:26px;box-shadow:0 18px 45px rgba(19,47,87,.22);padding:clamp(18px,4vw,44px)}
 .news-hero{text-align:center;margin-bottom:28px}.news-hero h1{font-size:clamp(2rem,5vw,3.6rem);margin:0;color:var(--news-blue)}.news-hero p{font-size:1.12rem}
