@@ -35,44 +35,45 @@
  <link rel="stylesheet" href="shop-unified-menu.css?v=3">
  <link rel="stylesheet" href="shop-shared-footer.css?v=1">
  <link rel="stylesheet" href="shop-articles.css?v=6">
- <link rel="stylesheet" href="imei-check.css?v=6">
+ <link rel="stylesheet" href="imei-check.css?v=7">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="electro-store news-page imei-page">
  <div id="articleSiteTop"></div>
  <main class="imei-shell">
-  <nav class="electroshop-page-navigation" aria-label="ניווט באתר"><a href="index.html">דף הבית</a><a href="shop.html">החנות</a><span>בדיקת IMEI</span></nav>
   <section class="imei-frame">
    <header class="imei-hero">
     <span class="imei-shield" aria-hidden="true"><i class="fas fa-mobile-screen-button"></i><i class="fas fa-magnifying-glass"></i></span>
-   <div><h1>בדיקת IMEI ומצב מכשיר</h1><p>בדקו פרטי מכשיר Apple לפני רכישה, מכירה או תיקון</p></div>
+    <div><h1 data-he="בדיקת IMEI ומצב מכשיר" data-en="IMEI and Device Status Check">בדיקת IMEI ומצב מכשיר</h1><p data-he="בדקו פרטי מכשיר Apple לפני רכישה, מכירה או תיקון" data-en="Check Apple device details before buying, selling or repairing">בדקו פרטי מכשיר Apple לפני רכישה, מכירה או תיקון</p></div>
    </header>
    <section class="imei-explainer" aria-labelledby="imeiExplainerTitle">
-    <h2 id="imeiExplainerTitle">מהו IMEI ולמה חשוב לבדוק אותו?</h2>
-    <p>IMEI הוא מספר זיהוי ייחודי של המכשיר הסלולרי. בדיקה שלו לפני רכישה או מכירה יכולה לעזור לוודא שהמספר תואם לדגם המכשיר ולקבל, בהתאם לסוג הדוח ולזמינות המידע, פרטים חשובים כגון האם המכשיר דווח כגנוב, האם קיימת נעילת SIM, האם הוא מחודש, ומתי ואם הופעל לראשונה.</p>
+    <h2 id="imeiExplainerTitle" data-he="מהו IMEI ולמה חשוב לבדוק אותו?" data-en="What is an IMEI and why should you check it?">מהו IMEI ולמה חשוב לבדוק אותו?</h2>
+    <p data-he="IMEI הוא מספר זיהוי ייחודי של המכשיר הסלולרי. בדיקה שלו לפני רכישה או מכירה יכולה לעזור לוודא שהמספר תואם לדגם המכשיר ולקבל, בהתאם לסוג הדוח ולזמינות המידע, פרטים חשובים כגון האם המכשיר דווח כגנוב, האם קיימת נעילת SIM, האם הוא מחודש, ומתי ואם הופעל לראשונה." data-en="An IMEI is a unique identifier for a mobile device. Checking it before buying or selling can help confirm that the number matches the device model and, depending on the selected report and data availability, reveal whether it was reported stolen, is SIM-locked, refurbished, and when or whether it was first activated.">IMEI הוא מספר זיהוי ייחודי של המכשיר הסלולרי. בדיקה שלו לפני רכישה או מכירה יכולה לעזור לוודא שהמספר תואם לדגם המכשיר ולקבל, בהתאם לסוג הדוח ולזמינות המידע, פרטים חשובים כגון האם המכשיר דווח כגנוב, האם קיימת נעילת SIM, האם הוא מחודש, ומתי ואם הופעל לראשונה.</p>
    </section>
    <div id="serviceNotice" class="imei-notice" role="status" hidden></div>
+   <div class="imei-workspace">
    <div class="imei-plans" role="tablist" aria-label="סוג הבדיקה">
     <button class="imei-plan active" type="button" data-plan="full" role="tab" aria-selected="true"><img src="assets/imei/full-apple-details.png" alt="Full Apple Details - בדיקה מקיפה בעלות 10 שקלים" loading="eager"></button>
     <button class="imei-plan" type="button" data-plan="gsx" role="tab" aria-selected="false"><img src="assets/imei/full-gsx-report.png" alt="Full GSX Report בעלות 15 שקלים" loading="lazy"></button>
    </div>
    <form id="imeiForm" class="imei-form" novalidate>
     <input type="hidden" name="plan" value="full">
-    <label class="imei-field"><span>IMEI או מספר סידורי</span><input name="identifier" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="24" required placeholder="לדוגמה: 15 ספרות של IMEI"><small>אפשר למצוא את ה־IMEI בחיוג <bdi>*#06#</bdi> או בהגדרות המכשיר</small></label>
+    <label class="imei-field"><span data-he="IMEI או מספר סידורי" data-en="IMEI or serial number">IMEI או מספר סידורי</span><input name="identifier" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="24" required placeholder="לדוגמה: 15 ספרות של IMEI" data-placeholder-he="לדוגמה: 15 ספרות של IMEI" data-placeholder-en="For example: a 15-digit IMEI"><small data-he="אפשר למצוא את ה־IMEI בחיוג *#06# או בהגדרות המכשיר" data-en="Find the IMEI by dialing *#06# or in the device settings">אפשר למצוא את ה־IMEI בחיוג <bdi>*#06#</bdi> או בהגדרות המכשיר</small></label>
     <div id="paidFields" class="paid-fields">
-     <label class="imei-field"><span>שם מלא</span><input name="name" autocomplete="name" required></label>
-     <label class="imei-field"><span>אימייל לקבלת הדוח</span><input name="email" type="email" autocomplete="email" required></label>
+     <label class="imei-field"><span data-he="שם מלא" data-en="Full name">שם מלא</span><input name="name" autocomplete="name" required></label>
+     <label class="imei-field"><span data-he="אימייל לקבלת הדוח" data-en="Email for receiving the report">אימייל לקבלת הדוח</span><input name="email" type="email" autocomplete="email" required></label>
     </div>
-    <label class="imei-consent"><input name="consent" type="checkbox" required><span>אני מאשר/ת שהמידע נמסר מספק חיצוני, עשוי להשתנות ואינו מהווה אישור למצבו הפיזי של המכשיר.</span></label>
-    <button id="checkButton" class="imei-submit" type="submit">מעבר לתשלום מאובטח - 10 ₪</button>
+    <label class="imei-consent"><input name="consent" type="checkbox" required><span data-he="אני מאשר/ת שהמידע נמסר מספק חיצוני, עשוי להשתנות ואינו מהווה אישור למצבו הפיזי של המכשיר." data-en="I understand that the information is supplied by an external provider, may change, and does not confirm the physical condition of the device.">אני מאשר/ת שהמידע נמסר מספק חיצוני, עשוי להשתנות ואינו מהווה אישור למצבו הפיזי של המכשיר.</span></label>
+    <button id="checkButton" class="imei-submit" type="submit" data-he="מעבר לתשלום מאובטח - 10 ₪" data-en="Continue to secure payment - ₪10">מעבר לתשלום מאובטח - 10 ₪</button>
     <p id="imeiStatus" class="imei-status" role="status" aria-live="polite"></p>
    </form>
-   <section id="imeiResult" class="imei-result" hidden aria-live="polite"><header><span id="resultBadge" class="result-badge"></span><div class="result-device"><div id="resultDeviceImage" class="result-device-image" aria-hidden="true"><i class="fa-solid fa-mobile-screen-button"></i></div><p>תוצאות הבדיקה</p><h2 id="resultModel"></h2><span id="resultHeading"></span></div></header><div id="resultGrid" class="result-grid"></div><p class="result-disclaimer">המידע נכון למועד הבדיקה ומתקבל מספק מידע חיצוני. מומלץ להשוות את מספר ה־IMEI המוצג במכשיר, במגש ה־SIM ובאריזה.</p></section>
-   <section class="imei-help"><h2>איך מוצאים את מספר ה־IMEI?</h2><div><article><i class="fas fa-phone"></i><strong>בחיוג</strong><p>חייגו <bdi>*#06#</bdi> ומספר ה־IMEI יוצג על המסך.</p></article><article><i class="fas fa-gear"></i><strong>בהגדרות</strong><p>הגדרות ← כללי ← אודות ← IMEI.</p></article><article><i class="fas fa-box"></i><strong>על האריזה</strong><p>חפשו את המדבקה שעל קופסת המכשיר.</p></article></div></section>
+   </div>
+   <section id="imeiResult" class="imei-result" hidden aria-live="polite"><header><span id="resultBadge" class="result-badge"></span><div class="result-device"><div id="resultDeviceImage" class="result-device-image" aria-hidden="true"><i class="fa-solid fa-mobile-screen-button"></i></div><p data-he="תוצאות הבדיקה" data-en="Check results">תוצאות הבדיקה</p><h2 id="resultModel"></h2><span id="resultHeading"></span></div></header><div id="resultGrid" class="result-grid"></div><p class="result-disclaimer" data-he="המידע נכון למועד הבדיקה ומתקבל מספק מידע חיצוני. מומלץ להשוות את מספר ה־IMEI המוצג במכשיר, במגש ה־SIM ובאריזה." data-en="The information is supplied by an external provider and is current at the time of the check. Compare the IMEI shown on the device, SIM tray and packaging.">המידע נכון למועד הבדיקה ומתקבל מספק מידע חיצוני. מומלץ להשוות את מספר ה־IMEI המוצג במכשיר, במגש ה־SIM ובאריזה.</p></section>
+   <section class="imei-help"><h2 data-he="איך מוצאים את מספר ה־IMEI?" data-en="How do I find the IMEI number?">איך מוצאים את מספר ה־IMEI?</h2><div><article><i class="fas fa-phone"></i><strong data-he="בחיוג" data-en="Dial">בחיוג</strong><p data-he="חייגו *#06# ומספר ה־IMEI יוצג על המסך." data-en="Dial *#06# and the IMEI number will appear on screen.">חייגו <bdi>*#06#</bdi> ומספר ה־IMEI יוצג על המסך.</p></article><article><i class="fas fa-gear"></i><strong data-he="בהגדרות" data-en="Settings">בהגדרות</strong><p data-he="הגדרות ← כללי ← אודות ← IMEI." data-en="Settings → General → About → IMEI.">הגדרות ← כללי ← אודות ← IMEI.</p></article><article><i class="fas fa-box"></i><strong data-he="על האריזה" data-en="Packaging">על האריזה</strong><p data-he="חפשו את המדבקה שעל קופסת המכשיר." data-en="Look for the label on the device box.">חפשו את המדבקה שעל קופסת המכשיר.</p></article></div></section>
   </section>
  </main>
- <div id="imeiPayment" class="imei-payment" hidden><section role="dialog" aria-modal="true" aria-labelledby="imeiPaymentTitle"><header><div><h2 id="imeiPaymentTitle">תשלום מאובטח - 10 ₪</h2><p>פרטי הכרטיס מוזנים ישירות במערכת המאובטחת של Tranzila</p></div><button id="closeImeiPayment" type="button" aria-label="סגירת חלון התשלום">×</button></header><div id="imeiPaymentLoading" class="imei-payment-loading">טוען את חלון התשלום...</div><iframe id="imeiPaymentFrame" name="imeiTranzilaFrame" title="תשלום מאובטח באמצעות Tranzila" allow="payment" allowpaymentrequest="true"></iframe></section></div>
+ <div id="imeiPayment" class="imei-payment" hidden><section role="dialog" aria-modal="true" aria-labelledby="imeiPaymentTitle"><header><div><h2 id="imeiPaymentTitle" data-he="תשלום מאובטח - 10 ₪" data-en="Secure payment - ₪10">תשלום מאובטח - 10 ₪</h2><p data-he="פרטי הכרטיס מוזנים ישירות במערכת המאובטחת של Tranzila" data-en="Card details are entered directly into Tranzila's secure system">פרטי הכרטיס מוזנים ישירות במערכת המאובטחת של Tranzila</p></div><button id="closeImeiPayment" type="button" aria-label="סגירת חלון התשלום">×</button></header><div id="imeiPaymentLoading" class="imei-payment-loading" data-he="טוען את חלון התשלום..." data-en="Loading secure payment...">טוען את חלון התשלום...</div><iframe id="imeiPaymentFrame" name="imeiTranzilaFrame" title="תשלום מאובטח באמצעות Tranzila" allow="payment" allowpaymentrequest="true"></iframe></section></div>
  <div id="articleSiteBottom"></div>
- <script type="module" src="imei-check.js?v=4"></script>
+ <script type="module" src="imei-check.js?v=5"></script>
 </body>
 </html>
