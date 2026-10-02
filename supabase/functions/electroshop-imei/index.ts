@@ -38,7 +38,13 @@ async function db(path:string,options:RequestInit={}){
 async function sha256(value:string){const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value));return [...new Uint8Array(bytes)].map(x=>x.toString(16).padStart(2,'0')).join('')}
 function validIdentifier(value:unknown){const clean=String(value||'').trim().toUpperCase().replace(/[\s-]/g,'');if(/^\d{15}$/.test(clean)){let sum=0;for(let i=0;i<15;i++){let n=Number(clean[i]);if(i%2){n*=2;if(n>9)n-=9}sum+=n}if(sum%10!==0)throw Error('מספר ה-IMEI אינו תקין');return clean}if(/^[A-Z0-9]{8,18}$/.test(clean))return clean;throw Error('יש להזין IMEI בן 15 ספרות או מספר סידורי תקין')}
 function email(value:unknown){const clean=String(value||'').trim().toLowerCase();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean))throw Error('יש להזין כתובת אימייל תקינה');return clean}
-function safeReport(value:any){if(value&&typeof value==='object')return value;return {result:String(value||'לא התקבלה תשובה מפורטת')}}
+function safeReport(value:any){
+ if(value&&typeof value==='object')return value;
+ const text=String(value||'').replace(/<br\s*\/?\s*>/gi,'\n').replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&');
+ const report:Record<string,string>={};
+ for(const line of text.split(/\n+/).map(item=>item.trim()).filter(Boolean)){const match=/^([^:]{2,60}):\s*(.+)$/.exec(line);if(!match)continue;const key=match[1].trim().toLowerCase().replace(/[^a-z0-9]+/g,'_');report[key]=match[2].replace(/^<+|>+$/g,'').trim()}
+ return Object.keys(report).length?report:{result:text.trim()||'לא התקבלה תשובה מפורטת'};
+}
 
 async function providerCheck(identifier:string,service:string){
  if(!IFREE_URL||!IFREE_KEY||!service)throw Error('שירות הבדיקה עדיין אינו מוגדר');

@@ -54,12 +54,12 @@
     <button id="checkButton" class="imei-submit" type="submit">בדיקה בסיסית בחינם</button>
     <p id="imeiStatus" class="imei-status" role="status" aria-live="polite"></p>
    </form>
-   <section id="imeiResult" class="imei-result" hidden aria-live="polite"><header><div><span>תוצאות הבדיקה</span><h2 id="resultHeading"></h2></div><span id="resultBadge" class="result-badge"></span></header><div id="resultGrid" class="result-grid"></div><p class="result-disclaimer">המידע נכון למועד הבדיקה ומתקבל מספק מידע חיצוני. מומלץ להשוות את מספר ה־IMEI המוצג במכשיר, במגש ה־SIM ובאריזה.</p></section>
+   <section id="imeiResult" class="imei-result" hidden aria-live="polite"><header><span id="resultBadge" class="result-badge"></span><div class="result-device"><div id="resultDeviceImage" class="result-device-image" aria-hidden="true"><i class="fa-solid fa-mobile-screen-button"></i></div><p>תוצאות הבדיקה</p><h2 id="resultModel"></h2><span id="resultHeading"></span></div></header><div id="resultGrid" class="result-grid"></div><p class="result-disclaimer">המידע נכון למועד הבדיקה ומתקבל מספק מידע חיצוני. מומלץ להשוות את מספר ה־IMEI המוצג במכשיר, במגש ה־SIM ובאריזה.</p></section>
    <section class="imei-help"><h2>איך מוצאים את מספר ה־IMEI?</h2><div><article><i class="fas fa-phone"></i><strong>בחיוג</strong><p>חייגו <bdi>*#06#</bdi> ומספר ה־IMEI יוצג על המסך.</p></article><article><i class="fas fa-gear"></i><strong>בהגדרות</strong><p>הגדרות ← כללי ← אודות ← IMEI.</p></article><article><i class="fas fa-box"></i><strong>על האריזה</strong><p>חפשו את המדבקה שעל קופסת המכשיר.</p></article></div></section>
   </section>
  </main>
  <div id="imeiPayment" class="imei-payment" hidden><section role="dialog" aria-modal="true" aria-labelledby="imeiPaymentTitle"><header><div><h2 id="imeiPaymentTitle">תשלום מאובטח - 10 ₪</h2><p>פרטי הכרטיס מוזנים ישירות במערכת המאובטחת של Tranzila</p></div><button id="closeImeiPayment" type="button" aria-label="סגירת חלון התשלום">×</button></header><div id="imeiPaymentLoading" class="imei-payment-loading">טוען את חלון התשלום...</div><iframe id="imeiPaymentFrame" name="imeiTranzilaFrame" title="תשלום מאובטח באמצעות Tranzila" allow="payment" allowpaymentrequest="true"></iframe></section></div>
  <div id="articleSiteBottom"></div>
- <script type="module" src="imei-check.js?v=1"></script>
+ <script type="module" src="imei-check.js?v=2"></script>
 </body>
 </html>
