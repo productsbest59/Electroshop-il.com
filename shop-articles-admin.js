@@ -1,4 +1,4 @@
-import {getSession,isAdmin,getArticles,saveArticle,deleteArticle,uploadArticleImage,articleImageUrl} from './shop-api.js';
+import {getSession,isAdmin,getArticles,saveArticle,deleteArticle,uploadArticleImage,articleImageUrl} from './shop-api.js?v=8';
 const adminHeader=document.querySelector('.product-admin-header');if(adminHeader){adminHeader.className='articles-admin-nav';adminHeader.innerHTML='<a href="index.html">דף הבית</a><a href="shop-admin.html">ניהול מוצרים</a><a href="shop-news.html" target="_blank" rel="noopener">תצוגת חדשות ומדריכים</a>'}
 const slugInput=document.querySelector('input[name="slug"]');if(slugInput){const label=slugInput.closest('label'),text=[...label.childNodes].find(node=>node.nodeType===Node.TEXT_NODE);if(text)text.nodeValue='שם קצר לקישור';slugInput.placeholder='לדוגמה: iphone-17-review';label.querySelector('small').textContent='זהו החלק שיופיע בסוף הקישור. אותיות קטנות באנגלית ומקפים בלבד.'}
 const session=await getSession();if(!session||!(await isAdmin(session).catch(()=>false))){location.replace('shop-login.html?next='+encodeURIComponent(location.pathname+location.search));throw new Error('Unauthorized')}
