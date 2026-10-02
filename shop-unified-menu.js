@@ -2,7 +2,7 @@ import {request,getSession,isAdmin} from './shop-api.js?v=option-images-2';
 const en=()=>document.documentElement.lang==='en';
 const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones','signs','batteries','speakers'];
 const categoryUrl=slug=>fixed.includes(slug)?`shop-${slug}.html`:`shop-category.html?category=${encodeURIComponent(slug)}`;
-const link=(url,he,english)=>{const a=document.createElement('a');a.href=url;a.dataset.he=he;a.dataset.en=english;a.textContent=en()?english:he;const accent={'index.html':'#ffe066','shop.html':'#79e6a2','shop-news.html':'#ff9bd2','index.html#services':'#76cfff','index.html#contact':'#ffad80'}[url];if(accent){a.classList.add('menu-accent');a.style.setProperty('--menu-accent',accent)}return a;};
+const link=(url,he,english)=>{const a=document.createElement('a');a.href=url;a.dataset.he=he;a.dataset.en=english;a.textContent=en()?english:he;const accent={'index.html':'#ffe066','shop.html':'#79e6a2','shop-news.html':'#ff9bd2','imei-check.html':'#9ddcff','index.html#services':'#76cfff','index.html#contact':'#ffad80'}[url];if(accent){a.classList.add('menu-accent');a.style.setProperty('--menu-accent',accent)}return a;};
 let menu=document.querySelector('#mainMenu'),standalone=!menu;
 if(standalone){
  menu=document.createElement('aside');menu.id='mainMenu';menu.className='main-menu unified-standalone';menu.setAttribute('aria-hidden','true');
@@ -21,7 +21,7 @@ nav.append(link('index.html','דף הבית','Home'));
 const shop=document.createElement('details');shop.className='unified-shop';
 const summary=document.createElement('summary');summary.innerHTML='<span data-he="חנות" data-en="Store">חנות</span><svg class="unified-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7"/></svg>';
 const categories=document.createElement('div');categories.className='unified-categories';shop.append(summary,categories);nav.append(shop);
-nav.append(link('shop-news.html','חדשות ומדריכים','News & Guides'),link('index.html#services','שירותי המעבדה','Repair services'),link('index.html#contact','צור קשר','Contact'),link('terms.html','תקנון','Terms'),link('privacy.html','פרטיות','Privacy'));
+nav.append(link('shop-news.html','חדשות ומדריכים','News & Guides'),link('imei-check.html','בדיקת IMEI','IMEI Check'),link('index.html#services','שירותי המעבדה','Repair services'),link('index.html#contact','צור קשר','Contact'),link('terms.html','תקנון','Terms'),link('privacy.html','פרטיות','Privacy'));
 const accessibility=link('proaudio-accessibility.html','נגישות','Accessibility');nav.append(accessibility);
 if(admin){if(!admin.querySelector('a[href="shop-articles-admin.html"]')){const a=link('shop-articles-admin.html','ניהול חדשות ומדריכים','Manage news & guides');a.target='_blank';a.rel='noopener';admin.append(a)}nav.append(admin);}
 else{
@@ -54,6 +54,11 @@ for(const headerNav of document.querySelectorAll('.electroshop-header-links')){
   const newsLink=link('shop-news.html','חדשות ומדריכים','News & Guides');
   const contactLink=headerNav.querySelector('a[href="index.html#contact"]');
   headerNav.insertBefore(newsLink,contactLink||null);
+ }
+ if(!headerNav.querySelector('a[href="imei-check.html"]')){
+  const imeiLink=link('imei-check.html','בדיקת IMEI','IMEI Check');
+  const servicesLink=headerNav.querySelector('a[href="index.html#services"]');
+  headerNav.insertBefore(imeiLink,servicesLink||null);
  }
 }
 

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>בדיקת IMEI ומצב מכשיר | אלקטרושופ</title>
+ <meta name="description" content="בדיקת IMEI או מספר סידורי למכשירי Apple. בדיקה בסיסית בחינם, דוח Apple מקיף או דוח GSX בתשלום חד פעמי.">
+ <meta name="robots" content="index,follow">
+ <link rel="canonical" href="https://electroshop-il.com/imei-check.html">
+ <meta property="og:title" content="בדיקת IMEI ומצב מכשיר | אלקטרושופ">
+ <meta property="og:description" content="בדיקה בסיסית בחינם, דוח Apple מקיף או דוח GSX בתשלום חד פעמי.">
+ <meta property="og:url" content="https://electroshop-il.com/imei-check.html">
+ <meta property="og:type" content="website">
+ <meta property="og:image" content="https://electroshop-il.com/images/logo.png">
+ <script src="shop-ga4.js?v=1"></script>
+ <link rel="icon" href="favicon.ico">
+ <link rel="stylesheet" href="shop-base.css">
+ <link rel="stylesheet" href="shop-theme.css?v=gap-background-5">
+ <link rel="stylesheet" href="shop-components.css">
+ <link rel="stylesheet" href="shop-page-navigation.css">
+ <link rel="stylesheet" href="shop-header.css?v=gap-background-5">
+ <link rel="stylesheet" href="shop-menu-visibility.css">
+ <link rel="stylesheet" href="shop-mobile-header.css?v=2">
+ <link rel="stylesheet" href="shop-mobile-layout.css?v=2">
+ <link rel="stylesheet" href="shop-unified-menu.css?v=3">
+ <link rel="stylesheet" href="shop-shared-footer.css?v=1">
+ <link rel="stylesheet" href="shop-articles.css?v=6">
+ <link rel="stylesheet" href="imei-check.css?v=1">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="electro-store news-page imei-page">
+ <div id="articleSiteTop"></div>
+ <main class="imei-shell">
+  <nav class="electroshop-page-navigation" aria-label="ניווט באתר"><a href="index.html">דף הבית</a><a href="shop.html">החנות</a><span>בדיקת IMEI</span></nav>
+  <section class="imei-frame">
+   <header class="imei-hero">
+    <span class="imei-shield" aria-hidden="true"><i class="fas fa-mobile-screen-button"></i><i class="fas fa-magnifying-glass"></i></span>
+    <div><h1>בדיקת IMEI ומצב מכשיר</h1><p>בדקו פרטי מכשיר Apple לפני רכישה, מכירה או תיקון</p></div>
+   </header>
+   <div id="serviceNotice" class="imei-notice" role="status" hidden></div>
+   <div class="imei-plans" role="tablist" aria-label="סוג הבדיקה">
+    <button class="imei-plan active" type="button" data-plan="basic" role="tab" aria-selected="true"><span class="plan-price">חינם</span><strong>בדיקת דגם בסיסית</strong><small>זיהוי מידע בסיסי על דגם המכשיר לפי IMEI או מספר סידורי, בהתאם לנתונים הזמינים בשירות Universal Model Check.</small></button>
+    <button class="imei-plan" type="button" data-plan="full" role="tab" aria-selected="false"><span class="plan-price">10 ₪</span><strong>Full Apple Details - בדיקה מקיפה</strong><small>תיאור דגם מלא, EID, אחריות, Find My iPhone, מצב iCloud, MDM, חסימה בארה״ב, תאריך ומדינת רכישה, נעילת SIM והמפעיל, סטטוס תיקון, החלפה או חידוש ונתונים טכניים נוספים של Apple - לפי זמינות הספק.</small></button>
+    <button class="imei-plan" type="button" data-plan="gsx" role="tab" aria-selected="false"><span class="plan-price">15 ₪</span><strong>Full GSX Report</strong><small>פרטי Sold By, היסטוריית תיקים והחלפות, נתוני הפעלה של GSX וכתובת WiFi MAC. הדוח אינו כולל Bluetooth MAC או ICCID.</small></button>
+   </div>
+   <form id="imeiForm" class="imei-form" novalidate>
+    <input type="hidden" name="plan" value="basic">
+    <label class="imei-field"><span>IMEI או מספר סידורי</span><input name="identifier" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="24" required placeholder="לדוגמה: 15 ספרות של IMEI"><small>אפשר למצוא את ה־IMEI בחיוג <bdi>*#06#</bdi> או בהגדרות המכשיר</small></label>
+    <div id="paidFields" class="paid-fields" hidden>
+     <label class="imei-field"><span>שם מלא</span><input name="name" autocomplete="name"></label>
+     <label class="imei-field"><span>אימייל לקבלת הדוח</span><input name="email" type="email" autocomplete="email"></label>
+    </div>
+    <label class="imei-consent"><input name="consent" type="checkbox" required><span>אני מאשר/ת שהמידע נמסר מספק חיצוני, עשוי להשתנות ואינו מהווה אישור למצבו הפיזי של המכשיר.</span></label>
+    <button id="checkButton" class="imei-submit" type="submit">בדיקה בסיסית בחינם</button>
+    <p id="imeiStatus" class="imei-status" role="status" aria-live="polite"></p>
+   </form>
+   <section id="imeiResult" class="imei-result" hidden aria-live="polite"><header><div><span>תוצאות הבדיקה</span><h2 id="resultHeading"></h2></div><span id="resultBadge" class="result-badge"></span></header><div id="resultGrid" class="result-grid"></div><p class="result-disclaimer">המידע נכון למועד הבדיקה ומתקבל מספק מידע חיצוני. מומלץ להשוות את מספר ה־IMEI המוצג במכשיר, במגש ה־SIM ובאריזה.</p></section>
+   <section class="imei-help"><h2>איך מוצאים את מספר ה־IMEI?</h2><div><article><i class="fas fa-phone"></i><strong>בחיוג</strong><p>חייגו <bdi>*#06#</bdi> ומספר ה־IMEI יוצג על המסך.</p></article><article><i class="fas fa-gear"></i><strong>בהגדרות</strong><p>הגדרות ← כללי ← אודות ← IMEI.</p></article><article><i class="fas fa-box"></i><strong>על האריזה</strong><p>חפשו את המדבקה שעל קופסת המכשיר.</p></article></div></section>
+  </section>
+ </main>
+ <div id="imeiPayment" class="imei-payment" hidden><section role="dialog" aria-modal="true" aria-labelledby="imeiPaymentTitle"><header><div><h2 id="imeiPaymentTitle">תשלום מאובטח - 10 ₪</h2><p>פרטי הכרטיס מוזנים ישירות במערכת המאובטחת של Tranzila</p></div><button id="closeImeiPayment" type="button" aria-label="סגירת חלון התשלום">×</button></header><div id="imeiPaymentLoading" class="imei-payment-loading">טוען את חלון התשלום...</div><iframe id="imeiPaymentFrame" name="imeiTranzilaFrame" title="תשלום מאובטח באמצעות Tranzila" allow="payment" allowpaymentrequest="true"></iframe></section></div>
+ <div id="articleSiteBottom"></div>
+ <script type="module" src="imei-check.js?v=1"></script>
+</body>
+</html>
