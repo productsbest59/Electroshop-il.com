@@ -13,7 +13,7 @@ export function renderArticleShell(){
 
 async function hydrateSharedNavigation(accessibilityReady){
  try{
-  await import('./shop-unified-menu.js?v=colors-5');
+  await import('./shop-unified-menu.js?v=colors-6');
   await accessibilityReady;
   const accessibilityLink=[...document.querySelectorAll('#mainMenu a')].find(a=>a.getAttribute('href')==='proaudio-accessibility.html');
   accessibilityLink?.addEventListener('click',event=>{event.preventDefault();document.querySelector('#a11yFab')?.click()});

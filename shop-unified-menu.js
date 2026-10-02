@@ -2,7 +2,7 @@ import {request,getSession,isAdmin} from './shop-api.js?v=option-images-2';
 const en=()=>document.documentElement.lang==='en';
 const fixed=['mobile','pro-audio','car-mounts','guitars','chargers-cables','earphones','signs','batteries','speakers'];
 const categoryUrl=slug=>fixed.includes(slug)?`shop-${slug}.html`:`shop-category.html?category=${encodeURIComponent(slug)}`;
-const link=(url,he,english)=>{const a=document.createElement('a');a.href=url;a.dataset.he=he;a.dataset.en=english;a.textContent=en()?english:he;const accent={'index.html':'#ffe066','shop.html':'#79e6a2','shop-news.html':'#ff9bd2','imei-check.html':'#9ddcff','index.html#services':'#76cfff','index.html#contact':'#ffad80'}[url];if(accent){a.classList.add('menu-accent');a.style.setProperty('--menu-accent',accent)}return a;};
+const link=(url,he,english)=>{const a=document.createElement('a');a.href=url;a.dataset.he=he;a.dataset.en=english;a.textContent=en()?english:he;const accent={'index.html':'#ffe066','shop.html':'#79e6a2','shop-news.html':'#ff9bd2','imei-check.html':'#ff4d4d','index.html#services':'#76cfff','index.html#contact':'#ffad80'}[url];if(accent){a.classList.add('menu-accent');a.style.setProperty('--menu-accent',accent)}return a;};
 let menu=document.querySelector('#mainMenu'),standalone=!menu;
 if(standalone){
  menu=document.createElement('aside');menu.id='mainMenu';menu.className='main-menu unified-standalone';menu.setAttribute('aria-hidden','true');
