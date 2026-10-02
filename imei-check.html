@@ -35,7 +35,7 @@
  <link rel="stylesheet" href="shop-unified-menu.css?v=3">
  <link rel="stylesheet" href="shop-shared-footer.css?v=1">
  <link rel="stylesheet" href="shop-articles.css?v=6">
- <link rel="stylesheet" href="imei-check.css?v=8">
+  <link rel="stylesheet" href="imei-check.css?v=9">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="electro-store news-page imei-page">
@@ -53,8 +53,22 @@
    <div id="serviceNotice" class="imei-notice" role="status" hidden></div>
    <div class="imei-workspace">
    <div class="imei-plans" role="tablist" aria-label="סוג הבדיקה">
-    <button class="imei-plan active" type="button" data-plan="full" role="tab" aria-selected="true"><img src="assets/imei/full-apple-details.png" alt="Full Apple Details - בדיקה מקיפה בעלות 10 שקלים" loading="eager"></button>
-    <button class="imei-plan" type="button" data-plan="gsx" role="tab" aria-selected="false"><img src="assets/imei/full-gsx-report.png" alt="Full GSX Report בעלות 15 שקלים" loading="lazy"></button>
+    <button class="imei-plan active" type="button" data-plan="full" role="tab" aria-selected="true">
+     <img src="assets/imei/full-apple-details.png" alt="Full Apple Details - בדיקה מקיפה בעלות 10 שקלים" loading="eager">
+     <span class="imei-plan-details">
+      <strong data-he="דוח Apple מקיף - 10 ₪" data-en="Full Apple report - ₪10">דוח Apple מקיף - 10 ₪</strong>
+      <span data-he="דגם מלא, צבע ונפח, EID, אחריות ומועד רכישה, Find My iPhone ו-iCloud, MDM, נעילת SIM ומפעיל, חסימות וסטטוס תיקון, החלפה או חידוש." data-en="Full model, color and storage, EID, warranty and purchase date, Find My iPhone and iCloud, MDM, SIM lock and carrier, block and repair, replacement or refurbished status.">דגם מלא, צבע ונפח, EID, אחריות ומועד רכישה, Find My iPhone ו-iCloud, MDM, נעילת SIM ומפעיל, חסימות וסטטוס תיקון, החלפה או חידוש.</span>
+      <small data-he="חלק מהנתונים מוצגים בהתאם לזמינות אצל ספק המידע." data-en="Some fields depend on availability from the data provider.">חלק מהנתונים מוצגים בהתאם לזמינות אצל ספק המידע.</small>
+     </span>
+    </button>
+    <button class="imei-plan" type="button" data-plan="gsx" role="tab" aria-selected="false">
+     <img src="assets/imei/full-gsx-report.png" alt="Full GSX Report בעלות 15 שקלים" loading="lazy">
+     <span class="imei-plan-details">
+      <strong data-he="דוח GSX מלא - 15 ₪" data-en="Full GSX report - ₪15">דוח GSX מלא - 15 ₪</strong>
+      <span data-he="פרטי הגורם שמכר את המכשיר, היסטוריית תיקים, שירות והחלפות, נתוני הפעלה ב-GSX וכתובת WiFi MAC." data-en="Sold By details, case, service and replacement history, GSX activation details and WiFi MAC address.">פרטי הגורם שמכר את המכשיר, היסטוריית תיקים, שירות והחלפות, נתוני הפעלה ב-GSX וכתובת WiFi MAC.</span>
+      <small data-he="הדוח אינו כולל Bluetooth MAC או ICCID." data-en="Bluetooth MAC and ICCID are not included.">הדוח אינו כולל Bluetooth MAC או ICCID.</small>
+     </span>
+    </button>
    </div>
    <form id="imeiForm" class="imei-form" novalidate>
     <input type="hidden" name="plan" value="full">
