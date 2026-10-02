@@ -11,6 +11,9 @@ const fixedCategoryPages=new Map([
 ]);
 const excluded=new Set(['shop-admin.html','shop-articles-admin.html','shop-product-editor.html','shop-orders.html','shop-login.html','shop-account-setup.html','shop-checkout.html','shop-payment-success.html','bit-payment.html','shop-category.html','shop-article.html','shop-article-preview.html']);
 const headers={apikey:apiKey,Authorization:`Bearer ${apiKey}`};
+const staticSeo=new Map([
+  ['imei-check.html',{changefreq:'weekly',priority:'0.8'}]
+]);
 const xml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const date=value=>value?new Date(value).toISOString().slice(0,10):'';
 const entry=({loc,lastmod,changefreq,priority})=>`  <url><loc>${xml(loc)}</loc>${lastmod?`<lastmod>${lastmod}</lastmod>`:''}${changefreq?`<changefreq>${changefreq}</changefreq>`:''}${priority?`<priority>${priority}</priority>`:''}</url>`;
@@ -19,7 +22,7 @@ async function rows(table,query){const response=await fetch(`${supabase}/rest/v1
 function gitDate(file){try{return execFileSync('git',['log','-1','--format=%cs','--',file],{encoding:'utf8'}).trim()}catch{return ''}}
 
 const htmlFiles=(await readdir('.')).filter(name=>name.endsWith('.html')&&!excluded.has(name));
-const staticUrls=htmlFiles.map(file=>({loc:file==='index.html'?`${origin}/`:`${origin}/${file}`,lastmod:gitDate(file),changefreq:file==='index.html'?'weekly':'monthly',priority:file==='index.html'?'1.0':file==='shop.html'?'0.9':'0.6'}));
+const staticUrls=htmlFiles.map(file=>{const seo=staticSeo.get(file);return{loc:file==='index.html'?`${origin}/`:`${origin}/${file}`,lastmod:gitDate(file),changefreq:seo?.changefreq||(file==='index.html'?'weekly':'monthly'),priority:seo?.priority||(file==='index.html'?'1.0':file==='shop.html'?'0.9':'0.6')}});
 const [categories,articles]=await Promise.all([
   rows('electroshop_categories','select=*&active=eq.true&order=sort_order.asc'),
   rows('electroshop_articles','select=slug,updated_at,published_at&status=eq.published&order=sort_order.asc,published_at.desc.nullslast')
