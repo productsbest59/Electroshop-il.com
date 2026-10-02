@@ -17,7 +17,6 @@ const NOTIFY_SECRET=Deno.env.get('ELECTROSHOP_TRANZILA_NOTIFY_SECRET')||'';
 const PAYMENT_ENABLED=Deno.env.get('ELECTROSHOP_TRANZILA_PAYMENTS_ENABLED')==='true';
 const IFREE_URL=Deno.env.get('IFREEICLOUD_API_URL')||'https://api.ifreeicloud.co.uk';
 const IFREE_KEY=Deno.env.get('IFREEICLOUD_API_KEY')||'';
-const BASIC_SERVICE=Deno.env.get('IFREEICLOUD_BASIC_SERVICE_ID')||'0';
 const FULL_SERVICE=Deno.env.get('IFREEICLOUD_FULL_SERVICE_ID')||'281';
 const GSX_SERVICE=Deno.env.get('IFREEICLOUD_GSX_SERVICE_ID')||'206';
 const BREVO_KEY=Deno.env.get('BREVO_API_KEY')||'';
@@ -35,7 +34,6 @@ async function db(path:string,options:RequestInit={}){
  const response=await fetch(`${SUPABASE_URL}/rest/v1/${path}`,{...options,headers:{apikey:key,Authorization:`Bearer ${key}`,'Content-Type':'application/json',...(options.headers||{})}});
  const data=await response.json().catch(()=>null);if(!response.ok)throw Error(data?.message||`Database request failed (${response.status})`);return data;
 }
-async function sha256(value:string){const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value));return [...new Uint8Array(bytes)].map(x=>x.toString(16).padStart(2,'0')).join('')}
 function validIdentifier(value:unknown){const clean=String(value||'').trim().toUpperCase().replace(/[\s-]/g,'');if(/^\d{15}$/.test(clean)){let sum=0;for(let i=0;i<15;i++){let n=Number(clean[i]);if(i%2){n*=2;if(n>9)n-=9}sum+=n}if(sum%10!==0)throw Error('מספר ה-IMEI אינו תקין');return clean}if(/^[A-Z0-9]{8,18}$/.test(clean))return clean;throw Error('יש להזין IMEI בן 15 ספרות או מספר סידורי תקין')}
 function email(value:unknown){const clean=String(value||'').trim().toLowerCase();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean))throw Error('יש להזין כתובת אימייל תקינה');return clean}
 function safeReport(value:any){
@@ -60,7 +58,7 @@ async function completeCheck(row:any){
  const claim=await db(`electroshop_imei_checks?id=eq.${encodeURIComponent(row.id)}&check_status=in.(pending,failed)`,{method:'PATCH',headers:{Prefer:'return=representation'},body:JSON.stringify({check_status:'processing',error_message:null,updated_at:new Date().toISOString()})});
  if(!claim.length)return row;
  try{
-  const service=row.check_type==='basic'?BASIC_SERVICE:row.check_type==='gsx'?GSX_SERVICE:FULL_SERVICE;
+  const service=row.check_type==='gsx'?GSX_SERVICE:FULL_SERVICE;
   const report=await providerCheck(row.identifier,service);
   const updated=(await db(`electroshop_imei_checks?id=eq.${encodeURIComponent(row.id)}`,{method:'PATCH',headers:{Prefer:'return=representation'},body:JSON.stringify({check_status:'completed',report,completed_at:new Date().toISOString(),updated_at:new Date().toISOString()})}))[0];
   if(row.customer_email)await sendReportEmail(updated).catch(error=>console.error('IMEI email:',error.message));
@@ -97,18 +95,14 @@ async function notify(body:Record<string,unknown>,authenticated:boolean){
  const report=await transaction(index),legacy=String(report?.request_params?.imei_check_id||'')===row.id;if(!authenticated&&!legacy)throw Error('התראת תשלום לא מאומתת');const verified=verifyReport(report,Number(row.amount_ils),index);
  row.payment_status=verified.approved?'paid':'failed';await db(`electroshop_imei_checks?id=eq.${encodeURIComponent(row.id)}`,{method:'PATCH',body:JSON.stringify({payment_status:row.payment_status,payment_transaction_id:verified.reportedIndex,payment_response_code:verified.responseCode||'verification_failed',paid_at:verified.approved?new Date().toISOString():null,updated_at:new Date().toISOString()})});if(verified.approved)await completeCheck(row);return{ok:verified.approved};
 }
-async function createBasic(identifier:string,request:Request){
- const ip=request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()||'unknown',ipHash=await sha256(`${NOTIFY_SECRET}:${ip}`),since=new Date(Date.now()-3600000).toISOString(),recent=await db(`electroshop_imei_checks?request_ip_hash=eq.${ipHash}&check_type=eq.basic&created_at=gte.${encodeURIComponent(since)}&select=id`);if(recent.length>=5)throw Error('הגעת למגבלת הבדיקות החינמיות לשעה');
- const row=(await db('electroshop_imei_checks',{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify({identifier,identifier_last4:identifier.slice(-4),check_type:'basic',amount_ils:0,payment_status:'not_required',request_ip_hash:ipHash})}))[0];return await completeCheck(row);
-}
 function publicRow(row:any){return {check_id:row.id,token:row.public_token,type:row.check_type,payment_status:row.payment_status,status:row.check_status,identifier_last4:row.identifier_last4,report:row.check_status==='completed'?row.report:null,error:row.check_status==='failed'?row.error_message:null,created_at:row.created_at,completed_at:row.completed_at}}
 
 Deno.serve(async request=>{
  if(request.method==='OPTIONS')return new Response('ok',{headers:cors});
  try{
   const url=new URL(request.url),body=request.method==='POST'?await request.json().catch(()=>({})):Object.fromEntries(url.searchParams),action=String((body as any).action||url.searchParams.get('action')||'config');
-  if(action==='config')return reply({basic_enabled:!!(IFREE_URL&&IFREE_KEY&&BASIC_SERVICE),full_enabled:!!(IFREE_URL&&IFREE_KEY&&FULL_SERVICE&&PAYMENT_ENABLED&&TERMINAL&&APP_KEY&&APP_SECRET),gsx_enabled:!!(IFREE_URL&&IFREE_KEY&&GSX_SERVICE&&PAYMENT_ENABLED&&TERMINAL&&APP_KEY&&APP_SECRET),full_price_ils:FULL_PRICE,gsx_price_ils:GSX_PRICE});
-  if(action==='basic'){const row=await createBasic(validIdentifier((body as any).identifier),request);return reply(publicRow(row))}
+  if(action==='config')return reply({basic_enabled:false,full_enabled:!!(IFREE_URL&&IFREE_KEY&&FULL_SERVICE&&PAYMENT_ENABLED&&TERMINAL&&APP_KEY&&APP_SECRET),gsx_enabled:!!(IFREE_URL&&IFREE_KEY&&GSX_SERVICE&&PAYMENT_ENABLED&&TERMINAL&&APP_KEY&&APP_SECRET),full_price_ils:FULL_PRICE,gsx_price_ils:GSX_PRICE});
+  if(action==='basic')return reply({error:'הבדיקה החינמית אינה זמינה'},410);
   if(action==='start'){const identifier=validIdentifier((body as any).identifier),customerEmail=email((body as any).email),name=String((body as any).name||'').trim(),plan=String((body as any).plan||'full');if(!name)throw Error('יש להזין שם מלא');if(!['full','gsx'].includes(plan))throw Error('סוג הבדיקה אינו תקין');const requestId=String((body as any).request_id||'');if(!/^[-0-9a-f]{36}$/i.test(requestId))throw Error('מזהה בקשה אינו תקין');let row=(await db(`electroshop_imei_checks?request_id=eq.${requestId}&limit=1`))[0];if(!row)row=(await db('electroshop_imei_checks',{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify({request_id:requestId,identifier,identifier_last4:identifier.slice(-4),customer_name:name,customer_email:customerEmail,check_type:plan,amount_ils:plan==='gsx'?GSX_PRICE:FULL_PRICE,payment_status:'pending'})}))[0];return reply(await startPayment(row))}
   if(action==='status'){const id=String((body as any).check_id||''),token=String((body as any).token||'');if(!/^[-0-9a-f]{36}$/i.test(id)||!/^[-0-9a-f]{36}$/i.test(token))throw Error('קישור בדיקה אינו תקין');const row=(await db(`electroshop_imei_checks?id=eq.${id}&public_token=eq.${token}&limit=1`))[0];if(!row)return reply({error:'הבדיקה לא נמצאה'},404);return reply(publicRow(row))}
   if(action==='notify'){const authenticated=NOTIFY_SECRET.length>=64&&url.searchParams.get('notify_key')===NOTIFY_SECRET;return reply(await notify(body as Record<string,unknown>,authenticated))}

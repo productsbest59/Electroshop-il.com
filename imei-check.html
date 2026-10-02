@@ -4,11 +4,11 @@
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  <title>בדיקת IMEI ומצב מכשיר | אלקטרושופ</title>
- <meta name="description" content="בדיקת IMEI או מספר סידורי למכשירי Apple. בדיקה בסיסית בחינם, דוח Apple מקיף או דוח GSX בתשלום חד פעמי.">
+ <meta name="description" content="בדיקת IMEI או מספר סידורי למכשירי Apple. דוח Apple מקיף או דוח GSX בתשלום חד פעמי.">
  <meta name="robots" content="index,follow">
  <link rel="canonical" href="https://electroshop-il.com/imei-check.html">
  <meta property="og:title" content="בדיקת IMEI ומצב מכשיר | אלקטרושופ">
- <meta property="og:description" content="בדיקה בסיסית בחינם, דוח Apple מקיף או דוח GSX בתשלום חד פעמי.">
+ <meta property="og:description" content="דוח Apple מקיף או דוח GSX בתשלום חד פעמי.">
  <meta property="og:url" content="https://electroshop-il.com/imei-check.html">
  <meta property="og:type" content="website">
  <meta property="og:image" content="https://electroshop-il.com/images/logo.png">
@@ -25,7 +25,7 @@
  <link rel="stylesheet" href="shop-unified-menu.css?v=3">
  <link rel="stylesheet" href="shop-shared-footer.css?v=1">
  <link rel="stylesheet" href="shop-articles.css?v=6">
- <link rel="stylesheet" href="imei-check.css?v=2">
+ <link rel="stylesheet" href="imei-check.css?v=3">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="electro-store news-page imei-page">
@@ -39,19 +39,18 @@
    </header>
    <div id="serviceNotice" class="imei-notice" role="status" hidden></div>
    <div class="imei-plans" role="tablist" aria-label="סוג הבדיקה">
-    <button class="imei-plan active" type="button" data-plan="basic" role="tab" aria-selected="true"><img src="assets/imei/basic-imei-check.png" alt="בדיקת דגם בסיסית בחינם - Universal Model Check" loading="eager"></button>
-    <button class="imei-plan" type="button" data-plan="full" role="tab" aria-selected="false"><img src="assets/imei/full-apple-details.png" alt="Full Apple Details - בדיקה מקיפה בעלות 10 שקלים" loading="lazy"></button>
+    <button class="imei-plan active" type="button" data-plan="full" role="tab" aria-selected="true"><img src="assets/imei/full-apple-details.png" alt="Full Apple Details - בדיקה מקיפה בעלות 10 שקלים" loading="eager"></button>
     <button class="imei-plan" type="button" data-plan="gsx" role="tab" aria-selected="false"><img src="assets/imei/full-gsx-report.png" alt="Full GSX Report בעלות 15 שקלים" loading="lazy"></button>
    </div>
    <form id="imeiForm" class="imei-form" novalidate>
-    <input type="hidden" name="plan" value="basic">
+    <input type="hidden" name="plan" value="full">
     <label class="imei-field"><span>IMEI או מספר סידורי</span><input name="identifier" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="24" required placeholder="לדוגמה: 15 ספרות של IMEI"><small>אפשר למצוא את ה־IMEI בחיוג <bdi>*#06#</bdi> או בהגדרות המכשיר</small></label>
-    <div id="paidFields" class="paid-fields" hidden>
-     <label class="imei-field"><span>שם מלא</span><input name="name" autocomplete="name"></label>
-     <label class="imei-field"><span>אימייל לקבלת הדוח</span><input name="email" type="email" autocomplete="email"></label>
+    <div id="paidFields" class="paid-fields">
+     <label class="imei-field"><span>שם מלא</span><input name="name" autocomplete="name" required></label>
+     <label class="imei-field"><span>אימייל לקבלת הדוח</span><input name="email" type="email" autocomplete="email" required></label>
     </div>
     <label class="imei-consent"><input name="consent" type="checkbox" required><span>אני מאשר/ת שהמידע נמסר מספק חיצוני, עשוי להשתנות ואינו מהווה אישור למצבו הפיזי של המכשיר.</span></label>
-    <button id="checkButton" class="imei-submit" type="submit">בדיקה בסיסית בחינם</button>
+    <button id="checkButton" class="imei-submit" type="submit">מעבר לתשלום מאובטח - 10 ₪</button>
     <p id="imeiStatus" class="imei-status" role="status" aria-live="polite"></p>
    </form>
    <section id="imeiResult" class="imei-result" hidden aria-live="polite"><header><span id="resultBadge" class="result-badge"></span><div class="result-device"><div id="resultDeviceImage" class="result-device-image" aria-hidden="true"><i class="fa-solid fa-mobile-screen-button"></i></div><p>תוצאות הבדיקה</p><h2 id="resultModel"></h2><span id="resultHeading"></span></div></header><div id="resultGrid" class="result-grid"></div><p class="result-disclaimer">המידע נכון למועד הבדיקה ומתקבל מספק מידע חיצוני. מומלץ להשוות את מספר ה־IMEI המוצג במכשיר, במגש ה־SIM ובאריזה.</p></section>
@@ -60,6 +59,6 @@
  </main>
  <div id="imeiPayment" class="imei-payment" hidden><section role="dialog" aria-modal="true" aria-labelledby="imeiPaymentTitle"><header><div><h2 id="imeiPaymentTitle">תשלום מאובטח - 10 ₪</h2><p>פרטי הכרטיס מוזנים ישירות במערכת המאובטחת של Tranzila</p></div><button id="closeImeiPayment" type="button" aria-label="סגירת חלון התשלום">×</button></header><div id="imeiPaymentLoading" class="imei-payment-loading">טוען את חלון התשלום...</div><iframe id="imeiPaymentFrame" name="imeiTranzilaFrame" title="תשלום מאובטח באמצעות Tranzila" allow="payment" allowpaymentrequest="true"></iframe></section></div>
  <div id="articleSiteBottom"></div>
- <script type="module" src="imei-check.js?v=2"></script>
+ <script type="module" src="imei-check.js?v=4"></script>
 </body>
 </html>
