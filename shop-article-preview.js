@@ -3,10 +3,10 @@ import {renderArticleShell} from './shop-articles-shell.js?v=5';
 renderArticleShell();
 const view=document.querySelector('#articleView'),lang=localStorage.getItem('electroshop_language')==='en'?'en':'he';
 const esc=value=>String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const normalizeArticleHtml=value=>{const source=String(value||'').trim();if(!source)return'';const probe=document.createElement('div');probe.innerHTML=source;const visible=probe.textContent.trim();return /^<(?:p|h[1-6]|table|ul|ol|blockquote|div|figure|img)\b/i.test(visible)?visible:source};
+const normalizeArticleHtml=(value,fallbackAlt)=>{const source=String(value||'').trim();if(!source)return'';const probe=document.createElement('div');probe.innerHTML=source;const visible=probe.textContent.trim(),html=/^<(?:p|h[1-6]|table|ul|ol|blockquote|div|figure|img)\b/i.test(visible)?visible:source;const content=document.createElement('div');content.innerHTML=html;content.querySelectorAll('img').forEach((image,index)=>{if(!image.getAttribute('alt')?.trim())image.alt=index?`${fallbackAlt} – תמונה ${index+1}`:fallbackAlt});return content.innerHTML};
 try{
  const article=JSON.parse(localStorage.getItem('electroshop_article_preview')||'null');if(!article)throw new Error('missing preview');
- const title=article[`title_${lang}`]||article.title_he||'תצוגה מקדימה',content=normalizeArticleHtml(article[`content_${lang}`]||article.content_he||''),cover=article.cover_path?articleImageUrl(article.cover_path):'';
+ const title=article[`title_${lang}`]||article.title_he||'תצוגה מקדימה',content=normalizeArticleHtml(article[`content_${lang}`]||article.content_he||'',title),cover=article.cover_path?articleImageUrl(article.cover_path):'';
  const copyrightNotice=lang==='en'
   ? '© All rights reserved by Electroshop. The article, any part of it, and its images may not be copied, reproduced, published, distributed or used without prior written permission.'
   : '© כל הזכויות שמורות לאלקטרושופ. אין להעתיק, לשכפל, לפרסם, להפיץ או לעשות שימוש בכתבה, בחלקים ממנה או בתמונות שבה ללא אישור מראש ובכתב.';
