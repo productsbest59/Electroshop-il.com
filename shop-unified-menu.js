@@ -50,9 +50,10 @@ request('/rest/v1/electroshop_categories?select=slug,name_he,name_en,aliases&act
 document.addEventListener('electroshop-language-change',render);
 nav.addEventListener('click',e=>{if(e.target.closest('a')){menu.querySelector('.main-menu-close')?.click();}});
 
-for(const headerNav of document.querySelectorAll('.electroshop-header-links')){
+for(const headerNav of document.querySelectorAll('.electroshop-header-links, header.topbar .menu')){
  if(!headerNav.querySelector('a[href="cellular-plans.html"]')){
-  headerNav.insertBefore(link('cellular-plans.html','חבילות סלולר','Mobile plans'),headerNav.querySelector('a[href="index.html#contact"]'));
+  const store=headerNav.querySelector('a[href="shop.html"]');
+  headerNav.insertBefore(link('cellular-plans.html','חבילות סלולר','Mobile plans'),store?.nextSibling||null);
  }
  if(!headerNav.querySelector('a[href="shop-news.html"]')){
   const newsLink=link('shop-news.html','חדשות ומדריכים','News & Guides');

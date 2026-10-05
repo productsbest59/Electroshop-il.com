@@ -1,4 +1,4 @@
-import {renderArticleShell} from './shop-articles-shell.js?v=cellular-1';
+import {renderArticleShell} from './shop-articles-shell.js?v=cellular-2';
 import {renderPlans, providers} from './cellular-render.mjs?v=2';
 import {request} from './shop-api.js?v=media-webp-1';
 import {cellularConfig} from './cellular-config.js?v=2';

@@ -22,9 +22,10 @@
 <link rel="stylesheet" href="shop-articles.css?v=6">
 <link rel="stylesheet" href="cellular-plans.css?v=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head><body class="electro-store news-page cellular-page">
+</head><body class="electro-store news-page cellular-page" data-contact-modal="true">
 <div id="articleSiteTop"></div>
 <main class="cellular-shell ">
+
 <nav class="cellular-breadcrumbs" aria-label="מיקום באתר"><a href="index.html"><span data-he="דף הבית" data-en="Home">דף הבית</span></a><span aria-hidden="true">/</span><span><span data-he="חבילות סלולר" data-en="Mobile plans">חבילות סלולר</span></span></nav>
 <header class="cellular-hero"><p class="eyebrow"><span data-he="בוחרים חבילה. מדברים עם נציג." data-en="Choose a plan. Talk to a representative.">בוחרים חבילה. מדברים עם נציג.</span></p><h1><span data-he="חבילות סלולר - הצטרפות וניודים" data-en="Mobile plans · Joining &amp; number transfers">חבילות סלולר - הצטרפות וניודים</span></h1><p><span data-he="מצטרפים לקו חדש או עוברים חברה עם המספר הקיים? בחרו חברה לצפייה בחבילות ובמחירים, ופנו אלינו להתאמה ולהצטרפות." data-en="Starting a new line or switching providers with your existing number? Choose a provider to view plans, then contact us for assistance.">מצטרפים לקו חדש או עוברים חברה עם המספר הקיים? בחרו חברה לצפייה בחבילות ובמחירים, ופנו אלינו להתאמה ולהצטרפות.</span></p></header><section class="provider-grid" aria-label="בחירת חברת סלולר"><a class="provider-card provider-pelephone" href="cellular-pelephone.html">
     <img src="images/cellular-pelephone-banner.webp" width="2109" height="746" alt="חבילות פלאפון - הצטרפות וניוד מספר" decoding="async">
@@ -35,4 +36,20 @@
   </a></section>
 <aside class="cellular-disclaimer"><h2><span data-he="חשוב לדעת לפני שמצטרפים" data-en="Before you join">חשוב לדעת לפני שמצטרפים</span></h2><p><span data-he="מחירי החבילות, תנאיהן, תקופות המבצע וזמינותן נקבעים ובאחריות חברות הסלולר, ולא על ידי אלקטרושופ. אלקטרושופ משמשת משווקת. המידע עשוי להשתנות ואינו הצעת מחיר מחייבת; לפני ההצטרפות הנציג יאמת את המחיר והתנאים העדכניים, לרבות המחיר לאחר המבצע, מספר הקווים הנדרש ועלויות SIM, חיבור או מעבר אם קיימות. ההצטרפות כפופה לתנאי החברה, לשימוש סביר ולזמינות השירות." data-en="Prices, conditions, promotion periods and availability are determined by the mobile providers, not Electroshop. Electroshop is a reseller. Information may change and is not a binding quotation. Your representative will confirm current terms, subsequent prices, required line count and any SIM, connection or switching fees before you join. Provider terms, fair-use and service availability apply.">מחירי החבילות, תנאיהן, תקופות המבצע וזמינותן נקבעים ובאחריות חברות הסלולר, ולא על ידי אלקטרושופ. אלקטרושופ משמשת משווקת. המידע עשוי להשתנות ואינו הצעת מחיר מחייבת; לפני ההצטרפות הנציג יאמת את המחיר והתנאים העדכניים, לרבות המחיר לאחר המבצע, מספר הקווים הנדרש ועלויות SIM, חיבור או מעבר אם קיימות. ההצטרפות כפופה לתנאי החברה, לשימוש סביר ולזמינות השירות.</span></p></aside>
 <section class="cellular-contact"><p><span data-he="רוצים להצטרף או לנייד? הנציג יעזור לבחור את החבילה המתאימה." data-en="Ready to join or transfer your number? Our representative can help you choose.">רוצים להצטרף או לנייד? הנציג יעזור לבחור את החבילה המתאימה.</span></p><a href="index.html#contact"><span data-he="יצירת קשר עם נציג" data-en="Contact a representative">יצירת קשר עם נציג</span></a></section>
-</main><div id="articleSiteBottom"></div><script type="module" src="cellular-plans.js?v=2"></script></body></html>
+</main><div id="articleSiteBottom"></div><section id="electroshop-contact" class="electroshop-contact-zone">
+  <div class="container" style="max-width:760px;">
+    <div class="contact-card">
+      <h3 style="text-align:center;font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:22px;" data-he="צור קשר" data-en="Contact">צור קשר</h3>
+      <form class="contact-form" id="electroshopContactForm" action="https://formsubmit.co/ajax/electroshopisraelo@gmail.com" method="POST">
+        <input type="text" name="name" aria-label="שם מלא" required data-ph-he="שם מלא" data-ph-en="Full name" placeholder="שם מלא">
+        <input type="email" name="email" aria-label="אימייל" required data-ph-he="אימייל" data-ph-en="Email" placeholder="אימייל">
+        <input type="tel" name="phone" aria-label="טלפון" data-ph-he="טלפון" data-ph-en="Phone" placeholder="טלפון">
+        <textarea name="message" aria-label="איך אפשר לעזור?" required data-ph-he="איך אפשר לעזור?" data-ph-en="How can we help?" placeholder="איך אפשר לעזור?"></textarea>
+        <input type="hidden" name="_subject" value="פנייה חדשה - אלקטרושופ">
+        <input type="hidden" name="_captcha" value="false">
+        <button class="submit-btn" type="submit" data-he="שלח הודעה" data-en="Send Message" style="font:700 16px/1.2 Arial,sans-serif!important">שלח הודעה</button>
+        <div id="electroshopContactStatus" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section><link rel="stylesheet" href="shop-contact.css"><script src="shop-contact.js?v=cellular-contact-1"></script><script type="module" src="cellular-plans.js?v=3"></script></body></html>

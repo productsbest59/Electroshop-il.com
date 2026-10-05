@@ -34,6 +34,7 @@
     event.preventDefault();
     event.stopImmediatePropagation();
     if (typeof window.closeMenu === 'function') window.closeMenu();
+    document.getElementById('menuClose')?.click();
     document.getElementById('legacyMainMenu')?.classList.remove('open');
     if (contactDialog) { contactOpener = link; contactDialog.showModal(); form.elements.name.focus(); return; }
     (section.closest('.home-contact') || section).scrollIntoView({behavior:'smooth',block:'start'});

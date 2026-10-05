@@ -6,6 +6,7 @@
 .provider-019 {--provider:#c32434;--provider-ink:#fff}
 .cellular-breadcrumbs {display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;font-size:13px;color:#ddd}
 .cellular-breadcrumbs a {color:inherit;text-decoration:underline;text-underline-offset:3px}
+.cellular-back-link {display:inline-flex;align-items:center;margin-bottom:14px;padding:9px 14px;border:1px solid #ff9800;border-radius:9px;background:#111;color:#ffb347;font:700 14px Arial,sans-serif;text-decoration:none}
 .cellular-hero {margin-bottom:22px}
 .cellular-hero .eyebrow {margin:0 0 6px;color:#ffd558;font-size:13px}
 .cellular-hero h1 {font-size:clamp(25px,2.6vw,36px);line-height:1.2;margin:0 0 10px;color:#ffd12b}

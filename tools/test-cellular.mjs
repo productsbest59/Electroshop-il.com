@@ -14,6 +14,10 @@ for(const catalogue of data){
  const file=`cellular-${catalogue.provider}.html`,html=await readFile(file,'utf8');
  assert.equal((html.match(/class="cellular-plan"/g)||[]).length,catalogue.plans.length);
  assert.ok(html.includes('href="index.html#contact"'));
+ assert.ok(html.includes('class="cellular-back-link" href="cellular-plans.html"'));
+ assert.ok(html.includes('data-contact-modal="true"'));
+ assert.ok(html.includes('id="electroshopContactForm"'));
+ assert.ok(html.includes('shop-contact.js?v=cellular-contact-1'));
  assert.ok(html.includes(`https://electroshop-il.com/${file}`));
  assert.equal((html.match(/<h1\b/g)||[]).length,1);
  const json=/application\/ld\+json">([^]*?)<\/script>/.exec(html)[1];assert.ok(JSON.parse(json)['@graph'].length>=2);
