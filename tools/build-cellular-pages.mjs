@@ -1,5 +1,6 @@
 import {readFile, writeFile} from 'node:fs/promises';
 import {providers, providerCards, renderPlans, escape, bilingual} from '../cellular-render.mjs';
+import {applyBrandMetadata} from './apply-brand-metadata.mjs';
 const origin = 'https://electroshop-il.com/';
 const data = JSON.parse(await readFile('cellular-data.json', 'utf8'));
 const categorySource = await readFile('shop-category.html', 'utf8');
@@ -41,3 +42,4 @@ ${info ? `<header class="cellular-provider-title"><h1>${bilingual(name,'Mobile p
 }
 for (const provider of [null,...Object.keys(providers)]) await writeFile(provider ? `cellular-${provider}.html` : 'cellular-plans.html', page(provider));
 console.log('Built four public cellular pages with crawlable plan details and SEO.');
+await applyBrandMetadata();
