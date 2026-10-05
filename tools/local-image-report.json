@@ -1,0 +1,3557 @@
+[
+  {
+    "source": "assets/imei/full-apple-details.png",
+    "webp": "assets/imei/full-apple-details.webp",
+    "originalBytes": 482439,
+    "webpBytes": 438692,
+    "width": 1536,
+    "height": 1024,
+    "used": true
+  },
+  {
+    "source": "assets/imei/full-gsx-report.png",
+    "webp": "assets/imei/full-gsx-report.webp",
+    "originalBytes": 421090,
+    "webpBytes": 384820,
+    "width": 1536,
+    "height": 1024,
+    "used": true
+  },
+  {
+    "source": "carholderbg.png",
+    "webp": "carholderbg.webp",
+    "originalBytes": 326296,
+    "webpBytes": 307644,
+    "width": 1536,
+    "height": 1024,
+    "used": true
+  },
+  {
+    "source": "carholderlogo.png",
+    "webp": "carholderlogo.webp",
+    "originalBytes": 241784,
+    "webpBytes": 221894,
+    "width": 1024,
+    "height": 1024,
+    "used": true
+  },
+  {
+    "source": "images/authorized-dealers.png",
+    "webp": "images/authorized-dealers.webp",
+    "originalBytes": 369115,
+    "webpBytes": 285610,
+    "width": 1045,
+    "height": 333,
+    "used": true
+  },
+  {
+    "source": "images/background.png",
+    "webp": "images/background.webp",
+    "originalBytes": 220393,
+    "webpBytes": 338640,
+    "width": 1536,
+    "height": 1024,
+    "used": false
+  },
+  {
+    "source": "images/bit-logo.jpg",
+    "webp": "images/bit-logo.webp",
+    "originalBytes": 7416,
+    "webpBytes": 7144,
+    "width": 250,
+    "height": 250,
+    "used": true
+  },
+  {
+    "source": "images/BIT.png",
+    "webp": "images/BIT.webp",
+    "originalBytes": 495465,
+    "webpBytes": 451130,
+    "width": 1055,
+    "height": 1491,
+    "used": true
+  },
+  {
+    "source": "images/chargers-cables-banner.png",
+    "webp": "images/chargers-cables-banner.webp",
+    "originalBytes": 508019,
+    "webpBytes": 456660,
+    "width": 2048,
+    "height": 768,
+    "used": true
+  },
+  {
+    "source": "images/earphones-banner.png",
+    "webp": "images/earphones-banner.webp",
+    "originalBytes": 547202,
+    "webpBytes": 486464,
+    "width": 2048,
+    "height": 768,
+    "used": true
+  },
+  {
+    "source": "images/electroshop-logo-52x52.png",
+    "webp": "images/electroshop-logo-52x52.webp",
+    "originalBytes": 4804,
+    "webpBytes": 4272,
+    "width": 52,
+    "height": 52,
+    "used": true
+  },
+  {
+    "source": "images/en01.jpg",
+    "webp": "images/en01.webp",
+    "originalBytes": 176050,
+    "webpBytes": 148964,
+    "width": 1200,
+    "height": 1600,
+    "used": true
+  },
+  {
+    "source": "images/en02.jpg",
+    "webp": "images/en02.webp",
+    "originalBytes": 837349,
+    "webpBytes": 208632,
+    "width": 1200,
+    "height": 1600,
+    "used": true
+  },
+  {
+    "source": "images/en03.jpg",
+    "webp": "images/en03.webp",
+    "originalBytes": 640084,
+    "webpBytes": 150946,
+    "width": 1200,
+    "height": 1600,
+    "used": true
+  },
+  {
+    "source": "images/en04.jpg",
+    "webp": "images/en04.webp",
+    "originalBytes": 1143919,
+    "webpBytes": 224582,
+    "width": 1200,
+    "height": 1600,
+    "used": true
+  },
+  {
+    "source": "images/en05.jpg",
+    "webp": "images/en05.webp",
+    "originalBytes": 699690,
+    "webpBytes": 203046,
+    "width": 1000,
+    "height": 1000,
+    "used": true
+  },
+  {
+    "source": "images/en06.jpg",
+    "webp": "images/en06.webp",
+    "originalBytes": 632081,
+    "webpBytes": 152800,
+    "width": 1200,
+    "height": 1600,
+    "used": true
+  },
+  {
+    "source": "images/en07.jpg",
+    "webp": "images/en07.webp",
+    "originalBytes": 619084,
+    "webpBytes": 144262,
+    "width": 1200,
+    "height": 1600,
+    "used": true
+  },
+  {
+    "source": "images/favicon-source.png",
+    "webp": "images/favicon-source.webp",
+    "originalBytes": 226766,
+    "webpBytes": 170522,
+    "width": 600,
+    "height": 600,
+    "used": true
+  },
+  {
+    "source": "images/gallery1.jpg",
+    "webp": "images/gallery1.webp",
+    "originalBytes": 885465,
+    "webpBytes": 1515604,
+    "width": 3024,
+    "height": 3024,
+    "used": false
+  },
+  {
+    "source": "images/gallery2.jpg",
+    "webp": "images/gallery2.webp",
+    "originalBytes": 491109,
+    "webpBytes": 773840,
+    "width": 2165,
+    "height": 2160,
+    "used": false
+  },
+  {
+    "source": "images/gallery3.jpg",
+    "webp": "images/gallery3.webp",
+    "originalBytes": 897725,
+    "webpBytes": 1961382,
+    "width": 4032,
+    "height": 3024,
+    "used": false
+  },
+  {
+    "source": "images/gallery4.jpg",
+    "webp": "images/gallery4.webp",
+    "originalBytes": 143064,
+    "webpBytes": 184466,
+    "width": 1280,
+    "height": 720,
+    "used": false
+  },
+  {
+    "source": "images/gallery5.jpg",
+    "webp": "images/gallery5.webp",
+    "originalBytes": 882135,
+    "webpBytes": 1937080,
+    "width": 4032,
+    "height": 3024,
+    "used": false
+  },
+  {
+    "source": "images/gallery6.jpg",
+    "webp": "images/gallery6.webp",
+    "originalBytes": 967232,
+    "webpBytes": 2110658,
+    "width": 4032,
+    "height": 3024,
+    "used": false
+  },
+  {
+    "source": "images/guitars-heading.png",
+    "webp": "images/guitars-heading.webp",
+    "originalBytes": 293300,
+    "webpBytes": 258196,
+    "width": 2089,
+    "height": 753,
+    "used": true
+  },
+  {
+    "source": "images/heb01.jpg",
+    "webp": "images/heb01.webp",
+    "originalBytes": 176050,
+    "webpBytes": 148964,
+    "width": 1200,
+    "height": 1600,
+    "used": true
+  },
+  {
+    "source": "images/heb02.jpg",
+    "webp": "images/heb02.webp",
+    "originalBytes": 712689,
+    "webpBytes": 225598,
+    "width": 1086,
+    "height": 1448,
+    "used": true
+  },
+  {
+    "source": "images/heb03.jpg",
+    "webp": "images/heb03.webp",
+    "originalBytes": 469726,
+    "webpBytes": 212388,
+    "width": 1086,
+    "height": 1448,
+    "used": true
+  },
+  {
+    "source": "images/heb04.jpg",
+    "webp": "images/heb04.webp",
+    "originalBytes": 438632,
+    "webpBytes": 407880,
+    "width": 1086,
+    "height": 1448,
+    "used": true
+  },
+  {
+    "source": "images/heb05.jpg",
+    "webp": "images/heb05.webp",
+    "originalBytes": 619729,
+    "webpBytes": 341452,
+    "width": 1254,
+    "height": 1254,
+    "used": true
+  },
+  {
+    "source": "images/heb06.jpg",
+    "webp": "images/heb06.webp",
+    "originalBytes": 658137,
+    "webpBytes": 197248,
+    "width": 1086,
+    "height": 1448,
+    "used": true
+  },
+  {
+    "source": "images/heb07.jpg",
+    "webp": "images/heb07.webp",
+    "originalBytes": 493877,
+    "webpBytes": 179520,
+    "width": 1086,
+    "height": 1448,
+    "used": true
+  },
+  {
+    "source": "images/hero-banner.jpg",
+    "webp": "images/hero-banner.webp",
+    "originalBytes": 600668,
+    "webpBytes": 90484,
+    "width": 1668,
+    "height": 882,
+    "used": true
+  },
+  {
+    "source": "images/home-orange-yellow.png",
+    "webp": "images/home-orange-yellow.webp",
+    "originalBytes": 315547,
+    "webpBytes": 293096,
+    "width": 1536,
+    "height": 1024,
+    "used": true
+  },
+  {
+    "source": "images/hot-deals-heading.png",
+    "webp": "images/hot-deals-heading.webp",
+    "originalBytes": 564077,
+    "webpBytes": 372160,
+    "width": 1840,
+    "height": 352,
+    "used": true
+  },
+  {
+    "source": "images/logo.png",
+    "webp": "images/logo.webp",
+    "originalBytes": 211949,
+    "webpBytes": 207248,
+    "width": 1024,
+    "height": 1024,
+    "used": true
+  },
+  {
+    "source": "images/mobile-accessories-banner.png",
+    "webp": "images/mobile-accessories-banner.webp",
+    "originalBytes": 584910,
+    "webpBytes": 524778,
+    "width": 2048,
+    "height": 768,
+    "used": true
+  },
+  {
+    "source": "images/partner-circle.png",
+    "webp": "images/partner-circle.webp",
+    "originalBytes": 991996,
+    "webpBytes": 718642,
+    "width": 1254,
+    "height": 1254,
+    "used": true
+  },
+  {
+    "source": "images/pelephone-circle.png",
+    "webp": "images/pelephone-circle.webp",
+    "originalBytes": 1089303,
+    "webpBytes": 778818,
+    "width": 1254,
+    "height": 1254,
+    "used": true
+  },
+  {
+    "source": "images/pelephone-city-banner.png",
+    "webp": "images/pelephone-city-banner.webp",
+    "originalBytes": 471809,
+    "webpBytes": 389096,
+    "width": 3416,
+    "height": 882,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/logo.png",
+    "webp": "images/proaudio/logo.webp",
+    "originalBytes": 2140651,
+    "webpBytes": 1516136,
+    "width": 1254,
+    "height": 1254,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/payments.png",
+    "webp": "images/proaudio/payments.webp",
+    "originalBytes": 418647,
+    "webpBytes": 296994,
+    "width": 2017,
+    "height": 292,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/proaudio-header-bg.png",
+    "webp": "images/proaudio/proaudio-header-bg.webp",
+    "originalBytes": 628792,
+    "webpBytes": 586480,
+    "width": 1755,
+    "height": 896,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product01-01.jpg",
+    "webp": "images/proaudio/product01-01.webp",
+    "originalBytes": 626604,
+    "webpBytes": 158964,
+    "width": 800,
+    "height": 800,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product01-02.jpg",
+    "webp": "images/proaudio/product01-02.webp",
+    "originalBytes": 576277,
+    "webpBytes": 174812,
+    "width": 800,
+    "height": 800,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product01-03.jpg",
+    "webp": "images/proaudio/product01-03.webp",
+    "originalBytes": 542230,
+    "webpBytes": 149820,
+    "width": 800,
+    "height": 800,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product01-04.jpg",
+    "webp": "images/proaudio/product01-04.webp",
+    "originalBytes": 731094,
+    "webpBytes": 283494,
+    "width": 800,
+    "height": 800,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product01-05.jpg",
+    "webp": "images/proaudio/product01-05.webp",
+    "originalBytes": 330983,
+    "webpBytes": 102266,
+    "width": 800,
+    "height": 800,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product01-main.jpg",
+    "webp": "images/proaudio/product01-main.webp",
+    "originalBytes": 155632,
+    "webpBytes": 156452,
+    "width": 800,
+    "height": 800,
+    "used": false
+  },
+  {
+    "source": "images/proaudio/product02-01.jpg",
+    "webp": "images/proaudio/product02-01.webp",
+    "originalBytes": 561003,
+    "webpBytes": 111220,
+    "width": 2000,
+    "height": 2000,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product02-02.jpg",
+    "webp": "images/proaudio/product02-02.webp",
+    "originalBytes": 918166,
+    "webpBytes": 176650,
+    "width": 2000,
+    "height": 2000,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product02-03.jpg",
+    "webp": "images/proaudio/product02-03.webp",
+    "originalBytes": 452844,
+    "webpBytes": 94046,
+    "width": 2000,
+    "height": 2000,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product02-04.jpg",
+    "webp": "images/proaudio/product02-04.webp",
+    "originalBytes": 210968,
+    "webpBytes": 53930,
+    "width": 1000,
+    "height": 1000,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product02-05.jpg",
+    "webp": "images/proaudio/product02-05.webp",
+    "originalBytes": 134315,
+    "webpBytes": 38076,
+    "width": 1000,
+    "height": 1000,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product02-main.jpg",
+    "webp": "images/proaudio/product02-main.webp",
+    "originalBytes": 643737,
+    "webpBytes": 128968,
+    "width": 1600,
+    "height": 1600,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product03-01.jpg",
+    "webp": "images/proaudio/product03-01.webp",
+    "originalBytes": 791446,
+    "webpBytes": 188012,
+    "width": 1200,
+    "height": 1200,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product03-02.jpg",
+    "webp": "images/proaudio/product03-02.webp",
+    "originalBytes": 723705,
+    "webpBytes": 179132,
+    "width": 1200,
+    "height": 1200,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product03-03.jpg",
+    "webp": "images/proaudio/product03-03.webp",
+    "originalBytes": 805407,
+    "webpBytes": 167106,
+    "width": 1200,
+    "height": 1200,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product03-04.jpg",
+    "webp": "images/proaudio/product03-04.webp",
+    "originalBytes": 793019,
+    "webpBytes": 249894,
+    "width": 1200,
+    "height": 1200,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product03-main.jpg",
+    "webp": "images/proaudio/product03-main.webp",
+    "originalBytes": 885642,
+    "webpBytes": 191058,
+    "width": 1200,
+    "height": 1200,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product04-01.jpg",
+    "webp": "images/proaudio/product04-01.webp",
+    "originalBytes": 218061,
+    "webpBytes": 60246,
+    "width": 800,
+    "height": 800,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product04-02.jpg",
+    "webp": "images/proaudio/product04-02.webp",
+    "originalBytes": 214717,
+    "webpBytes": 64146,
+    "width": 800,
+    "height": 800,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product04-03.jpg",
+    "webp": "images/proaudio/product04-03.webp",
+    "originalBytes": 584857,
+    "webpBytes": 146462,
+    "width": 800,
+    "height": 800,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product04-04.jpg",
+    "webp": "images/proaudio/product04-04.webp",
+    "originalBytes": 447133,
+    "webpBytes": 126362,
+    "width": 1000,
+    "height": 1000,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product04-05.jpg",
+    "webp": "images/proaudio/product04-05.webp",
+    "originalBytes": 524789,
+    "webpBytes": 135120,
+    "width": 800,
+    "height": 800,
+    "used": true
+  },
+  {
+    "source": "images/proaudio/product04-main.jpg",
+    "webp": "images/proaudio/product04-main.webp",
+    "originalBytes": 391958,
+    "webpBytes": 108946,
+    "width": 1000,
+    "height": 1000,
+    "used": true
+  },
+  {
+    "source": "images/proaudio-logo.png",
+    "webp": "images/proaudio-logo.webp",
+    "originalBytes": 466301,
+    "webpBytes": 408486,
+    "width": 1254,
+    "height": 1254,
+    "used": true
+  },
+  {
+    "source": "images/problemeng.jpg",
+    "webp": "images/problemeng.webp",
+    "originalBytes": 590327,
+    "webpBytes": 493816,
+    "width": 1535,
+    "height": 1024,
+    "used": true
+  },
+  {
+    "source": "images/problemheb.jpg",
+    "webp": "images/problemheb.webp",
+    "originalBytes": 819613,
+    "webpBytes": 451778,
+    "width": 1535,
+    "height": 1024,
+    "used": true
+  },
+  {
+    "source": "images/q.jpg",
+    "webp": "images/q.webp",
+    "originalBytes": 558968,
+    "webpBytes": 452284,
+    "width": 1535,
+    "height": 1024,
+    "used": true
+  },
+  {
+    "source": "images/shop-categories-banner.png",
+    "webp": "images/shop-categories-banner.webp",
+    "originalBytes": 543190,
+    "webpBytes": 485488,
+    "width": 2048,
+    "height": 768,
+    "used": true
+  },
+  {
+    "source": "images/shop-entry-banner-en.png",
+    "webp": "images/shop-entry-banner-en.webp",
+    "originalBytes": 539920,
+    "webpBytes": 488100,
+    "width": 2048,
+    "height": 768,
+    "used": true
+  },
+  {
+    "source": "images/shop-entry-banner.png",
+    "webp": "images/shop-entry-banner.webp",
+    "originalBytes": 499155,
+    "webpBytes": 448422,
+    "width": 2048,
+    "height": 768,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1001.jpg",
+    "webp": "images/signs/S1001.webp",
+    "originalBytes": 116136,
+    "webpBytes": 102422,
+    "width": 1068,
+    "height": 888,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1002.jpg",
+    "webp": "images/signs/S1002.webp",
+    "originalBytes": 121880,
+    "webpBytes": 97684,
+    "width": 1067,
+    "height": 888,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1003.jpg",
+    "webp": "images/signs/S1003.webp",
+    "originalBytes": 138481,
+    "webpBytes": 117492,
+    "width": 1093,
+    "height": 910,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1004.jpg",
+    "webp": "images/signs/S1004.webp",
+    "originalBytes": 126056,
+    "webpBytes": 126406,
+    "width": 1093,
+    "height": 910,
+    "used": false
+  },
+  {
+    "source": "images/signs/S1005.jpg",
+    "webp": "images/signs/S1005.webp",
+    "originalBytes": 115542,
+    "webpBytes": 87664,
+    "width": 1076,
+    "height": 895,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1006.jpg",
+    "webp": "images/signs/S1006.webp",
+    "originalBytes": 125329,
+    "webpBytes": 118508,
+    "width": 1094,
+    "height": 910,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1007.jpg",
+    "webp": "images/signs/S1007.webp",
+    "originalBytes": 84725,
+    "webpBytes": 51576,
+    "width": 1093,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1008.jpg",
+    "webp": "images/signs/S1008.webp",
+    "originalBytes": 123763,
+    "webpBytes": 99466,
+    "width": 1067,
+    "height": 889,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1009.jpg",
+    "webp": "images/signs/S1009.webp",
+    "originalBytes": 100484,
+    "webpBytes": 62208,
+    "width": 1067,
+    "height": 889,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1010.jpg",
+    "webp": "images/signs/S1010.webp",
+    "originalBytes": 89823,
+    "webpBytes": 64084,
+    "width": 1094,
+    "height": 912,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1011.jpg",
+    "webp": "images/signs/S1011.webp",
+    "originalBytes": 114254,
+    "webpBytes": 89510,
+    "width": 1094,
+    "height": 912,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1012.jpg",
+    "webp": "images/signs/S1012.webp",
+    "originalBytes": 95438,
+    "webpBytes": 67462,
+    "width": 1093,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1013.jpg",
+    "webp": "images/signs/S1013.webp",
+    "originalBytes": 107357,
+    "webpBytes": 74832,
+    "width": 1094,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1014.jpg",
+    "webp": "images/signs/S1014.webp",
+    "originalBytes": 85045,
+    "webpBytes": 48748,
+    "width": 1093,
+    "height": 910,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1015.jpg",
+    "webp": "images/signs/S1015.webp",
+    "originalBytes": 107145,
+    "webpBytes": 78144,
+    "width": 1095,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1016.jpg",
+    "webp": "images/signs/S1016.webp",
+    "originalBytes": 85419,
+    "webpBytes": 46458,
+    "width": 1093,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1017.jpg",
+    "webp": "images/signs/S1017.webp",
+    "originalBytes": 138900,
+    "webpBytes": 136750,
+    "width": 1092,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1018.jpg",
+    "webp": "images/signs/S1018.webp",
+    "originalBytes": 103674,
+    "webpBytes": 73462,
+    "width": 1100,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1019.jpg",
+    "webp": "images/signs/S1019.webp",
+    "originalBytes": 77351,
+    "webpBytes": 41518,
+    "width": 1092,
+    "height": 912,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1020.jpg",
+    "webp": "images/signs/S1020.webp",
+    "originalBytes": 121118,
+    "webpBytes": 101240,
+    "width": 1077,
+    "height": 897,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1021.jpg",
+    "webp": "images/signs/S1021.webp",
+    "originalBytes": 107462,
+    "webpBytes": 65398,
+    "width": 1075,
+    "height": 894,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1022.jpg",
+    "webp": "images/signs/S1022.webp",
+    "originalBytes": 118316,
+    "webpBytes": 111288,
+    "width": 1068,
+    "height": 889,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1023.jpg",
+    "webp": "images/signs/S1023.webp",
+    "originalBytes": 119757,
+    "webpBytes": 121908,
+    "width": 1074,
+    "height": 894,
+    "used": false
+  },
+  {
+    "source": "images/signs/S1024.jpg",
+    "webp": "images/signs/S1024.webp",
+    "originalBytes": 103611,
+    "webpBytes": 101454,
+    "width": 1051,
+    "height": 875,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1025.jpg",
+    "webp": "images/signs/S1025.webp",
+    "originalBytes": 113624,
+    "webpBytes": 104140,
+    "width": 1074,
+    "height": 894,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1026.jpg",
+    "webp": "images/signs/S1026.webp",
+    "originalBytes": 103233,
+    "webpBytes": 77638,
+    "width": 1068,
+    "height": 891,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1027.jpg",
+    "webp": "images/signs/S1027.webp",
+    "originalBytes": 98029,
+    "webpBytes": 60064,
+    "width": 1075,
+    "height": 896,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1028.jpg",
+    "webp": "images/signs/S1028.webp",
+    "originalBytes": 90752,
+    "webpBytes": 53940,
+    "width": 1091,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1029.jpg",
+    "webp": "images/signs/S1029.webp",
+    "originalBytes": 83186,
+    "webpBytes": 44120,
+    "width": 1094,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1030.jpg",
+    "webp": "images/signs/S1030.webp",
+    "originalBytes": 69263,
+    "webpBytes": 35162,
+    "width": 1094,
+    "height": 910,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1031.jpg",
+    "webp": "images/signs/S1031.webp",
+    "originalBytes": 153459,
+    "webpBytes": 156054,
+    "width": 1076,
+    "height": 895,
+    "used": false
+  },
+  {
+    "source": "images/signs/S1032.jpg",
+    "webp": "images/signs/S1032.webp",
+    "originalBytes": 127835,
+    "webpBytes": 106732,
+    "width": 1049,
+    "height": 877,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1033.jpg",
+    "webp": "images/signs/S1033.webp",
+    "originalBytes": 126500,
+    "webpBytes": 121720,
+    "width": 1050,
+    "height": 876,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1034.jpg",
+    "webp": "images/signs/S1034.webp",
+    "originalBytes": 80558,
+    "webpBytes": 41218,
+    "width": 1093,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1035.jpg",
+    "webp": "images/signs/S1035.webp",
+    "originalBytes": 102865,
+    "webpBytes": 77900,
+    "width": 1076,
+    "height": 897,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1036.jpg",
+    "webp": "images/signs/S1036.webp",
+    "originalBytes": 123199,
+    "webpBytes": 108406,
+    "width": 1067,
+    "height": 887,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1037.jpg",
+    "webp": "images/signs/S1037.webp",
+    "originalBytes": 96994,
+    "webpBytes": 63372,
+    "width": 1050,
+    "height": 875,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1038.jpg",
+    "webp": "images/signs/S1038.webp",
+    "originalBytes": 98432,
+    "webpBytes": 74188,
+    "width": 1068,
+    "height": 889,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1039.jpg",
+    "webp": "images/signs/S1039.webp",
+    "originalBytes": 111135,
+    "webpBytes": 114446,
+    "width": 1050,
+    "height": 874,
+    "used": false
+  },
+  {
+    "source": "images/signs/S1040.jpg",
+    "webp": "images/signs/S1040.webp",
+    "originalBytes": 122796,
+    "webpBytes": 93558,
+    "width": 1075,
+    "height": 896,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1041.jpg",
+    "webp": "images/signs/S1041.webp",
+    "originalBytes": 119365,
+    "webpBytes": 103218,
+    "width": 1076,
+    "height": 894,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1042.jpg",
+    "webp": "images/signs/S1042.webp",
+    "originalBytes": 106393,
+    "webpBytes": 90702,
+    "width": 1075,
+    "height": 895,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1043.jpg",
+    "webp": "images/signs/S1043.webp",
+    "originalBytes": 142127,
+    "webpBytes": 140210,
+    "width": 1092,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1044.jpg",
+    "webp": "images/signs/S1044.webp",
+    "originalBytes": 117421,
+    "webpBytes": 95542,
+    "width": 1067,
+    "height": 888,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1045.jpg",
+    "webp": "images/signs/S1045.webp",
+    "originalBytes": 123784,
+    "webpBytes": 108952,
+    "width": 1095,
+    "height": 912,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1046.jpg",
+    "webp": "images/signs/S1046.webp",
+    "originalBytes": 114370,
+    "webpBytes": 107654,
+    "width": 1075,
+    "height": 895,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1047.jpg",
+    "webp": "images/signs/S1047.webp",
+    "originalBytes": 125300,
+    "webpBytes": 116470,
+    "width": 1076,
+    "height": 897,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1048.jpg",
+    "webp": "images/signs/S1048.webp",
+    "originalBytes": 97222,
+    "webpBytes": 70040,
+    "width": 1067,
+    "height": 888,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1049.jpg",
+    "webp": "images/signs/S1049.webp",
+    "originalBytes": 109334,
+    "webpBytes": 87832,
+    "width": 1074,
+    "height": 895,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1050.jpg",
+    "webp": "images/signs/S1050.webp",
+    "originalBytes": 132438,
+    "webpBytes": 152398,
+    "width": 1069,
+    "height": 889,
+    "used": false
+  },
+  {
+    "source": "images/signs/S1051.jpg",
+    "webp": "images/signs/S1051.webp",
+    "originalBytes": 126071,
+    "webpBytes": 119952,
+    "width": 1050,
+    "height": 874,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1052.jpg",
+    "webp": "images/signs/S1052.webp",
+    "originalBytes": 120315,
+    "webpBytes": 103612,
+    "width": 1069,
+    "height": 891,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1053.jpg",
+    "webp": "images/signs/S1053.webp",
+    "originalBytes": 121593,
+    "webpBytes": 109520,
+    "width": 1051,
+    "height": 876,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1054.jpg",
+    "webp": "images/signs/S1054.webp",
+    "originalBytes": 165540,
+    "webpBytes": 165908,
+    "width": 1077,
+    "height": 895,
+    "used": false
+  },
+  {
+    "source": "images/signs/S1055.jpg",
+    "webp": "images/signs/S1055.webp",
+    "originalBytes": 96325,
+    "webpBytes": 63420,
+    "width": 1076,
+    "height": 894,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1056.jpg",
+    "webp": "images/signs/S1056.webp",
+    "originalBytes": 136808,
+    "webpBytes": 119770,
+    "width": 1094,
+    "height": 911,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1057.jpg",
+    "webp": "images/signs/S1057.webp",
+    "originalBytes": 95993,
+    "webpBytes": 59246,
+    "width": 1049,
+    "height": 874,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1058.jpg",
+    "webp": "images/signs/S1058.webp",
+    "originalBytes": 128286,
+    "webpBytes": 130558,
+    "width": 1049,
+    "height": 876,
+    "used": false
+  },
+  {
+    "source": "images/signs/S1059.jpg",
+    "webp": "images/signs/S1059.webp",
+    "originalBytes": 87790,
+    "webpBytes": 62012,
+    "width": 1067,
+    "height": 889,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1060.jpg",
+    "webp": "images/signs/S1060.webp",
+    "originalBytes": 92033,
+    "webpBytes": 72198,
+    "width": 1068,
+    "height": 890,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1061.jpg",
+    "webp": "images/signs/S1061.webp",
+    "originalBytes": 86357,
+    "webpBytes": 62632,
+    "width": 1068,
+    "height": 891,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1062.jpg",
+    "webp": "images/signs/S1062.webp",
+    "originalBytes": 93785,
+    "webpBytes": 72138,
+    "width": 1068,
+    "height": 889,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1063.jpg",
+    "webp": "images/signs/S1063.webp",
+    "originalBytes": 172636,
+    "webpBytes": 41250,
+    "width": 850,
+    "height": 708,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1064.jpg",
+    "webp": "images/signs/S1064.webp",
+    "originalBytes": 89937,
+    "webpBytes": 53386,
+    "width": 1069,
+    "height": 890,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1065.jpg",
+    "webp": "images/signs/S1065.webp",
+    "originalBytes": 96804,
+    "webpBytes": 74932,
+    "width": 1067,
+    "height": 888,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1066.jpg",
+    "webp": "images/signs/S1066.webp",
+    "originalBytes": 89078,
+    "webpBytes": 68478,
+    "width": 1068,
+    "height": 890,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1067.jpg",
+    "webp": "images/signs/S1067.webp",
+    "originalBytes": 106118,
+    "webpBytes": 81952,
+    "width": 1069,
+    "height": 891,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1068.jpg",
+    "webp": "images/signs/S1068.webp",
+    "originalBytes": 117083,
+    "webpBytes": 104528,
+    "width": 1076,
+    "height": 896,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1069.jpg",
+    "webp": "images/signs/S1069.webp",
+    "originalBytes": 131580,
+    "webpBytes": 134948,
+    "width": 1068,
+    "height": 888,
+    "used": false
+  },
+  {
+    "source": "images/signs/S1070.jpg",
+    "webp": "images/signs/S1070.webp",
+    "originalBytes": 72260,
+    "webpBytes": 42772,
+    "width": 1052,
+    "height": 875,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1071.jpg",
+    "webp": "images/signs/S1071.webp",
+    "originalBytes": 98760,
+    "webpBytes": 69044,
+    "width": 1051,
+    "height": 875,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1072.jpg",
+    "webp": "images/signs/S1072.webp",
+    "originalBytes": 86542,
+    "webpBytes": 62068,
+    "width": 1050,
+    "height": 875,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1073.jpg",
+    "webp": "images/signs/S1073.webp",
+    "originalBytes": 101570,
+    "webpBytes": 62296,
+    "width": 1069,
+    "height": 890,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1074.jpg",
+    "webp": "images/signs/S1074.webp",
+    "originalBytes": 91856,
+    "webpBytes": 61368,
+    "width": 1050,
+    "height": 874,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1075.jpg",
+    "webp": "images/signs/S1075.webp",
+    "originalBytes": 125615,
+    "webpBytes": 108644,
+    "width": 1051,
+    "height": 875,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1076.jpg",
+    "webp": "images/signs/S1076.webp",
+    "originalBytes": 124781,
+    "webpBytes": 110056,
+    "width": 1068,
+    "height": 887,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1077.jpg",
+    "webp": "images/signs/S1077.webp",
+    "originalBytes": 103416,
+    "webpBytes": 82334,
+    "width": 1051,
+    "height": 876,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1078.jpg",
+    "webp": "images/signs/S1078.webp",
+    "originalBytes": 90067,
+    "webpBytes": 44854,
+    "width": 1074,
+    "height": 897,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1079.jpg",
+    "webp": "images/signs/S1079.webp",
+    "originalBytes": 129912,
+    "webpBytes": 109974,
+    "width": 1051,
+    "height": 873,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1080.jpg",
+    "webp": "images/signs/S1080.webp",
+    "originalBytes": 127527,
+    "webpBytes": 108094,
+    "width": 1051,
+    "height": 874,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1081.jpg",
+    "webp": "images/signs/S1081.webp",
+    "originalBytes": 128258,
+    "webpBytes": 108638,
+    "width": 1050,
+    "height": 876,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1082.jpg",
+    "webp": "images/signs/S1082.webp",
+    "originalBytes": 125173,
+    "webpBytes": 103728,
+    "width": 1051,
+    "height": 874,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1083.jpg",
+    "webp": "images/signs/S1083.webp",
+    "originalBytes": 110131,
+    "webpBytes": 72812,
+    "width": 1049,
+    "height": 875,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1084.jpg",
+    "webp": "images/signs/S1084.webp",
+    "originalBytes": 100059,
+    "webpBytes": 66348,
+    "width": 1050,
+    "height": 875,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1085.jpg",
+    "webp": "images/signs/S1085.webp",
+    "originalBytes": 94952,
+    "webpBytes": 64046,
+    "width": 1049,
+    "height": 875,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1086.jpg",
+    "webp": "images/signs/S1086.webp",
+    "originalBytes": 116545,
+    "webpBytes": 100366,
+    "width": 1051,
+    "height": 876,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1087.jpg",
+    "webp": "images/signs/S1087.webp",
+    "originalBytes": 106713,
+    "webpBytes": 80394,
+    "width": 1050,
+    "height": 874,
+    "used": true
+  },
+  {
+    "source": "images/signs/S1088.jpg",
+    "webp": "images/signs/S1088.webp",
+    "originalBytes": 125603,
+    "webpBytes": 69302,
+    "width": 1025,
+    "height": 854,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/01cae45caba8-iphone_16_pro_max_black.png",
+    "webp": "images/smartphones-source/01cae45caba8-iphone_16_pro_max_black.webp",
+    "originalBytes": 125823,
+    "webpBytes": 76450,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/01fd4e74498f-POCO-X7-pro_black.png",
+    "webp": "images/smartphones-source/01fd4e74498f-POCO-X7-pro_black.webp",
+    "originalBytes": 109532,
+    "webpBytes": 70468,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/02aa447b92ee-iphone_14_starlight.png",
+    "webp": "images/smartphones-source/02aa447b92ee-iphone_14_starlight.webp",
+    "originalBytes": 127550,
+    "webpBytes": 79848,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/02fc18e4cbf1-iPhone_17e_Soft-Pink.png",
+    "webp": "images/smartphones-source/02fc18e4cbf1-iPhone_17e_Soft-Pink.webp",
+    "originalBytes": 120539,
+    "webpBytes": 78962,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/032fe2d4bc8b-z-flip8_pink_3.png",
+    "webp": "images/smartphones-source/032fe2d4bc8b-z-flip8_pink_3.webp",
+    "originalBytes": 125056,
+    "webpBytes": 81940,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/03cb78c0c96f-Galaxy-A56-5G_Awesome-Lightgray.png",
+    "webp": "images/smartphones-source/03cb78c0c96f-Galaxy-A56-5G_Awesome-Lightgray.webp",
+    "originalBytes": 104829,
+    "webpBytes": 69278,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/05420528b508-zfold8-ultra_violet-shadow_1.png",
+    "webp": "images/smartphones-source/05420528b508-zfold8-ultra_violet-shadow_1.webp",
+    "originalBytes": 136324,
+    "webpBytes": 88694,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/06a7ea4cf57a-zfold8-ultra_violet-shadow_2.png",
+    "webp": "images/smartphones-source/06a7ea4cf57a-zfold8-ultra_violet-shadow_2.webp",
+    "originalBytes": 110462,
+    "webpBytes": 70836,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/077e12bc1f7f-Xiaomi-17T-black-3.png",
+    "webp": "images/smartphones-source/077e12bc1f7f-Xiaomi-17T-black-3.webp",
+    "originalBytes": 19975,
+    "webpBytes": 8748,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/07b6233fa425-Samsung-flip7_blue-shadow-2.png",
+    "webp": "images/smartphones-source/07b6233fa425-Samsung-flip7_blue-shadow-2.webp",
+    "originalBytes": 90353,
+    "webpBytes": 57854,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/0917b9b0ca81-Samsung-S25-FE-white.png",
+    "webp": "images/smartphones-source/0917b9b0ca81-Samsung-S25-FE-white.webp",
+    "originalBytes": 80517,
+    "webpBytes": 49618,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/098f145755c3-iphone_16_plus_teal_1.png",
+    "webp": "images/smartphones-source/098f145755c3-iphone_16_plus_teal_1.webp",
+    "originalBytes": 204965,
+    "webpBytes": 132428,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/0bb59eab74d9-zfold8_cream_2.png",
+    "webp": "images/smartphones-source/0bb59eab74d9-zfold8_cream_2.webp",
+    "originalBytes": 80233,
+    "webpBytes": 52232,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/105514de0e4b-nokia_225_4g_newt.png",
+    "webp": "images/smartphones-source/105514de0e4b-nokia_225_4g_newt.webp",
+    "originalBytes": 173673,
+    "webpBytes": 113824,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/11654f89275c-Galaxy-S26-FE_Pistachio.png",
+    "webp": "images/smartphones-source/11654f89275c-Galaxy-S26-FE_Pistachio.webp",
+    "originalBytes": 92749,
+    "webpBytes": 62520,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/11733252f6b4-Samsung-fold7-silver-shadow2_1.png",
+    "webp": "images/smartphones-source/11733252f6b4-Samsung-fold7-silver-shadow2_1.webp",
+    "originalBytes": 80247,
+    "webpBytes": 49128,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/152d280947f5-samsung_galaxy_S26_black.png",
+    "webp": "images/smartphones-source/152d280947f5-samsung_galaxy_S26_black.webp",
+    "originalBytes": 93220,
+    "webpBytes": 61050,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/1637445336bc-samsung_galaxy_s24_onyx_black.png",
+    "webp": "images/smartphones-source/1637445336bc-samsung_galaxy_s24_onyx_black.webp",
+    "originalBytes": 90931,
+    "webpBytes": 53218,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/18c785efa137-samsung_galaxy_s24_marble_gray.png",
+    "webp": "images/smartphones-source/18c785efa137-samsung_galaxy_s24_marble_gray.webp",
+    "originalBytes": 92378,
+    "webpBytes": 53838,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/1a9a0d9a9008-POCO-C81-Pro-gold1.png",
+    "webp": "images/smartphones-source/1a9a0d9a9008-POCO-C81-Pro-gold1.webp",
+    "originalBytes": 116147,
+    "webpBytes": 72120,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/1aa53c6e2167-Xiaomi-17T-black-1.png",
+    "webp": "images/smartphones-source/1aa53c6e2167-Xiaomi-17T-black-1.webp",
+    "originalBytes": 78705,
+    "webpBytes": 46276,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/1c43ea91f6ea-iphone_16_ultramarine.png",
+    "webp": "images/smartphones-source/1c43ea91f6ea-iphone_16_ultramarine.webp",
+    "originalBytes": 186521,
+    "webpBytes": 119832,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/1cd58bd26cf2-Samsung-flip7_coral-red-1.png",
+    "webp": "images/smartphones-source/1cd58bd26cf2-Samsung-flip7_coral-red-1.webp",
+    "originalBytes": 112766,
+    "webpBytes": 65486,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/1e3cd61fc844-Redmi-A7-Pro-green-3.png",
+    "webp": "images/smartphones-source/1e3cd61fc844-Redmi-A7-Pro-green-3.webp",
+    "originalBytes": 27904,
+    "webpBytes": 14938,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/1e519b4e4374-iiPhone_17_Sage_1.png",
+    "webp": "images/smartphones-source/1e519b4e4374-iiPhone_17_Sage_1.webp",
+    "originalBytes": 152212,
+    "webpBytes": 100114,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/1f190afd605f-Xiaomi-17T-black-4.png",
+    "webp": "images/smartphones-source/1f190afd605f-Xiaomi-17T-black-4.webp",
+    "originalBytes": 27741,
+    "webpBytes": 13524,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/1f3af2078abf-iiPhone_17_Lavender_1.png",
+    "webp": "images/smartphones-source/1f3af2078abf-iiPhone_17_Lavender_1.webp",
+    "originalBytes": 136372,
+    "webpBytes": 92154,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/20463483ea7b-Redmi-A7-Pro-green-2.png",
+    "webp": "images/smartphones-source/20463483ea7b-Redmi-A7-Pro-green-2.webp",
+    "originalBytes": 119748,
+    "webpBytes": 70744,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/208540385f1b-zfold8-ultra_graphite_2.png",
+    "webp": "images/smartphones-source/208540385f1b-zfold8-ultra_graphite_2.webp",
+    "originalBytes": 117353,
+    "webpBytes": 76346,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/22e4b3b0d83c-z-flip8_graphite_3.png",
+    "webp": "images/smartphones-source/22e4b3b0d83c-z-flip8_graphite_3.webp",
+    "originalBytes": 115740,
+    "webpBytes": 73268,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/231ca07a109f-REDMI-Note-15_blue.png",
+    "webp": "images/smartphones-source/231ca07a109f-REDMI-Note-15_blue.webp",
+    "originalBytes": 144796,
+    "webpBytes": 91670,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/237d3749c098-iphone_16_pro_max_white.png",
+    "webp": "images/smartphones-source/237d3749c098-iphone_16_pro_max_white.webp",
+    "originalBytes": 125096,
+    "webpBytes": 76436,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/237dd52837e7-iphone_16_teal.png",
+    "webp": "images/smartphones-source/237dd52837e7-iphone_16_teal.webp",
+    "originalBytes": 182037,
+    "webpBytes": 115284,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/243a63528779-samsung-z-flip6-gray.png",
+    "webp": "images/smartphones-source/243a63528779-samsung-z-flip6-gray.webp",
+    "originalBytes": 118559,
+    "webpBytes": 66462,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/2499906aeaff-Redmi-note-14-black.png",
+    "webp": "images/smartphones-source/2499906aeaff-Redmi-note-14-black.webp",
+    "originalBytes": 80382,
+    "webpBytes": 49350,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/25e4d54be89c-samsung_galaxy_S26_white.png",
+    "webp": "images/smartphones-source/25e4d54be89c-samsung_galaxy_S26_white.webp",
+    "originalBytes": 84623,
+    "webpBytes": 53362,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/2818f81950d4-Samsung-fold7-blue-shadow1_2.png",
+    "webp": "images/smartphones-source/2818f81950d4-Samsung-fold7-blue-shadow1_2.webp",
+    "originalBytes": 120355,
+    "webpBytes": 78094,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/28e4db69b59f-Future-Flip-Phone-LTE-open2.png",
+    "webp": "images/smartphones-source/28e4db69b59f-Future-Flip-Phone-LTE-open2.webp",
+    "originalBytes": 27907,
+    "webpBytes": 15318,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/2a2f1b1d9b53-Galaxy-S26-FE_Blueberry.png",
+    "webp": "images/smartphones-source/2a2f1b1d9b53-Galaxy-S26-FE_Blueberry.webp",
+    "originalBytes": 107949,
+    "webpBytes": 76062,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/2a8cc9de63a2-POCO-X7-pro_green.png",
+    "webp": "images/smartphones-source/2a8cc9de63a2-POCO-X7-pro_green.webp",
+    "originalBytes": 115478,
+    "webpBytes": 73150,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/2c76411d722e-iPhone_Air_Cloud_Black_1.png",
+    "webp": "images/smartphones-source/2c76411d722e-iPhone_Air_Cloud_Black_1.webp",
+    "originalBytes": 96940,
+    "webpBytes": 61064,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/2cf8568543df-Galaxy-A27_5G-Black.png",
+    "webp": "images/smartphones-source/2cf8568543df-Galaxy-A27_5G-Black.webp",
+    "originalBytes": 81207,
+    "webpBytes": 51090,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/2d9ec32ea437-Galaxy-A56-5G_Awesome-Graphite.png",
+    "webp": "images/smartphones-source/2d9ec32ea437-Galaxy-A56-5G_Awesome-Graphite.webp",
+    "originalBytes": 104954,
+    "webpBytes": 71460,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/2f472967a5fd-iiPhone_17_mist-blue_1.png",
+    "webp": "images/smartphones-source/2f472967a5fd-iiPhone_17_mist-blue_1.webp",
+    "originalBytes": 146049,
+    "webpBytes": 95760,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/2f64d14d12df-Xiaomi-17T-pro-balck-1.png",
+    "webp": "images/smartphones-source/2f64d14d12df-Xiaomi-17T-pro-balck-1.webp",
+    "originalBytes": 83561,
+    "webpBytes": 48788,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/32cca9b1ffe4-iphone_16_pro_max_natural.png",
+    "webp": "images/smartphones-source/32cca9b1ffe4-iphone_16_pro_max_natural.webp",
+    "originalBytes": 145945,
+    "webpBytes": 89870,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/33b03709f41b-Nokia-235-4G-front.png",
+    "webp": "images/smartphones-source/33b03709f41b-Nokia-235-4G-front.webp",
+    "originalBytes": 73368,
+    "webpBytes": 43818,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/348165de2fac-normande_n1_kosher_1.png",
+    "webp": "images/smartphones-source/348165de2fac-normande_n1_kosher_1.webp",
+    "originalBytes": 102152,
+    "webpBytes": 65244,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/3514e229cf8e-samsung_galaxy_zfold5_open_black.png",
+    "webp": "images/smartphones-source/3514e229cf8e-samsung_galaxy_zfold5_open_black.webp",
+    "originalBytes": 164922,
+    "webpBytes": 102498,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/3537ed56ed70-samsung_galaxy_s23_ultra_black.png",
+    "webp": "images/smartphones-source/3537ed56ed70-samsung_galaxy_s23_ultra_black.webp",
+    "originalBytes": 130064,
+    "webpBytes": 76906,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/399c7ea7f3ff-xiaomi_13t_5g_black.png",
+    "webp": "images/smartphones-source/399c7ea7f3ff-xiaomi_13t_5g_black.webp",
+    "originalBytes": 115449,
+    "webpBytes": 76914,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/3a47748a6b6f-Samsung-Z-fold6-Pink-closed.png",
+    "webp": "images/smartphones-source/3a47748a6b6f-Samsung-Z-fold6-Pink-closed.webp",
+    "originalBytes": 104677,
+    "webpBytes": 65652,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/3a8705559481-Samsung-flip7_jet-black-2.png",
+    "webp": "images/smartphones-source/3a8705559481-Samsung-flip7_jet-black-2.webp",
+    "originalBytes": 82202,
+    "webpBytes": 50736,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/3dc9c97a08de-zfold8_cream_3.png",
+    "webp": "images/smartphones-source/3dc9c97a08de-zfold8_cream_3.webp",
+    "originalBytes": 60469,
+    "webpBytes": 35994,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/3f01a5d329de-zfold8_graphite_3.png",
+    "webp": "images/smartphones-source/3f01a5d329de-zfold8_graphite_3.webp",
+    "originalBytes": 77798,
+    "webpBytes": 47330,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/40095821e96d-REDMI-Note-15-Pro-5G-black.png",
+    "webp": "images/smartphones-source/40095821e96d-REDMI-Note-15-Pro-5G-black.webp",
+    "originalBytes": 95249,
+    "webpBytes": 58694,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/41bfd7badacb-zfold8_cream_1.png",
+    "webp": "images/smartphones-source/41bfd7badacb-zfold8_cream_1.webp",
+    "originalBytes": 115337,
+    "webpBytes": 72666,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/424167cf51be-samsung_galaxy_zflip5_tabletop_gray.png",
+    "webp": "images/smartphones-source/424167cf51be-samsung_galaxy_zflip5_tabletop_gray.webp",
+    "originalBytes": 142439,
+    "webpBytes": 78824,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/4363b4173a04-Samsung-S25-FE-icy-blue.png",
+    "webp": "images/smartphones-source/4363b4173a04-Samsung-S25-FE-icy-blue.webp",
+    "originalBytes": 93722,
+    "webpBytes": 61206,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/462e47c56a6e-Samsung-fold7-silver-shadow3_1.png",
+    "webp": "images/smartphones-source/462e47c56a6e-Samsung-fold7-silver-shadow3_1.webp",
+    "originalBytes": 107968,
+    "webpBytes": 65260,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/4aa8ad5b0967-zfold8_graphite_4.png",
+    "webp": "images/smartphones-source/4aa8ad5b0967-zfold8_graphite_4.webp",
+    "originalBytes": 89414,
+    "webpBytes": 57432,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/4ac14805be79-POCO-X7-pro_yellow.png",
+    "webp": "images/smartphones-source/4ac14805be79-POCO-X7-pro_yellow.webp",
+    "originalBytes": 121626,
+    "webpBytes": 77758,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/4b1358c652bb-zfold8-ultra_cream_1.png",
+    "webp": "images/smartphones-source/4b1358c652bb-zfold8-ultra_cream_1.webp",
+    "originalBytes": 95858,
+    "webpBytes": 57868,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/4b7f51396818-xiaomi_redmi_note_13_pro_5g.png",
+    "webp": "images/smartphones-source/4b7f51396818-xiaomi_redmi_note_13_pro_5g.webp",
+    "originalBytes": 102504,
+    "webpBytes": 64412,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/4c0c43bebc19-Redmi-A7-Pro-black-2.png",
+    "webp": "images/smartphones-source/4c0c43bebc19-Redmi-A7-Pro-black-2.webp",
+    "originalBytes": 60189,
+    "webpBytes": 35050,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/4c549e9453ae-samsung-z-flip6-blue-open.png",
+    "webp": "images/smartphones-source/4c549e9453ae-samsung-z-flip6-blue-open.webp",
+    "originalBytes": 109912,
+    "webpBytes": 67722,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/4cb8714cf604-Samsung-Z-fold6-Pink.png",
+    "webp": "images/smartphones-source/4cb8714cf604-Samsung-Z-fold6-Pink.webp",
+    "originalBytes": 147881,
+    "webpBytes": 93370,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/4f88f2bf6536-z-flip8_pink_4.png",
+    "webp": "images/smartphones-source/4f88f2bf6536-z-flip8_pink_4.webp",
+    "originalBytes": 76500,
+    "webpBytes": 48300,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/52496453523b-Xiaomi-Redmi-17-4G_black-2.png",
+    "webp": "images/smartphones-source/52496453523b-Xiaomi-Redmi-17-4G_black-2.webp",
+    "originalBytes": 41727,
+    "webpBytes": 24266,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/534b4daf32de-Samsung-Z-fold6-Pink-back.png",
+    "webp": "images/smartphones-source/534b4daf32de-Samsung-Z-fold6-Pink-back.webp",
+    "originalBytes": 158890,
+    "webpBytes": 102756,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/536b140eb4c5-Galaxy-A27_5G-Blue.png",
+    "webp": "images/smartphones-source/536b140eb4c5-Galaxy-A27_5G-Blue.webp",
+    "originalBytes": 87341,
+    "webpBytes": 56222,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/53a8e6dd816d-Redmi-A7-Pro-blue-3.png",
+    "webp": "images/smartphones-source/53a8e6dd816d-Redmi-A7-Pro-blue-3.webp",
+    "originalBytes": 27989,
+    "webpBytes": 15492,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/5437b26ed087-Xiaomi-17T-pro-balck-2.png",
+    "webp": "images/smartphones-source/5437b26ed087-Xiaomi-17T-pro-balck-2.webp",
+    "originalBytes": 38194,
+    "webpBytes": 20164,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/54fb370512b7-samsung_galaxy_s23_ultra_beige.png",
+    "webp": "images/smartphones-source/54fb370512b7-samsung_galaxy_s23_ultra_beige.webp",
+    "originalBytes": 140692,
+    "webpBytes": 84538,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/56d9c16f66aa-Poco-M8-silver-1.png",
+    "webp": "images/smartphones-source/56d9c16f66aa-Poco-M8-silver-1.webp",
+    "originalBytes": 137058,
+    "webpBytes": 87232,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/58e945feebc7-samsung_galaxy_S26_cobalt-violet.png",
+    "webp": "images/smartphones-source/58e945feebc7-samsung_galaxy_S26_cobalt-violet.webp",
+    "originalBytes": 95186,
+    "webpBytes": 61722,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/5d3b572cf9c8-zfold8_lavender_2.png",
+    "webp": "images/smartphones-source/5d3b572cf9c8-zfold8_lavender_2.webp",
+    "originalBytes": 82649,
+    "webpBytes": 53526,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/5e2f8e8e7d6a-samsung_galaxy_zflip5_tabletop_light_green.png",
+    "webp": "images/smartphones-source/5e2f8e8e7d6a-samsung_galaxy_zflip5_tabletop_light_green.webp",
+    "originalBytes": 140546,
+    "webpBytes": 77578,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/5e8f351d58ab-samsung_galaxy_s25_edge-jetblack-with-side.png",
+    "webp": "images/smartphones-source/5e8f351d58ab-samsung_galaxy_s25_edge-jetblack-with-side.webp",
+    "originalBytes": 87993,
+    "webpBytes": 56736,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/5f1a102f8253-iiPhone_17_Black_1-new.png",
+    "webp": "images/smartphones-source/5f1a102f8253-iiPhone_17_Black_1-new.webp",
+    "originalBytes": 34686,
+    "webpBytes": 28290,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/603331b36db7-iphone_16_plus_black.png",
+    "webp": "images/smartphones-source/603331b36db7-iphone_16_plus_black.webp",
+    "originalBytes": 187249,
+    "webpBytes": 121022,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/63489c23dc23-samsung_galaxy_S26-plus_cobalt-violet.png",
+    "webp": "images/smartphones-source/63489c23dc23-samsung_galaxy_S26-plus_cobalt-violet.webp",
+    "originalBytes": 105879,
+    "webpBytes": 68490,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/634c772705b5-iphone_15_black.png",
+    "webp": "images/smartphones-source/634c772705b5-iphone_15_black.webp",
+    "originalBytes": 135915,
+    "webpBytes": 83692,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/63c05bc9afb0-samsung_galaxy_s25_-blue.png",
+    "webp": "images/smartphones-source/63c05bc9afb0-samsung_galaxy_s25_-blue.webp",
+    "originalBytes": 74116,
+    "webpBytes": 46976,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/64453743473f-Redmi-A7-Pro-blue-2.png",
+    "webp": "images/smartphones-source/64453743473f-Redmi-A7-Pro-blue-2.webp",
+    "originalBytes": 60239,
+    "webpBytes": 35268,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/647dc60b1c48-zfold8_cream_4.png",
+    "webp": "images/smartphones-source/647dc60b1c48-zfold8_cream_4.webp",
+    "originalBytes": 48899,
+    "webpBytes": 30754,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/64895eb0b9c1-Xiaomi-Redmi-17-4G_black.png",
+    "webp": "images/smartphones-source/64895eb0b9c1-Xiaomi-Redmi-17-4G_black.webp",
+    "originalBytes": 117931,
+    "webpBytes": 79354,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/64f0e1c2b0a0-iphone_15_blue.png",
+    "webp": "images/smartphones-source/64f0e1c2b0a0-iphone_15_blue.webp",
+    "originalBytes": 149337,
+    "webpBytes": 92440,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/661c8f9d68c6-Redmi-A7-Pro-black-1.png",
+    "webp": "images/smartphones-source/661c8f9d68c6-Redmi-A7-Pro-black-1.webp",
+    "originalBytes": 118855,
+    "webpBytes": 79970,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/6635b1d04614-z-flip8_cream_4.png",
+    "webp": "images/smartphones-source/6635b1d04614-z-flip8_cream_4.webp",
+    "originalBytes": 65214,
+    "webpBytes": 39002,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/664207ca8778-samsung_galaxy_s25_-mint.png",
+    "webp": "images/smartphones-source/664207ca8778-samsung_galaxy_s25_-mint.webp",
+    "originalBytes": 77883,
+    "webpBytes": 47822,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/6804a294fb76-samsung_galaxy_s25_navy-blue.png",
+    "webp": "images/smartphones-source/6804a294fb76-samsung_galaxy_s25_navy-blue.webp",
+    "originalBytes": 81067,
+    "webpBytes": 50930,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/69d72132f687-nokia_2660_flip_open.png",
+    "webp": "images/smartphones-source/69d72132f687-nokia_2660_flip_open.webp",
+    "originalBytes": 88802,
+    "webpBytes": 48766,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/6a78eb273992-zfold8_lavender_3.png",
+    "webp": "images/smartphones-source/6a78eb273992-zfold8_lavender_3.webp",
+    "originalBytes": 74887,
+    "webpBytes": 47844,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/6a895000bffd-iPhone_17_Pro_Max_Cosmic_Orange.png",
+    "webp": "images/smartphones-source/6a895000bffd-iPhone_17_Pro_Max_Cosmic_Orange.webp",
+    "originalBytes": 175610,
+    "webpBytes": 113454,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/6d8ca38ff20a-Xiaomi-15T-gold.png",
+    "webp": "images/smartphones-source/6d8ca38ff20a-Xiaomi-15T-gold.webp",
+    "originalBytes": 120122,
+    "webpBytes": 75820,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/6fa9fc0637d2-z-flip8_cream_2.png",
+    "webp": "images/smartphones-source/6fa9fc0637d2-z-flip8_cream_2.webp",
+    "originalBytes": 83222,
+    "webpBytes": 51240,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/707b9c94d179-Xiaomi-15T-Pro-black.png",
+    "webp": "images/smartphones-source/707b9c94d179-Xiaomi-15T-Pro-black.webp",
+    "originalBytes": 89486,
+    "webpBytes": 55040,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/7172298fa2ed-samsung_galaxy_s24_cobalt_violet.png",
+    "webp": "images/smartphones-source/7172298fa2ed-samsung_galaxy_s24_cobalt_violet.webp",
+    "originalBytes": 105454,
+    "webpBytes": 64344,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/71c4af0c8c4e-Galaxy-A37_5G_Green-gray-dark-green.png",
+    "webp": "images/smartphones-source/71c4af0c8c4e-Galaxy-A37_5G_Green-gray-dark-green.webp",
+    "originalBytes": 86154,
+    "webpBytes": 57630,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/71e636211b03-samsung_galaxy_s25_silver-shadow.png",
+    "webp": "images/smartphones-source/71e636211b03-samsung_galaxy_s25_silver-shadow.webp",
+    "originalBytes": 76782,
+    "webpBytes": 47062,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/73a4c5dad40e-Redmi-A7-Pro-blue-1.png",
+    "webp": "images/smartphones-source/73a4c5dad40e-Redmi-A7-Pro-blue-1.webp",
+    "originalBytes": 121086,
+    "webpBytes": 80746,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/742f5705ed45-iphone-16e-white.png",
+    "webp": "images/smartphones-source/742f5705ed45-iphone-16e-white.webp",
+    "originalBytes": 132379,
+    "webpBytes": 56320,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/75ef4deccf3b-Galaxy-S26-FE_Graphite.png",
+    "webp": "images/smartphones-source/75ef4deccf3b-Galaxy-S26-FE_Graphite.webp",
+    "originalBytes": 104007,
+    "webpBytes": 70530,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/76df740ff254-iphone_16_plus_ultramarine.png",
+    "webp": "images/smartphones-source/76df740ff254-iphone_16_plus_ultramarine.webp",
+    "originalBytes": 209081,
+    "webpBytes": 136584,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/775ef67d9e4d-zfold8-ultra_graphite_1.png",
+    "webp": "images/smartphones-source/775ef67d9e4d-zfold8-ultra_graphite_1.webp",
+    "originalBytes": 127888,
+    "webpBytes": 80444,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/77631dbf1ae1-Redmi-A7-Pro-green-1.png",
+    "webp": "images/smartphones-source/77631dbf1ae1-Redmi-A7-Pro-green-1.webp",
+    "originalBytes": 161431,
+    "webpBytes": 106596,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/78deea54a100-Poco-M8-black-1.png",
+    "webp": "images/smartphones-source/78deea54a100-Poco-M8-black-1.webp",
+    "originalBytes": 133210,
+    "webpBytes": 85674,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/796b169c27ff-Samsung-Z-fold6-gray.png",
+    "webp": "images/smartphones-source/796b169c27ff-Samsung-Z-fold6-gray.webp",
+    "originalBytes": 145436,
+    "webpBytes": 91602,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/7a68f6d680a0-Xiaomi-17T-pro-balck-3.png",
+    "webp": "images/smartphones-source/7a68f6d680a0-Xiaomi-17T-pro-balck-3.webp",
+    "originalBytes": 25282,
+    "webpBytes": 10586,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/7a70aa7533fe-iPhone_Air_sky-light-gold-1.png",
+    "webp": "images/smartphones-source/7a70aa7533fe-iPhone_Air_sky-light-gold-1.webp",
+    "originalBytes": 99253,
+    "webpBytes": 63058,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/7b32761a31e3-zfold8-ultra_graphite_3.png",
+    "webp": "images/smartphones-source/7b32761a31e3-zfold8-ultra_graphite_3.webp",
+    "originalBytes": 106886,
+    "webpBytes": 65396,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/7e0a3df3ef76-REDMI-Note-15-Pro--5G-black.png",
+    "webp": "images/smartphones-source/7e0a3df3ef76-REDMI-Note-15-Pro--5G-black.webp",
+    "originalBytes": 114642,
+    "webpBytes": 71592,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/7e7aabbeb117-Samsung-Z-fold6-gray-back.png",
+    "webp": "images/smartphones-source/7e7aabbeb117-Samsung-Z-fold6-gray-back.webp",
+    "originalBytes": 139903,
+    "webpBytes": 84080,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/7f18a2fba8f7-iPhone_17_Pro_deep-Blue.png",
+    "webp": "images/smartphones-source/7f18a2fba8f7-iPhone_17_Pro_deep-Blue.webp",
+    "originalBytes": 143744,
+    "webpBytes": 88766,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/8057f676ae4b-samsung_galaxy_zflip5_openfront_gray.png",
+    "webp": "images/smartphones-source/8057f676ae4b-samsung_galaxy_zflip5_openfront_gray.webp",
+    "originalBytes": 120470,
+    "webpBytes": 72920,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/8168545b3fc1-Xiaomi-17T-pro-balck-4.png",
+    "webp": "images/smartphones-source/8168545b3fc1-Xiaomi-17T-pro-balck-4.webp",
+    "originalBytes": 29049,
+    "webpBytes": 13518,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/838299f1a779-Xiaomi-15T-Pro-gray.png",
+    "webp": "images/smartphones-source/838299f1a779-Xiaomi-15T-Pro-gray.webp",
+    "originalBytes": 107632,
+    "webpBytes": 67504,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/86ebcc6bb5ee-iPhone_17e_White.png",
+    "webp": "images/smartphones-source/86ebcc6bb5ee-iPhone_17e_White.webp",
+    "originalBytes": 92969,
+    "webpBytes": 58460,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/88b01591a52e-iPhone_Air_Cloud_White_1.png",
+    "webp": "images/smartphones-source/88b01591a52e-iPhone_Air_Cloud_White_1.webp",
+    "originalBytes": 96161,
+    "webpBytes": 59752,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/8a92673b4db9-samsung_galaxy_s25_plus_blue.png",
+    "webp": "images/smartphones-source/8a92673b4db9-samsung_galaxy_s25_plus_blue.webp",
+    "originalBytes": 85915,
+    "webpBytes": 56320,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/8b2de58fa57b-GalaxyS24FE_black.png",
+    "webp": "images/smartphones-source/8b2de58fa57b-GalaxyS24FE_black.webp",
+    "originalBytes": 83168,
+    "webpBytes": 55002,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/8b6de2e62b0d-xiaomi_13t_5g_green.png",
+    "webp": "images/smartphones-source/8b6de2e62b0d-xiaomi_13t_5g_green.webp",
+    "originalBytes": 124413,
+    "webpBytes": 83604,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/8ba2ac641507-Galaxy-A56-5G_Awesome-Olive.png",
+    "webp": "images/smartphones-source/8ba2ac641507-Galaxy-A56-5G_Awesome-Olive.webp",
+    "originalBytes": 107734,
+    "webpBytes": 73282,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/8bb91ce5dd11-samsung_galaxy_S26-plus_white.png",
+    "webp": "images/smartphones-source/8bb91ce5dd11-samsung_galaxy_S26-plus_white.webp",
+    "originalBytes": 92405,
+    "webpBytes": 58540,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/8f4a6e12a6e9-z-flip8_pink_2.png",
+    "webp": "images/smartphones-source/8f4a6e12a6e9-z-flip8_pink_2.webp",
+    "originalBytes": 95267,
+    "webpBytes": 59940,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/90157951cb09-samsung_galaxy_s25_ultra_titanium-silver.png",
+    "webp": "images/smartphones-source/90157951cb09-samsung_galaxy_s25_ultra_titanium-silver.webp",
+    "originalBytes": 96696,
+    "webpBytes": 56164,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/904dc83c83a5-poco-x8-pro-max-black.png",
+    "webp": "images/smartphones-source/904dc83c83a5-poco-x8-pro-max-black.webp",
+    "originalBytes": 113258,
+    "webpBytes": 67064,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/919b19cc7d23-iphone-16e-black.png",
+    "webp": "images/smartphones-source/919b19cc7d23-iphone-16e-black.webp",
+    "originalBytes": 129261,
+    "webpBytes": 60762,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/92ffa52a1049-GalaxyA57_5G_icyblue-light-blue.png",
+    "webp": "images/smartphones-source/92ffa52a1049-GalaxyA57_5G_icyblue-light-blue.webp",
+    "originalBytes": 76584,
+    "webpBytes": 51838,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/93ebbc7e46bd-Samsung-Z-fold6-gray-closed.png",
+    "webp": "images/smartphones-source/93ebbc7e46bd-Samsung-Z-fold6-gray-closed.webp",
+    "originalBytes": 101356,
+    "webpBytes": 61638,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/95191c39f45f-samsung_galaxy_s25_ultra_titanium-blue.png",
+    "webp": "images/smartphones-source/95191c39f45f-samsung_galaxy_s25_ultra_titanium-blue.webp",
+    "originalBytes": 109502,
+    "webpBytes": 66130,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/964f9d665722-Galaxy-A37_5G_White.png",
+    "webp": "images/smartphones-source/964f9d665722-Galaxy-A37_5G_White.webp",
+    "originalBytes": 84565,
+    "webpBytes": 55214,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/9672407e2097-iPhone_17_Pro_Max_Cosmic_Orange.png",
+    "webp": "images/smartphones-source/9672407e2097-iPhone_17_Pro_Max_Cosmic_Orange.webp",
+    "originalBytes": 37434,
+    "webpBytes": 31702,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/969a912a82e0-samsung_galaxy_s25_plus_navy-blue.png",
+    "webp": "images/smartphones-source/969a912a82e0-samsung_galaxy_s25_plus_navy-blue.webp",
+    "originalBytes": 94228,
+    "webpBytes": 61594,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/97aa4704e9a8-REDMI-Note-15-Pro-5G-titanium.png",
+    "webp": "images/smartphones-source/97aa4704e9a8-REDMI-Note-15-Pro-5G-titanium.webp",
+    "originalBytes": 135033,
+    "webpBytes": 86886,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/98b961481bc4-zfold8_lavender_1.png",
+    "webp": "images/smartphones-source/98b961481bc4-zfold8_lavender_1.webp",
+    "originalBytes": 123784,
+    "webpBytes": 80050,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/9984bf1d2acb-zfold8_graphite_1.png",
+    "webp": "images/smartphones-source/9984bf1d2acb-zfold8_graphite_1.webp",
+    "originalBytes": 123726,
+    "webpBytes": 77384,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/9a5065ae7d7e-Samsung-Galaxy-A17_LTE_Light-Blue.png",
+    "webp": "images/smartphones-source/9a5065ae7d7e-Samsung-Galaxy-A17_LTE_Light-Blue.webp",
+    "originalBytes": 104316,
+    "webpBytes": 68138,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/9a9d1065cce2-REDMI-Note-15-Pro-blue-1.png",
+    "webp": "images/smartphones-source/9a9d1065cce2-REDMI-Note-15-Pro-blue-1.webp",
+    "originalBytes": 118584,
+    "webpBytes": 76824,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/9c4126338a87-samsung_galaxy_S26-plus_black.png",
+    "webp": "images/smartphones-source/9c4126338a87-samsung_galaxy_S26-plus_black.webp",
+    "originalBytes": 104397,
+    "webpBytes": 68960,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/9cf2cac2740f-Samsung-fold7-silver-shadow1_1.png",
+    "webp": "images/smartphones-source/9cf2cac2740f-Samsung-fold7-silver-shadow1_1.webp",
+    "originalBytes": 109801,
+    "webpBytes": 72112,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/9d51486c3a81-z-flip8_graphite_4.png",
+    "webp": "images/smartphones-source/9d51486c3a81-z-flip8_graphite_4.webp",
+    "originalBytes": 75362,
+    "webpBytes": 45440,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/9de71ba11fbd-Redmi-note-14-blue.png",
+    "webp": "images/smartphones-source/9de71ba11fbd-Redmi-note-14-blue.webp",
+    "originalBytes": 119193,
+    "webpBytes": 78532,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/9f39f75acddf-Samsung-S25-FE-black.png",
+    "webp": "images/smartphones-source/9f39f75acddf-Samsung-S25-FE-black.webp",
+    "originalBytes": 80530,
+    "webpBytes": 50920,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/a14adf25827e-iPhone_17_Pro_Max_Deep-Blue.png",
+    "webp": "images/smartphones-source/a14adf25827e-iPhone_17_Pro_Max_Deep-Blue.webp",
+    "originalBytes": 156414,
+    "webpBytes": 98068,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/a190745016bf-samsung_galaxy_s25_ultra_titanium-gray.png",
+    "webp": "images/smartphones-source/a190745016bf-samsung_galaxy_s25_ultra_titanium-gray.webp",
+    "originalBytes": 101166,
+    "webpBytes": 58470,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/a23b78a5fe8a-Samsung-flip7_jet-black-1.png",
+    "webp": "images/smartphones-source/a23b78a5fe8a-Samsung-flip7_jet-black-1.webp",
+    "originalBytes": 101189,
+    "webpBytes": 54274,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/a445aca1934b-Samsung-fold7-blue-shadow3_2.png",
+    "webp": "images/smartphones-source/a445aca1934b-Samsung-fold7-blue-shadow3_2.webp",
+    "originalBytes": 148309,
+    "webpBytes": 98136,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/a82fcd642e54-samsung_galaxy_S26-ultra_skyblue.png",
+    "webp": "images/smartphones-source/a82fcd642e54-samsung_galaxy_S26-ultra_skyblue.webp",
+    "originalBytes": 109118,
+    "webpBytes": 70348,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/a8ee9eb642f5-samsung_galaxy_zflip5_tabletop_beige.png",
+    "webp": "images/smartphones-source/a8ee9eb642f5-samsung_galaxy_zflip5_tabletop_beige.webp",
+    "originalBytes": 145953,
+    "webpBytes": 82468,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/aa587a601840-iiPhone_17_White_1.png",
+    "webp": "images/smartphones-source/aa587a601840-iiPhone_17_White_1.webp",
+    "originalBytes": 124254,
+    "webpBytes": 84560,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/aab7a9d640dd-normande_n1_kosher_back.png",
+    "webp": "images/smartphones-source/aab7a9d640dd-normande_n1_kosher_back.webp",
+    "originalBytes": 21996,
+    "webpBytes": 12166,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/aadf6ed5a6dc-iphone_16_pro_max_desert.png",
+    "webp": "images/smartphones-source/aadf6ed5a6dc-iphone_16_pro_max_desert.webp",
+    "originalBytes": 154826,
+    "webpBytes": 98052,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ab28f30e8b8e-samsung_galaxy_zflip5_openfront_light_green.png",
+    "webp": "images/smartphones-source/ab28f30e8b8e-samsung_galaxy_zflip5_openfront_light_green.webp",
+    "originalBytes": 122879,
+    "webpBytes": 73992,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ab42185d18da-Galaxy-A37_5G_Charcoal-darkgray.png",
+    "webp": "images/smartphones-source/ab42185d18da-Galaxy-A37_5G_Charcoal-darkgray.webp",
+    "originalBytes": 85824,
+    "webpBytes": 57578,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ab95eccadceb-samsung_galaxy_S26_skyblue.png",
+    "webp": "images/smartphones-source/ab95eccadceb-samsung_galaxy_S26_skyblue.webp",
+    "originalBytes": 99055,
+    "webpBytes": 64644,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ac2e369879b3-nokia-215-new.png",
+    "webp": "images/smartphones-source/ac2e369879b3-nokia-215-new.webp",
+    "originalBytes": 143199,
+    "webpBytes": 84824,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ac969e953ce1-Samsung-fold7-jet-black1_1.png",
+    "webp": "images/smartphones-source/ac969e953ce1-Samsung-fold7-jet-black1_1.webp",
+    "originalBytes": 112286,
+    "webpBytes": 71754,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ad55bbe4572d-Samsung-fold7-jet-black2_1.png",
+    "webp": "images/smartphones-source/ad55bbe4572d-Samsung-fold7-jet-black2_1.webp",
+    "originalBytes": 83686,
+    "webpBytes": 50924,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/adac64cfc742-GalaxyA57_5G_Gray.png",
+    "webp": "images/smartphones-source/adac64cfc742-GalaxyA57_5G_Gray.webp",
+    "originalBytes": 80367,
+    "webpBytes": 54798,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/aef9be3ae925-samsung_galaxy_s24_ultra_titanium_black.png",
+    "webp": "images/smartphones-source/aef9be3ae925-samsung_galaxy_s24_ultra_titanium_black.webp",
+    "originalBytes": 122724,
+    "webpBytes": 67336,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/afa86c1bdeb3-z-flip8_cream_1.png",
+    "webp": "images/smartphones-source/afa86c1bdeb3-z-flip8_cream_1.webp",
+    "originalBytes": 95859,
+    "webpBytes": 53258,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/b23c6e9bcb51-Xiaomi-15T-gray.png",
+    "webp": "images/smartphones-source/b23c6e9bcb51-Xiaomi-15T-gray.webp",
+    "originalBytes": 112224,
+    "webpBytes": 69922,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/b342ed7f7220-vivo_y76_5g_black.png",
+    "webp": "images/smartphones-source/b342ed7f7220-vivo_y76_5g_black.webp",
+    "originalBytes": 200095,
+    "webpBytes": 130398,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/b409acad9904-POCO-C81-Pro-green-1.png",
+    "webp": "images/smartphones-source/b409acad9904-POCO-C81-Pro-green-1.webp",
+    "originalBytes": 116144,
+    "webpBytes": 71588,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/b4d420de2295-iphone_16_pro_black.png",
+    "webp": "images/smartphones-source/b4d420de2295-iphone_16_pro_black.webp",
+    "originalBytes": 114435,
+    "webpBytes": 68672,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/b66131c94b81-samsung_galaxy_zfold5_folded_black.png",
+    "webp": "images/smartphones-source/b66131c94b81-samsung_galaxy_zfold5_folded_black.webp",
+    "originalBytes": 113565,
+    "webpBytes": 68728,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/bab832fdd366-POCO-C81-Pro-black-1.png",
+    "webp": "images/smartphones-source/bab832fdd366-POCO-C81-Pro-black-1.webp",
+    "originalBytes": 110046,
+    "webpBytes": 66682,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/bb536d41f80c-Samsung-S25-FE-bue.png",
+    "webp": "images/smartphones-source/bb536d41f80c-Samsung-S25-FE-bue.webp",
+    "originalBytes": 90636,
+    "webpBytes": 61060,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/bf0c100a5ac5-samsung_galaxy_s25_ultra_titanium-black.png",
+    "webp": "images/smartphones-source/bf0c100a5ac5-samsung_galaxy_s25_ultra_titanium-black.webp",
+    "originalBytes": 101564,
+    "webpBytes": 61358,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c041686042f3-Future-Flip-Phone-LTE-open-and-close.png",
+    "webp": "images/smartphones-source/c041686042f3-Future-Flip-Phone-LTE-open-and-close.webp",
+    "originalBytes": 95571,
+    "webpBytes": 54596,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c158df748cad-samsung_galaxy_zfold5_back_black.png",
+    "webp": "images/smartphones-source/c158df748cad-samsung_galaxy_zfold5_back_black.webp",
+    "originalBytes": 173897,
+    "webpBytes": 108914,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c160bfbde6cb-Redmi-A7-Pro-black-3.png",
+    "webp": "images/smartphones-source/c160bfbde6cb-Redmi-A7-Pro-black-3.webp",
+    "originalBytes": 23180,
+    "webpBytes": 12342,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c1de297bb1b9-REDMI-Note-15-Pro-black-1.png",
+    "webp": "images/smartphones-source/c1de297bb1b9-REDMI-Note-15-Pro-black-1.webp",
+    "originalBytes": 95485,
+    "webpBytes": 58476,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c2b918e69958-samsung_galaxy_s25_plus_silver-shadow.png",
+    "webp": "images/smartphones-source/c2b918e69958-samsung_galaxy_s25_plus_silver-shadow.webp",
+    "originalBytes": 89239,
+    "webpBytes": 56688,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c314507cbf84-nokia_2660_flip_closed.png",
+    "webp": "images/smartphones-source/c314507cbf84-nokia_2660_flip_closed.webp",
+    "originalBytes": 91568,
+    "webpBytes": 54062,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c365d0513743-Redmi-note-14-Pro-5G-blue.png",
+    "webp": "images/smartphones-source/c365d0513743-Redmi-note-14-Pro-5G-blue.webp",
+    "originalBytes": 129508,
+    "webpBytes": 86358,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c3ee038af031-iPhone_17_Pro_Max_Silver.png",
+    "webp": "images/smartphones-source/c3ee038af031-iPhone_17_Pro_Max_Silver.webp",
+    "originalBytes": 148392,
+    "webpBytes": 92044,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c4118df242aa-Xiaomi-17T-black-2.png",
+    "webp": "images/smartphones-source/c4118df242aa-Xiaomi-17T-black-2.webp",
+    "originalBytes": 38005,
+    "webpBytes": 20246,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c52176398393-samsung-z-flip6-blue.png",
+    "webp": "images/smartphones-source/c52176398393-samsung-z-flip6-blue.webp",
+    "originalBytes": 128689,
+    "webpBytes": 75892,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c5540b002ff4-Redmi-note-14-Pro-5G-black_1.png",
+    "webp": "images/smartphones-source/c5540b002ff4-Redmi-note-14-Pro-5G-black_1.webp",
+    "originalBytes": 89812,
+    "webpBytes": 56028,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c724f5f766bb-Xiaomi-15T-black.png",
+    "webp": "images/smartphones-source/c724f5f766bb-Xiaomi-15T-black.webp",
+    "originalBytes": 92135,
+    "webpBytes": 56974,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/c8e0c90180d7-samsung_galaxy_a07_black.png",
+    "webp": "images/smartphones-source/c8e0c90180d7-samsung_galaxy_a07_black.webp",
+    "originalBytes": 165673,
+    "webpBytes": 69018,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ca461a594177-Galaxy-A37_5G_Lavender-lightViolet.png",
+    "webp": "images/smartphones-source/ca461a594177-Galaxy-A37_5G_Lavender-lightViolet.webp",
+    "originalBytes": 90145,
+    "webpBytes": 59278,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/cc1e9cbcbef3-iPhone_17e_Black.png",
+    "webp": "images/smartphones-source/cc1e9cbcbef3-iPhone_17e_Black.webp",
+    "originalBytes": 117380,
+    "webpBytes": 70420,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/cd319fc0cdcc-GalaxyA57_5G_lilach-violet.png",
+    "webp": "images/smartphones-source/cd319fc0cdcc-GalaxyA57_5G_lilach-violet.webp",
+    "originalBytes": 82343,
+    "webpBytes": 54364,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ce3c790d43df-Samsung-fold7-jet-black3_1.png",
+    "webp": "images/smartphones-source/ce3c790d43df-Samsung-fold7-jet-black3_1.webp",
+    "originalBytes": 125313,
+    "webpBytes": 77984,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/cfcd6d11e8dd-samsung_galaxy_S26-ultra_cobalt-violet.png",
+    "webp": "images/smartphones-source/cfcd6d11e8dd-samsung_galaxy_S26-ultra_cobalt-violet.webp",
+    "originalBytes": 108459,
+    "webpBytes": 69286,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d0e2dcc50daf-Samsung-Galaxy-A17_LTE_Black.png",
+    "webp": "images/smartphones-source/d0e2dcc50daf-Samsung-Galaxy-A17_LTE_Black.webp",
+    "originalBytes": 85485,
+    "webpBytes": 54890,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d1481da15cd8-samsung_galaxy_S26-ultra_black.png",
+    "webp": "images/smartphones-source/d1481da15cd8-samsung_galaxy_S26-ultra_black.webp",
+    "originalBytes": 106197,
+    "webpBytes": 67780,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d1802d245787-iphone_14_purple.png",
+    "webp": "images/smartphones-source/d1802d245787-iphone_14_purple.webp",
+    "originalBytes": 136242,
+    "webpBytes": 84860,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d2ca385e9cc5-Redmi-note-14-Pro-5G-purple_1.png",
+    "webp": "images/smartphones-source/d2ca385e9cc5-Redmi-note-14-Pro-5G-purple_1.webp",
+    "originalBytes": 126682,
+    "webpBytes": 82036,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d3a8aad0007e-zfold8_graphite_2.png",
+    "webp": "images/smartphones-source/d3a8aad0007e-zfold8_graphite_2.webp",
+    "originalBytes": 84836,
+    "webpBytes": 54812,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d3ee4af07ec9-iPhone_17_Pro_Cosmic_Orange.png",
+    "webp": "images/smartphones-source/d3ee4af07ec9-iPhone_17_Pro_Cosmic_Orange.webp",
+    "originalBytes": 161009,
+    "webpBytes": 105354,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d552ab7f64c1-Xiaomi-Redmi-15-C-NFC-black.png",
+    "webp": "images/smartphones-source/d552ab7f64c1-Xiaomi-Redmi-15-C-NFC-black.webp",
+    "originalBytes": 124759,
+    "webpBytes": 78004,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d659a4af5527-Xiaomi-17T-black-5.png",
+    "webp": "images/smartphones-source/d659a4af5527-Xiaomi-17T-black-5.webp",
+    "originalBytes": 88855,
+    "webpBytes": 50104,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d7680d2a9a1f-zfold8_lavender_4.png",
+    "webp": "images/smartphones-source/d7680d2a9a1f-zfold8_lavender_4.webp",
+    "originalBytes": 93026,
+    "webpBytes": 63904,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/d7e419f6a6dc-z-flip8_graphite_2.png",
+    "webp": "images/smartphones-source/d7e419f6a6dc-z-flip8_graphite_2.webp",
+    "originalBytes": 96266,
+    "webpBytes": 59502,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/de0d55629299-Nokia-235-4G-back.png",
+    "webp": "images/smartphones-source/de0d55629299-Nokia-235-4G-back.webp",
+    "originalBytes": 21801,
+    "webpBytes": 11240,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/de10c6f9ea88-iPhone_Air_sky-Blue-1.png",
+    "webp": "images/smartphones-source/de10c6f9ea88-iPhone_Air_sky-Blue-1.webp",
+    "originalBytes": 103898,
+    "webpBytes": 65542,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/de4233683265-iphone_15_yellow.png",
+    "webp": "images/smartphones-source/de4233683265-iphone_15_yellow.webp",
+    "originalBytes": 167234,
+    "webpBytes": 105716,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/deedc31c7dc8-z-flip8_cream_3.png",
+    "webp": "images/smartphones-source/deedc31c7dc8-z-flip8_cream_3.webp",
+    "originalBytes": 109447,
+    "webpBytes": 70154,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/df23532fffe3-z-flip8_graphite_1.png",
+    "webp": "images/smartphones-source/df23532fffe3-z-flip8_graphite_1.webp",
+    "originalBytes": 107213,
+    "webpBytes": 59696,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/e2d89d9d52a9-GalaxyA57_5G_navy-dark-blue.png",
+    "webp": "images/smartphones-source/e2d89d9d52a9-GalaxyA57_5G_navy-dark-blue.webp",
+    "originalBytes": 73555,
+    "webpBytes": 50954,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/e35234be5738-Xiaomi-17T-pro-balck-5.png",
+    "webp": "images/smartphones-source/e35234be5738-Xiaomi-17T-pro-balck-5.webp",
+    "originalBytes": 85423,
+    "webpBytes": 47636,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/e4a999002779-samsung_galaxy_S26-ultra_white.png",
+    "webp": "images/smartphones-source/e4a999002779-samsung_galaxy_S26-ultra_white.webp",
+    "originalBytes": 110229,
+    "webpBytes": 68700,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/e5332a65779a-Samsung-fold7-blue-shadow2_2.png",
+    "webp": "images/smartphones-source/e5332a65779a-Samsung-fold7-blue-shadow2_2.webp",
+    "originalBytes": 91488,
+    "webpBytes": 56994,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/e6bb772855b7-samsung_galaxy_S26-plus_skyblue.png",
+    "webp": "images/smartphones-source/e6bb772855b7-samsung_galaxy_S26-plus_skyblue.webp",
+    "originalBytes": 109680,
+    "webpBytes": 72294,
+    "width": 360,
+    "height": 400,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/e7363cb62a3a-iphone_16_pro_desert.png",
+    "webp": "images/smartphones-source/e7363cb62a3a-iphone_16_pro_desert.webp",
+    "originalBytes": 140778,
+    "webpBytes": 87986,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/e86743b8d2e1-zfold8-ultra_violet-shadow_3.png",
+    "webp": "images/smartphones-source/e86743b8d2e1-zfold8-ultra_violet-shadow_3.webp",
+    "originalBytes": 107496,
+    "webpBytes": 67644,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/e93cccb6b32d-Xiaomi-Redmi-15-C-NFC-blue.png",
+    "webp": "images/smartphones-source/e93cccb6b32d-Xiaomi-Redmi-15-C-NFC-blue.webp",
+    "originalBytes": 179809,
+    "webpBytes": 115906,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ea13121e0c13-Samsung-flip7_coral-red-2.png",
+    "webp": "images/smartphones-source/ea13121e0c13-Samsung-flip7_coral-red-2.webp",
+    "originalBytes": 89275,
+    "webpBytes": 57584,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ea7734c602d6-samsung_galaxy_a07_purple.png",
+    "webp": "images/smartphones-source/ea7734c602d6-samsung_galaxy_a07_purple.webp",
+    "originalBytes": 128786,
+    "webpBytes": 63744,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ec018b61c456-Galaxy-A27_5G-Pink.png",
+    "webp": "images/smartphones-source/ec018b61c456-Galaxy-A27_5G-Pink.webp",
+    "originalBytes": 86735,
+    "webpBytes": 56634,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ec4b106cf754-zfold8-ultra_cream_2.png",
+    "webp": "images/smartphones-source/ec4b106cf754-zfold8-ultra_cream_2.webp",
+    "originalBytes": 108006,
+    "webpBytes": 70854,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ec6002daaf59-zfold8-ultra_cream_3.png",
+    "webp": "images/smartphones-source/ec6002daaf59-zfold8-ultra_cream_3.webp",
+    "originalBytes": 96304,
+    "webpBytes": 59378,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ec9795df4492-samsung_galaxy_s25_edge-titanioum-silverwith-side.png",
+    "webp": "images/smartphones-source/ec9795df4492-samsung_galaxy_s25_edge-titanioum-silverwith-side.webp",
+    "originalBytes": 75661,
+    "webpBytes": 46974,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/ed7bc1556420-Samsung-flip7_blue-shadow-1.png",
+    "webp": "images/smartphones-source/ed7bc1556420-Samsung-flip7_blue-shadow-1.webp",
+    "originalBytes": 115202,
+    "webpBytes": 65502,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/edc4a73ab71c-Xiaomi-15T-Pro-gold.png",
+    "webp": "images/smartphones-source/edc4a73ab71c-Xiaomi-15T-Pro-gold.webp",
+    "originalBytes": 122635,
+    "webpBytes": 79030,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/efb2d7038044-samsung_galaxy_zflip5_openfront_beige.png",
+    "webp": "images/smartphones-source/efb2d7038044-samsung_galaxy_zflip5_openfront_beige.webp",
+    "originalBytes": 122775,
+    "webpBytes": 74440,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/f107fc8e29d7-samsung-z-flip6-gray-open.png",
+    "webp": "images/smartphones-source/f107fc8e29d7-samsung-z-flip6-gray-open.webp",
+    "originalBytes": 105931,
+    "webpBytes": 64530,
+    "width": 280,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/f154626fa63c-iphone_16_pro_white.png",
+    "webp": "images/smartphones-source/f154626fa63c-iphone_16_pro_white.webp",
+    "originalBytes": 115350,
+    "webpBytes": 69246,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/f341d41d047b-iPhone_17_Pro_Silver-2-.png",
+    "webp": "images/smartphones-source/f341d41d047b-iPhone_17_Pro_Silver-2-.webp",
+    "originalBytes": 30231,
+    "webpBytes": 25724,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/f363a8509343-samsung_galaxy_s25_edge-iceblue-with-side.png",
+    "webp": "images/smartphones-source/f363a8509343-samsung_galaxy_s25_edge-iceblue-with-side.webp",
+    "originalBytes": 87204,
+    "webpBytes": 56650,
+    "width": 360,
+    "height": 360,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/f456521ed119-REDMI-Note-15_black.png",
+    "webp": "images/smartphones-source/f456521ed119-REDMI-Note-15_black.webp",
+    "originalBytes": 100314,
+    "webpBytes": 61926,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/f56099fe029c-z-flip8_pink_1.png",
+    "webp": "images/smartphones-source/f56099fe029c-z-flip8_pink_1.webp",
+    "originalBytes": 111454,
+    "webpBytes": 65556,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/f870a25a0b5f-iphone_14_midnight.png",
+    "webp": "images/smartphones-source/f870a25a0b5f-iphone_14_midnight.webp",
+    "originalBytes": 124945,
+    "webpBytes": 76700,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/fac5ab8a761e-iphone_14_red.png",
+    "webp": "images/smartphones-source/fac5ab8a761e-iphone_14_red.webp",
+    "originalBytes": 137437,
+    "webpBytes": 88790,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/fb1ca6689a7c-REDMI-Note-15-Pro--5G-blue.png",
+    "webp": "images/smartphones-source/fb1ca6689a7c-REDMI-Note-15-Pro--5G-blue.webp",
+    "originalBytes": 131804,
+    "webpBytes": 84498,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/fb1ebd26f80e-samsung_galaxy_a07_green.png",
+    "webp": "images/smartphones-source/fb1ebd26f80e-samsung_galaxy_a07_green.webp",
+    "originalBytes": 173061,
+    "webpBytes": 74404,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/smartphones-source/fe0477bad653-Samsung-Galaxy-A17_LTE_Gray.png",
+    "webp": "images/smartphones-source/fe0477bad653-Samsung-Galaxy-A17_LTE_Gray.webp",
+    "originalBytes": 90684,
+    "webpBytes": 58410,
+    "width": 360,
+    "height": 480,
+    "used": true
+  },
+  {
+    "source": "images/speakers-banner.png",
+    "webp": "images/speakers-banner.webp",
+    "originalBytes": 600055,
+    "webpBytes": 534058,
+    "width": 2048,
+    "height": 768,
+    "used": true
+  }
+]

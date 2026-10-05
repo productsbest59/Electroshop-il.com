@@ -1,4 +1,4 @@
-import('./shop-api.js?v=option-images-2').then(async api => {
+import('./shop-api.js?v=media-webp-1').then(async api => {
   const session = await api.getSession();
   if (!session || !await api.isAdmin(session)) { location.replace('shop-login.html'); return; }
   const paymentLabels = { pending:'ממתין לתשלום', paid:'שולם', failed:'נכשל', refunded:'הוחזר' };
@@ -26,7 +26,7 @@ import('./shop-api.js?v=option-images-2').then(async api => {
       <div class="order-details" hidden>
         <div class="customer-grid"><div><b>${escape(order.customer_name)}</b><br><a href="mailto:${escape(order.customer_email)}">${escape(order.customer_email)}</a><br><a href="tel:${escape(order.customer_phone)}">${escape(order.customer_phone)}</a></div><div><b>${order.fulfillment_method === 'pickup' ? 'איסוף עצמי' : 'משלוח'}</b><br>${escape(order.address)}, ${escape(order.city)}<br>${escape(order.postal_code)} ${escape(order.country)}<br><b>אמצעי תשלום:</b> ${escape(paymentMethod(order))}</div></div>
         ${String(order.customer_note ?? "").trim() ? `<div class="customer-note" style="margin:16px 0;padding:14px;border:1px solid #735b35;border-radius:10px"><strong>הערת הלקוח להזמנה</strong><p style="white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0 0">${escape(order.customer_note)}</p></div>` : ""}
-        <div class="ordered-items">${order.order_items.map(item => `<div><img src="${escape(imageUrl(item.primary_image_path))}" alt="${escape(item.product_name_he)}"><span>${escape(item.product_name_he)}<small>${escape(Object.values(item.selected_options||{}).filter(Boolean).join(' | '))} | כמות: ${Number(item.quantity)}</small></span></div>`).join('')}</div>
+        <div class="ordered-items">${order.order_items.map(item => `<div><img src="${escape(imageUrl(item.primary_image_path))}" alt="${escape(item.product_name_he)}" decoding="async"><span>${escape(item.product_name_he)}<small>${escape(Object.values(item.selected_options||{}).filter(Boolean).join(' | '))} | כמות: ${Number(item.quantity)}</small></span></div>`).join('')}</div>
         <div class="order-controls"><label>מצב תשלום<select data-field="payment_status">${options(paymentLabels,order.payment_status)}</select></label><label>מצב טיפול ומשלוח<select data-field="fulfillment_status">${options(fulfillmentLabels,order.fulfillment_status)}</select></label><label>מספר מעקב<input data-field="tracking_number" value="${escape(order.tracking_number)}"></label><label>הערה פנימית<textarea data-field="admin_note" rows="2">${escape(order.admin_note)}</textarea></label><button class="button save-order">שמירת עדכון</button></div>
       </div>
     </article>`;

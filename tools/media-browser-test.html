@@ -1,0 +1,17 @@
+<!doctype html><html lang="he" dir="rtl"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>בדיקת מנגנון תמונות</title><body style="font-family:Arial,sans-serif"><h1>בדיקת מנגנון תמונות אלקטרושופ</h1><pre id="results">בודק...</pre><script type="module">
+import {prepareImageBlob} from '../shop-image-upload.js';
+const results=[];
+try{
+ const canvas=document.createElement('canvas');canvas.width=320;canvas.height=180;
+ const context=canvas.getContext('2d');context.fillStyle='#ffab00';context.fillRect(30,20,260,140);context.fillStyle='#111';context.fillText('Electroshop',70,70);
+ for(const type of ['image/png','image/jpeg']){
+   const original=await new Promise(resolve=>canvas.toBlob(resolve,type,.99));const optimized=await prepareImageBlob(original);
+   const bitmap=await createImageBitmap(optimized),dimensions=bitmap.width===320&&bitmap.height===180;
+   if(!dimensions||optimized.size>original.size)throw Error('מידות או גודל הקובץ אינם תקינים');
+   if(type==='image/png'){const check=document.createElement('canvas');check.width=320;check.height=180;check.getContext('2d').drawImage(bitmap,0,0);if(check.getContext('2d').getImageData(0,0,1,1).data[3]!==0)throw Error('השקיפות נפגעה')}
+   bitmap.close();results.push({type,result:optimized.type,originalBytes:original.size,optimizedBytes:optimized.size,dimensions:'passed',transparency:type==='image/png'?'passed':'not applicable'});
+ }
+ const webp=await new Promise(resolve=>canvas.toBlob(resolve,'image/webp',.96));if(await prepareImageBlob(webp)!==webp)throw Error('WebP קיים הומר שוב');
+ document.querySelector('#results').textContent=JSON.stringify({success:true,alreadyWebp:'unchanged',results},null,2);
+}catch(error){document.querySelector('#results').textContent='FAILED: '+error.message}
+</script></body></html>

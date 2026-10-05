@@ -1,5 +1,5 @@
-import {articleImageUrl} from './shop-api.js';
-import {renderArticleShell} from './shop-articles-shell.js?v=5';
+import {articleImageUrl} from './shop-api.js?v=media-webp-1';
+import {renderArticleShell} from './shop-articles-shell.js?v=media-webp-1';
 renderArticleShell();
 const view=document.querySelector('#articleView'),lang=localStorage.getItem('electroshop_language')==='en'?'en':'he';
 const esc=value=>String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -11,5 +11,5 @@ try{
   ? '© All rights reserved by Electroshop. The article, any part of it, and its images may not be copied, reproduced, published, distributed or used without prior written permission.'
   : '© כל הזכויות שמורות לאלקטרושופ. אין להעתיק, לשכפל, לפרסם, להפיץ או לעשות שימוש בכתבה, בחלקים ממנה או בתמונות שבה ללא אישור מראש ובכתב.';
  document.title=`${title} | תצוגה מקדימה`;
- view.innerHTML=`<div class="article-preview-badge">טיוטה - תצוגה מקדימה בלבד</div><header class="article-head">${cover?`<img class="article-cover" src="${esc(cover)}" alt="${esc(article[`cover_alt_${lang}`]||title)}">`:''}<h1>${esc(title)}</h1></header><div class="article-content">${content}</div>${content.includes(copyrightNotice)?'':`<p class="article-copyright">${esc(copyrightNotice)}</p>`}<a class="article-back-link" href="shop-news.html">${lang==='en'?'← Back to News & Guides':'→ חזרה לחדשות ומדריכים'}</a>`;
+ view.innerHTML=`<div class="article-preview-badge">טיוטה - תצוגה מקדימה בלבד</div><header class="article-head">${cover?`<img class="article-cover" src="${esc(cover)}" alt="${esc(article[`cover_alt_${lang}`]||title)}" decoding="async">`:''}<h1>${esc(title)}</h1></header><div class="article-content">${content}</div>${content.includes(copyrightNotice)?'':`<p class="article-copyright">${esc(copyrightNotice)}</p>`}<a class="article-back-link" href="shop-news.html">${lang==='en'?'← Back to News & Guides':'→ חזרה לחדשות ומדריכים'}</a>`;
 }catch{view.innerHTML='<h1>אין טיוטה להצגה</h1><p><a href="shop-articles-admin.html">חזרה לעורך</a></p>'}

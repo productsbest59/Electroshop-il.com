@@ -1,5 +1,5 @@
 import {reconcilePaidCart} from './shop-paid-cart.js?v=1';
-import {request} from './shop-api.js?v=option-images-2';
+import {request} from './shop-api.js?v=media-webp-1';
 const english=localStorage.getItem('electroshop_store_language')==='en';
 if(english){document.documentElement.lang='en';document.documentElement.dir='ltr';document.title='Thank you | Electroshop';document.querySelector('h1').textContent='Thank you for choosing Electroshop';document.querySelector('main a').textContent='Back to store';}
 const status=document.getElementById('paymentStatus');

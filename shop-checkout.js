@@ -1,5 +1,5 @@
 import('./shop-config.js').then(({config})=>{
-import('./shop-api.js?v=option-images-2').then(async api => {
+import('./shop-api.js?v=media-webp-1').then(async api => {
   const language = localStorage.getItem('electroshop_store_language') === 'en' ? 'en' : 'he';
   const english = language === 'en';
   document.documentElement.lang = language;
@@ -63,7 +63,7 @@ import('./shop-api.js?v=option-images-2').then(async api => {
 
   document.querySelector('#summaryLines').innerHTML = lines.map(({ item, product }) => `
     <div class="summary-line">
-      <img src="${item.image || product.images[0]}" alt="${english ? product.nameEn : product.nameHe}">
+      <img src="${item.image || product.images[0]}" alt="${english ? product.nameEn : product.nameHe}" decoding="async">
       <div>
         <strong>${english ? product.nameEn : product.nameHe}</strong>
         <small>${[item.color, item.size, item.style].filter(Boolean).map(optionText).join(' | ')}</small>

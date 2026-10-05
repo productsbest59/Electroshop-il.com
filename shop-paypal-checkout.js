@@ -1,6 +1,6 @@
 import {rememberPaymentCart,cartSnapshot,reconcilePaidCart} from './shop-paid-cart.js?v=1';
 import {checkoutData} from './shop-bit-checkout.js?v=qr-no-click-6';
-import {request} from './shop-api.js?v=option-images-2';
+import {request} from './shop-api.js?v=media-webp-1';
 const form=document.getElementById('checkoutForm'),status=document.getElementById('paypalStatus'),retry=document.getElementById('paypalRetry');
 const english=localStorage.getItem('electroshop_store_language')==='en';
 if(english){document.documentElement.lang='en';document.documentElement.dir='ltr';document.querySelector('.checkout-shell h1').textContent='Customer and shipping details';document.querySelector('.checkout-shell section > .notice').textContent='Pay in ILS with PayPal or Bit. Bit payments are confirmed manually. Smartphone shipping: ILS 50 per order. Other products: free shipping unless stated otherwise. For pickup-only products, please arrange your visit with the store.';const labels=['Full name','Email','Phone','Country','City','Street and number','Postal code','Order notes'];document.querySelectorAll('#checkoutForm > label.field > span').forEach((el,i)=>el.textContent=labels[i]);document.querySelector('#checkoutForm small').textContent='Shipping within Israel';document.querySelector('.order-summary h2').textContent='Order summary';document.getElementById('paypalRetry').textContent='Check payment again';}

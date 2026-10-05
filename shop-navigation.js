@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded',()=>{
      const version=++checkVersion;
      admin.hidden=true;
      try{
-       const api=await import('./shop-api.js?v=option-images-2');
+       const api=await import('./shop-api.js?v=media-webp-1');
        const session=await api.getSession();
        const authorized=!!session && (await api.isAdmin(session))===true;
        if(version===checkVersion)admin.hidden=!authorized;

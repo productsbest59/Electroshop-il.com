@@ -1,4 +1,4 @@
-import {request} from './shop-api.js?v=option-images-2';
+import {request} from './shop-api.js?v=media-webp-1';
 const CART='electroshop_new_store_cart_v2',PENDING='electroshop_payment_carts_v1';
 const read=key=>{try{return JSON.parse(localStorage.getItem(key)||'{}')}catch{return {}}};
 export function rememberPaymentCart(id,provider,snapshot){const pending=read(PENDING);pending[id]??={provider,snapshot};localStorage.setItem(PENDING,JSON.stringify(pending));}

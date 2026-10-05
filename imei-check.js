@@ -1,5 +1,5 @@
-import {request} from './shop-api.js?v=option-images-2';
-import {renderArticleShell} from './shop-articles-shell.js?v=imei-2';
+import {request} from './shop-api.js?v=media-webp-1';
+import {renderArticleShell} from './shop-articles-shell.js?v=media-webp-1';
 renderArticleShell();
 const pageLanguage=document.documentElement.lang==='en'?'en':'he';
 const tr=(he,en)=>pageLanguage==='en'?en:he;

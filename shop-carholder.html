@@ -2135,7 +2135,7 @@ body{
 
 body{
   background:
-    url("carholderbg.png") center center / cover fixed no-repeat !important;
+    url("carholderbg.webp") center center / cover fixed no-repeat !important;
 }
 
 main,
@@ -2182,7 +2182,7 @@ main,
 @media(max-width:900px){
   body{
   background:
-    url("carholderbg.png") center center / cover scroll no-repeat !important;
+    url("carholderbg.webp") center center / cover scroll no-repeat !important;
 }
 
   .shop-hero-wrap,
@@ -2216,7 +2216,7 @@ main,
 <meta name="twitter:title" content="CarHold Pro | מעמד מגנטי לטלפון ברכב | אלקטרושופ">
 <meta name="twitter:description" content="מעמד מגנטי למזגן הרכב CarHold Pro: נעילה אחורית, סיבוב 360 מעלות ותופסן כבל. תמונות, פרטי המוצר ואפשרויות רכישה באלקטרושופ.">
 
-<link rel="stylesheet" href="shop-contact.css"><link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-menu-visibility.css"><link rel="stylesheet" href="shop-unified-menu.css?v=3"><meta property="og:image" content="https://electroshop-il.com/images/hero-banner.jpg"><meta property="og:image:alt" content="אלקטרושופ מעבדת תיקונים סלולר ואביזרים"><meta name="twitter:image" content="https://electroshop-il.com/images/hero-banner.jpg"><meta name="twitter:image:alt" content="אלקטרושופ מעבדת תיקונים סלולר ואביזרים"></head>
+<link rel="stylesheet" href="shop-contact.css"><link rel="stylesheet" href="shop-page-navigation.css"><link rel="stylesheet" href="shop-menu-visibility.css"><link rel="stylesheet" href="shop-unified-menu.css?v=3"><meta property="og:image" content="https://electroshop-il.com/images/hero-banner.webp"><meta property="og:image:alt" content="אלקטרושופ מעבדת תיקונים סלולר ואביזרים"><meta name="twitter:image" content="https://electroshop-il.com/images/hero-banner.webp"><meta name="twitter:image:alt" content="אלקטרושופ מעבדת תיקונים סלולר ואביזרים"></head>
 <body>
 <header class="topbar">
 <div class="wrap topbar-inner">
@@ -2234,9 +2234,9 @@ main,
 <main><nav class="electroshop-page-navigation" aria-label="ניווט באתר"><a href="index.html" data-he="דף הבית" data-en="Home">דף הבית</a><a href="shop.html" data-he="כל הקטגוריות" data-en="All categories">כל הקטגוריות</a><a href="shop-car-mounts.html#products" data-category-back data-he="חזרה" data-en="Back">חזרה</a></nav>
 
 <img id="problemBanner"
-     src="images/problemheb.jpg"
-     alt="CarHold Pro"
-     class="problem-banner">
+     src="images/problemheb.webp"
+     alt="CarHold Pro – פתרון להחזקת הטלפון ברכב"
+     class="problem-banner" decoding="async">
 
 <section class="hero shop-hero">
 <div class="wrap shop-hero-wrap">
@@ -2292,7 +2292,7 @@ main,
 </div>
 </div>
 <div class="hero-card shop-product-card">
-<img alt="CarHold Pro" id="heroImg" src="images/heb01.jpg"/>
+<img alt="תושבת CarHold Pro לטלפון ברכב" id="heroImg" src="images/heb01.webp" decoding="async">
 </div>
 <div class="shop-service-row">
 <div>
@@ -2677,28 +2677,28 @@ main,
 <button class="close-lb" id="closeLb">
     ×
    </button>
-<img alt="Product image" id="lbImg">
+<img alt="Product image" id="lbImg" decoding="async">
 </img></div>
 <script>
    
 const sets = {
   he: [
-    'heb01.jpg',
-    'heb02.jpg',
-    'heb03.jpg',
-    'heb04.jpg',
-    'heb05.jpg',
-    'heb06.jpg',
-    'heb07.jpg'
+    'heb01.webp',
+    'heb02.webp',
+    'heb03.webp',
+    'heb04.webp',
+    'heb05.webp',
+    'heb06.webp',
+    'heb07.webp'
   ],
   en: [
-    'en01.jpg',
-    'en02.jpg',
-    'en03.jpg',
-    'en04.jpg',
-    'en05.jpg',
-    'en06.jpg',
-    'en07.jpg'
+    'en01.webp',
+    'en02.webp',
+    'en03.webp',
+    'en04.webp',
+    'en05.webp',
+    'en06.webp',
+    'en07.webp'
   ]
 };
 
@@ -2728,8 +2728,8 @@ function t() {
 
   document.getElementById('problemBanner').src =
     lang === 'he'
-      ? 'images/problemheb.jpg'
-      : 'images/problemeng.jpg';
+      ? 'images/problemheb.webp'
+      : 'images/problemeng.webp';
 }
 
 function renderGallery() {
@@ -2742,9 +2742,8 @@ function renderGallery() {
     d.innerHTML = `
       <img
         src="images/${file}"
-        alt="CarHold Pro ${i + 1}"
-        loading="lazy"
-      >
+        alt="${lang==='he'?'תושבת CarHold Pro לטלפון ברכב':'CarHold Pro car phone mount'}"
+        loading="lazy" decoding="async">
     `;
 
     d.onclick = () => openLb('images/' + file);
