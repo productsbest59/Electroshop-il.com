@@ -23,6 +23,14 @@ body.main-menu-is-open .unified-menu-toggle{visibility:hidden}
 body.main-menu-is-open :is(.customer-fab,.float-whatsapp,.float-access,.a11y-fab,.car-a11y-fab,.floating-contact,#a11yFab,#carA11yFab,#accessBtn){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
 
 /* Consistent navigation accents, shared by Hebrew and English menus. */
+#mainMenu .main-menu-links a,
+#mainMenu .main-menu-links a>span:not([class*="fa"]),
+#mainMenu .unified-shop summary,
+#mainMenu .unified-shop summary>span,
+#mainMenu .main-menu-header strong,
+#mainMenu .main-menu-title,
+#mainMenu .unified-categories small{font-family:Arial,sans-serif!important}
+.electroshop-header-links a[href="cellular-plans.html"]{color:#ff9800!important}
 #mainMenu .main-menu-links a.menu-accent{color:var(--menu-accent)!important;border-inline-start:3px solid var(--menu-accent)!important}
 #mainMenu .unified-shop>summary{color:#79e6a2!important;border-inline-start:3px solid #79e6a2!important}
 #mainMenu .unified-shop>summary .unified-arrow{color:inherit}

@@ -7,7 +7,7 @@ const PUBLISHABLE_KEY=config.publishableKey;
 const SESSION_KEY='electroshop_admin_session_v1';
 
 async function request(path,{method='GET',body,token,headers={}}={}){
-  if(path.startsWith('/rest/v1/')&&!/^\/rest\/v1\/(electroshop_[a-z_]+|rpc\/(is_electroshop_admin|create_electroshop_order|create_electroshop_bit_order))(?:[?]|$)/.test(path))throw new Error('Electroshop database scope violation');
+  if(path.startsWith('/rest/v1/')&&!/^\/rest\/v1\/(electroshop_[a-z_]+|rpc\/(is_electroshop_admin|create_electroshop_order|create_electroshop_bit_order|electroshop_publish_cellular))(?:[?]|$)/.test(path))throw new Error('Electroshop database scope violation');
   if(!config.databaseReady)throw new Error('יש להשלים תחילה את הקמת טבלאות אלקטרושופ בפרויקט המשותף');
   if(!SUPABASE_URL||!PUBLISHABLE_KEY)throw new Error('מערכת החנות טרם חוברה למסד הנתונים של אלקטרושופ');
   const response=await fetch(`${SUPABASE_URL}${path}`,{method,headers:{apikey:PUBLISHABLE_KEY,Authorization:`Bearer ${token||PUBLISHABLE_KEY}`,'Content-Type':'application/json',...headers},body:body===undefined?undefined:JSON.stringify(body)});

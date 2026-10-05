@@ -1,0 +1,50 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {parse019,parsePartner,parsePelephone,pelephoneDetailLinks,text} from '../supabase/functions/electroshop-sync-cellular/parser.mjs';
+import {renderPlans,providers} from '../cellular-render.mjs';
+const data=JSON.parse(await readFile('cellular-data.json','utf8'));
+assert.equal(data.length,3);
+for(const catalogue of data){
+ assert.ok(providers[catalogue.provider]);assert.ok(!Number.isNaN(Date.parse(catalogue.checked_at)));
+ assert.ok(catalogue.plans.length);assert.equal(new Set(catalogue.plans.map(p=>p.id)).size,catalogue.plans.length);
+ for(const p of catalogue.plans){
+  assert.ok(p.price>0&&p.data&&p.name&&p.priceTerms&&p.priceSummary);
+  assert.ok(!/https?:\/\/|retailCode|dealerCode|showPopupIframe/i.test(JSON.stringify(p)),'No supplier system URLs in public fields');
+ }
+ const file=`cellular-${catalogue.provider}.html`,html=await readFile(file,'utf8');
+ assert.equal((html.match(/class="cellular-plan"/g)||[]).length,catalogue.plans.length);
+ assert.ok(html.includes('href="index.html#contact"'));
+ assert.ok(html.includes(`https://electroshop-il.com/${file}`));
+ assert.equal((html.match(/<h1\b/g)||[]).length,1);
+ const json=/application\/ld\+json">([^]*?)<\/script>/.exec(html)[1];assert.ok(JSON.parse(json)['@graph'].length>=2);
+ assert.ok(!/retailCode|dealerCode|peleStoreStartNewSubDeal|הרשמת-לקוח/i.test(html));
+}
+assert.equal(data.find(d=>d.provider==='partner').plans.length,5);
+const all019=data.find(d=>d.provider==='019').plans;
+assert.equal(all019.length,12);
+assert.ok(all019.some(p=>p.data==='100MB'));
+assert.ok(all019.some(p=>p.data==='200MB'));
+const life=all019.find(p=>p.name==='לכל החיים');
+assert.equal(life.price,19.8);assert.ok(life.priceSummary.includes('לכל החיים'));
+const threeYears=all019.find(p=>p.name==='BIG TIME');
+assert.ok(threeYears.priceSummary.includes('שלוש שנים'));assert.ok(threeYears.priceSummary.includes('יעלה'));
+const rendered019=renderPlans(all019);
+assert.ok(!/החל מ־|מספר הקווים|תקופת המבצע|נדרש בירור מחיר/.test(rendered019));
+assert.ok(!/תקופת המבצע אינה עקבית|תנאים לא עקביים|נדרש בירור מחיר/.test(renderPlans(data.find(d=>d.provider==='pelephone').plans)));
+const cards019=Array.from({length:4},(_,i)=>`<div class="item_pack "><h3>מסלול ${i}</h3><div class="price">₪19.<span>80</span></div><ul class="blist"><li>200MB גלישה</li><li>מחיר קבוע לכל החיים</li></ul><a data-packen="test-${i}"></a><div class="rules">eSIM ללא עלות.</div></div>`).join('');
+const parsed019=parse019(cards019);
+assert.equal(parsed019.length,4);assert.equal(parsed019[0].price,19.8);assert.equal(parsed019[0].data,'200MB');
+assert.ok(parsed019[0].priceSummary.includes('לכל החיים'));
+assert.throws(()=>parse019(cards019.replace(/<div class="item_pack ">[^]*?<\/div><\/div>/g,'')));
+const prince=data.find(d=>d.provider==='partner').plans.find(p=>p.name==='Partner Prince');
+assert.equal(prince.price,34.9);assert.ok(prince.priceSummary.includes('2-12'));assert.ok(prince.priceSummary.includes('54.9'));assert.ok(prince.priceSummary.includes('59.9'));
+const family=data.find(d=>d.provider==='pelephone').plans.find(p=>p.id==='119');assert.equal(family.price,28);assert.ok(family.priceSummary.includes('מנוי 5'));assert.ok(family.priceSummary.includes('69.90'));
+assert.throws(()=>parse019('<h1>Access denied</h1>'));assert.throws(()=>parsePelephone(''));assert.throws(()=>parsePartner('[{}]'));
+assert.throws(()=>pelephoneDetailLinks(`<div class="item item1" id="1"><a href="javascript:popup.showPopupIframe('https://example.com/private','1')">details</a></div>`));
+assert.equal(text('<script>alert(1)</script>A &amp; B'), 'A & B');
+const malicious={...prince,name:'<img src=x onerror=alert(1)>',terms:['<script>bad</script>']};
+const markup=renderPlans([malicious]);assert.ok(!markup.includes('<img'));assert.ok(!markup.includes('<script>'));assert.ok(markup.includes('&lt;img'));
+const sitemap=await readFile('sitemap.xml','utf8');
+for(const file of ['cellular-plans.html',...Object.keys(providers).map(p=>`cellular-${p}.html`)])assert.ok(sitemap.includes('/'+file));
+assert.ok(!sitemap.includes('/shop-cellular-admin.html'));
+console.log('Passed catalogue, tier pricing, source privacy, safe rendering, metadata and sitemap tests.');
