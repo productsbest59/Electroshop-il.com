@@ -39,19 +39,21 @@
   </div></header>
   <main class="admin-shell"><nav class="electroshop-page-navigation" aria-label="ניווט באתר"><a href="index.html" data-he="דף הבית" data-en="Home">דף הבית</a><a href="shop.html" data-he="כל הקטגוריות" data-en="All categories">כל הקטגוריות</a><a href="shop.html" data-category-back data-he="חזרה" data-en="Back">חזרה</a></nav>
     <div class="admin-top">
-      <div><h1>ניהול הזמנות</h1><p>תשלום ומשלוח מנוהלים בנפרד כדי למנוע טעויות</p></div>
+      <div><h1>ניהול הזמנות</h1><p>בחירת הלקוח במשלוח או באיסוף עצמי מוצגת בנפרד ממצב התשלום והטיפול בהזמנה</p></div>
     </div>
     <div class="orders-toolbar">
       <input id="orderSearch" type="search" placeholder="חיפוש לפי מספר הזמנה, שם, טלפון או אימייל">
       <input id="orderDate" type="date" aria-label="סינון לפי תאריך">
       <select id="paymentFilter"><option value="">כל מצבי התשלום</option><option value="paid">שולם</option><option value="pending">ממתין לתשלום</option><option value="failed">נכשל</option><option value="refunded">הוחזר</option></select>
+      <select id="deliveryFilter" aria-label="סינון לפי בחירת הלקוח באופן קבלת ההזמנה"><option value="">כל אופני הקבלה</option><option value="pickup">איסוף עצמי — בחירת הלקוח</option><option value="shipping">משלוח — בחירת הלקוח</option></select>
       <select id="fulfillmentFilter"><option value="">כל מצבי הטיפול</option><option value="new">הזמנה חדשה</option><option value="preparing">בהכנה</option><option value="awaiting_shipment">ממתין למשלוח</option><option value="ready_for_pickup">מוכן לאיסוף</option><option value="collected">נאסף</option><option value="shipped">נשלח</option><option value="delivered">נמסר</option><option value="returning">נשלח בחזרה</option><option value="returned">הוחזר</option><option value="cancelled">בוטל</option></select>
     </div>
     <div class="orders-table-head"><span></span><span>מספר הזמנה</span><span>לקוח</span><span>טלפון</span><span>סכום כולל</span><span>תאריך ושעה</span><span>מצב תשלום</span><span>טיפול ומשלוח</span></div>
     <div id="orderList" class="orders-list"></div>
   </main>
   
-  <script src="shop-admin-orders.js?v=customer-note-1"></script>
+  <style>.customer-delivery{display:block;margin:7px 0;padding:6px 8px;border:1px solid #867345;border-radius:8px;background:#262017;color:#ffe2a0;font:700 .75rem/1.5 Arial,sans-serif}.customer-delivery.pickup{border-color:#46bfa9;background:#103d36;color:#c6fff1}.orders-toolbar{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}</style>
+  <script src="shop-admin-orders.js?v=delivery-choice-1"></script>
 <div class="a11y-backdrop" id="a11yBackdrop"></div>
 
 

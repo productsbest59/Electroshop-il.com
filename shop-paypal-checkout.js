@@ -1,13 +1,14 @@
 import {rememberPaymentCart,cartSnapshot,reconcilePaidCart} from './shop-paid-cart.js?v=1';
-import {checkoutData} from './shop-bit-checkout.js?v=qr-no-click-6';
+import {checkoutData,refreshDelivery} from './shop-bit-checkout.js?v=delivery-minimum-1';
 import {request} from './shop-api.js?v=media-webp-1';
 const form=document.getElementById('checkoutForm'),status=document.getElementById('paypalStatus'),retry=document.getElementById('paypalRetry');
 const english=localStorage.getItem('electroshop_store_language')==='en';
 if(english){document.documentElement.lang='en';document.documentElement.dir='ltr';document.querySelector('.checkout-shell h1').textContent='Customer and shipping details';document.querySelector('.checkout-shell section > .notice').textContent='Pay in ILS with PayPal or Bit. Bit payments are confirmed manually. Smartphone shipping: ILS 50 per order. Other products: free shipping unless stated otherwise. For pickup-only products, please arrange your visit with the store.';const labels=['Full name','Email','Phone','Country','City','Street and number','Postal code','Order notes'];document.querySelectorAll('#checkoutForm > label.field > span').forEach((el,i)=>el.textContent=labels[i]);document.querySelector('#checkoutForm small').textContent='Shipping within Israel';document.querySelector('.order-summary h2').textContent='Order summary';document.getElementById('paypalRetry').textContent='Check payment again';}
 const endpoint='/functions/v1/electroshop-paypal';
+if(english){document.querySelector('.checkout-shell section > .notice').textContent='Free delivery on purchases of ILS 100 or more, unless otherwise stated. Phone delivery: ILS 50 per order. Guitars and products marked pickup only must be collected from the store by prior arrangement. Store pickup has no minimum or delivery charge. Bit payments are confirmed manually.';form.querySelectorAll('.delivery-options [data-en]').forEach(el=>el.textContent=el.dataset.en);}
 const call=body=>request(endpoint,{method:'POST',body});
 let current=null,inFlight=false;
-function lock(value){inFlight=value;form.querySelectorAll('input,textarea,button[value="bit"],#tranzilaButton').forEach(el=>el.disabled=value);}
+function lock(value){inFlight=value;form.querySelectorAll('input,textarea,button[value="bit"],#tranzilaButton').forEach(el=>el.disabled=value);if(!value)refreshDelivery();}
 function remember(order){sessionStorage.setItem('electroshop_paypal_pending',JSON.stringify(order));}
 async function finish(order){
  const result=await call({action:'capture',order_id:order.order_id,paypal_order_id:order.paypal_order_id});
@@ -18,7 +19,7 @@ async function finish(order){
 }
 retry.addEventListener('click',async()=>{retry.disabled=true;try{const order=current||JSON.parse(sessionStorage.getItem('electroshop_paypal_pending')||'null');if(!order)throw Error('אין הזמנה לבדיקה');await finish(order);}catch{status.textContent=(english?"Payment status could not be checked. Do not pay again; retry the check or contact the store.":"לא הצלחנו לבדוק את התשלום. אין לשלם שוב; נסו בדיקה מחדש או פנו לחנות.");}finally{retry.disabled=false;}});
 try{
- checkoutData();
+ checkoutData({validateDelivery:false});
  const pending=JSON.parse(sessionStorage.getItem('electroshop_paypal_pending')||'null');
  if(pending?.approved){current=pending;lock(true);retry.hidden=false;status.textContent=(english?"Checking your previous payment before placing another order.":"בודקים את התשלום הקודם לפני ביצוע הזמנה נוספת.");await finish(pending);}
  else{
@@ -28,7 +29,7 @@ try{
  const container=document.getElementById('paypalButtons');container.hidden=false;
  const buttons=window.paypal.Buttons({
   style:{shape:'rect',layout:'vertical',color:'gold',label:'paypal',height:48},
-  onClick(data,actions){if(inFlight||!form.reportValidity())return actions.reject();return actions.resolve();},
+  onClick(data,actions){if(inFlight||!form.reportValidity())return actions.reject();try{checkoutData();return actions.resolve();}catch(error){status.textContent=error.message;return actions.reject();}},
   async createOrder(){
    if(!form.reportValidity())throw Error('יש להשלים את פרטי ההזמנה');
    const {items,total}=checkoutData(),customer=Object.fromEntries(new FormData(form));

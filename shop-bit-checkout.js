@@ -1,13 +1,25 @@
 const imageForChoice=(product,choice={})=>{const sizes=product.sourceSizes||product.sizes||[],styles=product.sourceStyles||product.styles||[];let pairs=[];if(!sizes.length)pairs=styles.map(style=>({size:'',style,label:style}));else if(!styles.length)pairs=sizes.map(size=>({size,style:'',label:size}));else if(styles.length===1)pairs=sizes.map(size=>({size,style:styles[0],label:size+' - '+styles[0]}));else if(styles.length===sizes.length)pairs=sizes.map((size,i)=>({size,style:styles[i],label:size+' - '+styles[i]}));else pairs=sizes.flatMap(size=>styles.map(style=>({size,style,label:size+' - '+style})));const match=pairs.find(p=>p.label===choice.size),keys=[(choice.style||match?.style)?'@style:'+(choice.style||match.style):'',match?.size?'@size:'+match.size:'',choice.color].filter(Boolean);for(const key of keys){const index=(product.imageColors||[]).indexOf(key);if(index>=0&&product.images[index])return product.images[index]}return product.images[0]};
 import {getProducts,createBitOrder} from './shop-api.js?v=media-webp-1';
+import {deliveryState,deliveryError,isPickupOnly} from './shop-delivery-policy.js?v=1';
 const isMobileBit=()=>navigator.userAgentData?.mobile===true||/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
 const BIT_URL='https://www.bitpay.co.il/app/me/54E3CA02-7B91-2A87-B0E5-9C89BB3228770630';
 function showPaymentResult(){requestAnimationFrame(()=>{message.tabIndex=-1;message.style.scrollMarginTop='140px';message.focus({preventScroll:true});message.scrollIntoView({block:'start',behavior:'instant'});});}
 const form=document.getElementById('checkoutForm'),message=document.getElementById('message'),button=form.querySelector('[value="bit"]');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=n=>`${Number(n).toLocaleString('he-IL',{maximumFractionDigits:2})} ₪`;
-let lines=[],shipping=0;
-const deliveryLabel=()=>lines.length&&lines.every(l=>l.product.pickupOnly)?'איסוף עצמי מהחנות':lines.some(l=>l.product.pickupOnly)?'משלוח חינם לפריטים הזמינים למשלוח; הפריטים המסומנים באיסוף עצמי בלבד':'משלוח חינם';
+let lines=[],loaded=false;
+const english=localStorage.getItem('electroshop_store_language')==='en';
+const method=()=>form.querySelector('[name="fulfillmentMethod"]:checked')?.value;
+const deliveryLabel=()=>method()==='pickup'?'איסוף עצמי מהחנות - ללא דמי משלוח':'משלוח חינם';
+export function refreshDelivery(){
+ const pickup=method()==='pickup';
+ for(const name of ['city','address','postalCode']){const input=form.elements.namedItem(name);input.closest('label').hidden=pickup;input.disabled=pickup;input.required=!pickup&&name!=='postalCode';}
+ const state=deliveryState(lines,method()),error=lines.length?deliveryError(state,method(),english):'';
+ form.querySelector('[name="fulfillmentMethod"][value="shipping"]').disabled=state.pickupOnly;
+ document.getElementById('deliveryNotice').textContent=!lines.length?'':error||(pickup?(state.pickupOnly?(english?'This cart includes a pickup-only product. Pickup at Hamerkava 31, Holon, by prior arrangement.':'העגלה כוללת מוצר באיסוף עצמי בלבד. איסוף מהמרכבה 31, חולון, בתיאום מראש.'):(english?'Pickup at Hamerkava 31, Holon, by prior arrangement.':'איסוף עצמי מהמרכבה 31, חולון, בתיאום מראש.')):'');
+ document.getElementById('summaryTotal').innerHTML=`<small>${english?'Products':'סכום מוצרים'}: ${money(state.subtotal)}</small><small>${pickup?(english?'Store pickup — no delivery charge':deliveryLabel()):state.shipping?`${english?'Smartphone delivery':'משלוח מכשירים'}: ${money(state.shipping)}`:(english?'Free delivery':deliveryLabel())}</small><span>${english?'Total to pay':'סה״כ לתשלום'}</span><strong>${money(state.total)}</strong>`;
+}
+form.querySelectorAll('[name="fulfillmentMethod"]').forEach(input=>input.addEventListener('change',refreshDelivery));
 function optionsFor(product,item){
  const sizes=product.sizes||[],styles=product.styles||[];
  let choices;
@@ -25,16 +37,17 @@ function optionsFor(product,item){
 try{
  const products=await getProducts(),cart=JSON.parse(localStorage.getItem('electroshop_new_store_cart_v2')||'{}');
  lines=Object.values(cart).map(item=>{const product=products.find(p=>p.id===item.productId&&p.active);if(!product)throw Error('מוצר בעגלה אינו זמין. חזרו לעגלה ועדכנו אותה.');const quantity=Number(item.qty);if(!Number.isInteger(quantity)||quantity<1||quantity>20)throw Error('כמות המוצר אינה תקינה');const options=optionsFor(product,item);const variant=(product.variants||[]).find(v=>(v.color||'')===options.color&&(v.size||'')===options.size&&(v.style||'')===options.style);if(product.sku?.startsWith('PELEPHONE-')&&variant?.available!==true)throw Error('שילוב הצבע והנפח אינו זמין כרגע. חזרו לעגלה ובחרו מחדש.');const price=variant?.price!==''&&variant?.price!=null?Number(variant.price):Number(product.price);return {product,quantity,options,price};});
- shipping=lines.some(l=>(l.product.categoryKeys||l.product.categories||[l.product.category]).includes('smartphones')||l.product.sku?.startsWith('PELEPHONE-'))?50:0;
- const total=lines.reduce((n,l)=>n+l.quantity*l.price,0)+shipping;
+ loaded=true;
+ if(lines.some(l=>isPickupOnly(l.product)))form.querySelector('[name="fulfillmentMethod"][value="pickup"]').checked=true;
  document.getElementById('summaryLines').innerHTML=lines.map(l=>`<div class="summary-line"><img src="${esc(imageForChoice(l.product,{...l.options,size:l.options.size&&l.options.style?l.options.size+' - '+l.options.style:l.options.size||l.options.style})||'')}" alt="${esc(l.product.nameHe)}" decoding="async"><div><strong>${esc(l.product.nameHe)}</strong>${l.product.pickupOnly?'<p class="pickup-notice">איסוף עצמי בלבד מהחנות - המרכבה 31, חולון, בתיאום מראש</p>':''}<small>${esc((l.product.optionLabelHe?l.product.optionLabelHe+': ':'')+Object.values(l.options).filter(Boolean).join(' | '))}</small><span>${l.quantity} × ${money(l.price)}</span></div></div>`).join('')||'<p>העגלה ריקה</p>';
- document.getElementById('summaryTotal').innerHTML=`<small>${shipping?`משלוח מכשירים: ${money(shipping)}`:deliveryLabel()}</small><span>סה״כ לתשלום</span><strong>${money(total)}</strong>`;
+ refreshDelivery();
  button.disabled=!lines.length;
 }catch(error){message.textContent=error.message;message.className='status show error';}
 form.addEventListener('submit',async event=>{
  event.preventDefault();if(event.submitter?.value!=="bit")return;if(button.disabled||!lines.length)return;
  button.disabled=true;button.querySelector('.bit-button-label').textContent='שומר הזמנה...';
  try{
+   checkoutData();
    const customer=Object.fromEntries(new FormData(form));delete customer.paymentProvider;
    const items=lines.map(l=>({productId:l.product.id,quantity:l.quantity,...l.options}));
    const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify({customer,items})));
@@ -51,5 +64,5 @@ form.addEventListener('submit',async event=>{
  }catch(error){message.className='status show error';message.textContent=error.message||'לא ניתן לשמור את ההזמנה. נסו שוב.';button.disabled=false;button.querySelector('.bit-button-label').textContent='לתשלום בביט';}
 });
 
-export function checkoutData(){if(button.disabled||!lines.length)throw Error('יש לבדוק את המוצרים בעגלה לפני התשלום');return {items:lines.map(l=>({productId:l.product.id,quantity:l.quantity,...l.options})),total:lines.reduce((sum,l)=>sum+l.price*l.quantity,0)+shipping};}
+export function checkoutData({validateDelivery=true}={}){if(!loaded||!lines.length)throw Error('יש לבדוק את המוצרים בעגלה לפני התשלום');const state=deliveryState(lines,method()),error=deliveryError(state,method(),english);if(validateDelivery&&error)throw Error(error);return {items:lines.map(l=>({productId:l.product.id,quantity:l.quantity,...l.options})),total:state.total};}
 
