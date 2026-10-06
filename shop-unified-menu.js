@@ -68,6 +68,11 @@ for(const headerNav of document.querySelectorAll('.electroshop-header-links, hea
 }
 for(const footer of document.querySelectorAll('.home-footer-links')){
  if(!footer.querySelector('a[href="cellular-plans.html"]'))footer.insertBefore(link('cellular-plans.html','חבילות סלולר','Mobile plans'),footer.firstChild);
+ for(const mobileLink of footer.querySelectorAll('a[href="cellular-plans.html"]')){
+  mobileLink.classList.remove('menu-accent');
+  mobileLink.style.removeProperty('--menu-accent');
+  mobileLink.style.setProperty('color','#111','important');
+ }
 }
 
 document.addEventListener('electroshop-categories-updated',async()=>{rows=await request('/rest/v1/electroshop_categories?select=slug,name_he,name_en,aliases&active=eq.true&order=sort_order.asc,slug.asc');render();});
