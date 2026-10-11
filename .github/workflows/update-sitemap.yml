@@ -1,4 +1,4 @@
-name: Update sitemap
+name: Build and publish Electroshop
 
 on:
   schedule:
@@ -6,42 +6,31 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - '*.html'
-      - 'tools/generate-sitemap.mjs'
-      - 'tools/apply-brand-metadata.mjs'
-      - 'tools/generate-article-pages.mjs'
-      - 'tools/generate-news-page.mjs'
-      - 'tools/test-news-page.mjs'
-      - 'tools/test-related-articles.mjs'
-      - 'shop-article*.js'
-      - 'shop-news.js'
-      - 'shop-news-render.js'
-      - 'shop-category-guides.js'
-      - 'tools/generate-category-guides.mjs'
-      - 'tools/test-category-privacy.mjs'
-      - 'shop-image-alt.js'
 
+# Generated HTML and sitemap exist only in the build, never in a bot commit.
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: electroshop-sitemap
-  cancel-in-progress: true
+  group: electroshop-pages
+  cancel-in-progress: false
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Apply shared icons and social banner to current and future pages
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Apply shared icons and social banner
         run: node tools/apply-brand-metadata.mjs
-      - name: Generate sitemap from site and database
+      - name: Generate current articles, news and sitemap
         run: node tools/generate-sitemap.mjs
       - name: Generate category buying guides
         run: node tools/generate-category-guides.mjs
@@ -53,14 +42,29 @@ jobs:
         run: node tools/test-related-articles.mjs
       - name: Verify prebuilt news list and live-refresh fallback
         run: node tools/test-news-page.mjs
-      - name: Publish sitemap changes
-        run: |
-          git add sitemap.xml '*.html' shop-article-pages.json
-          if git diff --cached --quiet; then
-            echo "Sitemap is already current."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Update sitemap automatically"
-          git push
+      - name: Verify conflict-free publishing
+        run: node tools/test-publishing-workflow.mjs
+      # Retain the same Jekyll processing as the previous branch-based Pages site.
+      - name: Build Pages output
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload tested site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish site without changing main
+        id: deployment
+        uses: actions/deploy-pages@v4

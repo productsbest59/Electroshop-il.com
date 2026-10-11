@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+const workflow=await readFile('.github/workflows/update-sitemap.yml','utf8');
+assert(!/git\s+(?:add|commit|push)|contents:\s*write/.test(workflow),'Publishing must never write generated files back to main');
+assert(workflow.includes('persist-credentials: false'));
+for(const required of ['schedule:','workflow_dispatch:','branches: [main]','actions/configure-pages@v5','actions/jekyll-build-pages@v1','actions/upload-pages-artifact@v4','actions/deploy-pages@v4','needs: build','pages: write','id-token: write','name: github-pages','path: ./_site'])assert(workflow.includes(required),required);
+assert(!workflow.includes('paths:'),'All website changes must trigger a deployment, including CSS and images');
+const generate=workflow.indexOf('node tools/generate-sitemap.mjs'),verify=workflow.indexOf('node tools/test-article-pages.mjs'),upload=workflow.indexOf('uses: actions/upload-pages-artifact'),deploy=workflow.indexOf('uses: actions/deploy-pages');
+assert(generate>0&&verify>generate&&upload>verify&&deploy>upload,'Generate and test before publishing');
+assert(workflow.includes('node tools/test-news-page.mjs')&&workflow.includes('node tools/test-related-articles.mjs'));
+console.log('PASS: automatic publishing builds and tests generated pages, deploys Pages artifacts, and cannot create bot commits on main.');
