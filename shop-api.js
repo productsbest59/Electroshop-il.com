@@ -5,12 +5,25 @@ import {prepareImageBlob} from './shop-image-upload.js';
 const SUPABASE_URL=config.supabaseUrl;
 const PUBLISHABLE_KEY=config.publishableKey;
 const SESSION_KEY='electroshop_admin_session_v1';
+const LOGIN_REQUIRED='יש להתחבר מחדש למערכת. תוכן העריכה והגיבוי המקומי לא נמחקו.';
+let sessionRefresh=null;
+function readSession(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch{return null}}
+async function adminFetch(path,options={}){
+  let session=await getSession();
+  if(!session)throw new Error(LOGIN_REQUIRED);
+  const send=()=>fetch(`${SUPABASE_URL}${path}`,{...options,headers:{...options.headers,Authorization:`Bearer ${session.accessToken}`}});
+  let response=await send();
+  // An unauthorized response has not performed the write. Retry only once.
+  if(response.status===401){session=await getSession({rejectedToken:session.accessToken});if(!session)throw new Error(LOGIN_REQUIRED);response=await send()}
+  return response;
+}
 
 async function request(path,{method='GET',body,token,headers={}}={}){
   if(path.startsWith('/rest/v1/')&&!/^\/rest\/v1\/(electroshop_[a-z_]+|rpc\/(is_electroshop_admin|create_electroshop_order|create_electroshop_bit_order|electroshop_publish_cellular))(?:[?]|$)/.test(path))throw new Error('Electroshop database scope violation');
   if(!config.databaseReady)throw new Error('יש להשלים תחילה את הקמת טבלאות אלקטרושופ בפרויקט המשותף');
   if(!SUPABASE_URL||!PUBLISHABLE_KEY)throw new Error('מערכת החנות טרם חוברה למסד הנתונים של אלקטרושופ');
-  const response=await fetch(`${SUPABASE_URL}${path}`,{method,headers:{apikey:PUBLISHABLE_KEY,Authorization:`Bearer ${token||PUBLISHABLE_KEY}`,'Content-Type':'application/json',...headers},body:body===undefined?undefined:JSON.stringify(body)});
+  const options={method,headers:{apikey:PUBLISHABLE_KEY,Authorization:`Bearer ${token||PUBLISHABLE_KEY}`,'Content-Type':'application/json',...headers},body:body===undefined?undefined:JSON.stringify(body)};
+  const response=token&&!path.startsWith('/auth/v1/')?await adminFetch(path,options):await fetch(`${SUPABASE_URL}${path}`,options);
   const data=await response.json().catch(()=>null);
   if(!response.ok)throw new Error(data?.error||data?.msg||data?.message||data?.error_description||`Request failed (${response.status})`);
   return data;
@@ -18,7 +31,28 @@ async function request(path,{method='GET',body,token,headers={}}={}){
 
 export async function signIn(email,password){const data=await request('/auth/v1/token?grant_type=password',{method:'POST',body:{email,password}});const session={accessToken:data.access_token,refreshToken:data.refresh_token,expiresAt:Date.now()+data.expires_in*1000,user:data.user};localStorage.setItem(SESSION_KEY,JSON.stringify(session));return session}
 export function signOut(){localStorage.removeItem(SESSION_KEY)}
-export async function getSession(){let session;try{session=JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch{return null}if(!session)return null;if(Date.now()<session.expiresAt-60000)return session;try{const data=await request('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:{refresh_token:session.refreshToken}});session={accessToken:data.access_token,refreshToken:data.refresh_token,expiresAt:Date.now()+data.expires_in*1000,user:data.user};localStorage.setItem(SESSION_KEY,JSON.stringify(session));return session}catch{signOut();return null}}
+export async function getSession({rejectedToken}={}){
+  const usable=session=>session&&Date.now()<session.expiresAt-60000&&session.accessToken!==rejectedToken;
+  const current=readSession();if(!current)return null;if(usable(current))return current;
+  if(sessionRefresh)return sessionRefresh;
+  const renew=async()=>{
+    const previous=readSession();if(!previous)return null;if(usable(previous))return previous;
+    if(!previous.refreshToken){signOut();return null}
+    const response=await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=refresh_token`,{method:'POST',headers:{apikey:PUBLISHABLE_KEY,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:previous.refreshToken})});
+    const data=await response.json().catch(()=>null);
+    // A temporary network/server failure must not erase a recoverable login.
+    if(!response.ok){
+      if(response.status===400||response.status===401){if(readSession()?.refreshToken===previous.refreshToken)signOut();return null}
+      throw new Error('לא ניתן לחדש כרגע את החיבור. נסו שוב; תוכן העריכה לא נמחק.');
+    }
+    if(!data?.access_token||!data?.refresh_token)throw new Error('חידוש החיבור נכשל. נסו שוב.');
+    if(readSession()?.refreshToken!==previous.refreshToken)return readSession();
+    const session={accessToken:data.access_token,refreshToken:data.refresh_token,expiresAt:Date.now()+data.expires_in*1000,user:data.user};localStorage.setItem(SESSION_KEY,JSON.stringify(session));return session;
+  };
+  // Serialize rotating refresh tokens both within this module and across tabs.
+  sessionRefresh=(globalThis.navigator?.locks?globalThis.navigator.locks.request(SESSION_KEY,renew):renew()).finally(()=>{sessionRefresh=null});
+  return sessionRefresh;
+}
 export async function isAdmin(session){return request('/rest/v1/rpc/is_electroshop_admin',{method:'POST',body:{},token:session.accessToken})}
 export const publicImageUrl=value=>{const path=localImagePath(supplierImageMap[value]||value);return /^(?:https?:|data:|\.\.\/|images\/|products-images\/)/i.test(path)||/^model\d+\.(?:jpg|webp)$/i.test(path)?path:`${SUPABASE_URL}/storage/v1/object/public/electroshop-product-images/${path}`};
 const isVideoPath=path=>/\.(mp4|webm|mov|m4v)(?:$|\?)/i.test(path)||String(path).startsWith('data:video/');
@@ -44,7 +78,7 @@ export async function deleteOrder(session,id){return request(`/rest/v1/electrosh
 export const articleImageUrl=path=>!path?'':path.startsWith('http')||path.startsWith('data:')?path:`${SUPABASE_URL}/storage/v1/object/public/electroshop-article-images/${path}`;
 export async function getArticles(session,{all=false}={}){const filter=all?'':'&status=eq.published';return request(`/rest/v1/electroshop_articles?select=*${filter}&order=sort_order.asc,published_at.desc.nullslast,created_at.desc`,{token:session?.accessToken})}
 export async function getArticleBySlug(slug,session){const rows=await request(`/rest/v1/electroshop_articles?select=*&slug=eq.${encodeURIComponent(slug)}&limit=1`,{token:session?.accessToken});return rows[0]||null}
-export async function uploadArticleImage(session,file){const blob=await prepareImageBlob(file),ext=blob.type==='image/webp'?'webp':(file.name.split('.').pop()||'jpg').toLowerCase(),path=`${new Date().toISOString().slice(0,10)}/${crypto.randomUUID()}.${ext}`,response=await fetch(`${SUPABASE_URL}/storage/v1/object/electroshop-article-images/${path}`,{method:'POST',headers:{apikey:PUBLISHABLE_KEY,Authorization:`Bearer ${session.accessToken}`,'Content-Type':blob.type,'x-upsert':'false'},body:blob});if(!response.ok)throw new Error('העלאת התמונה נכשלה');return {path,url:articleImageUrl(path)}}
+export async function uploadArticleImage(session,file){const blob=await prepareImageBlob(file),ext=blob.type==='image/webp'?'webp':(file.name.split('.').pop()||'jpg').toLowerCase(),path=`${new Date().toISOString().slice(0,10)}/${crypto.randomUUID()}.${ext}`,response=await adminFetch(`/storage/v1/object/electroshop-article-images/${path}`,{method:'POST',headers:{apikey:PUBLISHABLE_KEY,'Content-Type':blob.type,'x-upsert':'false'},body:blob});if(!response.ok){const error=await response.json().catch(()=>null);throw new Error(error?.message||error?.error||'העלאת התמונה נכשלה')}return {path,url:articleImageUrl(path)}}
 export async function saveArticle(session,article){const body={slug:article.slug,title_he:article.title_he,title_en:article.title_en||'',excerpt_he:article.excerpt_he||'',excerpt_en:article.excerpt_en||'',content_he:article.content_he||'',content_en:article.content_en||'',cover_path:article.cover_path||null,cover_alt_he:article.cover_alt_he||'',cover_alt_en:article.cover_alt_en||'',seo_title_he:article.seo_title_he||'',seo_title_en:article.seo_title_en||'',seo_description_he:article.seo_description_he||'',seo_description_en:article.seo_description_en||'',status:article.status||'draft',sort_order:Number(article.sort_order)||0,published_at:article.status==='published'?(article.published_at||new Date().toISOString()):null,updated_at:new Date().toISOString()};if(article.id)return (await request(`/rest/v1/electroshop_articles?id=eq.${article.id}`,{method:'PATCH',body,token:session.accessToken,headers:{Prefer:'return=representation'}}))[0];if(article.slug){const existing=await request(`/rest/v1/electroshop_articles?select=id&slug=eq.${encodeURIComponent(article.slug)}&limit=1`,{token:session.accessToken});if(existing.length)throw new Error('כתובת הכתבה כבר נמצאת בשימוש. פתחו את הכתבה מהרשימה או בחרו שם קצר אחר לקישור.')}return (await request('/rest/v1/electroshop_articles',{method:'POST',body,token:session.accessToken,headers:{Prefer:'return=representation'}}))[0]}
 export async function deleteArticle(session,id){return request(`/rest/v1/electroshop_articles?id=eq.${id}`,{method:'DELETE',token:session.accessToken})}
 export {SUPABASE_URL,PUBLISHABLE_KEY,request};
