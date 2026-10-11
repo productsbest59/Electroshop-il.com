@@ -3,6 +3,7 @@ import {config} from '../shop-config.js';
 import {articlePage} from '../shop-article-url.js';
 import {improveInlineImages} from '../shop-image-alt.js';
 import {generateNewsPage} from './generate-news-page.mjs';
+import {renderRelatedArticles} from '../shop-article-related.js';
 
 const origin='https://electroshop-il.com';
 const esc=value=>String(value||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -31,6 +32,7 @@ export async function generateArticlePages(){
  const response=await fetch(`${config.supabaseUrl}/rest/v1/electroshop_articles?select=*&status=eq.published&order=slug.asc`,{headers:{apikey:config.publishableKey,Authorization:`Bearer ${config.publishableKey}`}});
  if(!response.ok)throw new Error(`Cannot generate articles: ${response.status}`);
  const articles=await response.json(),template=await readFile('shop-article.html','utf8'),pages={};
+ for(const article of articles)pages[article.slug]=articlePage(article.slug);
  let previous={};try{previous=JSON.parse(await readFile('shop-article-pages.json','utf8'))}catch{}
  for(const article of articles){
   const file=articlePage(article.slug),url=`${origin}/${file}`,title=article.title_he,description=article.seo_description_he||article.excerpt_he||title;
@@ -42,7 +44,7 @@ export async function generateArticlePages(){
    .replace('<!-- ARTICLE_CANONICAL -->',`<link rel="canonical" href="${esc(url)}"><meta property="og:url" content="${esc(url)}"><meta property="og:title" content="${esc(title)}"><script id="articleSchema" type="application/ld+json">${JSON.stringify(schema).replace(/</g,'\\u003c')}</script>`)
    .replace('<body ',`<body data-article-slug="${esc(article.slug)}" data-prerendered="true" `)
    .replace('<span id="crumbTitle">כתבה</span>',`<span id="crumbTitle">${esc(title)}</span>`)
-   .replace('<p>טוען את הכתבה...</p>',`<header class="article-head">${image?`<img class="article-cover" src="${esc(image)}" alt="${esc(article.cover_alt_he||title)}" fetchpriority="high" decoding="async">`:''}<h1>${esc(title)}</h1></header><div class="article-content">${articleHtml(article.content_he,title)}</div><a class="article-back-link" href="shop-news.html">→ חזרה לחדשות ומדריכים</a>`);
+   .replace('<p>טוען את הכתבה...</p>',`<header class="article-head">${image?`<img class="article-cover" src="${esc(image)}" alt="${esc(article.cover_alt_he||title)}" fetchpriority="high" decoding="async">`:''}<h1>${esc(title)}</h1></header><div class="article-content">${articleHtml(article.content_he,title)}</div>${renderRelatedArticles(articles,article.slug,pages)}<a class="article-back-link" href="shop-news.html">→ חזרה לחדשות ומדריכים</a>`);
   await writeFile(file,html,'utf8');pages[article.slug]=file;
  }
  // Remove only files previously created by this generator when an article is withdrawn.

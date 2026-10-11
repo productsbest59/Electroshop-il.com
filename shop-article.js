@@ -1,4 +1,5 @@
-import {getArticleBySlug,articleImageUrl} from './shop-api.js?v=media-webp-1';
+import {getArticleBySlug,getArticles,articleImageUrl} from './shop-api.js?v=media-webp-1';
+import {refreshRelatedArticles} from './shop-article-related.js';
 import {improveInlineImages} from './shop-image-alt.js';
 import {renderArticleShell} from './shop-articles-shell.js?v=media-webp-1';
 import {publishedArticlePages,articleHref} from './shop-article-url.js';
@@ -47,3 +48,4 @@ try{
  const robots=document.querySelector('meta[name=robots]');if(robots)robots.content='noindex,follow';
  }
 }
+if(view.querySelector('.article-content'))await refreshRelatedArticles(view,slug,lang,()=>getArticles(),publishedArticlePages);

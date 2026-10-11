@@ -13,6 +13,7 @@ on:
       - 'tools/generate-article-pages.mjs'
       - 'tools/generate-news-page.mjs'
       - 'tools/test-news-page.mjs'
+      - 'tools/test-related-articles.mjs'
       - 'shop-article*.js'
       - 'shop-news.js'
       - 'shop-news-render.js'
@@ -48,6 +49,8 @@ jobs:
         run: node tools/test-category-privacy.mjs
       - name: Verify article canonicals and sitemap
         run: node tools/test-article-pages.mjs
+      - name: Verify related article links and live refresh
+        run: node tools/test-related-articles.mjs
       - name: Verify prebuilt news list and live-refresh fallback
         run: node tools/test-news-page.mjs
       - name: Publish sitemap changes

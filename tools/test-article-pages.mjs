@@ -14,7 +14,9 @@ for(const [slug,file] of Object.entries(pages)){
  assert(html.includes(`data-article-slug="${slug}"`),file);
  assert(html.includes('<div class="article-content">')&&!html.includes('טוען את הכתבה'),file);
  assert(html.includes('<h1>'),file);
- assert(html.includes('shop-article.js?v=canonical-2'),file);
+ assert(html.includes('shop-article.js?v=related-3'),file);
+ const related=html.match(/<nav class="article-related"[\s\S]*?<\/nav>/)?.[0]||'';
+ if(Object.keys(pages).length>1){assert(related,file);assert(!related.includes(`href="${file}"`),file);assert.equal((related.match(/<li>/g)||[]).length,Object.keys(pages).length-1,file)}
  assert(html.includes('favicon.ico')&&html.includes('og:image'),file);
  const schema=JSON.parse(html.match(/id="articleSchema" type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
  assert.equal(schema.url,url);assert.equal(schema.mainEntityOfPage,url);

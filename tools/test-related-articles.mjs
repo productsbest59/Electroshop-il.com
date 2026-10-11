@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {renderRelatedArticles,refreshRelatedArticles} from '../shop-article-related.js';
+const articles=[{slug:'current',status:'published',title_he:'נוכחית'},{slug:'other',status:'published',title_he:'עוד <כתבה>',title_en:'Other & more'},{slug:'future',status:'published',title_he:'חדשה'},{slug:'draft',status:'draft',title_he:'טיוטה'},{slug:'other',status:'published',title_he:'כפילות'}];
+const html=renderRelatedArticles(articles,'current',{other:'article-other.html'});
+assert(html.includes('href="article-other.html"'));assert(html.includes('href="shop-article.html?article=future"'));assert(html.includes('עוד &lt;כתבה&gt;'));
+assert(!/נוכחית|טיוטה|כפילות/.test(html));assert.equal((html.match(/<li>/g)||[]).length,2);
+assert(renderRelatedArticles(articles,'current',{},'en').includes('Other &amp; more'));
+assert.equal(renderRelatedArticles([articles[0]],'current'), '');
+let inserted='',removed=false;const existing={outerHTML:'original',remove(){removed=true}},view={querySelector:()=>existing};
+await refreshRelatedArticles(view,'current','he',async()=>{throw Error('offline')},async()=>({}));assert.equal(existing.outerHTML,'original');
+await refreshRelatedArticles(view,'current','he',async()=>articles,async()=>({}));assert(existing.outerHTML.includes('כתבות נוספות'));
+await refreshRelatedArticles(view,'current','he',async()=>[],async()=>({}));assert(removed);
+const freshView={querySelector:selector=>selector==='.article-back-link'?{insertAdjacentHTML:(position,value)=>{assert.equal(position,'beforebegin');inserted=value}}:null};
+await refreshRelatedArticles(freshView,'current','en',async()=>articles,async()=>({}));assert(inserted.includes('More articles'));
+console.log('PASS: current/draft exclusion, future URLs, static URLs, escaping, English, deduplication, live refresh and offline fallback.');
