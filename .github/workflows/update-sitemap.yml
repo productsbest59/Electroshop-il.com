@@ -16,6 +16,9 @@ on:
       - 'shop-article*.js'
       - 'shop-news.js'
       - 'shop-news-render.js'
+      - 'shop-category-guides.js'
+      - 'tools/generate-category-guides.mjs'
+      - 'tools/test-category-privacy.mjs'
       - 'shop-image-alt.js'
 
 permissions:
@@ -39,6 +42,10 @@ jobs:
         run: node tools/apply-brand-metadata.mjs
       - name: Generate sitemap from site and database
         run: node tools/generate-sitemap.mjs
+      - name: Generate category buying guides
+        run: node tools/generate-category-guides.mjs
+      - name: Verify category guides and privacy disclosures
+        run: node tools/test-category-privacy.mjs
       - name: Verify article canonicals and sitemap
         run: node tools/test-article-pages.mjs
       - name: Verify prebuilt news list and live-refresh fallback

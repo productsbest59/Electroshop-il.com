@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {renderNewsPage} from './generate-news-page.mjs';
-import {renderNewsCards,refreshNewsList,publishedNewsArticles} from '../shop-news-render.js';
+import {renderNewsCards,refreshNewsList,publishedNewsArticles,cleanNewsExcerpt} from '../shop-news-render.js';
 
 const source=await readFile('shop-news.html','utf8');
 const pages=JSON.parse(await readFile('shop-article-pages.json','utf8'));
@@ -14,13 +14,23 @@ for(const file of Object.values(pages)){
  const title=article.match(/<h1>(.*?)<\/h1>/)[1];
  assert(snapshot.includes(`<h2>${title}</h2>`),`Missing title: ${file}`);
 }
-assert(source.includes('shop-news.js?v=prerender-1'));
+assert(source.includes('shop-news.js?v=excerpt-clean-2'));
+assert(!/H[1-6]\s+מומלץ\s*:|הוראות\s+עריכה\s*:|Editorial\s+notes\s*:/i.test(snapshot),'Initial summaries must not contain editorial labels.');
+for(const label of ['H1 מומלץ:', 'H2 מוצעת:', 'Recommended H1:', 'SEO title:', 'Meta description:', 'הוראות עריכה:', 'הערות לעורך:', 'Editorial notes:']){
+ assert.equal(cleanNewsExcerpt(`תקציר לציבור.\n${label} טקסט פנימי`),'תקציר לציבור.');
+ assert.equal(cleanNewsExcerpt(`תקציר לציבור. ${label}`),'תקציר לציבור.');
+}
+assert.equal(cleanNewsExcerpt('מומלץ: לגבות מדי יום. מדריך להגדרות H1 בטלפון.'),'מומלץ: לגבות מדי יום. מדריך להגדרות H1 בטלפון.');
+assert.equal(cleanNewsExcerpt(null),'');
 assert(source.includes('rel="canonical" href="https://electroshop-il.com/shop-news.html"'));
 const article={status:'published',slug:'test',title_he:'בדיקה <בטוחה>',title_en:'English title',excerpt_he:'תקציר & מידע',excerpt_en:'English excerpt',cover_path:'cover.webp',cover_alt_he:'תמונת בדיקה',sort_order:0};
 const fixtures=[{...article,slug:'late',sort_order:2},article,{...article,status:'draft',slug:'private'}];
 assert.deepEqual(publishedNewsArticles(fixtures).map(a=>a.slug),['test','late']);
 const fixturePages={test:'article-test.html',late:'article-late.html'};
 const generated=renderNewsPage(source,fixtures,fixturePages);
+const dirty={...article,excerpt_he:'תקציר תקין.\nH1 מומלץ: פנימי',excerpt_en:'Public summary. Suggested H1: Private'};
+assert(renderNewsPage(source,[dirty],fixturePages).includes('<p>תקציר תקין.</p>'));
+assert(!renderNewsCards([dirty],fixturePages,p=>p,'en').includes('Private'));
 assert(generated.includes('בדיקה &lt;בטוחה&gt;')&&generated.includes('תקציר &amp; מידע'));
 assert(!generated.includes('article-private.html'));
 assert.equal(renderNewsPage(generated,fixtures,fixturePages),generated,'Generation must be idempotent.');
@@ -35,6 +45,9 @@ assert.equal(status.textContent,'','Do not show a load error over a usable list.
 await refreshNewsList({...common,getArticles:async()=>fixtures});
 assert.equal((grid.innerHTML.match(/class="article-card(?: no-cover)?"/g)||[]).length,2);
 assert(!grid.innerHTML.includes('private'));
+await refreshNewsList({...common,getArticles:async()=>[dirty]});
+assert(grid.innerHTML.includes('<p>תקציר תקין.</p>'));
+assert(!grid.innerHTML.includes('H1 מומלץ'));
 await refreshNewsList({...common,getArticles:async()=>[]});
 assert.equal(grid.innerHTML,'','A successful refresh must remove withdrawn articles.');
 assert(status.textContent.includes('בקרוב'));
