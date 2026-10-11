@@ -11,8 +11,11 @@ on:
       - 'tools/generate-sitemap.mjs'
       - 'tools/apply-brand-metadata.mjs'
       - 'tools/generate-article-pages.mjs'
+      - 'tools/generate-news-page.mjs'
+      - 'tools/test-news-page.mjs'
       - 'shop-article*.js'
       - 'shop-news.js'
+      - 'shop-news-render.js'
       - 'shop-image-alt.js'
 
 permissions:
@@ -38,6 +41,8 @@ jobs:
         run: node tools/generate-sitemap.mjs
       - name: Verify article canonicals and sitemap
         run: node tools/test-article-pages.mjs
+      - name: Verify prebuilt news list and live-refresh fallback
+        run: node tools/test-news-page.mjs
       - name: Publish sitemap changes
         run: |
           git add sitemap.xml '*.html' shop-article-pages.json

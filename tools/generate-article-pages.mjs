@@ -2,6 +2,7 @@ import {readFile,writeFile,unlink} from 'node:fs/promises';
 import {config} from '../shop-config.js';
 import {articlePage} from '../shop-article-url.js';
 import {improveInlineImages} from '../shop-image-alt.js';
+import {generateNewsPage} from './generate-news-page.mjs';
 
 const origin='https://electroshop-il.com';
 const esc=value=>String(value||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -49,6 +50,7 @@ export async function generateArticlePages(){
   const html=await readFile(file,'utf8').catch(()=> '');if(html.includes('data-prerendered="true"'))await unlink(file);
  }
  await writeFile('shop-article-pages.json',JSON.stringify(pages,null,2)+'\n');
+ await generateNewsPage(articles,pages);
  console.log(`Generated ${articles.length} published article pages.`);
  return articles;
 }

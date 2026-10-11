@@ -1,0 +1,44 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {renderNewsPage} from './generate-news-page.mjs';
+import {renderNewsCards,refreshNewsList,publishedNewsArticles} from '../shop-news-render.js';
+
+const source=await readFile('shop-news.html','utf8');
+const pages=JSON.parse(await readFile('shop-article-pages.json','utf8'));
+const snapshot=source.match(/<!-- NEWS_LIST_START -->([\s\S]*?)<!-- NEWS_LIST_END -->/)?.[1];
+assert(snapshot,'The initial HTML must contain the prebuilt list.');
+assert.equal((snapshot.match(/class="article-card(?: no-cover)?"/g)||[]).length,Object.keys(pages).length);
+for(const file of Object.values(pages)){
+ assert(snapshot.includes(`href="${file}"`),`Missing link: ${file}`);
+ const article=await readFile(file,'utf8');
+ const title=article.match(/<h1>(.*?)<\/h1>/)[1];
+ assert(snapshot.includes(`<h2>${title}</h2>`),`Missing title: ${file}`);
+}
+assert(source.includes('shop-news.js?v=prerender-1'));
+assert(source.includes('rel="canonical" href="https://electroshop-il.com/shop-news.html"'));
+const article={status:'published',slug:'test',title_he:'בדיקה <בטוחה>',title_en:'English title',excerpt_he:'תקציר & מידע',excerpt_en:'English excerpt',cover_path:'cover.webp',cover_alt_he:'תמונת בדיקה',sort_order:0};
+const fixtures=[{...article,slug:'late',sort_order:2},article,{...article,status:'draft',slug:'private'}];
+assert.deepEqual(publishedNewsArticles(fixtures).map(a=>a.slug),['test','late']);
+const fixturePages={test:'article-test.html',late:'article-late.html'};
+const generated=renderNewsPage(source,fixtures,fixturePages);
+assert(generated.includes('בדיקה &lt;בטוחה&gt;')&&generated.includes('תקציר &amp; מידע'));
+assert(!generated.includes('article-private.html'));
+assert.equal(renderNewsPage(generated,fixtures,fixturePages),generated,'Generation must be idempotent.');
+assert(renderNewsCards([article],{},p=>p,'en').includes('English title'));
+assert(renderNewsCards([article],{},p=>p).includes('shop-article.html?article=test'),'Not-yet-generated articles keep a working legacy link.');
+const grid={innerHTML:snapshot,querySelector(){return this.innerHTML.includes('class="article-card')?{}:null}};
+const status={textContent:''};
+const common={grid,status,getPages:async()=>fixturePages,imageUrl:p=>p};
+await refreshNewsList({...common,getArticles:async()=>{throw new Error('Offline')}});
+assert.equal(grid.innerHTML,snapshot,'Failed refresh must preserve prebuilt content.');
+assert.equal(status.textContent,'','Do not show a load error over a usable list.');
+await refreshNewsList({...common,getArticles:async()=>fixtures});
+assert.equal((grid.innerHTML.match(/class="article-card(?: no-cover)?"/g)||[]).length,2);
+assert(!grid.innerHTML.includes('private'));
+await refreshNewsList({...common,getArticles:async()=>[]});
+assert.equal(grid.innerHTML,'','A successful refresh must remove withdrawn articles.');
+assert(status.textContent.includes('בקרוב'));
+await refreshNewsList({...common,getArticles:async()=>{throw new Error('Offline')}});
+assert(status.textContent.includes('לא ניתן'));
+assert.throws(()=>renderNewsPage('<html></html>',fixtures,fixturePages));
+console.log(`PASS: ${Object.keys(pages).length} initial article cards, titles, links, escaping, order, English, drafts, idempotency and offline fallback.`);

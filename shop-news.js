@@ -1,2 +1,11 @@
-import {publishedArticlePages,articleHref} from './shop-article-url.js';
-import {getArticles,articleImageUrl} from './shop-api.js?v=media-webp-1';import {renderArticleShell} from './shop-articles-shell.js?v=media-webp-1';renderArticleShell();const grid=document.querySelector('#articlesGrid'),status=document.querySelector('#articlesStatus'),lang=localStorage.getItem('electroshop_language')==='en'?'en':'he',esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));try{const [articles,pages]=await Promise.all([getArticles(),publishedArticlePages()]);grid.innerHTML=articles.map(a=>`<a class="article-card${a.cover_path?'':' no-cover'}" href="${esc(articleHref(a.slug,pages))}">${a.cover_path?`<img src="${esc(articleImageUrl(a.cover_path))}" alt="${esc(a['cover_alt_'+lang]||a['title_'+lang]||a.title_he)}" loading="lazy" decoding="async">`:''}<div class="article-card-body"><h2>${esc(a['title_'+lang]||a.title_he)}</h2><p>${esc(a['excerpt_'+lang]||a.excerpt_he)}</p><strong>${lang==='en'?'Read article →':'לקריאת הכתבה ←'}</strong></div></a>`).join('');status.textContent=articles.length?'':lang==='en'?'Articles will be published here soon.':'כתבות חדשות יפורסמו כאן בקרוב.'}catch(e){status.textContent='לא ניתן לטעון כרגע את הכתבות.'}
+import {publishedArticlePages} from './shop-article-url.js';
+import {getArticles,articleImageUrl} from './shop-api.js?v=media-webp-1';
+import {renderArticleShell} from './shop-articles-shell.js?v=media-webp-1';
+import {refreshNewsList} from './shop-news-render.js?v=prerender-1';
+
+renderArticleShell();
+const lang=localStorage.getItem('electroshop_language')==='en'?'en':'he';
+await refreshNewsList({
+ getArticles,getPages:publishedArticlePages,imageUrl:articleImageUrl,lang,
+ grid:document.querySelector('#articlesGrid'),status:document.querySelector('#articlesStatus')
+});
