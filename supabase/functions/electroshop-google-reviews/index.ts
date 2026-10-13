@@ -45,7 +45,7 @@ Deno.serve(async req=>{
    if(!admin)return reply({error:"נדרשת הרשאת מנהל אלקטרושופ"},403);
    const body=await req.json();
    if(body.action==="save"){
-    if(!Array.isArray(body.ids)||body.ids.length>20||body.ids.some((id:unknown)=>typeof id!=="string"))return reply({error:"בחר עד 20 ביקורות"},400);
+    if(!Array.isArray(body.ids)||body.ids.some((id:unknown)=>typeof id!=="string"))return reply({error:"רשימת ביקורות לא תקינה"},400);
     const reviews=await loadReviews(),allowed=new Set(reviews.map(r=>r.id));
     if(body.ids.some((id:string)=>!allowed.has(id)))return reply({error:"יש לרענן את רשימת הביקורות"},400);
     await db("electroshop_review_selection?id=eq.true",{method:"PATCH",body:JSON.stringify({review_ids:[...new Set(body.ids)],updated_at:new Date().toISOString()})});
