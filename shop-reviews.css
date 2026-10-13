@@ -1,0 +1,14 @@
+#selectedGoogleReviews[hidden]{display:none!important}
+#selectedGoogleReviews{padding:24px;background:#ffb300 url('images/home-orange-yellow.png') center/cover;border-radius:24px;color:#111;text-align:start}
+#selectedGoogleReviews h2{text-align:center;font-size:clamp(22px,3vw,34px);margin:0 0 18px}
+.google-reviews-grid{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px}
+.google-review-card{box-sizing:border-box;min-width:0;background:rgba(255,255,255,.92);color:#161616;border:1px solid #a76515;border-radius:16px;padding:18px;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;text-align:start;box-shadow:0 3px 12px #0001}
+.review-stars{color:#996300;font-size:21px;letter-spacing:2px;direction:ltr;align-self:flex-start}
+.google-review-card .review-text{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;font-size:16px;margin:0;max-height:190px;overflow-y:auto}
+.google-review-card a{color:#174ea6;text-decoration:underline;font-size:14px;margin-top:auto;padding-top:8px}
+.reviews-admin{max-width:1100px;margin:24px auto;padding:16px}.reviews-admin h1{font-size:28px}
+.reviews-admin-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;position:sticky;top:0;background:#171717;padding:14px;border-radius:12px;z-index:2}
+.review-admin-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px}.review-admin-row{padding:14px;border:1px solid #bc8c32;border-radius:16px;background:#151515;color:#fff}
+.review-admin-row>label{display:flex;gap:8px;align-items:center;padding:8px;margin-bottom:8px;cursor:pointer}.review-admin-row input{width:22px;height:22px}.review-admin-row:has(input:checked){outline:3px solid #f6b919}
+@media(max-width:700px){#selectedGoogleReviews{padding:18px 12px}.google-reviews-grid{grid-auto-columns:88%;gap:12px}.review-admin-list{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.google-reviews-grid{scroll-behavior:auto}}
