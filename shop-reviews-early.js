@@ -1,0 +1,1 @@
+window.electroshopReviewsLoad=fetch('https://ejzwceuoxzwtpkoovoma.supabase.co/functions/v1/electroshop-google-reviews',{signal:AbortSignal.timeout(45000)}).then(response=>{if(!response.ok)throw Error('Reviews unavailable');return response.json()}).catch(()=>null);

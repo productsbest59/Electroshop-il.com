@@ -11,20 +11,21 @@ export function reviewCard(review){
  const rawText=String(review.text||'');
  const translated=rawText.match(/^\(Translated by Google\)\s*([\s\S]*?)\s*\(Original\)\s*([\s\S]*)$/);
  const displayText=translated?(english()?translated[1]:translated[2]).trim():rawText;
- const text=element('p',displayText,'review-text');text.dir='auto';
+ const text=element('p',displayText,'review-text');text.dir='auto';text.tabIndex=0;
  const source=element('a',label('ביקורות ב-Google','Reviews on Google'));source.href=googleUrl;source.target='_blank';source.rel='noopener noreferrer';
  card.append(name,stars,text,source);return card;
 }
 export async function reviewsRequest(body){
- let headers={apikey:config.publishableKey};
- if(body){const {getSession}=await import('./shop-api.js');const session=await getSession();if(!session)throw Error('יש להתחבר לניהול החנות');headers={...headers,'Content-Type':'application/json',Authorization:'Bearer '+session.accessToken};}
+ let headers={};
+ if(body){const {getSession}=await import('./shop-api.js');const session=await getSession();if(!session)throw Error('יש להתחבר לניהול החנות');headers={...headers,apikey:config.publishableKey,'Content-Type':'application/json',Authorization:'Bearer '+session.accessToken};}
  const response=await fetch(endpoint,{method:body?'POST':'GET',headers,body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(45000)});
- const data=await response.json();if(!response.ok)throw Error(data.error||'לא ניתן לטעון ביקורות כרגע');return data;
+ const data=await response.json();if(!response.ok)throw Error(data.error||'לא ניתן לטעון ביקורות כרגע');if(body?.action==='save'){try{sessionStorage.removeItem('electroshop-selected-reviews-v1')}catch{}}return data;
 }
 const section=document.querySelector('#selectedGoogleReviews');
 if(section){
- let reviews=[];
- const render=()=>{section.hidden=!reviews.length;if(!reviews.length)return;section.replaceChildren();section.append(element('h2',label('ביקורות נבחרות מ-Google','Selected Google reviews')));const grid=element('div',undefined,'google-reviews-grid');reviews.forEach(review=>grid.append(reviewCard(review)));section.append(grid);};
+ const cacheKey='electroshop-selected-reviews-v1';let reviews=[],loaded=false;
+ const render=()=>{if(!loaded)return;section.removeAttribute('aria-busy');section.hidden=!reviews.length;if(!reviews.length)return;section.replaceChildren();section.append(element('h2',label('ביקורות נבחרות מ-Google','Selected Google reviews')));const grid=element('div',undefined,'google-reviews-grid');reviews.forEach(review=>grid.append(reviewCard(review)));section.append(grid);};
+ try{const saved=JSON.parse(sessionStorage.getItem(cacheKey)||'null');if(saved&&Date.now()-saved.time<300000&&Array.isArray(saved.reviews)){reviews=saved.reviews;loaded=true;render();}}catch{}
  document.addEventListener('electroshop-language-change',render);
- reviewsRequest().then(data=>{reviews=data.reviews||[];render()}).catch(()=>{section.hidden=true});
+ (window.electroshopReviewsLoad||reviewsRequest()).then(data=>{if(!data||!Array.isArray(data.reviews))throw Error('Reviews unavailable');reviews=data.reviews;loaded=true;render();try{sessionStorage.setItem(cacheKey,JSON.stringify({time:Date.now(),reviews}))}catch{}}).catch(()=>{if(!loaded){section.hidden=true;section.removeAttribute('aria-busy')}});
 }
