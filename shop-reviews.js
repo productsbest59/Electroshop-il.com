@@ -8,7 +8,10 @@ export function reviewCard(review){
  const card=element('article',undefined,'google-review-card');
  const name=element('strong',review.author);name.dir='auto';
  const stars=element('span','★'.repeat(Math.max(0,Math.min(5,Number(review.rating)||0))),'review-stars');stars.setAttribute('aria-label',label('דירוג: ','Rating: ')+review.rating+'/5');
- const text=element('p',review.text,'review-text');text.dir='auto';
+ const rawText=String(review.text||'');
+ const translated=rawText.match(/^\(Translated by Google\)\s*([\s\S]*?)\s*\(Original\)\s*([\s\S]*)$/);
+ const displayText=translated?(english()?translated[1]:translated[2]).trim():rawText;
+ const text=element('p',displayText,'review-text');text.dir='auto';
  const source=element('a',label('ביקורות ב-Google','Reviews on Google'));source.href=googleUrl;source.target='_blank';source.rel='noopener noreferrer';
  card.append(name,stars,text,source);return card;
 }
