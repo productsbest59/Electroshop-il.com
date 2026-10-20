@@ -22,7 +22,6 @@ function page(provider) {
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escape(title)}</title><meta name="description" content="${escape(description)}">
 <meta name="robots" content="index,follow"><meta name="theme-color" content="#101010"><meta name="author" content="אלקטרושופ">
-<meta name="google-adsense-account" content="ca-pub-1309654214103822">
 <link rel="canonical" href="${origin+file}"><link rel="icon" href="favicon.ico">
 <meta property="og:type" content="website"><meta property="og:locale" content="he_IL"><meta property="og:site_name" content="אלקטרושופ"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${origin+file}"><meta property="og:image" content="${origin}images/logo.webp"><meta property="og:image:alt" content="אלקטרושופ - חבילות סלולר, הצטרפות וניודים">
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(description)}"><meta name="twitter:image" content="${origin}images/logo.webp">

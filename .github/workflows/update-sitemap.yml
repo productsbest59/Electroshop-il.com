@@ -36,6 +36,8 @@ jobs:
         run: node tools/generate-category-guides.mjs
       - name: Verify category guides and privacy disclosures
         run: node tools/test-category-privacy.mjs
+      - name: Verify AdSense is removed and Analytics retained
+        run: node tools/test-no-adsense.mjs
       - name: Verify article canonicals and sitemap
         run: node tools/test-article-pages.mjs
       - name: Verify related article links and live refresh

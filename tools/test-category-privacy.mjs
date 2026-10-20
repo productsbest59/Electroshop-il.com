@@ -32,11 +32,11 @@ for(const file of ['privacy.html','proaudio-privacy.html','carholderprivacy.html
  const source=await readFile(file,'utf8');
  const payment=source.match(/<section id="payment">([\s\S]*?)<\/section>/)?.[1];
  for(const provider of ['טרנזילה','Tranzila','PayPal','ביט','Bit'])assert(payment?.includes(provider),`${file}: missing ${provider}`);
- assert(source.includes('id="advertising"')&&source.includes('href="#advertising"'));
- assert(source.includes('myadcenter.google.com')&&source.includes('optout.aboutads.info'));
- assert(source.includes('11 באוקטובר 2026'));
+ assert(!source.includes('id="advertising"')&&!source.includes('href="#advertising"'));
+ assert(!source.includes('AdSense')&&!source.includes('myadcenter.google.com')&&!source.includes('optout.aboutads.info'));
+ assert(source.includes('20 באוקטובר 2026'));
  assert(source.includes('shop-legal-language.js'));
  if(file==='privacy.html')assert(source.includes('shop-accessibility.js'));
- assert.equal((source.match(/id="advertising"/g)||[]).length,1);
+ assert(source.includes('Google Analytics'),'Keep measurement disclosures');
 }
 console.log('PASS: 10 initial category guides, internal links, unchanged category editor, idempotency, dynamic categories, language switching and all 3 privacy/payment disclosures.');
