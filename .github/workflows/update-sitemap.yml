@@ -30,6 +30,8 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Apply shared icons and social banner
         run: node tools/apply-brand-metadata.mjs
+      - name: Verify public sitemap eligibility
+        run: node tools/test-sitemap-policy.mjs
       - name: Generate current articles, news and sitemap
         run: node tools/generate-sitemap.mjs
       - name: Generate category buying guides

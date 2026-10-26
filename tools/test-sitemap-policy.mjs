@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {isIndexableStaticPage} from './sitemap-policy.mjs';
+const origin='https://electroshop-il.com';
+for(const file of ['carholder.html','proaudio.html','carholderaccessibility.html','carholderprivacy.html','carholderterms.html','proaudio-privacy.html','proaudio-terms.html','shop-reviews-admin.html'])assert.equal(isIndexableStaticPage(file,await readFile(file,'utf8'),origin),false,file);
+for(const file of ['index.html','privacy.html','terms.html','shop.html','shop-car-mounts.html','imei-check.html'])assert.equal(isIndexableStaticPage(file,await readFile(file,'utf8'),origin),true,file);
+assert.equal(isIndexableStaticPage('public.html',"<META CONTENT='NOINDEX,follow' NAME='Googlebot'>",origin),false);
+assert.equal(isIndexableStaticPage('public.html','<link href="/other.html" rel="canonical">',origin),false);
+assert.equal(isIndexableStaticPage('public.html','<link href="/public.html" rel="canonical">',origin),true);
+assert.equal(isIndexableStaticPage('new-admin.html','<title>Admin</title>',origin),false);
+console.log('PASS sitemap excludes admin, noindex and canonical aliases while retaining public pages');

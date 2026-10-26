@@ -2,6 +2,7 @@ import {readdir,readFile,writeFile} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {generateArticlePages} from './generate-article-pages.mjs';
 import {articlePage} from '../shop-article-url.js';
+import {isIndexableStaticPage} from './sitemap-policy.mjs';
 
 const origin='https://electroshop-il.com';
 const supabase='https://ejzwceuoxzwtpkoovoma.supabase.co';
@@ -26,7 +27,9 @@ function gitDate(file){try{return execFileSync('git',['log','-1','--format=%cs',
 
 const publishedArticles=await generateArticlePages();
 const articleFiles=new Set(publishedArticles.map(article=>articlePage(article.slug)));
-const htmlFiles=(await readdir('.')).filter(name=>name.endsWith('.html')&&!excluded.has(name)&&!articleFiles.has(name));
+const candidates=(await readdir('.')).filter(name=>name.endsWith('.html')&&!excluded.has(name)&&!articleFiles.has(name));
+const htmlFiles=[];
+for(const file of candidates){if(isIndexableStaticPage(file,await readFile(file,'utf8'),origin))htmlFiles.push(file);}
 const staticUrls=htmlFiles.map(file=>{const seo=staticSeo.get(file);return{loc:file==='index.html'?`${origin}/`:`${origin}/${file}`,lastmod:gitDate(file),changefreq:seo?.changefreq||(file==='index.html'?'weekly':'monthly'),priority:seo?.priority||(file==='index.html'?'1.0':file==='shop.html'?'0.9':'0.6')}});
 const categories=await rows('electroshop_categories','select=*&active=eq.true&order=sort_order.asc');
 const categoryUrls=categories.map(category=>({loc:fixedCategoryPages.has(category.slug)?`${origin}/${fixedCategoryPages.get(category.slug)}`:`${origin}/shop-category.html?category=${encodeURIComponent(category.slug)}`,lastmod:date(category.updated_at),changefreq:'weekly',priority:'0.8'}));
