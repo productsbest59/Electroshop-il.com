@@ -119,16 +119,14 @@
   <div class="container" style="max-width:760px;">
     <div class="contact-card">
       <h3 style="text-align:center;font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:22px;" data-he="צור קשר" data-en="Contact">צור קשר</h3>
-      <form class="contact-form" id="electroshopContactForm" action="https://formsubmit.co/ajax/electroshopisraelo@gmail.com" method="POST">
-        <input type="text" name="name" aria-label="שם מלא" required data-ph-he="שם מלא" data-ph-en="Full name" placeholder="שם מלא">
-        <input type="email" name="email" aria-label="אימייל" required data-ph-he="אימייל" data-ph-en="Email" placeholder="אימייל">
-        <input type="tel" name="phone" aria-label="טלפון" data-ph-he="טלפון" data-ph-en="Phone" placeholder="טלפון">
-        <textarea name="message" aria-label="איך אפשר לעזור?" required data-ph-he="איך אפשר לעזור?" data-ph-en="How can we help?" placeholder="איך אפשר לעזור?"></textarea>
-        <input type="hidden" name="_subject" value="פנייה חדשה - אלקטרושופ">
-        <input type="hidden" name="_captcha" value="false">
-        <button class="submit-btn" type="submit" data-he="שלח הודעה" data-en="Send Message" style="font:700 16px/1.2 Arial,sans-serif!important">שלח הודעה</button>
+      <form class="contact-form" id="electroshopContactForm" action="#electroshop-contact" data-contact-endpoint="https://digital247-contact.productsbest59.workers.dev/contact" data-turnstile-sitekey="0x4AAAAAAGCR9MahhbBEvJRH" method="POST">
+        <input type="text" name="name" aria-label="שם מלא" required data-ph-he="שם מלא" data-ph-en="Full name" placeholder="שם מלא" maxlength="120">
+        <input type="email" name="email" aria-label="אימייל" required data-ph-he="אימייל" data-ph-en="Email" placeholder="אימייל" maxlength="254">
+        <input type="tel" name="phone" aria-label="טלפון" data-ph-he="טלפון" data-ph-en="Phone" placeholder="טלפון" maxlength="40">
+        <textarea name="message" aria-label="איך אפשר לעזור?" required data-ph-he="איך אפשר לעזור?" data-ph-en="How can we help?" placeholder="איך אפשר לעזור?" maxlength="5000"></textarea>
+        <p class="contact-wide contact-privacy-note"><span data-he="הפרטים יועברו לחנות באמצעות Cloudflare ו־Brevo לצורך מענה לפנייה." data-en="Your details will be sent to the store through Cloudflare and Brevo to respond to your enquiry.">הפרטים יועברו לחנות באמצעות Cloudflare ו־Brevo לצורך מענה לפנייה.</span> <a href="privacy.html" data-he="מדיניות פרטיות" data-en="Privacy policy">מדיניות פרטיות</a></p><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><button class="submit-btn" type="submit" data-he="שלח הודעה" data-en="Send Message" style="font:700 16px/1.2 Arial,sans-serif!important">שלח הודעה</button>
         <div id="electroshopContactStatus" aria-live="polite"></div>
       </form>
     </div>
   </div>
-</section><link rel="stylesheet" href="shop-contact.css"><script src="shop-contact.js?v=cellular-contact-1"></script><script type="module" src="cellular-plans.js?v=3"></script></body></html>
+</section><link rel="stylesheet" href="shop-contact.css"><script src="shop-contact.js?v=cloudflare-1"></script><script type="module" src="cellular-plans.js?v=3"></script></body></html>

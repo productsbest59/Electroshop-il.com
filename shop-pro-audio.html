@@ -1277,14 +1277,12 @@ i[class^="fa-"],i[class*=" fa-"]{
   <div class="container" style="max-width:760px;">
     <div class="contact-card">
       <h3 style="text-align:center;font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:22px;" data-he="צור קשר" data-en="Contact">צור קשר</h3>
-      <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/electroshopisraelo@gmail.com" method="POST">
-        <input type="text" name="name" required data-ph-he="שם מלא" data-ph-en="Full name" placeholder="שם מלא">
-        <input type="email" name="email" required data-ph-he="אימייל" data-ph-en="Email" placeholder="אימייל">
-        <input type="tel" name="phone" data-ph-he="טלפון" data-ph-en="Phone" placeholder="טלפון">
-        <textarea name="message" required data-ph-he="איך אפשר לעזור?" data-ph-en="How can we help?" placeholder="איך אפשר לעזור?"></textarea>
-        <input type="hidden" name="_subject" value="פנייה חדשה - Electroshop DJ">
-        <input type="hidden" name="_captcha" value="false">
-        <button class="submit-btn" type="submit" data-he="שלח הודעה" data-en="Send Message" style="font:700 16px/1.2 Arial,sans-serif!important">שלח הודעה</button>
+      <form class="contact-form" id="contactForm" action="#electroshop-contact" data-contact-endpoint="https://digital247-contact.productsbest59.workers.dev/contact" data-turnstile-sitekey="0x4AAAAAAGCR9MahhbBEvJRH" method="POST">
+        <input type="text" name="name" required data-ph-he="שם מלא" data-ph-en="Full name" placeholder="שם מלא" maxlength="120">
+        <input type="email" name="email" required data-ph-he="אימייל" data-ph-en="Email" placeholder="אימייל" maxlength="254">
+        <input type="tel" name="phone" data-ph-he="טלפון" data-ph-en="Phone" placeholder="טלפון" maxlength="40">
+        <textarea name="message" required data-ph-he="איך אפשר לעזור?" data-ph-en="How can we help?" placeholder="איך אפשר לעזור?" maxlength="5000"></textarea>
+        <p class="contact-wide contact-privacy-note"><span data-he="הפרטים יועברו לחנות באמצעות Cloudflare ו־Brevo לצורך מענה לפנייה." data-en="Your details will be sent to the store through Cloudflare and Brevo to respond to your enquiry.">הפרטים יועברו לחנות באמצעות Cloudflare ו־Brevo לצורך מענה לפנייה.</span> <a href="privacy.html" data-he="מדיניות פרטיות" data-en="Privacy policy">מדיניות פרטיות</a></p><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><button class="submit-btn" type="submit" data-he="שלח הודעה" data-en="Send Message" style="font:700 16px/1.2 Arial,sans-serif!important">שלח הודעה</button>
         <div id="formStatus" aria-live="polite"></div>
       </form>
     </div>
@@ -1673,21 +1671,7 @@ document.getElementById("modalClose").addEventListener("click",closeProduct);
 productBackdrop.addEventListener("click",closeProduct);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeProduct()});
 
-document.getElementById("contactForm").addEventListener("submit",async function(e){
-  e.preventDefault();
-  const status=document.getElementById("formStatus");
-  const button=this.querySelector("button[type=submit]");
-  status.textContent=currentLang==="he"?"שולח...":"Sending...";
-  button.disabled=true;
-  try{
-    const res=await fetch(this.action,{method:"POST",body:new FormData(this),headers:{"Accept":"application/json"}});
-    if(!res.ok) throw new Error();
-    status.textContent=currentLang==="he"?"ההודעה נשלחה בהצלחה.":"Message sent successfully.";
-    this.reset();
-  }catch(err){
-    status.textContent=currentLang==="he"?"לא ניתן היה לשלוח כרגע. נסו שוב בעוד רגע.":"Unable to send right now. Please try again.";
-  }finally{button.disabled=false}
-});
+// Contact submissions are handled by shop-contact.js.
 applyLanguage("he");
 </script>
 
@@ -1697,5 +1681,5 @@ applyLanguage("he");
     <div id="cartTotal" class="total"><span>סה״כ לתשלום</span><span>0 ש״ח</span></div>
     <div class="notice" hidden></div>
     <div class="cart-actions"><button id="checkout" class="button" type="button">המשך לתשלום</button></div>
-  </aside><script src="shop-catalog.js"></script><script type="module" src="shop-proaudio-integration.js?v=card-actions-2"></script><script type="module" src="shop-store.js?v=media-webp-1"></script><script src="shop-cart-ui-fix.js"></script><style>#cartDrawer{z-index:2000}.product-detail-modal{z-index:2100}#proAdminLinks[hidden]{display:none!important}#proAdminLinks{display:contents}.product-card[hidden]{display:none!important}.product-card .details-btn{cursor:pointer;margin-top:8px}#storeProducts:empty{display:none}#storeProducts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}.product-detail-modal.open{display:flex}</style><style>#storeProducts:has(>.empty){display:none}#closeCart{position:static!important;display:grid!important;place-items:center!important;flex:0 0 38px;color:#fff!important;background:#161616!important;border:1px solid #ffd400!important;cursor:pointer}#cartDrawer .drawer-head{display:flex;justify-content:space-between;gap:12px}#cartDrawer .drawer-head h2{margin:0}#cartDrawer .cart-line img{display:block;width:64px;height:64px;object-fit:contain}#cartDrawer .cart-line{display:grid;grid-template-columns:64px 1fr auto;gap:10px}</style><script src="shop-navigation.js?v=unified-menu-1"></script><script src="shop-category-back.js"></script><script type="module" src="shop-unified-menu.js?v=cellular-footer-3"></script><style id="proaudio-added-products">#storeProducts{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}#storeProducts .product{min-width:0;overflow:hidden;border:1px solid #28e7ff70;border-radius:12px;padding:12px;background:#090c11;display:flex;flex-direction:column}#storeProducts .product-image-wrap{aspect-ratio:1;height:auto;overflow:hidden}#storeProducts .product-image-wrap img{width:100%;height:100%;object-fit:contain}#storeProducts .product-body{height:auto;min-height:0;display:flex;flex-direction:column;gap:8px;padding-top:10px;flex:1}#storeProducts h2{font-size:1rem;line-height:1.4}#storeProducts .price-row{margin-top:auto}#storeProducts .button{cursor:pointer;min-height:44px}@media(max-width:700px){#storeProducts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#storeProducts .product{padding:8px}}@media(max-width:350px){#storeProducts{grid-template-columns:1fr}}</style><link rel="stylesheet" href="shop-categories.css?v=category-editor-4"><script type="module" src="shop-categories.js?v=media-webp-1"></script><script type="module" src="shop-unified-buy.js?v=1"></script><script type="module" src="shop-paid-cart.js?v=1"></script><script type="module" src="shop-category-guide-ui.js?v=1"></script></body>
+  </aside><script src="shop-catalog.js"></script><script type="module" src="shop-proaudio-integration.js?v=card-actions-2"></script><script type="module" src="shop-store.js?v=media-webp-1"></script><script src="shop-cart-ui-fix.js"></script><style>#cartDrawer{z-index:2000}.product-detail-modal{z-index:2100}#proAdminLinks[hidden]{display:none!important}#proAdminLinks{display:contents}.product-card[hidden]{display:none!important}.product-card .details-btn{cursor:pointer;margin-top:8px}#storeProducts:empty{display:none}#storeProducts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}.product-detail-modal.open{display:flex}</style><style>#storeProducts:has(>.empty){display:none}#closeCart{position:static!important;display:grid!important;place-items:center!important;flex:0 0 38px;color:#fff!important;background:#161616!important;border:1px solid #ffd400!important;cursor:pointer}#cartDrawer .drawer-head{display:flex;justify-content:space-between;gap:12px}#cartDrawer .drawer-head h2{margin:0}#cartDrawer .cart-line img{display:block;width:64px;height:64px;object-fit:contain}#cartDrawer .cart-line{display:grid;grid-template-columns:64px 1fr auto;gap:10px}</style><script src="shop-navigation.js?v=unified-menu-1"></script><script src="shop-category-back.js"></script><script type="module" src="shop-unified-menu.js?v=cellular-footer-3"></script><style id="proaudio-added-products">#storeProducts{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}#storeProducts .product{min-width:0;overflow:hidden;border:1px solid #28e7ff70;border-radius:12px;padding:12px;background:#090c11;display:flex;flex-direction:column}#storeProducts .product-image-wrap{aspect-ratio:1;height:auto;overflow:hidden}#storeProducts .product-image-wrap img{width:100%;height:100%;object-fit:contain}#storeProducts .product-body{height:auto;min-height:0;display:flex;flex-direction:column;gap:8px;padding-top:10px;flex:1}#storeProducts h2{font-size:1rem;line-height:1.4}#storeProducts .price-row{margin-top:auto}#storeProducts .button{cursor:pointer;min-height:44px}@media(max-width:700px){#storeProducts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#storeProducts .product{padding:8px}}@media(max-width:350px){#storeProducts{grid-template-columns:1fr}}</style><link rel="stylesheet" href="shop-categories.css?v=category-editor-4"><script type="module" src="shop-categories.js?v=media-webp-1"></script><script type="module" src="shop-unified-buy.js?v=1"></script><script type="module" src="shop-paid-cart.js?v=1"></script><script type="module" src="shop-category-guide-ui.js?v=1"></script><script src="shop-contact.js?v=cloudflare-1"></script></body>
 </html>
