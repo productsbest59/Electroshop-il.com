@@ -34,7 +34,9 @@ for(const file of ['privacy.html','proaudio-privacy.html','carholderprivacy.html
  for(const provider of ['טרנזילה','Tranzila','PayPal','ביט','Bit'])assert(payment?.includes(provider),`${file}: missing ${provider}`);
  assert(!source.includes('id="advertising"')&&!source.includes('href="#advertising"'));
  assert(!source.includes('AdSense')&&!source.includes('myadcenter.google.com')&&!source.includes('optout.aboutads.info'));
- assert(source.includes('20 באוקטובר 2026'));
+ assert.match(source,/עודכן ב-\d{1,2} ב[א-ת]+ 20\d{2}/,`${file}: missing an update date`);
+ for(const provider of ['Cloudflare Workers','Turnstile','Brevo'])assert(source.includes(provider),`${file}: missing ${provider} disclosure`);
+ assert(!source.includes('FormSubmit'),`${file}: stale form provider disclosure`);
  assert(source.includes('shop-legal-language.js'));
  if(file==='privacy.html')assert(source.includes('shop-accessibility.js'));
  assert(source.includes('Google Analytics'),'Keep measurement disclosures');
